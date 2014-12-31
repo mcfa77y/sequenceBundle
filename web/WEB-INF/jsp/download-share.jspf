@@ -1,0 +1,23 @@
+<div id="downloadAndShare">
+  <div id="download" class="left">
+    <div class="center">
+      <h4>DOWNLOAD</h4>
+      as</div>
+    <br/>
+    <div class="row">
+      <button type="button" class="btn btn-primary">.PNG</button>
+      <button type="button" class="btn btn-primary">.SVG</button>
+    </div>
+  </div>
+
+  <div id="share" class="left">
+    <div class="center">
+      <h4>SHARE</h4>
+      via</div>
+    <br/>
+    <div class="row">
+      <button type="button" class="btn btn-info btn-primary">TWITTER</button>
+      <button type="button" class="btn btn-info btn-primary">EMAIL</button>
+    </div>
+  </div>
+</div>

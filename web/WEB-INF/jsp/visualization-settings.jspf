@@ -1,0 +1,16 @@
+<form name="visualSettingsForm" ng-controller="vsController">
+    <div class="box">
+
+        <div class="row">
+            DATA FORMAT
+            <a class="right" href="#" data-toggle="popover"
+               data-content="And here's some amazing content. It's very engaging. right?">
+                <span class="glyphicon glyphicon-question-sign"></span></a>
+
+        </div>
+        <form:form action="/alvis-web-interface/SB" method="post" commandName="userForm">
+            <form:select path="dataFormat" items="${dataFormatList}" />
+        </form:form>
+
+    </div>
+</form>

@@ -95,6 +95,8 @@ public class AlvisController implements ServletContextAware {
 			jsb.renderPNGToFile(tmpFile, 300);
 			alvisModel.setTempFile(tmpFile);
 			alvisModel.setWebPath(servletContext.getContextPath() + "/images/" + tmpFile.getName());
+			
+// alvisModel.setWebPath(servletContext.getContextPath("/") + "/images/" + tmpFile.getName());
 		} catch (IOException ex) {
 			alvisModel.setErrorMessage(ex.getMessage());
 			return("AlvisError");
@@ -108,6 +110,9 @@ public class AlvisController implements ServletContextAware {
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;
+                System.out.println("SC: images - "+this.servletContext.getRealPath("/images"));
+                System.out.println("SC: root - "+this.servletContext.getRealPath("/"));
+
 	}
  	
 //	@InitBinder

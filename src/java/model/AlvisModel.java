@@ -9,52 +9,51 @@ import gui.sequencebundle.SequenceBundleConfig;
 import java.io.File;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
  * @author Roland Schwarz <rfs32@cam.ac.uk>
  */
-public class AlvisModel extends SequenceBundleConfig{
-	
-	@NotNull 
-	@Size(min=1, max=100)
-	String sequences;
-	
-	String errorMessage;
-	File tempFile;
-	String webPath;
+public class AlvisModel extends SequenceBundleConfig {
 
-	public String getSequences() {
-		return sequences;
-	}
+    @NotNull
+    @Size(min = 1, max = 100)
+    String sequences;
 
-	public void setSequences(String sequences) {
-		this.sequences = sequences;
-	}
+    String errorMessage;
+    File tempFile;
+    String webPath;
 
-	public String getErrorMessage() {
-		return errorMessage;
-	}
+    public String getSequences() {
+        return sequences;
+    }
 
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
-	}
+    public void setSequences(String sequences) {
+        this.sequences = sequences;
+    }
 
-	public File getTempFile() {
-		return tempFile;
-	}
+    public String getErrorMessage() {
+        return errorMessage;
+    }
 
-	public void setTempFile(File tempFile) {
-		this.tempFile = tempFile;
-	}
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
 
-	public String getWebPath() {
-		return webPath;
-	}
+    public File getTempFile() {
+        return tempFile;
+    }
 
-	public void setWebPath(String webPath) {
-		this.webPath = webPath;
-	}
-	
+    public void setTempFile(File tempFile) {
+        this.tempFile = tempFile;
+    }
+
+    public String getWebPath() {
+        return webPath;
+    }
+
+    public void setWebPath(String webPath) {
+        this.webPath = webPath;
+    }
+
 }
