@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package org.sbweb.controller;
 
 import alvis.Alvis;
 import alvis.AlvisDataModel;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletContext;
 import javax.validation.Valid;
-import model.AlvisModel;
+import org.sbweb.model.AlvisModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

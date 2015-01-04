@@ -1,0 +1,32 @@
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+li {list-style-type: none;}
+ul {padding-left: 20px;}
+
+.center {
+    text-align: center;
+    clear: both;
+}
+
+
+.left {
+    float: left;
+    display: inline;
+    padding: 25px 50px
+}
+.right {
+    float: right;
+    display: inline;
+}
+
+.box {
+    float: left;
+    display: inline;
+    padding: 25px 50px;
+      margin: 5px 5px;
+
+    border-style: solid;
+    border-width: 1px;
+}

@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <form name="visualSettingsForm" ng-controller="vsController">
     <div class="box">
 
@@ -9,7 +10,7 @@
 
         </div>
         <form:form action="/alvis-web-interface/SB" method="post" commandName="userForm">
-            <form:select path="dataFormat" items="${dataFormatList}" />
+            <form:select path="alignmentType" items="${dataFormatList}" />
         </form:form>
 
     </div>

@@ -7,15 +7,25 @@
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans 
-http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-       http://www.springframework.org/schema/aop 
-http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
-       http://www.springframework.org/schema/tx 
-http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-http://www.springframework.org/schema/mvc 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+        http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+      p:maxUploadSize="1000000"/>
+
+    <!--    <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"
+              p:extractValueFromSingleKeyModel="true" />-->
 
     <!--bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
@@ -29,7 +39,7 @@ http://www.springframework.org/schema/mvc
     p:password="${jdbc.password}" /-->
 
 
-    
+
     <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
-    
+
 </beans>
