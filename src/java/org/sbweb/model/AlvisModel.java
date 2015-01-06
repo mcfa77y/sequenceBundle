@@ -17,7 +17,7 @@ import javax.validation.constraints.Size;
 public class AlvisModel extends SequenceBundleConfig {
 
     @NotNull
-    @Size(min = 1, max = 100)
+    @Size(min = 1, max = 1000)
     String sequences;
 
     String errorMessage;

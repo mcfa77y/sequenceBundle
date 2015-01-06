@@ -1,23 +1,29 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <div>
-  <form id="upload" method="post" action="/upload" enctype="multipart/form-data">
 
     <!-- The fileinput-button span is used to style the file input field as button -->
     <span class="btn btn-success fileinput-button">
-      <i class="glyphicon glyphicon-plus"></i>
-      <span>SELECT FASTA FILE FROM DRIVE</span>
-      <!-- The file input field used as target for the file upload widget -->
-      <input id="fileupload" type="file" name="files[]" multiple="" />
+        <i class="glyphicon glyphicon-plus"></i>
+        <span>SELECT FASTA FILE FROM DRIVE</span>
+        <!-- The file input field used as target for the file upload widget -->
+        <input id="fileupload" type="file" data-url="upload/seq" name="file" />
+        <script src="<c:url value="/resources/javascripts/jqueryFileUpload/main.js"  />"></script>
+
+
     </span>
     <br/>
+    <span id='filename'></span><br/>
+
     <br/>
     <!-- The global progress bar -->
-    <div id="progress" class="progress">
-      <div class="progress-bar progress-bar-success"></div>
+    <div id="progress" class="progress" style="display: none">
+        <div class="progress-bar progress-bar-success"></div>
     </div>
     <!-- The container for the uploaded files -->
-    <div id="files" class="files"></div>
+    <div id="messages" class="files"></div>
 
     <label for="fromPaste">OR COPY-PASTE YOUR DATA HERE</label>
     <br/>
@@ -25,7 +31,6 @@
     <br/>
     <input type="button" class="btn btn-primary btn-lg" ng-click="uploadFile(data)" value="Upload" />
     <input type="button" class="btn btn-default btn-lg" ng-click="uploadPaste(data)" value="Or use example data" />
-  </form>
 
 
 

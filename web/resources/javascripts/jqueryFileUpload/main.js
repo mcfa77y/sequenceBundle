@@ -1,4 +1,3 @@
-var app = angular.module('sequenceBundleApp', []);
 
 
 /*
@@ -17,62 +16,77 @@ var app = angular.module('sequenceBundleApp', []);
 $(function () {
     'use strict';
 
-    // Initialize the jQuery File Upload widget:
+
+
+    $.fn.serializeObject = function () {
+        var o = {};
+//    var a = this.serializeArray();
+        $(this).find('input[type="hidden"], input[type="text"], input[type="password"], input[type="checkbox"]:checked, input[type="radio"]:checked, select').each(function () {
+            if ($(this).attr('type') == 'hidden') { //if checkbox is checked do not take the hidden field
+                var $parent = $(this).parent();
+                var $chb = $parent.find('input[type="checkbox"][name="' + this.name.replace(/\[/g, '\[').replace(/\]/g, '\]') + '"]');
+                if ($chb != null) {
+                    if ($chb.prop('checked'))
+                        return;
+                }
+            }
+            if (this.name === null || this.name === undefined || this.name === '')
+                return;
+            var elemValue = null;
+            if ($(this).is('select'))
+                elemValue = $(this).find('option:selected').val();
+            else
+                elemValue = this.value;
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(elemValue || '');
+            } else {
+                o[this.name] = elemValue || '';
+            }
+        });
+        return o;
+    };
+
+    var frm = $(document.visualSettingsForm);
+    var data = JSON.stringify(frm.serializeObject());
+
     $('#fileupload').fileupload({
-        // Uncomment the following to send cross-domain cookies:
-        //xhrFields: {withCredentials: true},
-        url: '/upload'
-    });
+        dataType: 'json',
+        maxFileSize: 5 * 1024 * 1024,
+        acceptFileTypes: /(\.|\/)(txt|fasta)$/i,
+        done: function (e, data) {
+            $('#collapseOne').collapse('hide');
+            $('#collapseTwo').collapse('show');
+            console.log("webPath: " + data.result["webPath"]);
 
-    // Enable iframe cross-domain access via redirect option:
-    $('#fileupload').fileupload(
-        'option',
-        'redirect',
-        window.location.href.replace(
-            /\/[^\/]*$/,
-            '/cors/result.html?%s'
-        )
-    );
-
-    if (window.location.hostname === 'blueimp.github.io') {
-        // Demo settings:
-        $('#fileupload').fileupload('option', {
-            url: '//jquery-file-upload.appspot.com/',
-            // Enable image resizing, except for Android and Opera,
-            // which actually support image resizing, but fail to
-            // send Blob objects via XHR requests:
-            disableImageResize: /Android(?!.*Chrome)|Opera/
-                .test(window.navigator.userAgent),
-            maxFileSize: 5*1000*1000,
-            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
-        });
-        // Upload server status check for browsers with CORS support:
-        if ($.support.cors) {
-            $.ajax({
-                url: '//jquery-file-upload.appspot.com/',
-                type: 'HEAD'
-            }).fail(function () {
-                $('<div class="alert alert-danger"/>')
-                    .text('Upload server currently unavailable - ' +
-                            new Date())
-                    .appendTo('#fileupload');
+            $('#sequenceBundleImage').prepend('<img class="image-sm" id="theImg" src="' + data.result["webPath"] + '" />')
+            $('#theImg').bind('load', function () {
+                $('#sequenceBundleImage').imagefit()
             });
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#progress .progress-bar').css(
+                    'width',
+                    progress + '%'
+                    );
+        },
+        processfail: function (e, data) {
+            var currentFile = data.files[data.index];
+            if (data.files.error && currentFile.error) {
+                // there was an error, do something about it
+                console.log(currentFile.error);
+                $('<p/>').text("ERROR: " + currentFile.error + " " + currentFile.name).appendTo("#messages").addClass("text-danger");
+            }
+        },
+        add: function (e, data) {
+            data.formData = ($(document.visualSettingsForm).serializeArray());
+            //data.formData = {example: 'test'};
+            data.submit();
         }
-    } else {
-        // Load existing files:
-        $('#fileupload').addClass('fileupload-processing');
-        $.ajax({
-            // Uncomment the following to send cross-domain cookies:
-            //xhrFields: {withCredentials: true},
-            url: $('#fileupload').fileupload('option', 'url'),
-            dataType: 'json',
-            context: $('#fileupload')[0]
-        }).always(function () {
-            $(this).removeClass('fileupload-processing');
-        }).done(function (result) {
-            $(this).fileupload('option', 'done')
-                .call(this, $.Event('done'), {result: result});
-        });
-    }
+
+    });
 
 });

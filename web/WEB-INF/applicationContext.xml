@@ -22,7 +22,7 @@
 
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-      p:maxUploadSize="1000000"/>
+      p:maxUploadSize="93770728"/>
 
     <!--    <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"
               p:extractValueFromSingleKeyModel="true" />-->
