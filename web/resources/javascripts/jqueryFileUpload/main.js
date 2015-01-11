@@ -65,6 +65,7 @@ $(function () {
             $('#theImg').bind('load', function () {
                 $('#sequenceBundleImage').imagefit()
             });
+            $.cookie("sequence", data.result["sequences"], {path: "/", json: true});
         },
         progressall: function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -82,7 +83,7 @@ $(function () {
             }
         },
         add: function (e, data) {
-            data.formData = ($(document.visualSettingsForm).serializeArray());
+            data.formData = ($("#visualSettingsForm").serializeArray());
             //data.formData = {example: 'test'};
             data.submit();
         }

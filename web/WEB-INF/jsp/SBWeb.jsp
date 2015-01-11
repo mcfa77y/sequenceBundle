@@ -23,6 +23,8 @@
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload-validate.js"  />"></script>
 
         <script src="<c:url value="/resources/javascripts/jquery.imagefit-0.2.js"  />"></script>
+        <script src="<c:url value="/resources/javascripts/jquery.cookie.js"  />"></script>
+        <script src="<c:url value="/resources/javascripts/visualizationSettingsController.js"  />"></script>
 
 
         <link rel="stylesheet" href="<c:url value="/resources/javascripts/bootstrap-3.3.1/css/bootstrap.min.css"  />">
@@ -70,7 +72,6 @@
                                 <ul class="nav nav-tabs nav-justified">
                                     <li class="nav active"><a href="#tabs-1" data-toggle="tab">SEQUENCE BUNDLES PREVIEW</a></li>
                                     <li class="nav"><a href="#tabs-2" data-toggle="tab">VISUALIZATON SETTINGS</a></li>
-                                    <li class="nav"><a href="#tabs-3" data-toggle="tab">MSA VIEW</a></li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tabs-1">
@@ -78,17 +79,12 @@
                                         <%@include file="navbar-sequence.jspf" %>
                                         <div id="sequenceBundleImage">
                                             <!--<img src="<c:url value="/resources/images/sequence-bundles-visualise.png"  />">-->
-
                                         </div>
                                     </div>
                                     <div class="tab-pane"  id="tabs-2">
-
                                         <%@include file="visualization-settings.jspf" %>
+                                    </div>
 
-                                    </div>
-                                    <div class="tab-pane"  id="tabs-3">
-                                        <p> tab three content </p>
-                                    </div>
                                 </div>
                             </div>
 

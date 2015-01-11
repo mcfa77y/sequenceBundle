@@ -1,87 +1,165 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<form name="visualSettingsForm" ng-controller="vsController">
+<form id="visualSettingsForm" action="/alvis-web-interface/upload/seq2" method="post">
+    <table class="table">
+        <tbody><tr>
+                <td>
+                    <div class="box">
+                        <table class="table">
+                            <tbody><tr>
+                                    <th>DATA FORMAT
+                                        <a class="right" href="#" data-toggle="popover" data-content="And here's some amazing content. It's very engaging. right?">
+                                            <span class="glyphicon glyphicon-question-sign"></span></a>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select id="alignmentType" name="alignmentType"><option value="AMINOACIDS" selected="selected">AMINO ACIDS</option><option value="NUCLEOTIDES">NUCLEOTIDES</option><option value="RNA">RNA</option></select>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                    </div>
+                </td>
+                <td>
+                    <div class="box">
+                        <table class="table">
+                            <tbody><tr>
+                                    <th>Y-AXIS
+                                        <a class="right" href="#" data-toggle="popover" data-content="And here's some amazing content. It's very engaging. right?">
+                                            <span class="glyphicon glyphicon-question-sign"></span></a>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select id="yAxis" name="yAxis">
+                                            <option value="DEFAULT" selected="selected">Default</option>
+                                            <option value="HYDROPHOBICITY">Hydrophobicity</option>
+                                            <option value="BULKINESS">Bulkiness</option>
+                                            <option value="POLARITY">Polarity</option>
+                                            <option value="RFRANK">RF Rank</option>
+                                            <option value="ISOELECTRICPOINT">Isoelectric point</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                    </div>
+                </td>
+                <td>
+                    <div class="box">
+                        <table class="table">
+                            <tbody><tr>
+                                    <th>GAPS
+                                        <a class="right" href="#" data-toggle="popover" data-content="And here's some amazing content. It's very engaging. right?">
+                                            <span class="glyphicon glyphicon-question-sign"></span></a>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select id="gapRendering" name="gapRendering"><option value="STANDARD" selected="selected">STANDARD</option><option value="DISCONNECTED">DISCONNECTED</option></select>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="box">
+                        <table class="table">
+                            <tbody><tr>
+                                    <th>GRID SETTINGS
+                                        <a class="right" href="#" data-toggle="popover" data-content="And here's some amazing content. It's very engaging. right?">
+                                            <span class="glyphicon glyphicon-question-sign"></span></a>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>COLUMN WIDTH:</td>
+                                    <td><input id="cellWidth" name="cellWidth" value="60" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>ROW HEIGHT:</td>
+                                    <td><input id="cellHeight" name="cellHeight" value="20" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>SHOW VERTICAL GRID LINES:</td>
+                                    <td><input id="showingVerticalLines1" name="showingVerticalLines" value="true" checked="checked" type="checkbox"><input name="_showingVerticalLines" value="on" type="hidden"></td>
+                                </tr>
+                            </tbody></table>
+                    </div>
+
+                </td>
+                <td>
+                    <div class="box">
+                        <table class="table">
+                            <tbody><tr>
+                                    <th>BUNDLE SETTINGS
+                                        <a class="right" href="#" data-toggle="popover" data-content="And here's some amazing content. It's very engaging. right?">
+                                            <span class="glyphicon glyphicon-question-sign"></span></a>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>BUNDLE HEIGHT (LINES):</td>
+                                    <td><input id="maxBundleWidth" name="maxBundleWidth" value="16" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>% OF COLUMN WIDTH FOR RESIDUE:</td>
+                                    <td><input id="horizontalExtent" name="horizontalExtent" value="0.33" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>CURVE RADIUS (PIXELS):</td>
+                                    <td><input id="radius" name="radius" value="18" type="text"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>HIDE RESIDUES CONSERVED LESS THAN:</td>
+                                    <td><input id="conservationThreshold" name="conservationThreshold" value="0.0" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>LINE COLOR:</td>
+                                    <td>
+                                        <select id="lineColor" name="lineColor">
+                                            <option value="DEFAULT" selected="selected">DEFAULT</option>
+                                            <option value="NAVY">NAVY</option>
+                                            <option value="SKY">SKY</option>
+                                            <option value="PURPLE">PURPLE</option>
+                                            <option value="RED">RED</option>
+                                            <option value="ORANGE">ORANGE</option>
+                                            <option value="GREY">GREY</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                    </div>
+                </td>
+                <td>
+                    <div class="box">
+                        <table class="table">
+                            <tbody><tr>
+                                    <th>CONSENSUS
+                                        <a class="right" href="#" data-toggle="popover" data-content="And here's some amazing content. It's very engaging. right?">
+                                            <span class="glyphicon glyphicon-question-sign"></span></a>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>SHOW CONSENSUS SEQUENCE:</td>
+                                    <td><input id="showingConsensus1" name="showingConsensus" value="true" type="checkbox"><input name="_showingConsensus" value="on" type="hidden"></td>
+                                </tr>
+                            </tbody></table>
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
     <div class="box">
+        <table border="0">
+            <tbody><tr>
+                    <td colspan="2" align="center"><input value="Submit" type="submit"></td>
+                </tr>
+            </tbody></table>
 
-        <div class="row">
-            DATA FORMAT
-            <a class="right" href="#" data-toggle="popover"
-               data-content="And here's some amazing content. It's very engaging. right?">
-                <span class="glyphicon glyphicon-question-sign"></span></a>
+        <input id="sequence" name="showingConsensus" value="empty" type="hidden">
 
-        </div>
-        <form:form action="/alvis-web-interface/SB" method="post" commandName="userForm">
-            <form:select path="alignmentType" items="${dataFormatList}" />
-            <table border="0">
-                <tr>
-                    <td>Cell width:</td>
-                    <td><form:input path="cellWidth" /></td>
-                </tr>
-                <tr>
-                    <td>Cell height:</td>
-                    <td><form:input path="cellHeight" /></td>
-                </tr>
-                <tr>
-                    <td>Maximum stack height:</td>
-                    <td><form:input path="maxBundleWidth" /></td>
-                </tr>
-                <tr>
-                    <td>Bundle curvature left:</td>
-                    <td><form:input path="tangL" /></td>
-                </tr>
-                <tr>
-                    <td>Bundle curvature right:</td>
-                    <td><form:input path="tangR" /></td>
-                </tr>
-                <tr>
-                    <td>Base width:</td>
-                    <td><form:input path="horizontalExtent" /></td>
-                </tr>
-                <tr>
-                    <td>Global Y-Axis offset:</td>
-                    <td><form:input path="offsetY" /></td>
-                </tr>
-                <tr>
-                    <td>Conservation threshold:</td>
-                    <td><form:input path="conservationThreshold" /></td>
-                </tr>
-                <tr>
-                    <td>Minimum transparency per thread:</td>
-                    <td><form:input path="minAlphaPerThread" /></td>
-                </tr>
-                <tr>
-                    <td>Maximum total transparency:</td>
-                    <td><form:input path="maxAlphaTotal" /></td>
-                </tr>
-                <tr>
-                    <td>Group stacking:</td>
-                    <td><form:select path="groupStacking" items="${groupStackingList}" /></td>
-                </tr>
-                <tr>
-                    <td>Gap rendering:</td>
-                    <td><form:select path="gapRendering" items="${gapRenderingList}" /></td>
-                </tr>
-                <tr>
-                    <td>Show consensus sequence:</td>
-                    <td><form:checkbox path="showingConsensus" /></td>
-                </tr>
-                <tr>
-                    <td>Show horizontal grid lines:</td>
-                    <td><form:checkbox path="showingHorizontalLines" /></td>
-                </tr>
-                <tr>
-                    <td>Show vertical grid lines:</td>
-                    <td><form:checkbox path="showingVerticalLines" /></td>
-                </tr>
-                <tr>
-                    <td>Show alphabet overlay:</td>
-                    <td><form:checkbox path="showingOverlay" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center"><input type="submit" value="Submit" /></td>
-                </tr>
-            </table>
 
-        </form:form>
+    </div></form>
 
-    </div>
+</div>
 </form>
