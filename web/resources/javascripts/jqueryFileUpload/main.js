@@ -44,6 +44,7 @@ var utils = {
                     $(this).hide();
                 });
                 if ($('#sequenceBundleImage img').size() > 0) {
+                    console.log('removing image');
                     $("#sequenceBundleImage img").remove();
                 }
                 $('#sequenceBundleImage').prepend('<img class="image-sm" id="theImg" src="' + imagePath + '" />').fadeIn();

@@ -142,10 +142,13 @@ public class UploadController implements ServletContextAware {
 
     @RequestMapping(value = "/seq/remove", method = {RequestMethod.POST, RequestMethod.OPTIONS})
     public @ResponseBody
-    void removeStatus(HttpServletRequest request,
+    RenderStatus removeStatus(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
         String filename = request.getParameter("filename");
-        jSequenceBundleMap.remove(filename);
+        if (jSequenceBundleMap.get(filename) != null) {
+            jSequenceBundleMap.remove(filename);
+        }
+        return new RenderStatus(0, 10, 5, 1);
     }
 
     @RequestMapping(value = "/seq", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
@@ -188,6 +191,8 @@ public class UploadController implements ServletContextAware {
         try {
             alignmentResults = alignmentParser.parse();
             jsb.setAlignment(alignmentResults.alignment);
+//            AbstractLegendRenderer legendRenderer = AbstractLegendRenderer.createAAIndexLegendRenderer(SequenceAlphabet.value, alvisModel, null);
+//            jsb.setLegendRenderer(legendRenderer);
         } catch (Exception ex) {
             alvisModel.setErrorMessage(ex.getMessage());
             return alvisModel;

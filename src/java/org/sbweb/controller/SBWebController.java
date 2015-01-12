@@ -83,7 +83,7 @@ public class SBWebController implements ServletContextAware {
             jsb.setAlignment(alignmentResults.alignment);
 //            SequenceAlphabet.AMINOACIDS;
 //            AbstractLegendRenderer lr = AbstractLegendRenderer.createAAIndexLegendRenderer(SequenceBundleConfig.AlignmentType.valueOf(alvisModel.getAlignmentType())) ;
-            jsb.setLegendRenderer(lr);
+//            jsb.setLegendRenderer(lr);
         } catch (Exception ex) {
             alvisModel.setErrorMessage(ex.getMessage());
             return ("AlvisError");
