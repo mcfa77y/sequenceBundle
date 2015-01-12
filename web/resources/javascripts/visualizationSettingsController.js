@@ -6,23 +6,23 @@
 
 
 $(function () {
+    'use strict';
+
     $("#visualSettingsForm").submit(function (event) {
 // Stop form from submitting normally
         event.preventDefault();
 // Get some values from elements on the page:
         var $form = $(this),
                 url = $form.attr("action");
-        var data = JSON.stringify($form.serializeObject());
+        var data = $form.serializeArray();
 // Send the data using post
         var posting = $.post(url, data);
 // Put the results in a div
         posting.done(function (data) {
-            console.log("webPath: " + data.result["webPath"]);
-
-            $('#sequenceBundleImage').prepend('<img class="image-sm" id="theImg" src="' + data.result["webPath"] + '" />')
-            $('#theImg').bind('load', function () {
-                $('#sequenceBundleImage').imagefit()
-            });
+            var wp = data["webPath"];
+            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.length);
+            $('#visualizationTabs a:first').tab('show');
+            utils.jobStatusPoll(filename, wp);
         });
     });
 

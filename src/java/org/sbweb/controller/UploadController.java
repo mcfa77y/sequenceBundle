@@ -86,13 +86,14 @@ public class UploadController implements ServletContextAware {
         int min;
         int max;
         int value;
-        int status;
+        boolean isFinished;
 
         public RenderStatus(int min, int max, int value, int status) {
             this.min = min;
             this.max = max;
             this.value = value;
-            this.status = status;
+            this.isFinished = Progressable.STATE_IDLE == status;
+
         }
 
         public int getMin() {
@@ -119,12 +120,12 @@ public class UploadController implements ServletContextAware {
             this.value = value;
         }
 
-        public int getStatus() {
-            return status;
+        public boolean isIsFinished() {
+            return isFinished;
         }
 
-        public void setStatus(int status) {
-            this.status = status;
+        public void setIsFinished(boolean isFinished) {
+            this.isFinished = isFinished;
         }
 
     }
@@ -137,6 +138,14 @@ public class UploadController implements ServletContextAware {
         Progressable pm = jSequenceBundleMap.get(filename).getProgressModel();
         RenderStatus result = new RenderStatus(pm.getMinimum(), pm.getMaximum(), pm.getValue(), pm.getState());
         return result;
+    }
+
+    @RequestMapping(value = "/seq/remove", method = {RequestMethod.POST, RequestMethod.OPTIONS})
+    public @ResponseBody
+    void removeStatus(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+        String filename = request.getParameter("filename");
+        jSequenceBundleMap.remove(filename);
     }
 
     @RequestMapping(value = "/seq", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
@@ -214,7 +223,6 @@ public class UploadController implements ServletContextAware {
         alvisModel.setCellWidth(Integer.parseInt(paramMap.get("cellWidth")[0]));
         alvisModel.setMaxBundleWidth(Integer.parseInt(paramMap.get("maxBundleWidth")[0]));
         alvisModel.setRadius(Integer.parseInt(paramMap.get("radius")[0]));
-        alvisModel.setShowingVerticalLines(Boolean.parseBoolean(paramMap.get("_showingVerticalLines")[0]));
         alvisModel.setyAxis(SequenceBundleConfig.YAxis.valueOf(paramMap.get("yAxis")[0]));
         alvisModel.setLineColor(SequenceBundleConfig.LineColor.valueOf(paramMap.get("lineColor")[0]));
         alvisModel.setAlignmentType(SequenceBundleConfig.AlignmentType.valueOf(paramMap.get("alignmentType")[0]));

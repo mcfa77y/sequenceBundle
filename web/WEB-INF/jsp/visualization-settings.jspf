@@ -81,7 +81,8 @@
                                 </tr>
                                 <tr>
                                     <td>SHOW VERTICAL GRID LINES:</td>
-                                    <td><input id="showingVerticalLines1" name="showingVerticalLines" value="true" checked="checked" type="checkbox"><input name="_showingVerticalLines" value="on" type="hidden"></td>
+                                    <td><input id="showingVerticalLines1" name="showingVerticalLines" value="true" checked="checked" type="checkbox">
+                                        <input name="_showingVerticalLines" value="on" type="hidden"></td>
                                 </tr>
                             </tbody></table>
                     </div>
@@ -142,7 +143,8 @@
                                 </tr>
                                 <tr>
                                     <td>SHOW CONSENSUS SEQUENCE:</td>
-                                    <td><input id="showingConsensus1" name="showingConsensus" value="true" type="checkbox"><input name="_showingConsensus" value="on" type="hidden"></td>
+                                    <td><input id="showingConsensus1" name="showingConsensus" value="true" type="checkbox">
+                                        <input name="_showingConsensus" value="on" type="hidden"></td>
                                 </tr>
                             </tbody></table>
                     </div>
@@ -157,6 +159,7 @@
             </tbody></table>
 
         <input id="sequence" name="showingConsensus" value="empty" type="hidden">
+        <input id="sequence" name="showingVerticalLines" value="empty" type="hidden">
 
 
     </div></form>

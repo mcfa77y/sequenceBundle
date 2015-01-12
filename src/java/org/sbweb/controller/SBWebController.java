@@ -74,11 +74,16 @@ public class SBWebController implements ServletContextAware {
             alvisModel.setErrorMessage("No sequences to render!");
             return ("AlvisError");
         }
-        ParseAlignmentTask alignmentParser = new ParseAlignmentTask(new StringReader(alvisModel.getSequences()), Alvis.AlignmentFormat.FASTA, AlvisDataModel.AlignmentType.AminoAcid, null);
+        ParseAlignmentTask alignmentParser = new ParseAlignmentTask(new StringReader(alvisModel.getSequences()),
+                Alvis.AlignmentFormat.FASTA,
+                AlvisDataModel.AlignmentType.AminoAcid, null);
         AlignmentParserResults alignmentResults;
         try {
             alignmentResults = alignmentParser.parse();
             jsb.setAlignment(alignmentResults.alignment);
+//            SequenceAlphabet.AMINOACIDS;
+//            AbstractLegendRenderer lr = AbstractLegendRenderer.createAAIndexLegendRenderer(SequenceBundleConfig.AlignmentType.valueOf(alvisModel.getAlignmentType())) ;
+            jsb.setLegendRenderer(lr);
         } catch (Exception ex) {
             alvisModel.setErrorMessage(ex.getMessage());
             return ("AlvisError");

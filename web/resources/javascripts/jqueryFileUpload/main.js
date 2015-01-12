@@ -12,45 +12,61 @@
  */
 
 /* global $, window */
+var utils = {
+    jobStatusPoll: function (filename, imagePath) {
+        $.post("upload/seq/status", {filename: filename}).done(function (data) {
+            var progress = parseInt(data.value / data.max * 100, 10);
+            console.log("render progress: " + data['value'] + "/" + data['max'] + " = " + progress);
+            console.log("isFinished: " + data['isFinished']);
+            $('#renderProgress .progress-bar').css(
+                    'width',
+                    progress + '%'
+                    );
 
+            if (data['isFinished'] === false) {
+                console.log("not finished");
+
+                setTimeout(function () {
+                    var d = new Date();
+                    console.log("date: " + d);
+                    utils.jobStatusPoll(filename, imagePath);
+                }, 500);
+            } else {
+                console.log("finished: " + data['isFinished']);
+                $.post("upload/seq/remove", {filename: filename});
+                $('#renderProgress').show();
+                $('#renderProgress .progress-bar').css(
+                        'width',
+                        100 + '%'
+                        );
+                $('#renderProgress').fadeOut(400, function () {
+                    console.log("main hiding")
+                    $(this).hide();
+                });
+                if ($('#sequenceBundleImage img').size() > 0) {
+                    $("#sequenceBundleImage img").remove();
+                }
+                $('#sequenceBundleImage').prepend('<img class="image-sm" id="theImg" src="' + imagePath + '" />').fadeIn();
+                $('#theImg').bind('load', function () {
+                    var img = $('#sequenceBundleImage img');
+                    var sw = img.width() * 500 / 2250;
+                    var sh = 500;
+                    img.css("height", sh + "px");
+                    img.css("width", sw + "px");
+                });
+
+
+            }
+        });
+    }
+};
 $(function () {
     'use strict';
 
 
+//    var frm = $(document.visualSettingsForm);
+//    var data = JSON.stringify(frm.serializeObject());
 
-    $.fn.serializeObject = function () {
-        var o = {};
-//    var a = this.serializeArray();
-        $(this).find('input[type="hidden"], input[type="text"], input[type="password"], input[type="checkbox"]:checked, input[type="radio"]:checked, select').each(function () {
-            if ($(this).attr('type') == 'hidden') { //if checkbox is checked do not take the hidden field
-                var $parent = $(this).parent();
-                var $chb = $parent.find('input[type="checkbox"][name="' + this.name.replace(/\[/g, '\[').replace(/\]/g, '\]') + '"]');
-                if ($chb != null) {
-                    if ($chb.prop('checked'))
-                        return;
-                }
-            }
-            if (this.name === null || this.name === undefined || this.name === '')
-                return;
-            var elemValue = null;
-            if ($(this).is('select'))
-                elemValue = $(this).find('option:selected').val();
-            else
-                elemValue = this.value;
-            if (o[this.name] !== undefined) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(elemValue || '');
-            } else {
-                o[this.name] = elemValue || '';
-            }
-        });
-        return o;
-    };
-
-    var frm = $(document.visualSettingsForm);
-    var data = JSON.stringify(frm.serializeObject());
 
     $('#fileupload').fileupload({
         dataType: 'json',
@@ -60,11 +76,9 @@ $(function () {
             $('#collapseOne').collapse('hide');
             $('#collapseTwo').collapse('show');
             console.log("webPath: " + data.result["webPath"]);
-
-            $('#sequenceBundleImage').prepend('<img class="image-sm" id="theImg" src="' + data.result["webPath"] + '" />')
-            $('#theImg').bind('load', function () {
-                $('#sequenceBundleImage').imagefit()
-            });
+            var wp = data.result["webPath"];
+            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.length);
+            utils.jobStatusPoll(filename, wp);
             $.cookie("sequence", data.result["sequences"], {path: "/", json: true});
         },
         progressall: function (e, data) {
@@ -84,7 +98,6 @@ $(function () {
         },
         add: function (e, data) {
             data.formData = ($("#visualSettingsForm").serializeArray());
-            //data.formData = {example: 'test'};
             data.submit();
         }
 

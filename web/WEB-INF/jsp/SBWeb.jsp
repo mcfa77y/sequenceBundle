@@ -24,6 +24,8 @@
 
         <script src="<c:url value="/resources/javascripts/jquery.imagefit-0.2.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jquery.cookie.js"  />"></script>
+        <script src="<c:url value="/resources/javascripts/jqueryFileUpload/main.js"  />"></script>
+
         <script src="<c:url value="/resources/javascripts/visualizationSettingsController.js"  />"></script>
 
 
@@ -62,14 +64,14 @@
                     <div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                2 PREVIEW AND VISUALIZATON
+                                2 PREVIEW AND VISUALIZATION
                             </a>
                         </h4>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                         <div class="panel-body">
                             <div id="tabs">
-                                <ul class="nav nav-tabs nav-justified">
+                                <ul class="nav nav-tabs nav-justified" id="visualizationTabs">
                                     <li class="nav active"><a href="#tabs-1" data-toggle="tab">SEQUENCE BUNDLES PREVIEW</a></li>
                                     <li class="nav"><a href="#tabs-2" data-toggle="tab">VISUALIZATON SETTINGS</a></li>
                                 </ul>
@@ -77,7 +79,10 @@
                                     <div class="tab-pane active" id="tabs-1">
 
                                         <%@include file="navbar-sequence.jspf" %>
-                                        <div id="sequenceBundleImage">
+                                        <div id="renderProgress" class="progress" >
+                                            <div class="progress-bar progress-bar-success"></div>
+                                        </div>
+                                        <div id="sequenceBundleImage" class="scrolly">
                                             <!--<img src="<c:url value="/resources/images/sequence-bundles-visualise.png"  />">-->
                                         </div>
                                     </div>
