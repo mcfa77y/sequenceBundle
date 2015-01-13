@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.jboss.logging.Logger;
@@ -167,11 +166,12 @@ public class UploadController implements ServletContextAware {
             HttpServletResponse response
     ) throws Exception {
         String seq = "";
-        for (Cookie cookie : request.getCookies()) {
-            if (cookie.getName().indexOf("sequence") == 0) {
-                seq = java.net.URLDecoder.decode(cookie.getValue(), "UTF-8");
-            }
-        }
+        seq = request.getParameter("sequence");
+//        for (Cookie cookie : request.getCookies()) {
+//            if (cookie.getName().indexOf("sequence") == 0) {
+//                seq = java.net.URLDecoder.decode(cookie.getValue(), "UTF-8");
+//            }
+//        }
         return foo(request, seq);
     }
 
@@ -219,14 +219,12 @@ public class UploadController implements ServletContextAware {
 
     private AlvisModel requestToAlvisModel(Map<String, String[]> paramMap) {
         AlvisModel alvisModel = new AlvisModel();
-        alvisModel.setCellHeight(Integer.parseInt(paramMap.get("cellHeight")[0]));
         alvisModel.setHorizontalExtent(Float.parseFloat(paramMap.get("horizontalExtent")[0]));
         alvisModel.setShowingVerticalLines(Boolean.parseBoolean(paramMap.get("showingVerticalLines")[0]));
         alvisModel.setConservationThreshold(Double.parseDouble(paramMap.get("conservationThreshold")[0]));
         alvisModel.setGapRendering(SequenceBundleConfig.GapRenderingType.valueOf(paramMap.get("gapRendering")[0]));
-        alvisModel.setShowingConsensus(Boolean.parseBoolean(paramMap.get("_showingConsensus")[0]));
-        alvisModel.setCellWidth(Integer.parseInt(paramMap.get("cellWidth")[0]));
-        alvisModel.setMaxBundleWidth(Integer.parseInt(paramMap.get("maxBundleWidth")[0]));
+        alvisModel.setShowingConsensus(Boolean.parseBoolean(paramMap.get("showingConsensus")[0]));
+        alvisModel.setCellWidth(AlvisModel.CellWidthSize.valueOf(paramMap.get("cellWidth")[0]).getSize());
         alvisModel.setRadius(Integer.parseInt(paramMap.get("radius")[0]));
         alvisModel.setyAxis(SequenceBundleConfig.YAxis.valueOf(paramMap.get("yAxis")[0]));
         alvisModel.setLineColor(SequenceBundleConfig.LineColor.valueOf(paramMap.get("lineColor")[0]));

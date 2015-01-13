@@ -15,13 +15,19 @@ $(function () {
         var $form = $(this),
                 url = $form.attr("action");
         var data = $form.serializeArray();
+        for (var i = 0; i < data.length; i++) {
+            utils.debug(data[i]);
+        }
 // Send the data using post
         var posting = $.post(url, data);
 // Put the results in a div
         posting.done(function (data) {
-            var wp = data["webPath"];
-            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.length);
+            var d = new Date();
+            var wp = data["webPath"] + "?" + d.getTime();
+            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
+            $('#sequenceBundleImage img').hide();
             $('#visualizationTabs a:first').tab('show');
+            $('#renderProgress').fadeIn();
             utils.jobStatusPoll(filename, wp);
         });
     });

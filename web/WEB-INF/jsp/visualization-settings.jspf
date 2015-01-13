@@ -73,12 +73,15 @@
                                 </tr>
                                 <tr>
                                     <td>COLUMN WIDTH:</td>
-                                    <td><input id="cellWidth" name="cellWidth" value="60" type="text"></td>
+                                    <td><select id="cellWidth" name="cellWidth">
+                                            <option value="SMALL">SMALL</option>
+                                            <option value="MEDIUM" selected="selected">MEDIUM</option>
+                                            <option value="LARGE">LARGE</option>
+                                    </td>
+
+                                    </select>
                                 </tr>
-                                <tr>
-                                    <td>ROW HEIGHT:</td>
-                                    <td><input id="cellHeight" name="cellHeight" value="20" type="text"></td>
-                                </tr>
+
                                 <tr>
                                     <td>SHOW VERTICAL GRID LINES:</td>
                                     <td><input id="showingVerticalLines1" name="showingVerticalLines" value="true" checked="checked" type="checkbox">
@@ -96,10 +99,6 @@
                                         <a class="right" href="#" data-toggle="popover" data-content="And here's some amazing content. It's very engaging. right?">
                                             <span class="glyphicon glyphicon-question-sign"></span></a>
                                     </th>
-                                </tr>
-                                <tr>
-                                    <td>BUNDLE HEIGHT (LINES):</td>
-                                    <td><input id="maxBundleWidth" name="maxBundleWidth" value="16" type="text"></td>
                                 </tr>
                                 <tr>
                                     <td>% OF COLUMN WIDTH FOR RESIDUE:</td>
@@ -158,8 +157,10 @@
                 </tr>
             </tbody></table>
 
-        <input id="sequence" name="showingConsensus" value="empty" type="hidden">
-        <input id="sequence" name="showingVerticalLines" value="empty" type="hidden">
+        <input id="showingConsensus" name="showingConsensus" value="empty" type="hidden">
+        <input id="showingVerticalLines" name="showingVerticalLines" value="empty" type="hidden">
+        <input id="sequence" name="sequence" value="empty" type="hidden">
+
 
 
     </div></form>

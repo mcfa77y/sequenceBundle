@@ -1,5 +1,5 @@
-
-
+var debug = true;
+var sequence = "";
 /*
  * jQuery File Upload Plugin JS Example 8.9.1
  * https://github.com/blueimp/jQuery-File-Upload
@@ -13,49 +13,74 @@
 
 /* global $, window */
 var utils = {
+    debug: function (message) {
+        if (debug) {
+            console.log(message);
+        }
+    },
     jobStatusPoll: function (filename, imagePath) {
         $.post("upload/seq/status", {filename: filename}).done(function (data) {
             var progress = parseInt(data.value / data.max * 100, 10);
-            console.log("render progress: " + data['value'] + "/" + data['max'] + " = " + progress);
-            console.log("isFinished: " + data['isFinished']);
-            $('#renderProgress .progress-bar').css(
+//            utils.debug("render progress: " + data['value'] + "/" + data['max'] + " = " + progress);
+//            utils.debug("isFinished: " + data['isFinished']);
+
+            var progressBar = $('#renderProgress .progress-bar');
+            progressBar.css(
                     'width',
                     progress + '%'
                     );
 
             if (data['isFinished'] === false) {
-                console.log("not finished");
+//                utils.debug("not finished");
 
                 setTimeout(function () {
                     var d = new Date();
-                    console.log("date: " + d);
+//                    utils.debug("date: " + d);
                     utils.jobStatusPoll(filename, imagePath);
                 }, 500);
             } else {
-                console.log("finished: " + data['isFinished']);
+                // image has finish rendering
+//                utils.debug("finished: " + data['isFinished']);
+//
+                // remove rendering progress listener
                 $.post("upload/seq/remove", {filename: filename});
-                $('#renderProgress').show();
-                $('#renderProgress .progress-bar').css(
+                // hundo the progresss bar and fade out
+                progressBar.css(
                         'width',
                         100 + '%'
                         );
-                $('#renderProgress').fadeOut(400, function () {
-                    console.log("main hiding")
+                $('#renderProgress').fadeOut(800, function () {
+                    utils.debug("main hiding progressbar")
                     $(this).hide();
                 });
+
+                var image = $('#sequenceBundleImage img');
                 if ($('#sequenceBundleImage img').size() > 0) {
-                    console.log('removing image');
-                    $("#sequenceBundleImage img").remove();
+                    //utils.debug('removing old image: ' + $('#sequenceBundleImage img').attr('src'));
+                    //$("#sequenceBundleImage img").hide();
+                    image.attr('src', imagePath);
+                } else {
+                    $('#sequenceBundleImage').prepend('<img class="image-sm" id="theImg" src="' + imagePath + '" />').fadeIn();
+                    //image.attr('src', imagePath)
                 }
-                $('#sequenceBundleImage').prepend('<img class="image-sm" id="theImg" src="' + imagePath + '" />').fadeIn();
                 $('#theImg').bind('load', function () {
+                    // resize image with height as 500
+                    // and proportional width
+
                     var img = $('#sequenceBundleImage img');
-                    var sw = img.width() * 500 / 2250;
+                    img.hide();
+                    var sw = document.getElementById('theImg').naturalWidth * 500 / 2250;
+                    utils.debug("bind load image width: " + sw);
                     var sh = 500;
                     img.css("height", sh + "px");
                     img.css("width", sw + "px");
-                });
+                    img.show();
 
+                });
+                $('#theImg').bind('error', function () {
+                    utils.debug("error loading image:" + imagePath);
+                    image.attr('src', imagePath);
+                });
 
             }
         });
@@ -76,11 +101,21 @@ $(function () {
         done: function (e, data) {
             $('#collapseOne').collapse('hide');
             $('#collapseTwo').collapse('show');
-            console.log("webPath: " + data.result["webPath"]);
-            var wp = data.result["webPath"];
-            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.length);
+            $('#sequenceBundleImage img').hide();
+            $('#visualizationTabs a:first').tab('show');
+            $('#renderProgress').fadeIn();
+
+            utils.debug("webPath: " + data.result["webPath"]);
+            var d = new Date();
+            var wp = data.result["webPath"] + "?" + d.getTime();
+            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
+
             utils.jobStatusPoll(filename, wp);
-            $.cookie("sequence", data.result["sequences"], {path: "/", json: true});
+            $("#visualSettingsForm #sequence").val(data.result["sequences"]);
+//            utils.debug("removed cookie: " + $.removeCookie("sequence", {path: "/", json: true}));
+//            $.cookie("sequence", data.result["sequences"], {path: "/", json: true});
+//            utils.debug("wrote to cookie: " + data.result["sequences"])
+
         },
         progressall: function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -93,7 +128,7 @@ $(function () {
             var currentFile = data.files[data.index];
             if (data.files.error && currentFile.error) {
                 // there was an error, do something about it
-                console.log(currentFile.error);
+                utils.debug(currentFile.error);
                 $('<p/>').text("ERROR: " + currentFile.error + " " + currentFile.name).appendTo("#messages").addClass("text-danger");
             }
         },

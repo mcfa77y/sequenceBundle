@@ -24,6 +24,29 @@ public class AlvisModel extends SequenceBundleConfig {
     File tempFile;
     String webPath;
 
+    public enum CellWidthSize {
+
+        SMALL("SMALL", 20),
+        MEDIUM("MEDIUM", 34),
+        LARGE("LARGE", 85);
+        private final String name;
+        private final int size;
+
+        CellWidthSize(String name, int size) {
+            this.name = name;
+            this.size = size;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getSize() {
+            return size;
+        }
+
+    }
+
     public String getSequences() {
         return sequences;
     }
