@@ -32,7 +32,7 @@ import org.springframework.web.context.ServletContextAware;
  * @author Roland Schwarz <rfs32@cam.ac.uk>
  */
 @Controller
-@RequestMapping(value = "/SB")
+@RequestMapping(value = "/")
 public class SBWebController implements ServletContextAware {
 
     private ServletContext servletContext;
