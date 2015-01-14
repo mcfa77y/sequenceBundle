@@ -13,7 +13,7 @@
         <title>SB Web Page</title>
 
         <!-- The basic File Upload plugin -->
-        <script src="<c:url value="/resources/javascripts/jquery-1.11.1.min.js"  />"></script>
+        <script src="<c:url value="/resources/javascripts/jquery-1.11.1.min.js"  />"></script><style type="text/css"></style>
         <!--<script src="<c:url value="/resources/javascripts/jquery-ui-1.11.2.custom/jquery-ui.js"  />"></script>-->
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/vendor/jquery.ui.widget.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/bootstrap-3.3.1/js/bootstrap.min.js"  />"></script>
@@ -22,10 +22,7 @@
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload-process.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload-validate.js"  />"></script>
 
-        <script src="<c:url value="/resources/javascripts/jquery.imagefit-0.2.js"  />"></script>
-        <script src="<c:url value="/resources/javascripts/jquery.cookie.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/main.js"  />"></script>
-
         <script src="<c:url value="/resources/javascripts/visualizationSettingsController.js"  />"></script>
 
 
@@ -33,6 +30,7 @@
         <link rel="stylesheet" href="<c:url value="/resources/javascripts/jquery-ui-1.11.2.custom/jquery-ui.css"  />">
         <link rel="stylesheet" href="<c:url value="/resources/stylesheets/todo.css"  />">
         <link rel="stylesheet" href="<c:url value="/resources/stylesheets/jquery.fileupload.css"  />">
+        <link rel="stylesheet" href="<c:url value="/resources/stylesheets/styles.css"  />">
 
     </head>
     <body>
@@ -44,81 +42,77 @@
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingOne">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                1 UPLOAD YOUR DATA
-                                <!--                                <h1 class="header-left">1</h1>
-                                <div class="content-right">UPLOAD <br/> YOUR DATA</div>-->
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                            <h4>MULTIPLE SEQUENCE ALIGNMENT </h4>
+                        <h1 class="panel-number">1</h1><h1 class="panel-title"><a class="panel-title-link" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">UPLOAD<br>YOUR SEQUENCE</a></h1><div style="clear:both"></div>
+                    </div><!-- #panel-heading -->
 
+                    <div aria-expanded="true" id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+                        <div class="panel-body">
                             <%@include file="upload.jspf" %>
                         </div>
                     </div>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingTwo">
-                        <h4 class="panel-title">
-                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                2 PREVIEW AND VISUALIZATION
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="panel-body">
-                            <div id="tabs">
-                                <ul class="nav nav-tabs nav-justified" id="visualizationTabs">
-                                    <li class="nav active"><a href="#tabs-1" data-toggle="tab">SEQUENCE BUNDLES PREVIEW</a></li>
-                                    <li class="nav"><a href="#tabs-2" data-toggle="tab">VISUALIZATON SETTINGS</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="tabs-1">
+                        <h1 class="panel-number">2</h1><h1 class="panel-title"><a class="panel-title-link" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">PREVIEW AND <br />VISUALISATON</a></h1><div style="clear:both"></div>
+                    </div><!-- #panel-heading -->
 
-                                        <%@include file="navbar-sequence.jspf" %>
-                                        <div id="renderProgress" class="progress" >
-                                            <div class="progress-bar progress-bar-success"></div>
-                                        </div>
-                                        <div id="sequenceBundleImage" class="scrolly">
-                                            <!--<img src="<c:url value="/resources/images/sequence-bundles-visualise.png"  />">-->
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane"  id="tabs-2">
-                                        <%@include file="visualization-settings.jspf" %>
-                                    </div>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        <div id="tabs">
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="nav active"><a aria-expanded="true" class="seq-tab preview" href="#tabs-1" data-toggle="tab">PREVIEW SEQUENCE BUNDLE</a></li>
+                                <li class="nav"><a aria-expanded="false" class="seq-tab edit" href="#tabs-2" data-toggle="tab">EDIT VISUALISATION SETTINGS</a></li>
+                            </ul>
 
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tabs-1">
+
+                                    <%@include file="navbar-sequence.jspf" %>
+                                    <div id="renderProgress" class="progress" >
+                                        <div class="progress-bar progress-bar-success"></div>
+                                    </div>
+                                    <div id="sequenceBundleImage" class="scrolly">
+                                        <!--<img src="<c:url value="/resources/images/sequence-bundles-visualise.png"  />">-->
+                                    </div>
+                                    <div class="row submit-settings">
+                                        <div class="col-md-12">
+                                            <input class="next-btn" value="DOWNLOAD" type="submit">
+                                        </div><!-- #col-12 -->
+                                    </div><!-- #row -->
                                 </div>
-                            </div>
+                                <div class="tab-pane"  id="tabs-2">
+                                    <%@include file="visualization-settings.jspf" %>
+                                </div>
 
+                            </div>
                         </div>
+
                     </div>
                 </div>
+
+
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingThree">
-                        <h4 class="panel-title">
-                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                3 DOWNLOAD AND SHARE
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <h1 class="panel-number">3</h1><h1 class="panel-title"><a class="panel-title-link collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">DOWNLOAD<br> AND SHARE</a></h1><div style="clear:both;"></div>
+                    </div><!-- #panel-heading -->
+
+                    <div style="height: 0px;" aria-expanded="false" id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                         <div class="panel-body">
 
                             <%@include file="download-share.jspf" %>
 
-                        </div>
-                    </div>
+
+                        </div><!-- #panel-body -->
+                    </div><!-- #panel-collapse -->
                 </div>
             </div>
+
+
+
+
         </div>
-
-
-
-
-        <hr>
 
 
 

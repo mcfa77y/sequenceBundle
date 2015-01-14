@@ -199,9 +199,21 @@ public class UploadController implements ServletContextAware {
         }
 
         jsb.setBundleConfig(alvisModel);
+        renderImage(alvisModel, jsb);
 
+        // do stuff
+        return alvisModel;
+    }
+
+    private AlvisModel renderImage(AlvisModel alvisModel, JSequenceBundle jsb) {
         File tmpFile;
+
         try {
+            if (servletContext.getRealPath("/images") == null) {
+                logger.debug("image dir empty");
+                boolean foo = new File(servletContext.getRealPath("/") + "/images").mkdirs();
+                System.out.println("img dir create?: " + foo);
+            }
             File folder = new File(servletContext.getRealPath("/images"));
             tmpFile = File.createTempFile("alvis", ".png", folder);
             jsb.renderPNGToFile(tmpFile, 300);
@@ -212,8 +224,6 @@ public class UploadController implements ServletContextAware {
             alvisModel.setErrorMessage(ex.getMessage());
             return alvisModel;
         }
-
-        // do stuff
         return alvisModel;
     }
 
@@ -227,7 +237,7 @@ public class UploadController implements ServletContextAware {
         alvisModel.setCellWidth(AlvisModel.CellWidthSize.valueOf(paramMap.get("cellWidth")[0]).getSize());
         alvisModel.setRadius(Integer.parseInt(paramMap.get("radius")[0]));
         alvisModel.setyAxis(SequenceBundleConfig.YAxis.valueOf(paramMap.get("yAxis")[0]));
-        alvisModel.setLineColor(SequenceBundleConfig.LineColor.valueOf(paramMap.get("lineColor")[0]));
+        alvisModel.setLineColor(AlvisModel.LineColor.valueOf(paramMap.get("lineColor")[0]));
         alvisModel.setAlignmentType(SequenceBundleConfig.AlignmentType.valueOf(paramMap.get("alignmentType")[0]));
 
         return alvisModel;

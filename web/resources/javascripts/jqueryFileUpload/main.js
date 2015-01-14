@@ -13,6 +13,13 @@ var sequence = "";
 
 /* global $, window */
 var utils = {
+    animateShowImage: function () {
+        $('#collapseOne').collapse('hide');
+        $('#collapseTwo').collapse('show');
+        $('#sequenceBundleImage img').hide();
+        $('#tabs a:first').tab('show');
+        $('#renderProgress').fadeIn();
+    },
     debug: function (message) {
         if (debug) {
             console.log(message);
@@ -94,16 +101,12 @@ $(function () {
 //    var data = JSON.stringify(frm.serializeObject());
 
 
-    $('#fileupload').fileupload({
+    $('#fu').fileupload({
         dataType: 'json',
         maxFileSize: 5 * 1024 * 1024,
         acceptFileTypes: /(\.|\/)(txt|fasta)$/i,
         done: function (e, data) {
-            $('#collapseOne').collapse('hide');
-            $('#collapseTwo').collapse('show');
-            $('#sequenceBundleImage img').hide();
-            $('#visualizationTabs a:first').tab('show');
-            $('#renderProgress').fadeIn();
+            utils.animateShowImage();
 
             utils.debug("webPath: " + data.result["webPath"]);
             var d = new Date();
@@ -134,9 +137,78 @@ $(function () {
         },
         add: function (e, data) {
             data.formData = ($("#visualSettingsForm").serializeArray());
+            data.formData.push({name: "alignmentType", value: $('#alignmentTypeFile').val()});
+            $('alignmentType').val($('#alignmentTypeFile').val());
             data.submit();
         }
 
     });
 
+
+
+    $("#pasteSequenceForm").submit(function (event) {
+// Stop form from submitting normally
+        event.preventDefault();
+// Get some values from elements on the page:
+        var $form = $(this),
+                url = $form.attr("action");
+        $('#sequence').val($('#pasteSequence').val());
+        var data = $('#visualSettingsForm').serializeArray();
+        data.push({name: "alignmentType", value: $('#alignmentTypePaste').val()});
+        $('alignmentType').val($('#alignmentTypePaste').val());
+
+        for (var i = 0; i < data.length; i++) {
+            var d = data[i];
+            utils.debug(d);
+//            if (d.name === "sequence") {
+//                d.value = $form['paseSequence'];
+//            }
+        }
+// Send the data using post
+        var posting = $.post(url, data);
+// Put the results in a div
+        posting.done(function (data) {
+            var d = new Date();
+            var wp = data["webPath"] + "?" + d.getTime();
+            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
+            utils.animateShowImage();
+            utils.jobStatusPoll(filename, wp);
+        });
+    });
+
+    $("#useExampleButton").click(function (event) {
+// Stop form from submitting normally
+        event.preventDefault();
+// Get some values from elements on the page:
+        var url = "/alvis-web-interface/upload/seq2";
+        $('#sequence').val(
+                ">SEQUENCE_A\r\n\
+ATTTGCATGCAAGCATGC\r\n\
+>SEQUENCE_B\r\n\
+AT--GCATGCATGCATGC\r\n\
+>SEQUENCE_C\r\n\
+AT--TTATGCAGGCATGC\r\n\
+>SEQUENCE_D\r\n\
+ATTT--ATGCAGGCATG-\r\n\
+");
+        var data = $('#visualSettingsForm').serializeArray();
+        $('alignmentType').val('AMINOACIDS');
+        for (var i = 0; i < data.length; i++) {
+            var d = data[i];
+            utils.debug(d);
+//            if (d.name === "sequence") {
+//                d.value = $form['paseSequence'];
+//            }
+        }
+// Send the data using post
+        var posting = $.post(url, data);
+// Put the results in a div
+        posting.done(function (data) {
+            var d = new Date();
+            var wp = data["webPath"] + "?" + d.getTime();
+            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
+            utils.animateShowImage();
+            utils.jobStatusPoll(filename, wp);
+        });
+    });
 });

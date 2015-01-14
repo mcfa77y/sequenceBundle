@@ -5,7 +5,10 @@
  */
 package org.sbweb.model;
 
+import com.general.containerModel.Nameable;
+import de.biozentrum.bioinformatik.color.ColorModel;
 import gui.sequencebundle.SequenceBundleConfig;
+import java.awt.Color;
 import java.io.File;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -23,12 +26,57 @@ public class AlvisModel extends SequenceBundleConfig {
     String errorMessage;
     File tempFile;
     String webPath;
+    private LineColor lineColor;
+
+    public enum LineColor implements Nameable {
+
+        DEFAULT("Default", "Default", new Color(0, 0, 80)),
+        NAVY("Navy", "Navy", new Color(0, 51, 153)),
+        SKY("Sky", "Sky", new Color(51, 204, 255)),
+        SEA("Sea", "Sea", new Color(0, 204, 204)),
+        PURPLE("Purple", "Purple", new Color(204, 0, 204)),
+        ORANGE("Orange", "Orange", Color.ORANGE),
+        RED("Red", "Red", Color.RED);
+
+        private final String name;
+        private final String description;
+        private final Color color;
+
+        LineColor(String name, String description, Color color) {
+            this.name = name;
+            this.description = description;
+            this.color = color;
+
+        }
+
+        @Override
+        public String getDescription() {
+            return description;
+        }
+
+        @Override
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public String toString() {
+            return name;
+        }
+
+        /**
+         * @return the color
+         */
+        public Color getColor() {
+            return color;
+        }
+    }
 
     public enum CellWidthSize {
 
-        SMALL("SMALL", 20),
-        MEDIUM("MEDIUM", 34),
-        LARGE("LARGE", 85);
+        SMALL("SMALL", 45),
+        MEDIUM("MEDIUM", 60),
+        LARGE("LARGE", 90);
         private final String name;
         private final int size;
 
@@ -79,4 +127,21 @@ public class AlvisModel extends SequenceBundleConfig {
         this.webPath = webPath;
     }
 
+    /**
+     * @return the lineColor
+     */
+    public LineColor getLineColor() {
+        return lineColor;
+    }
+
+    /**
+     * @param lineColor the lineColor to set
+     */
+    public void setLineColor(LineColor lineColor) {
+        this.lineColor = lineColor;
+        ColorModel<Integer> cc = getColorModel().getGroupColors();
+        System.out.println("current color:" + cc);
+        cc.setDefaultColor(lineColor.getColor());
+        System.out.println("pose color:" + cc);
+    }
 }

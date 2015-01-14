@@ -25,9 +25,7 @@ $(function () {
             var d = new Date();
             var wp = data["webPath"] + "?" + d.getTime();
             var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
-            $('#sequenceBundleImage img').hide();
-            $('#visualizationTabs a:first').tab('show');
-            $('#renderProgress').fadeIn();
+            utils.animateShowImage();
             utils.jobStatusPoll(filename, wp);
         });
     });
