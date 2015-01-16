@@ -39,7 +39,7 @@
                         <i class="glyphicon glyphicon-search"></i>
                         <span>BROWSE</span>
                         <!-- The file input field used as target for the file upload widget -->
-                        <input id="fu" data-url="upload/seq" name="file" type="file">
+                        <input id="fu" data-url="/upload/seq" name="file" type="file">
                     </span><!-- #span -->
 
                 </div><!-- #row -->
@@ -50,7 +50,7 @@
                     <div class="col-md-12 edit-panel">
                         <div><h2>Option 2: Paste MSA data</h2></div>
                         <label class="section-title" for="fromPaste">PASTE YOUR MSA IN THE BOX BELOW</label>
-                        <form id="pasteSequenceForm" action="/alvis-web-interface/upload/seq2">
+                        <form id="pasteSequenceForm" action="/upload/seq2">
                             <div style="padding: 0px 1.5em 1.5em 1.5em;">
                                 <textarea cols="30" rows="5" id="pasteSequence" name="pasteSequence"></textarea>
                             </div><!-- #padding-text -->

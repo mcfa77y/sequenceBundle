@@ -1,4 +1,4 @@
-<form id="visualSettingsForm" name="visualSettingsForm" action="/alvis-web-interface/upload/seq2" >
+<form id="visualSettingsForm" name="visualSettingsForm" action="/upload/seq2" >
 
     <div class="row" style="margin: 3em 2em 1em 2em;">
 
