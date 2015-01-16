@@ -16,12 +16,6 @@
 
                         <form id="fileSequenceForm">
                             <!-- The fileinput-button span is used to style the file input field as button -->
-                            <span class="btn btn-success fileinput-button" style="margin-left: 20px;">
-                                <i class="glyphicon glyphicon-search"></i>
-                                <span>BROWSE</span>
-                                <!-- The file input field used as target for the file upload widget -->
-                                <input id="fu" data-url="upload/seq" name="file" type="file">
-                            </span><!-- #span -->
 
 
                             <span id="filename2"></span>
@@ -41,6 +35,13 @@
                         </form>
 
                     </div><!-- #col-12 -->
+                    <span class="btn btn-success fileinput-button" style="margin-left: 20px;">
+                        <i class="glyphicon glyphicon-search"></i>
+                        <span>BROWSE</span>
+                        <!-- The file input field used as target for the file upload widget -->
+                        <input id="fu" data-url="upload/seq" name="file" type="file">
+                    </span><!-- #span -->
+
                 </div><!-- #row -->
             </div><!-- #col-4 -->
 
@@ -83,13 +84,13 @@
         </div><!-- #row -->
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2" style="display: none">
                 <p class="upload-summary">You have uploaded an XX sequence with XX bases and XX sequences.</p>
             </div>
         </div><!-- #row -->
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2"  style="display: none">
                 <p class="upload-error">The file you have uploaded exceeds 1000 positions or sequences. Please try a different MSA.</p>
             </div>
         </div><!-- #row -->
