@@ -346,10 +346,6 @@
                     <path-in-war>WEB-INF/classes</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.lib-Prefuse-master}</file>
-                    <path-in-war>WEB-INF/classes</path-in-war>
-                </library>
-                <library dirs="200">
                     <file>${file.reference.prefuse.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
