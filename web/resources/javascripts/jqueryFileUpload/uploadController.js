@@ -25,6 +25,16 @@ var utils = {
             console.log(message);
         }
     },
+    animateDowloadImage: function () {
+        $('#collapseOne').collapse('hide');
+        $('#collapseTwo').collapse('hide');
+        $('#collapseThree').collapse('show');
+    },
+    animatePreviewImage: function () {
+        $('#collapseOne').collapse('hide');
+        $('#collapseTwo').collapse('show');
+        $('#collapseThree').collapse('hide');
+    },
     jobStatusPoll: function (filename, imagePath) {
         $.post("upload/seq/status", {filename: filename}).done(function (data) {
             var progress = parseInt(data.value / data.max * 100, 10);
@@ -57,7 +67,7 @@ var utils = {
                         100 + '%'
                         );
                 $('#renderProgress').fadeOut(800, function () {
-                    utils.debug("main hiding progressbar")
+                    utils.debug("main hiding progressbar");
                     $(this).hide();
                 });
 
@@ -89,6 +99,9 @@ var utils = {
                     image.attr('src', imagePath);
                 });
 
+                $('#downloadPNG').attr('href', imagePath);
+                $('#downloadPNG').attr('download', filename);
+
             }
         });
     }
@@ -96,7 +109,35 @@ var utils = {
 $(function () {
     'use strict';
 
+    function updateSequenceMetaData(alignmentType, sequenceBases, sequenceCount) {
+        $('.upload-error').hide();
+        $('.upload-summary').text("You have uploaded an " + alignmentType + " sequence with " + sequenceBases + " bases and " + sequenceCount + " sequences.");
+        $('.upload-summary').show();
+        $('#createBundleButton').prop('disabled', false);
 
+    }
+
+    function updateErrorSequenceMetaData(errorMessage) {
+        $('.upload-summary').hide();
+        $('.upload-error').text(errorMessage);
+        $('.upload-error').show();
+        $('#createBundleButton').prop('disabled', true);
+    }
+
+    function renderProgress(data) {
+        if (data.errorMessage && data.errorMessage.length > 0) {
+            updateErrorSequenceMetaData(data.errorMessage);
+            return;
+        }
+
+        updateSequenceMetaData(data.alignmentType, data.sequenceBases, data.sequenceCount);
+        var d = new Date();
+        var wp = data.webPath + "?" + d.getTime();
+        var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
+        utils.jobStatusPoll(filename, wp);
+        $("#visualSettingsForm #sequence").val(data.sequences);
+
+    }
 //    var frm = $(document.visualSettingsForm);
 //    var data = JSON.stringify(frm.serializeObject());
 
@@ -106,15 +147,9 @@ $(function () {
         maxFileSize: 5 * 1024 * 1024,
         acceptFileTypes: /(\.|\/)(txt|fasta)$/i,
         done: function (e, data) {
-            utils.animateShowImage();
+            renderProgress(data.result);
 
-            utils.debug("webPath: " + data.result["webPath"]);
-            var d = new Date();
-            var wp = data.result["webPath"] + "?" + d.getTime();
-            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
 
-            utils.jobStatusPoll(filename, wp);
-            $("#visualSettingsForm #sequence").val(data.result["sequences"]);
 //            utils.debug("removed cookie: " + $.removeCookie("sequence", {path: "/", json: true}));
 //            $.cookie("sequence", data.result["sequences"], {path: "/", json: true});
 //            utils.debug("wrote to cookie: " + data.result["sequences"])
@@ -138,7 +173,7 @@ $(function () {
         add: function (e, data) {
             data.formData = ($("#visualSettingsForm").serializeArray());
             data.formData.push({name: "alignmentType", value: $('#alignmentTypeFile').val()});
-            $('alignmentType').val($('#alignmentTypeFile').val());
+            $('#alignmentType').val($('#alignmentTypeFile').val());
             data.submit();
         }
 
@@ -168,11 +203,7 @@ $(function () {
         var posting = $.post(url, data);
 // Put the results in a div
         posting.done(function (data) {
-            var d = new Date();
-            var wp = data["webPath"] + "?" + d.getTime();
-            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
-            utils.animateShowImage();
-            utils.jobStatusPoll(filename, wp);
+            renderProgress(data);
         });
     });
 
@@ -180,7 +211,7 @@ $(function () {
 // Stop form from submitting normally
         event.preventDefault();
 // Get some values from elements on the page:
-        var url = "/alvis-web-interface/upload/seq2";
+        var url = "/upload/seq2";
         $('#sequence').val(
                 ">SEQUENCE_A\r\n\
 ATTTGCATGCAAGCATGC\r\n\
@@ -204,11 +235,16 @@ ATTT--ATGCAGGCATG-\r\n\
         var posting = $.post(url, data);
 // Put the results in a div
         posting.done(function (data) {
-            var d = new Date();
-            var wp = data["webPath"] + "?" + d.getTime();
-            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
-            utils.animateShowImage();
-            utils.jobStatusPoll(filename, wp);
+            renderProgress(data);
         });
     });
+
+    $("#createBundleButton").click(function () {
+        utils.animatePreviewImage();
+    });
+
+    $("#downloadButton").click(function () {
+        utils.animateDowloadImage();
+    });
+
 });

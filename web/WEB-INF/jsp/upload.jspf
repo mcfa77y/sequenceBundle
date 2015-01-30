@@ -6,14 +6,11 @@
     <h2 style="text-align: center;">HOW WOULD YOU LIKE TO UPLOAD A FILE?</h2>
     <div class="panel-section">
         <div class="row" style="margin: 2em 2em 2em 2em;">
-
             <div class="col-md-4">
                 <div class="row" style="padding: 1em;">
-                    <div class="col-md-12 edit-panel collapsed" data-toggle="collapse">
+                    <div class="col-md-12 edit-panel">
                         <div><h2>Option 1: Use a  *.FASTA file</h2></div>
                         <h3>SELECT A FASTA FILE FROM YOUR COMPUTER</h3>
-
-
                         <form id="fileSequenceForm">
                             <!-- The fileinput-button span is used to style the file input field as button -->
 
@@ -32,18 +29,16 @@
                             <div style="padding: 0px 1.5em 1.5em 1.5em;">
                                 <select id="alignmentTypeFile" class="edit-dropdown" name="alignmentType"><option value="AMINOACIDS" selected="selected">AMINO ACIDS</option><option value="NUCLEOTIDES">NUCLEOTIDES</option><option value="RNA">RNA</option></select>
                             </div>
+                            <span class="btn btn-success fileinput-button" style="margin-left: 20px;">
+                                <i class="glyphicon glyphicon-search"></i>
+                                <span>BROWSE AND VALIDATE</span>
+                                <!-- The file input field used as target for the file upload widget -->
+                                <input id="fu" data-url="/upload/seq" name="file" type="file">
+                            </span><!-- #span -->
                         </form>
-
-                    </div><!-- #col-12 -->
-                    <span class="btn btn-success fileinput-button" style="margin-left: 20px;">
-                        <i class="glyphicon glyphicon-search"></i>
-                        <span>BROWSE</span>
-                        <!-- The file input field used as target for the file upload widget -->
-                        <input id="fu" data-url="/upload/seq" name="file" type="file">
-                    </span><!-- #span -->
-
+                    </div><!-- #col -->
                 </div><!-- #row -->
-            </div><!-- #col-4 -->
+            </div><!-- #col -->
 
             <div class="col-md-4">
                 <div class="row" style="padding: 1em;">
@@ -57,9 +52,8 @@
                             <div style="padding: 0px 1.5em 1.5em 1.5em;">
                                 <select id="alignmentTypePaste" class="edit-dropdown" name="alignmentType"><option value="AMINOACIDS" selected="selected">AMINO ACIDS</option><option value="NUCLEOTIDES">NUCLEOTIDES</option><option value="RNA">RNA</option></select>
                             </div>
-                            <div style="padding: 0px 1.5em 1.5em 1.5em;">
-
-                                <input class="btn btn-primary "  value="CREATE BUNDLE" type="submit" style="margin-left: 20px;">
+                            <div>
+                                <input id="validatePaste" class="btn btn-use-example "  value="VALIDATE" type="submit" style="margin-left: 15px;">
                             </div>
                         </form>
                     </div><!-- #col -->
@@ -84,36 +78,27 @@
         </div><!-- #row -->
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2" style="display: none">
-                <p class="upload-summary">You have uploaded an XX sequence with XX bases and XX sequences.</p>
+            <div class="col-md-8 col-md-offset-2" >
+                <p class="upload-summary" style="display: none"></p>
             </div>
         </div><!-- #row -->
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2"  style="display: none">
-                <p class="upload-error">The file you have uploaded exceeds 1000 positions or sequences. Please try a different MSA.</p>
+            <div class="col-md-8 col-md-offset-2"  >
+                <p class="upload-error" style="display: none">The file you have uploaded exceeds 1000 positions or sequences. Please try a different MSA.</p>
             </div>
         </div><!-- #row -->
 
     </div><!-- #panel-section -->
 
-    <!--    <div class="button-group" style="text-align: center;">
-            <input class="btn btn-primary btn-lg upload-btn"  value="CREATE BUNDLE" type="button">
-        </div> #button-group -->
+    <div class="button-group" style="text-align: center;">
+        <input id="createBundleButton" class="btn btn-primary btn-lg upload-btn"  value="CREATE BUNDLE" type="button" disabled="">
+    </div> <!--  #button-group -->
 
 
 
 </div>
 
-
-
-<!-- The fileinput-button span is used to style the file input field as button -->
-<!--    <span class="btn btn-success fileinput-button" style="margin-left: 20px;">
-        <i class="glyphicon glyphicon-plus"></i>
-        <span>SELECT FASTA FILE FROM DRIVE</span>
-         The file input field used as target for the file upload widget
-        <input id="fileupload" type="file" data-url="upload/seq" name="file" />
-    </span>-->
 <br/>
 
 

@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
@@ -46,9 +48,11 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping(value = "/upload")
 public class UploadController implements ServletContextAware {
 
-    private static Logger logger = Logger.getLogger("controller");
+    final private static Logger logger = Logger.getLogger("controller");
     private ServletContext servletContext;
-    private static HashMap<String, JSequenceBundle> jSequenceBundleMap = new HashMap();
+    final private static HashMap<String, JSequenceBundle> jSequenceBundleMap = new HashMap();
+    final private int MAX_SEQUENCE_BASES = 1000;
+    final private int MAX_SEQUENCE_COUNT = 1000;
 
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.HEAD})
     public String form() {
@@ -150,14 +154,55 @@ public class UploadController implements ServletContextAware {
         return new RenderStatus(0, 10, 5, 1);
     }
 
+    @RequestMapping(value = "/validate", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
+    public @ResponseBody
+    AlvisModel validate(HttpServletRequest request,
+            String seq) throws Exception {
+        AlvisModel alvisModel = requestToAlvisModel(request.getParameterMap());
+        JSequenceBundle jsb = new JSequenceBundle(null, null, alvisModel);
+
+        // process sequences
+        if (seq.isEmpty()) {
+            alvisModel.setErrorMessage("No sequences to render!");
+            return alvisModel;
+        }
+
+        alvisModel.setSequences(seq);
+        AlvisDataModel.AlignmentType alignmentType = alvisModel.getAlignmentType().getAlignmentType();
+        ParseAlignmentTask alignmentParser = new ParseAlignmentTask(new StringReader(alvisModel.getSequences()), Alvis.AlignmentFormat.FASTA, alignmentType, null);
+        ParseAlignmentTask.AlignmentParserResults alignmentResults;
+        try {
+            alignmentResults = alignmentParser.parse();
+            jsb.setAlignment(alignmentResults.alignment);
+        } catch (Exception ex) {
+            alvisModel.appendErrorMessage(ex.getMessage());
+            return alvisModel;
+        }
+
+        if (jsb.getAlignment().getLength() > MAX_SEQUENCE_BASES) {
+            alvisModel.appendErrorMessage("Sequence must have less than " + MAX_SEQUENCE_BASES + " bases");
+        }
+        if (jsb.getAlignment().getSequenceCount() > MAX_SEQUENCE_COUNT) {
+            alvisModel.appendErrorMessage("Sequence must have less than " + MAX_SEQUENCE_COUNT + " sequences");
+        }
+        if (alvisModel.getErrorMessage().length() > 0) {
+            return alvisModel;
+        } else {
+            alvisModel.setSequenceBases(jsb.getAlignment().getLength());
+            alvisModel.setSequenceCount(jsb.getAlignment().getSequenceCount());
+            jsb.setBundleConfig(alvisModel);
+            renderImage(alvisModel, jsb);
+            return alvisModel;
+        }
+    }
+
     @RequestMapping(value = "/seq", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
     public @ResponseBody
     AlvisModel seq(HttpServletRequest request,
             HttpServletResponse response,
             @RequestPart("file") MultipartFile file, @RequestBody String x) throws Exception {
         String seq = new String(file.getBytes(), "UTF-8");
-
-        return foo(request, seq);
+        return validate(request, seq);
     }
 
     @RequestMapping(value = "/seq2", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
@@ -172,37 +217,7 @@ public class UploadController implements ServletContextAware {
 //                seq = java.net.URLDecoder.decode(cookie.getValue(), "UTF-8");
 //            }
 //        }
-        return foo(request, seq);
-    }
-
-    private AlvisModel foo(HttpServletRequest request, String seq) {
-        System.setProperty("java.awt.headless", "true");
-        JSequenceBundle jsb = new JSequenceBundle();
-        AlvisModel alvisModel = requestToAlvisModel(request.getParameterMap());
-        // process sequences
-        if (seq.isEmpty()) {
-            alvisModel.setErrorMessage("No sequences to render!");
-            return alvisModel;
-        }
-        alvisModel.setSequences(seq);
-        AlvisDataModel.AlignmentType alignmentType = alvisModel.getAlignmentType().getAlignmentType();
-        ParseAlignmentTask alignmentParser = new ParseAlignmentTask(new StringReader(alvisModel.getSequences()), Alvis.AlignmentFormat.FASTA, alignmentType, null);
-        ParseAlignmentTask.AlignmentParserResults alignmentResults;
-        try {
-            alignmentResults = alignmentParser.parse();
-            jsb.setAlignment(alignmentResults.alignment);
-//            AbstractLegendRenderer legendRenderer = AbstractLegendRenderer.createAAIndexLegendRenderer(SequenceAlphabet.value, alvisModel, null);
-//            jsb.setLegendRenderer(legendRenderer);
-        } catch (Exception ex) {
-            alvisModel.setErrorMessage(ex.getMessage());
-            return alvisModel;
-        }
-
-        jsb.setBundleConfig(alvisModel);
-        renderImage(alvisModel, jsb);
-
-        // do stuff
-        return alvisModel;
+        return validate(request, seq);
     }
 
     private AlvisModel renderImage(AlvisModel alvisModel, JSequenceBundle jsb) {
@@ -220,7 +235,7 @@ public class UploadController implements ServletContextAware {
             jSequenceBundleMap.put(tmpFile.getName(), jsb);
             alvisModel.setTempFile(tmpFile);
             alvisModel.setWebPath(servletContext.getContextPath() + "/images/" + tmpFile.getName());
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             alvisModel.setErrorMessage(ex.getMessage());
             return alvisModel;
         }
@@ -236,10 +251,10 @@ public class UploadController implements ServletContextAware {
         alvisModel.setShowingConsensus(Boolean.parseBoolean(paramMap.get("showingConsensus")[0]));
         alvisModel.setCellWidth(AlvisModel.CellWidthSize.valueOf(paramMap.get("cellWidth")[0]).getSize());
         alvisModel.setRadius(Integer.parseInt(paramMap.get("radius")[0]));
-        alvisModel.setyAxis(SequenceBundleConfig.YAxis.valueOf(paramMap.get("yAxis")[0]));
+        alvisModel.setyAxis(AlvisModel.YAxis.valueOf(paramMap.get("yAxis")[0]));
         alvisModel.setLineColor(AlvisModel.LineColor.valueOf(paramMap.get("lineColor")[0]));
-        alvisModel.setAlignmentType(SequenceBundleConfig.AlignmentType.valueOf(paramMap.get("alignmentType")[0]));
-
+        alvisModel.setAlignmentType(AlvisModel.AlignmentType.valueOf(paramMap.get("alignmentType")[0]));
+        alvisModel.setErrorMessage("");
         return alvisModel;
     }
 

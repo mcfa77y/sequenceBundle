@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Implementation-Version: 1.2.2
+Created-By: 1.7.0_25 (Oracle Corporation)
+Main-Class: com.traviswheeler.ninja.Ninja
+

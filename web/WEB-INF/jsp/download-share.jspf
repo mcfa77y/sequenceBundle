@@ -8,9 +8,12 @@
                     <div><h2>DOWNLOAD YOUR BUNDLE</h2></div>
                     <div class="setting-row">
                         <label class="edit-settings" style="margin-left: 10px;">AS A HIGH QUALITY</label>
-                        <span class="btn btn-use-example" style="margin-bottom: 5px;margin-left: 10px;">
-                            <span>.PNG</span>
-                        </span><!-- #span -->
+                        <a id="downloadPNG" href="path_to_file" download="proposed_file_name">
+
+                            <span class="btn btn-use-example" style="margin-bottom: 5px;margin-left: 10px;">
+                                <span>.PNG</span>
+                            </span><!-- #span -->
+                        </a>
                     </div><!-- #setting-row -->
 
                     <div class="setting-row">
