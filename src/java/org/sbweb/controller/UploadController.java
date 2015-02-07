@@ -28,6 +28,7 @@ import org.jboss.logging.Logger;
 import org.sbweb.domain.Message;
 import org.sbweb.domain.UploadedFile;
 import org.sbweb.model.AlvisModel;
+import org.sbweb.model.WebJSequenceBundle;
 import org.sbweb.response.StatusResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -159,7 +160,7 @@ public class UploadController implements ServletContextAware {
     AlvisModel validate(HttpServletRequest request,
             String seq) throws Exception {
         AlvisModel alvisModel = requestToAlvisModel(request.getParameterMap());
-        JSequenceBundle jsb = new JSequenceBundle(null, null, alvisModel);
+        WebJSequenceBundle jsb = new WebJSequenceBundle(null, null, alvisModel);
 
         // process sequences
         if (seq.isEmpty()) {
@@ -220,7 +221,7 @@ public class UploadController implements ServletContextAware {
         return validate(request, seq);
     }
 
-    private AlvisModel renderImage(AlvisModel alvisModel, JSequenceBundle jsb) {
+    private AlvisModel renderImage(AlvisModel alvisModel, WebJSequenceBundle jsb) {
         File tmpFile;
 
         try {
@@ -231,7 +232,11 @@ public class UploadController implements ServletContextAware {
             }
             File folder = new File(servletContext.getRealPath("/images"));
             tmpFile = File.createTempFile("alvis", ".png", folder);
-            jsb.renderPNGToFile(tmpFile, 300);
+//            jsb.renderPNGToFile(tmpFile, 300);
+            int fromIndex = 0;
+            int toIndex = 15;
+            jsb.renderFragmentPNGToFile(tmpFile, 300, fromIndex, toIndex);
+
             jSequenceBundleMap.put(tmpFile.getName(), jsb);
             alvisModel.setTempFile(tmpFile);
             alvisModel.setWebPath(servletContext.getContextPath() + "/images/" + tmpFile.getName());

@@ -1107,7 +1107,6 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.pdf.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.phylo-1.8.4.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.lib-phylowidget}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.lib-Prefuse-master}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.prefuse.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.REngine.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.sequencing-1.8.4.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
@@ -1207,7 +1206,6 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.pdf.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.phylo-1.8.4.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.lib-phylowidget}" todir="${build.web.dir}/WEB-INF/classes"/>
-        <copyfiles files="${file.reference.lib-Prefuse-master}" todir="${build.web.dir}/WEB-INF/classes"/>
         <copyfiles files="${file.reference.prefuse.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.REngine.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.sequencing-1.8.4.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
