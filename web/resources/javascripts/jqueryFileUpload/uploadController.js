@@ -94,8 +94,9 @@ var utils = {
                     img.show();
 
                 });
-                $('#theImg').bind('error', function () {
-                    utils.debug("error loading image:" + imagePath);
+                $('#theImg').bind('error', function (e) {
+                    var err = JSON.stringify(e, null, 4);
+                    utils.debug("error loading image:" + imagePath+"\n"+err);
                     image.attr('src', imagePath);
                 });
 
@@ -103,6 +104,10 @@ var utils = {
                 $('#downloadPNG').attr('download', filename);
 
             }
+        }).error(function(e){
+            var err = JSON.stringify(e, null, 4);
+                    utils.debug("error loading jobStatus:"+"\n"+err);
+            
         });
     }
 };

@@ -112,8 +112,8 @@ public class SBWebController implements ServletContextAware {
     @Override
     public void setServletContext(ServletContext servletContext) {
         this.servletContext = servletContext;
-        System.out.println("SC: images - " + this.servletContext.getRealPath("/images"));
-        System.out.println("SC: root - " + this.servletContext.getRealPath("/"));
+        System.out.println("SBWebControler.java - ServletContext: images - " + this.servletContext.getRealPath("/images"));
+        System.out.println("SBWebControler.java - ServletContext: root - " + this.servletContext.getRealPath("/"));
 
     }
 

@@ -51,7 +51,7 @@ public class UploadController implements ServletContextAware {
 
     final private static Logger logger = Logger.getLogger("controller");
     private ServletContext servletContext;
-    final private static HashMap<String, JSequenceBundle> jSequenceBundleMap = new HashMap();
+    final private static HashMap<String, WebJSequenceBundle> jSequenceBundleMap = new HashMap();
     final private int MAX_SEQUENCE_BASES = 1000;
     final private int MAX_SEQUENCE_COUNT = 1000;
 
@@ -96,7 +96,7 @@ public class UploadController implements ServletContextAware {
             this.min = min;
             this.max = max;
             this.value = value;
-            this.isFinished = Progressable.STATE_IDLE == status;
+            this.isFinished = (Progressable.STATE_IDLE == status) && (this.value > 0);
 
         }
 
@@ -139,7 +139,7 @@ public class UploadController implements ServletContextAware {
     RenderStatus seqStatus(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
         String filename = request.getParameter("filename");
-        Progressable pm = jSequenceBundleMap.get(filename).getProgressModel();
+        Progressable pm = jSequenceBundleMap.get(filename).getWebProgressModel();
         RenderStatus result = new RenderStatus(pm.getMinimum(), pm.getMaximum(), pm.getValue(), pm.getState());
         return result;
     }

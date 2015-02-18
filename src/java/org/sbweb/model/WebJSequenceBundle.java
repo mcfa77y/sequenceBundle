@@ -19,6 +19,7 @@ import gui.sequencebundle.legend.AbstractLegendRenderer;
 import java.awt.Graphics2D;
 import java.io.File;
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -85,6 +86,8 @@ public class WebJSequenceBundle extends JSequenceBundle {
             // react to renderer events
             @Override
             public void renderingStarted(SequenceBundleRendererEvent e) {
+                System.out.println("rendering started: ");
+
                 webProgressModel.setState(Progressable.STATE_RUNNING);
                 webProgressModel.setMinimum(e.getStartValue());
                 webProgressModel.setMaximum(e.getEndValue());
@@ -115,12 +118,22 @@ public class WebJSequenceBundle extends JSequenceBundle {
                 webProgressModel.setMinimum(e.getStartValue());
                 webProgressModel.setMaximum(e.getEndValue());
                 webProgressModel.setValue(e.getCurrentValue());
+                double percent = (double) e.getCurrentValue() / (double) e.getEndValue();
+                System.out.println("rendering progress: " + MessageFormat.format("{0,number,#.##%}", percent));
             }
         });
 
         imageRenderer.renderFragmentSequences(gc, WebSequenceBundleRenderer.RenderingStrategy.FRAGMENT_RENDERER, fromIndex, toIndex);
-        imageRenderer.renderSequences(gc, WebSequenceBundleRenderer.RenderingStrategy.DIRECT_RENDERER);
+        //imageRenderer.renderSequences(gc, WebSequenceBundleRenderer.RenderingStrategy.DIRECT_RENDERER);//svg tile is png
 
+    }
+
+    public DefaultProgressable getWebProgressModel() {
+        return webProgressModel;
+    }
+
+    public void setWebProgressModel(DefaultProgressable webProgressModel) {
+        this.webProgressModel = webProgressModel;
     }
 
 }

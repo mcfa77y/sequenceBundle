@@ -105,8 +105,8 @@ public class WebSequenceBundleRenderer {
     private Future selectionWorker;
     SequenceBundleConfig bundleConfig;
     private int[][] yPositions;
-    private BufferedImage[][][][] fragments;
-    private BufferedImage[] lineFragments;
+    static private BufferedImage[][][][] fragments;
+    static private BufferedImage[] lineFragments;
     private byte[][] yPositionsInStack;
     int maxColumnOffset;
     ExecutorService threadPool = Executors.newFixedThreadPool(1);
@@ -572,7 +572,9 @@ public class WebSequenceBundleRenderer {
 
         localFragments = new BufferedImage[view.getAlphabet().size() + 1 + maxOffset][2 * bundleConfig.getMaxBundleWidth()][2][numberOfGroups + 1];
         for (int i = 0; i < (view.getAlphabet().size() + 1 + maxOffset); i++) {
+            System.out.println("============ " + i + " ============");
             for (int j = 0; j < 2 * bundleConfig.getMaxBundleWidth(); j++) {
+                System.out.println("i-j: " + i + " - " + j);
                 int alphaHeight = i * bundleConfig.getCellHeight();
                 int stackHeight = j - bundleConfig.getMaxBundleWidth();
                 int totalHeight = Math.abs(alphaHeight + stackHeight) + 1;
@@ -1267,6 +1269,7 @@ public class WebSequenceBundleRenderer {
         private final int id = Random.nextInt(100);
         private final int columnFrom;
         private final int columnTo;
+        private final int columns;
 
         public FragmentRenderWorker(Graphics2D[] graphics, int[][] sequenceIndices, int columnFrom, int columnTo, boolean isSelection) {
             this.graphics = graphics;
@@ -1274,6 +1277,8 @@ public class WebSequenceBundleRenderer {
             this.isSelection = isSelection;
             this.columnFrom = columnFrom;
             this.columnTo = columnTo;
+            this.columns = columnTo - columnFrom;
+
         }
 
         @Override
@@ -1285,7 +1290,7 @@ public class WebSequenceBundleRenderer {
             SwingUtilities.invokeLater(new Runnable() {
                 @Override
                 public void run() {
-                    fireRenderingStarted(new SequenceBundleRendererEvent(this, 0, 0, view.getAlignment().getLength() * numberOfGroups));
+                    fireRenderingStarted(new SequenceBundleRendererEvent(this, 0, 0, columns * numberOfGroups));
                 }
             });
 
@@ -1413,7 +1418,7 @@ public class WebSequenceBundleRenderer {
         protected void process(List<Integer> chunks) {
             if (!chunks.isEmpty()) {
                 Integer last = chunks.get(chunks.size() - 1);
-                fireRenderingProgressed(new SequenceBundleRendererEvent(this, 0, last, view.getAlignment().getLength() * numberOfGroups));
+                fireRenderingProgressed(new SequenceBundleRendererEvent(this, 0, last, columns * numberOfGroups));
             }
         }
 
@@ -1433,10 +1438,10 @@ public class WebSequenceBundleRenderer {
             time = System.currentTimeMillis() - time;
             if (!cancelled) {
                 System.out.println("Worker (" + id + ") end. Rendering time: " + new DecimalFormat("##.####").format(time / 1000.0));
-                fireRenderingFinished(new SequenceBundleRendererEvent(this, 0, view.getAlignment().getLength() * numberOfGroups, view.getAlignment().getLength() * numberOfGroups));
+                fireRenderingFinished(new SequenceBundleRendererEvent(this, 0, columns * numberOfGroups, view.getAlignment().getLength() * numberOfGroups));
             } else {
                 System.out.println("Worker (" + id + ")cancelled.");
-                fireRenderingCancelled(new SequenceBundleRendererEvent(this, 0, view.getAlignment().getLength() * numberOfGroups, view.getAlignment().getLength() * numberOfGroups));
+                fireRenderingCancelled(new SequenceBundleRendererEvent(this, 0, columns * numberOfGroups, view.getAlignment().getLength() * numberOfGroups));
             }
         }
 
