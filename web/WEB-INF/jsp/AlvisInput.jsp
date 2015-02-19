@@ -10,7 +10,7 @@
     </head>
     <body>
         <div align="center">
-            <form:form action="/alvis-web-interface/Alvis" method="post" commandName="userForm">
+            <form:form action="/Alvis" method="post" commandName="userForm">
                 <table border="0">
                     <tr>
                         <td colspan="2" align="center"><h2>Alvis configuration</h2></td>

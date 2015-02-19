@@ -22,8 +22,9 @@
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload-process.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload-validate.js"  />"></script>
 
-        <script src="<c:url value="/resources/javascripts/jqueryFileUpload/main.js"  />"></script>
+        <script src="<c:url value="/resources/javascripts/jqueryFileUpload/uploadController.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/visualizationSettingsController.js"  />"></script>
+        <script src="<c:url value="/resources/javascripts/previewController.js"  />"></script>
 
 
         <link rel="stylesheet" href="<c:url value="/resources/javascripts/bootstrap-3.3.1/css/bootstrap.min.css"  />">
@@ -78,7 +79,7 @@
                                     </div>
                                     <div class="row submit-settings">
                                         <div class="col-md-12">
-                                            <input class="next-btn" value="DOWNLOAD" type="submit">
+                                            <input id="downloadButton" class="next-btn" value="DOWNLOAD" type="submit">
                                         </div><!-- #col-12 -->
                                     </div><!-- #row -->
                                 </div>

@@ -27,9 +27,9 @@
                     <div class="setting-row"><label class="edit-settings icon" id="y-axis">ORDER Y-AXIS BY:</label><select class="edit-dropdown" id="yAxis" name="yAxis"><option value="DEFAULT" selected="selected">DEFAULT</option><option value="HYDROPHOBICITY">HYDROPHOBICITY</option><option value="BULKINESS">BULKINESS</option><option value="POLARITY">POLARITY</option><option value="RFRANK">RF RANK</option><option value="ISOELECTRICPOINT">ISOELECTRIC POINT</option></select></div>
                     <div class="setting-row"><label class="edit-settings icon" id="col-width">COLUMN WIDTH IS:</label>
                         <select class="edit-dropdown" id="cellWidth" name="cellWidth">
-                            <option value="SMALL">SMALL</option>
+                            <option value="SMALL">NARROW</option>
                             <option value="MEDIUM" selected="selected">MEDIUM</option>
-                            <option value="LARGE">LARGE</option>
+                            <option value="LARGE">WIDE</option>
                         </select>
                     </div>
                     <!-- <div class="setting-row"><label class="edit-settings icon" id="row-height">ROW HEIGHT IS:</label><input class="text-input" id="cellHeight" name="cellHeight" value="20" type="text"></div>-->

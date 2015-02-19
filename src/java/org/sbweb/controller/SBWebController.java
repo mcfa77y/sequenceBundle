@@ -52,10 +52,10 @@ public class SBWebController implements ServletContextAware {
         groupStackingList.add(SequenceBundleConfig.GroupStackingType.OVERLAYED);
         model.addAttribute("groupStackingList", groupStackingList);
 
-        List<SequenceBundleConfig.AlignmentType> dataFormatList = new ArrayList<>();
-        dataFormatList.add(SequenceBundleConfig.AlignmentType.AMINOACIDS);
-        dataFormatList.add(SequenceBundleConfig.AlignmentType.NUCLEOTIDES);
-        dataFormatList.add(SequenceBundleConfig.AlignmentType.RNA);
+        List<AlvisModel.AlignmentType> dataFormatList = new ArrayList<>();
+        dataFormatList.add(AlvisModel.AlignmentType.AMINOACIDS);
+        dataFormatList.add(AlvisModel.AlignmentType.NUCLEOTIDES);
+        dataFormatList.add(AlvisModel.AlignmentType.RNA);
         model.addAttribute("dataFormatList", dataFormatList);
         return "SBWeb";
     }
@@ -67,7 +67,7 @@ public class SBWebController implements ServletContextAware {
             return "AlvisInput";
         }
         System.setProperty("java.awt.headless", "true");
-        JSequenceBundle jsb = new JSequenceBundle();
+        JSequenceBundle jsb = new JSequenceBundle(null, null, alvisModel);
 
         // process sequences
         if (alvisModel.getSequences().trim().isEmpty()) {
@@ -112,8 +112,8 @@ public class SBWebController implements ServletContextAware {
     @Override
     public void setServletContext(ServletContext servletContext) {
         this.servletContext = servletContext;
-        System.out.println("SC: images - " + this.servletContext.getRealPath("/images"));
-        System.out.println("SC: root - " + this.servletContext.getRealPath("/"));
+        System.out.println("SBWebControler.java - ServletContext: images - " + this.servletContext.getRealPath("/images"));
+        System.out.println("SBWebControler.java - ServletContext: root - " + this.servletContext.getRealPath("/"));
 
     }
 

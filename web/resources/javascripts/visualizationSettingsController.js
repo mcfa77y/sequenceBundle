@@ -14,7 +14,9 @@ $(function () {
 // Get some values from elements on the page:
         var $form = $(this),
                 url = $form.attr("action");
-        var data = $form.serializeArray();
+        var data = utils.createData(
+                {alignmentType: $('#alignmentType').val()});
+
         for (var i = 0; i < data.length; i++) {
             utils.debug(data[i]);
         }
