@@ -42,6 +42,7 @@ import java.awt.image.VolatileImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.DecimalFormat;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -360,6 +361,10 @@ public class WebSequenceBundleRenderer {
         drawingAreaWidth = columnToXRight(view.getAlignment().length() - 1) + 1;
     }
 
+    public int calculateFragmentWidth(int fromCol, int toCol) {
+        return columnToXRight((toCol - fromCol) - 1) + 1;
+    }
+
     private void setupArraysAndPositions() {
         cumulativeOffset = new byte[view.getAlignment().getLength()][view.getAlphabet().size() + 1]; // acount for the GAP char, and for not found characters which will return -1 in the index
         yPositions = new int[view.getAlignment().getSequenceCount() + 1][view.getAlignment().getLength()];
@@ -569,12 +574,15 @@ public class WebSequenceBundleRenderer {
                 maxOffset = bundleConfig.getColumnOffset()[i];
             }
         }
-
+        double current = 0;
+        double max = (view.getAlphabet().size() + 1. + maxOffset) * (2. * bundleConfig.getMaxBundleWidth());
+        double progress = 0.;
         localFragments = new BufferedImage[view.getAlphabet().size() + 1 + maxOffset][2 * bundleConfig.getMaxBundleWidth()][2][numberOfGroups + 1];
         for (int i = 0; i < (view.getAlphabet().size() + 1 + maxOffset); i++) {
-            System.out.println("============ " + i + " ============");
             for (int j = 0; j < 2 * bundleConfig.getMaxBundleWidth(); j++) {
-                System.out.println("i-j: " + i + " - " + j);
+                progress = current / max;
+                current += 1;
+                System.out.println("render bundle fragments progress: " + MessageFormat.format("{0,number,#.##%}", progress));
                 int alphaHeight = i * bundleConfig.getCellHeight();
                 int stackHeight = j - bundleConfig.getMaxBundleWidth();
                 int totalHeight = Math.abs(alphaHeight + stackHeight) + 1;
@@ -902,7 +910,7 @@ public class WebSequenceBundleRenderer {
 
         g.setColor(TEXT_COLOR);
         for (int i = columnFrom; i <= columnTo; i++) {
-            int xposchar = columnToXCenter(i);
+            int xposchar = columnToXCenter(i - columnFrom);
             String text = Integer.toString(i + 1);
             Font f = g.getFont();
             TextLayout layout = new TextLayout(text, f, g.getFontRenderContext());
@@ -989,6 +997,25 @@ public class WebSequenceBundleRenderer {
         setGlobalGraphicsParameters(g);
         g.translate(0, bundleConfig.getOffsetY());
         for (int col = 0; col < view.getAlignment().length(); col++) {
+            g.translate(columnToXLeft(col), 0);
+            renderBackgroundVerticalLine(g);
+            g.translate(-columnToXLeft(col), 0);
+        }
+
+        g.dispose();
+    }
+
+    /**
+     * Renders the background vertical lines at the correct positions in the
+     * given graphics context.
+     *
+     * @param g
+     */
+    void renderBackgroundVerticalLines(Graphics2D g, int fromCol, int toCol) {
+        g = (Graphics2D) g.create();
+        setGlobalGraphicsParameters(g);
+        g.translate(0, bundleConfig.getOffsetY());
+        for (int col = fromCol; col < toCol; col++) {
             g.translate(columnToXLeft(col), 0);
             renderBackgroundVerticalLine(g);
             g.translate(-columnToXLeft(col), 0);
@@ -1418,7 +1445,7 @@ public class WebSequenceBundleRenderer {
         protected void process(List<Integer> chunks) {
             if (!chunks.isEmpty()) {
                 Integer last = chunks.get(chunks.size() - 1);
-                fireRenderingProgressed(new SequenceBundleRendererEvent(this, 0, last, columns * numberOfGroups));
+                fireRenderingProgressed(new SequenceBundleRendererEvent(this, columnFrom * numberOfGroups, last - columnFrom, columns * numberOfGroups));
             }
         }
 

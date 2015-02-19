@@ -8,6 +8,7 @@ package org.sbweb.model;
 import alvis.AlvisDataModel;
 import com.general.containerModel.Nameable;
 import de.biozentrum.bioinformatik.color.ColorModel;
+import de.biozentrum.bioinformatik.sequence.SequenceAlphabet;
 import gui.sequencebundle.SequenceBundleConfig;
 import gui.sequencebundle.aaindex.AAIndexEntry;
 import gui.sequencebundle.aaindex.AAIndexRepository;
@@ -27,12 +28,13 @@ public class AlvisModel extends SequenceBundleConfig {
     @Size(min = 1, max = 1000)
     String sequences;
 
-    String errorMessage = "";
-    File tempFile;
-    String webPath;
+    private String errorMessage = "";
+    private File tempFile;
+    private String webPath;
     private AlignmentType alignmentType = AlignmentType.AMINOACIDS;
     private YAxis yAxis = YAxis.DEFAULT;
     private LineColor lineColor = LineColor.DEFAULT;
+    private CellWidthType cellWidthType = CellWidthType.MEDIUM;
     private int radius = 18;
 
     private int sequenceCount = 0;
@@ -82,17 +84,19 @@ public class AlvisModel extends SequenceBundleConfig {
         }
     }
 
-    public enum CellWidthSize {
+    public enum CellWidthType {
 
-        SMALL("SMALL", 45),
-        MEDIUM("MEDIUM", 60),
-        LARGE("LARGE", 90);
+        SMALL("SMALL", 45, 20),
+        MEDIUM("MEDIUM", 60, 15),
+        LARGE("LARGE", 90, 10);
         private final String name;
         private final int size;
+        private final int numberOfColumns;
 
-        CellWidthSize(String name, int size) {
+        CellWidthType(String name, int size, int numberOfColumns) {
             this.name = name;
             this.size = size;
+            this.numberOfColumns = numberOfColumns;
         }
 
         public String getName() {
@@ -103,22 +107,28 @@ public class AlvisModel extends SequenceBundleConfig {
             return size;
         }
 
+        public int getNumberOfColumns() {
+            return numberOfColumns;
+        }
+
     }
 
     public enum AlignmentType implements Nameable {
 
-        AMINOACIDS("Amino Acids", "Groups are kept separate from each other within stack in addition to having their own color.", AlvisDataModel.AlignmentType.AminoAcid),
-        NUCLEOTIDES("DNA", "Groups are rendered on top of each other blending the colors.", AlvisDataModel.AlignmentType.DNA),
-        RNA("RNA", "Groups are rendered on top of each other blending the colors.", AlvisDataModel.AlignmentType.RNA);
+        AMINOACIDS("Amino Acids", "Groups are kept separate from each other within stack in addition to having their own color.", AlvisDataModel.AlignmentType.AminoAcid, SequenceAlphabet.AMINOACIDS),
+        NUCLEOTIDES("DNA", "Groups are rendered on top of each other blending the colors.", AlvisDataModel.AlignmentType.DNA, SequenceAlphabet.NUCLEOTIDES),
+        RNA("RNA", "Groups are rendered on top of each other blending the colors.", AlvisDataModel.AlignmentType.RNA, SequenceAlphabet.RNA);
 
         private final String name;
         private final String description;
         final AlvisDataModel.AlignmentType alignmentType;
+        final SequenceAlphabet sequenceAlphabet;
 
-        AlignmentType(String name, String description, AlvisDataModel.AlignmentType alignmentType) {
+        AlignmentType(String name, String description, AlvisDataModel.AlignmentType alignmentType, SequenceAlphabet sequenceAlphabet) {
             this.name = name;
             this.description = description;
             this.alignmentType = alignmentType;
+            this.sequenceAlphabet = sequenceAlphabet;
         }
 
         @Override
@@ -143,6 +153,10 @@ public class AlvisModel extends SequenceBundleConfig {
             return alignmentType;
         }
 
+        public SequenceAlphabet getSequenceAlphabet() {
+            return sequenceAlphabet;
+        }
+
     }
 
     public enum YAxis implements Nameable {
@@ -157,12 +171,15 @@ public class AlvisModel extends SequenceBundleConfig {
         private final String name;
         private final String description;
         private final String accentionNumber;
+        private final AAIndexEntry aaIndexEntry;
+
         static private HashMap<String, AAIndexEntry> yAxisRepository = new HashMap();
 
         YAxis(String name, String description, String accentionNumber) {
             this.name = name;
             this.description = description;
             this.accentionNumber = accentionNumber;
+            this.aaIndexEntry = getAAIndex(accentionNumber);
         }
 
         @Override
@@ -180,14 +197,21 @@ public class AlvisModel extends SequenceBundleConfig {
             return name;
         }
 
-        public AAIndexEntry getAAIndex(YAxis yAxis) {
-            AAIndexEntry result = yAxisRepository.get(yAxis.getAccentionNumber());
+        public AAIndexEntry getAaIndexEntry() {
+            return aaIndexEntry;
+        }
+
+        private AAIndexEntry getAAIndex(String accentionNumber) {
+            if (yAxisRepository == null) {
+                yAxisRepository = new HashMap();
+            }
+            AAIndexEntry result = yAxisRepository.get(accentionNumber);
             if (result != null) {
                 return result;
             } else {
                 for (AAIndexEntry aie : AAIndexRepository.AAIndices) {
-                    if (aie.getAccessionNumber().indexOf(yAxis.getAccentionNumber()) == 0) {
-                        yAxisRepository.put(yAxis.accentionNumber, aie);
+                    if (aie.getAccessionNumber().indexOf(accentionNumber) == 0) {
+                        yAxisRepository.put(accentionNumber, aie);
                         return aie;
                     }
                 }
@@ -301,6 +325,25 @@ public class AlvisModel extends SequenceBundleConfig {
 
     public void setSequenceBases(int sequenceLength) {
         this.sequenceBases = sequenceLength;
+    }
+
+    public CellWidthType getCellWidthType() {
+        return cellWidthType;
+    }
+
+    public void setCellWidthType(CellWidthType cellWidthType) {
+        this.cellWidthType = cellWidthType;
+    }
+
+    public AlvisModel(AlvisModel other) {
+        super(other);
+        setyAxis(other.getyAxis());
+        setAlignmentType(other.getAlignmentType());
+        setLineColor(other.getLineColor());
+        setRadius(other.radius);
+    }
+
+    public AlvisModel() {
     }
 
 }

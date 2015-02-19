@@ -35,6 +35,52 @@ var utils = {
         $('#collapseTwo').collapse('show');
         $('#collapseThree').collapse('hide');
     },
+    createData: function (opt) {
+        var data = $('#visualSettingsForm').serializeArray();
+        var startIndex = $('#startIndex').val();
+        if (startIndex === "") {
+            startIndex = 0;
+        }
+
+        var keyMap = {}
+        for (i = 0; i < data.len; i++) {
+            var key = data[i].name;
+            keyMap[key] = i;
+        }
+
+
+        if (keyMap.startIndex) {
+            data[keyMap.startIndex].value = startIndex;
+        }
+        else {
+            data.push({name: "startIndex", value: startIndex});
+        }
+        
+        
+        var alignmentType = opt.alignmentType;
+        if (alignmentType) {
+            if (keyMap.alignmentType) {
+                data[keyMap.alignmentType].value = alignmentType;
+            }
+            else {
+                data.push({name: "alignmentType", value: alignmentType});
+            }
+            // update form visualization data 
+            $('#visualSettingsForm #alignmentType').val(alignmentType);
+        }
+        var sequence = opt.sequence;
+        if (opt.sequences) {
+            if (keyMap.sequence) {
+                data[keyMap.sequence].value = sequence;
+            }
+            else {
+                data.push({name: "sequence", value: sequence});
+            }
+            // update form visualization data 
+            $("#visualSettingsForm #sequence").val(sequence);
+        }
+        return data;
+    },
     jobStatusPoll: function (filename, imagePath) {
         $.post("upload/seq/status", {filename: filename}).done(function (data) {
             var progress = parseInt(data.value / data.max * 100, 10);
@@ -46,7 +92,6 @@ var utils = {
                     'width',
                     progress + '%'
                     );
-
             if (data['isFinished'] === false) {
 //                utils.debug("not finished");
 
@@ -70,7 +115,6 @@ var utils = {
                     utils.debug("main hiding progressbar");
                     $(this).hide();
                 });
-
                 var image = $('#sequenceBundleImage img');
                 if ($('#sequenceBundleImage img').size() > 0) {
                     //utils.debug('removing old image: ' + $('#sequenceBundleImage img').attr('src'));
@@ -86,40 +130,36 @@ var utils = {
 
                     var img = $('#sequenceBundleImage img');
                     img.hide();
-                    var sw = document.getElementById('theImg').naturalWidth * 500 / 2250;
+                    var sw = Math.min(document.getElementById('theImg').naturalWidth, 1100);
+//                    var sw = document.getElementById('theImg').naturalWidth * 500 / 1100;
+//                    var sw = document.getElementById(this.id).naturalWidth * 500/document.getElementById(this.id).naturalHeight ;
                     utils.debug("bind load image width: " + sw);
                     var sh = 500;
                     img.css("height", sh + "px");
                     img.css("width", sw + "px");
                     img.show();
-
                 });
                 $('#theImg').bind('error', function (e) {
                     var err = JSON.stringify(e, null, 4);
-                    utils.debug("error loading image:" + imagePath+"\n"+err);
+                    utils.debug("error loading image:" + imagePath + "\n" + err);
                     image.attr('src', imagePath);
                 });
-
                 $('#downloadPNG').attr('href', imagePath);
                 $('#downloadPNG').attr('download', filename);
-
             }
-        }).error(function(e){
+        }).error(function (e) {
             var err = JSON.stringify(e, null, 4);
-                    utils.debug("error loading jobStatus:"+"\n"+err);
-            
+            utils.debug("error loading jobStatus:" + "\n" + err);
         });
     }
 };
 $(function () {
     'use strict';
-
     function updateSequenceMetaData(alignmentType, sequenceBases, sequenceCount) {
         $('.upload-error').hide();
         $('.upload-summary').text("You have uploaded an " + alignmentType + " sequence with " + sequenceBases + " bases and " + sequenceCount + " sequences.");
         $('.upload-summary').show();
         $('#createBundleButton').prop('disabled', false);
-
     }
 
     function updateErrorSequenceMetaData(errorMessage) {
@@ -141,7 +181,6 @@ $(function () {
         var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
         utils.jobStatusPoll(filename, wp);
         $("#visualSettingsForm #sequence").val(data.sequences);
-
     }
 //    var frm = $(document.visualSettingsForm);
 //    var data = JSON.stringify(frm.serializeObject());
@@ -153,8 +192,6 @@ $(function () {
         acceptFileTypes: /(\.|\/)(txt|fasta)$/i,
         done: function (e, data) {
             renderProgress(data.result);
-
-
 //            utils.debug("removed cookie: " + $.removeCookie("sequence", {path: "/", json: true}));
 //            $.cookie("sequence", data.result["sequences"], {path: "/", json: true});
 //            utils.debug("wrote to cookie: " + data.result["sequences"])
@@ -176,27 +213,22 @@ $(function () {
             }
         },
         add: function (e, data) {
-            data.formData = ($("#visualSettingsForm").serializeArray());
-            data.formData.push({name: "alignmentType", value: $('#alignmentTypeFile').val()});
-            $('#alignmentType').val($('#alignmentTypeFile').val());
+            data.formData = utils.createData(
+                    {alignmentType: $('#alignmentTypeFile').val()});
             data.submit();
         }
 
     });
-
-
-
     $("#pasteSequenceForm").submit(function (event) {
 // Stop form from submitting normally
         event.preventDefault();
 // Get some values from elements on the page:
         var $form = $(this),
                 url = $form.attr("action");
-        $('#sequence').val($('#pasteSequence').val());
-        var data = $('#visualSettingsForm').serializeArray();
-        data.push({name: "alignmentType", value: $('#alignmentTypePaste').val()});
-        $('alignmentType').val($('#alignmentTypePaste').val());
-
+        var data = utils.createData(
+                {alignmentType: $('#alignmentTypePaste').val(),
+                    sequence: $('#pasteSequence').val()
+                });
         for (var i = 0; i < data.length; i++) {
             var d = data[i];
             utils.debug(d);
@@ -211,14 +243,14 @@ $(function () {
             renderProgress(data);
         });
     });
-
     $("#useExampleButton").click(function (event) {
 // Stop form from submitting normally
         event.preventDefault();
 // Get some values from elements on the page:
         var url = "/upload/seq2";
-        $('#sequence').val(
-                ">SEQUENCE_A\r\n\
+        var data = utils.createData(
+                {alignmentType: 'AMINOACIDS',
+                    sequence: ">SEQUENCE_A\r\n\
 ATTTGCATGCAAGCATGC\r\n\
 >SEQUENCE_B\r\n\
 AT--GCATGCATGCATGC\r\n\
@@ -226,9 +258,8 @@ AT--GCATGCATGCATGC\r\n\
 AT--TTATGCAGGCATGC\r\n\
 >SEQUENCE_D\r\n\
 ATTT--ATGCAGGCATG-\r\n\
-");
-        var data = $('#visualSettingsForm').serializeArray();
-        $('alignmentType').val('AMINOACIDS');
+"
+                });
         for (var i = 0; i < data.length; i++) {
             var d = data[i];
             utils.debug(d);
@@ -243,13 +274,10 @@ ATTT--ATGCAGGCATG-\r\n\
             renderProgress(data);
         });
     });
-
     $("#createBundleButton").click(function () {
         utils.animatePreviewImage();
     });
-
     $("#downloadButton").click(function () {
         utils.animateDowloadImage();
     });
-
 });

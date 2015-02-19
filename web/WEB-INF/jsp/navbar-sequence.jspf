@@ -6,9 +6,9 @@
             <ul class="nav navbar-nav">
 
                 <li>
-                    <form class="navbar-form navbar-left" role="search" style="margin-top: 2em;">
+                    <form id="previewForm" class="navbar-form navbar-left" role="search" style="margin-top: 2em;" action="/upload/seq2">
                         <div class="form-group">
-                            <input class="form-control" placeholder="POSTION NUMBER" type="text">
+                            <input id="startIndex" class="form-control" placeholder="POSTION NUMBER" type="text">
                         </div><!-- #form-group -->
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                     </form><!-- #form -->

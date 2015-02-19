@@ -24,6 +24,7 @@
 
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/uploadController.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/visualizationSettingsController.js"  />"></script>
+        <script src="<c:url value="/resources/javascripts/previewController.js"  />"></script>
 
 
         <link rel="stylesheet" href="<c:url value="/resources/javascripts/bootstrap-3.3.1/css/bootstrap.min.css"  />">

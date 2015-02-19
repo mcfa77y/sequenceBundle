@@ -161,7 +161,7 @@ public class UploadController implements ServletContextAware {
             String seq) throws Exception {
         AlvisModel alvisModel = requestToAlvisModel(request.getParameterMap());
         WebJSequenceBundle jsb = new WebJSequenceBundle(null, null, alvisModel);
-
+        Integer startIndex = Integer.valueOf(request.getParameter("startIndex"));
         // process sequences
         if (seq.isEmpty()) {
             alvisModel.setErrorMessage("No sequences to render!");
@@ -192,7 +192,7 @@ public class UploadController implements ServletContextAware {
             alvisModel.setSequenceBases(jsb.getAlignment().getLength());
             alvisModel.setSequenceCount(jsb.getAlignment().getSequenceCount());
             jsb.setBundleConfig(alvisModel);
-            renderImage(alvisModel, jsb);
+            renderImage(alvisModel, jsb, startIndex);
             return alvisModel;
         }
     }
@@ -221,7 +221,7 @@ public class UploadController implements ServletContextAware {
         return validate(request, seq);
     }
 
-    private AlvisModel renderImage(AlvisModel alvisModel, WebJSequenceBundle jsb) {
+    private AlvisModel renderImage(AlvisModel alvisModel, WebJSequenceBundle jsb, int fromIndex) {
         File tmpFile;
 
         try {
@@ -233,9 +233,8 @@ public class UploadController implements ServletContextAware {
             File folder = new File(servletContext.getRealPath("/images"));
             tmpFile = File.createTempFile("alvis", ".png", folder);
 //            jsb.renderPNGToFile(tmpFile, 300);
-            int fromIndex = 0;
-            int toIndex = 15;
-            jsb.renderFragmentPNGToFile(tmpFile, 300, fromIndex, toIndex);
+            int toIndex = Math.min(fromIndex + alvisModel.getCellWidthType().getNumberOfColumns(), alvisModel.getSequenceBases());
+            jsb.renderFragmentPNGToFile(tmpFile, 72, fromIndex, toIndex);
 
             jSequenceBundleMap.put(tmpFile.getName(), jsb);
             alvisModel.setTempFile(tmpFile);
@@ -254,7 +253,8 @@ public class UploadController implements ServletContextAware {
         alvisModel.setConservationThreshold(Double.parseDouble(paramMap.get("conservationThreshold")[0]));
         alvisModel.setGapRendering(SequenceBundleConfig.GapRenderingType.valueOf(paramMap.get("gapRendering")[0]));
         alvisModel.setShowingConsensus(Boolean.parseBoolean(paramMap.get("showingConsensus")[0]));
-        alvisModel.setCellWidth(AlvisModel.CellWidthSize.valueOf(paramMap.get("cellWidth")[0]).getSize());
+        alvisModel.setCellWidth(AlvisModel.CellWidthType.valueOf(paramMap.get("cellWidth")[0]).getSize());
+        alvisModel.setCellWidthType(AlvisModel.CellWidthType.valueOf(paramMap.get("cellWidth")[0]));
         alvisModel.setRadius(Integer.parseInt(paramMap.get("radius")[0]));
         alvisModel.setyAxis(AlvisModel.YAxis.valueOf(paramMap.get("yAxis")[0]));
         alvisModel.setLineColor(AlvisModel.LineColor.valueOf(paramMap.get("lineColor")[0]));

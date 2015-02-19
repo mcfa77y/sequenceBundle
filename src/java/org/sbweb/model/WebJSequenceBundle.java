@@ -10,6 +10,7 @@ import com.general.gui.progress.DefaultProgressable;
 import com.general.gui.progress.Progressable;
 import de.biozentrum.bioinformatik.alignment.MultipleAlignment;
 import de.biozentrum.bioinformatik.sequence.Sequence;
+import de.biozentrum.bioinformatik.sequence.SequenceAlphabet;
 import gui.sequencebundle.JSequenceBundle;
 import gui.sequencebundle.SequenceBundleConfig;
 import gui.sequencebundle.SequenceBundleRenderer;
@@ -33,32 +34,30 @@ import org.jaitools.tiledimage.DiskMemImage;
 public class WebJSequenceBundle extends JSequenceBundle {
 
     public DefaultProgressable webProgressModel = new DefaultProgressable();
+    public AlvisModel webBundleConfig;
 
     public WebJSequenceBundle(MultipleAlignment alignment, Map<Sequence, Integer> sequenceGroups, SequenceBundleConfig bundleConfig) {
         super(alignment, sequenceGroups, bundleConfig);
     }
 
     public void renderFragmentPNGToFile(final File file, int dpi, int fromIndex, int toIndex) {
-        SequenceBundleConfig config = new SequenceBundleConfig(super.getBundleConfig()); // copy the config
+        AlvisModel config = new AlvisModel(getWebBundleConfig()); // copy the config
         config.setDpi(dpi);
 
 //        final SequenceBundleRenderer imageRenderer = new SequenceBundleRenderer(this, config);
         final WebSequenceBundleRenderer imageRenderer = new WebSequenceBundleRenderer(this, config);
 
         final AbstractLegendRenderer newLegendRenderer;
-        try {
-            newLegendRenderer = super.getLegendRenderer().getClass().newInstance();
-        } catch (InstantiationException | IllegalAccessException ex) {
-            Logger.getLogger(JSequenceBundle.class.getName()).log(Level.SEVERE, null, ex);
-            return;
+        if (config.getyAxis().equals(config.getyAxis().DEFAULT)) {
+            newLegendRenderer = AbstractLegendRenderer.createDefaultLegendRenderer(SequenceAlphabet.AMINOACIDS, config);
+        } else {
+            newLegendRenderer = AbstractLegendRenderer.createAAIndexLegendRenderer(config.getAlignmentType().getSequenceAlphabet(), config, config.getyAxis().getAaIndexEntry());
         }
-
         newLegendRenderer.setBundleConfig(config);
-        newLegendRenderer.setAlphabet(super.getAlphabet());
         final int legendWidth = (int) newLegendRenderer.getLegendSize().getWidth();
         config.setBundleIndent(legendWidth);
 
-        final int width = imageRenderer.getDrawingAreaWidth() + legendWidth;
+        final int width = imageRenderer.calculateFragmentWidth(fromIndex, toIndex) + legendWidth;
         final int height = imageRenderer.getDrawingAreaHeight();
         final DiskMemImage theImage = imageRenderer.createDiskMemImage(width, height);
 
@@ -70,8 +69,9 @@ public class WebJSequenceBundle extends JSequenceBundle {
         newLegendRenderer.renderLegend(gc);
         gc.translate(config.getBundleIndent(), 0);
 
-        imageRenderer.renderColumnHeaders(gc);
-        SequenceBundleConfig bundleConfig = super.getBundleConfig();
+        imageRenderer.renderColumnHeaders(gc, fromIndex, toIndex);
+
+        SequenceBundleConfig bundleConfig = getWebBundleConfig();
         if (bundleConfig.isShowingVerticalLines()) {
             imageRenderer.renderBackgroundVerticalLines(gc);
         }
@@ -134,6 +134,18 @@ public class WebJSequenceBundle extends JSequenceBundle {
 
     public void setWebProgressModel(DefaultProgressable webProgressModel) {
         this.webProgressModel = webProgressModel;
+    }
+
+    public AlvisModel getWebBundleConfig() {
+        return webBundleConfig;
+    }
+
+    public void setWebBundleConfig(AlvisModel webBundleConfig) {
+        this.webBundleConfig = webBundleConfig;
+    }
+
+    public final void setBundleConfig(AlvisModel webBundleConfig) {
+        setWebBundleConfig(webBundleConfig);
     }
 
 }
