@@ -39,7 +39,7 @@ var utils = {
         var data = $('#visualSettingsForm').serializeArray();
         var startIndex = $('#startIndex').val();
         if (startIndex === "") {
-            startIndex = 0;
+            startIndex = 1;
         }
 
         var keyMap = {}

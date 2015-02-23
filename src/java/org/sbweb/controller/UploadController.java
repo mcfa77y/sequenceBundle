@@ -165,7 +165,8 @@ public class UploadController implements ServletContextAware {
             String seq) throws Exception {
         AlvisModel alvisModel = requestToAlvisModel(request.getParameterMap());
         WebJSequenceBundle jsb = new WebJSequenceBundle(null, null, alvisModel);
-        Integer startIndex = Integer.valueOf(request.getParameter("startIndex"));
+        // -1 to fix GUI offset so 1 shows no offset 
+        Integer startIndex = Integer.valueOf(request.getParameter("startIndex")) - 1;
         // process sequences
         if (seq.isEmpty()) {
             alvisModel.setErrorMessage("No sequences to render!");
