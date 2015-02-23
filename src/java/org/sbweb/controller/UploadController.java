@@ -14,6 +14,10 @@ import gui.sequencebundle.SequenceBundleConfig;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -211,14 +215,15 @@ public class UploadController implements ServletContextAware {
     AlvisModel seq2(HttpServletRequest request,
             HttpServletResponse response
     ) throws Exception {
-        String seq = "";
-        seq = request.getParameter("sequence");
-//        for (Cookie cookie : request.getCookies()) {
-//            if (cookie.getName().indexOf("sequence") == 0) {
-//                seq = java.net.URLDecoder.decode(cookie.getValue(), "UTF-8");
-//            }
-//        }
+        String exampleFile = servletContext.getRealPath("/resources") + "/examples/211_Curated_sequences_combined.fasta";
+        String seq = readFile(exampleFile, StandardCharsets.UTF_8);
         return validate(request, seq);
+    }
+
+    private static String readFile(String path, Charset encoding)
+            throws IOException {
+        byte[] encoded = Files.readAllBytes(Paths.get(path));
+        return new String(encoded, encoding);
     }
 
     private AlvisModel renderImage(AlvisModel alvisModel, WebJSequenceBundle jsb, int fromIndex) {

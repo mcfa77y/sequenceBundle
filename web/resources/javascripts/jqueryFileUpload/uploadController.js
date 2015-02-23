@@ -249,17 +249,7 @@ $(function () {
 // Get some values from elements on the page:
         var url = "/upload/seq2";
         var data = utils.createData(
-                {alignmentType: 'AMINOACIDS',
-                    sequence: ">SEQUENCE_A\r\n\
-ATTTGCATGCAAGCATGC\r\n\
->SEQUENCE_B\r\n\
-AT--GCATGCATGCATGC\r\n\
->SEQUENCE_C\r\n\
-AT--TTATGCAGGCATGC\r\n\
->SEQUENCE_D\r\n\
-ATTT--ATGCAGGCATG-\r\n\
-"
-                });
+                {alignmentType: 'AMINOACIDS'});
         for (var i = 0; i < data.length; i++) {
             var d = data[i];
             utils.debug(d);
