@@ -27,4 +27,30 @@ $(function () {
         });
     });
 
-})
+        
+    $('#n-terminus').click( function(){
+        $('#startIndex').val("0");
+        var posting = $.post("/upload/seq2", utils.createData());
+        
+        // Put the results in a div
+        posting.done(function (data) {
+            renderProgress(data);
+        });
+    });
+    
+    $('#c-terminus').click( function(){
+        $('#startIndex').val($('#visualSettingsForm #lastIndex').val());
+        var posting = $.post("/upload/seq2", utils.createData());
+        // Put the results in a div
+        posting.done(function (data) {
+            renderProgress(data);
+        });
+    });
+    
+    function renderProgress(data){
+        var d = new Date();
+        var wp = data.webPath + "?" + d.getTime();
+        var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
+        utils.jobStatusPoll(filename, wp);
+    }
+});

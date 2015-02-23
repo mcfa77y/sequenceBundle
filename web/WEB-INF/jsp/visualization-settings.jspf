@@ -69,6 +69,7 @@
     <input id="showingVerticalLines" name="showingVerticalLines" value="empty" type="hidden">
     <input id="sequence" name="sequence" value="empty" type="hidden">
     <input id="alignmentType" name="alignmentType" value="AMINOACIDS" type="hidden">
+    <input id="lastIndex" name="lastIndex" value="-1" type="hidden">
 
 </form>
 

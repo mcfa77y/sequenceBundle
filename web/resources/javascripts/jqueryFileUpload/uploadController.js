@@ -36,13 +36,16 @@ var utils = {
         $('#collapseThree').collapse('hide');
     },
     createData: function (opt) {
+        if (!opt) {
+            opt = {};
+        }
         var data = $('#visualSettingsForm').serializeArray();
         var startIndex = $('#startIndex').val();
         if (startIndex === "") {
             startIndex = 1;
         }
 
-        var keyMap = {}
+        var keyMap = {};
         for (i = 0; i < data.len; i++) {
             var key = data[i].name;
             keyMap[key] = i;
@@ -55,8 +58,8 @@ var utils = {
         else {
             data.push({name: "startIndex", value: startIndex});
         }
-        
-        
+
+
         var alignmentType = opt.alignmentType;
         if (alignmentType) {
             if (keyMap.alignmentType) {
@@ -69,7 +72,7 @@ var utils = {
             $('#visualSettingsForm #alignmentType').val(alignmentType);
         }
         var sequence = opt.sequence;
-        if (opt.sequences) {
+        if (sequence) {
             if (keyMap.sequence) {
                 data[keyMap.sequence].value = sequence;
             }
@@ -127,18 +130,16 @@ var utils = {
                 $('#theImg').bind('load', function () {
                     // resize image with height as 500
                     // and proportional width
-
                     var img = $('#sequenceBundleImage img');
                     img.hide();
                     var sw = Math.min(document.getElementById('theImg').naturalWidth, 1100);
-//                    var sw = document.getElementById('theImg').naturalWidth * 500 / 1100;
-//                    var sw = document.getElementById(this.id).naturalWidth * 500/document.getElementById(this.id).naturalHeight ;
                     utils.debug("bind load image width: " + sw);
                     var sh = 500;
                     img.css("height", sh + "px");
                     img.css("width", sw + "px");
                     img.show();
                 });
+                // if there is an error try reloading the image
                 $('#theImg').bind('error', function (e) {
                     var err = JSON.stringify(e, null, 4);
                     utils.debug("error loading image:" + imagePath + "\n" + err);
@@ -181,6 +182,8 @@ $(function () {
         var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
         utils.jobStatusPoll(filename, wp);
         $("#visualSettingsForm #sequence").val(data.sequences);
+        $('#visualSettingsForm #lastIndex').val(data.sequenceBases);
+
     }
 //    var frm = $(document.visualSettingsForm);
 //    var data = JSON.stringify(frm.serializeObject());
