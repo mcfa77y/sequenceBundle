@@ -40,33 +40,26 @@ public class AlvisModel extends SequenceBundleConfig {
     private int sequenceCount = 0;
     private int sequenceBases = 0;
 
-    public enum LineColor implements Nameable {
+    public enum LineColor {
 
-        DEFAULT("Default", "Default", new Color(0, 0, 80)),
-        NAVY("Navy", "Navy", new Color(0, 51, 153)),
-        SKY("Sky", "Sky", new Color(51, 204, 255)),
-        SEA("Sea", "Sea", new Color(0, 204, 204)),
-        PURPLE("Purple", "Purple", new Color(204, 0, 204)),
-        ORANGE("Orange", "Orange", Color.ORANGE),
-        RED("Red", "Red", Color.RED);
+        DEFAULT("Default", new Color(0, 0, 80)),
+        NAVY("Navy", new Color(0, 51, 153)),
+        SKY("Sky", new Color(51, 204, 255)),
+        SEA("Sea", new Color(0, 204, 204)),
+        PURPLE("Purple", new Color(204, 0, 204)),
+        ORANGE("Orange", Color.ORANGE),
+        RED("Red", Color.RED),
+        GREY("Grey", Color.GRAY);
 
         private final String name;
-        private final String description;
         private final Color color;
 
-        LineColor(String name, String description, Color color) {
+        LineColor(String name, Color color) {
             this.name = name;
-            this.description = description;
             this.color = color;
 
         }
 
-        @Override
-        public String getDescription() {
-            return description;
-        }
-
-        @Override
         public String getName() {
             return name;
         }

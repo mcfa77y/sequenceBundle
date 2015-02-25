@@ -9,8 +9,6 @@
                     <div><h2>BUNDLE SETTINGS</h2></div>
                     <!--<div class="setting-row"><label class="edit-settings icon" id="bundle-height">BUNDLE HEIGHT IS:</label><input class="text-input" id="maxBundleWidth" name="maxBundleWidth" value="16" type="text"></div> -->
                     <div class="setting-row"><label class="edit-settings icon" id="residue-width">RESIDUE WIDTH IS:</label>
-                        <!--                        <input class="text-input" id="horizontalExtentLable" value="MEDIUM"/>
-                                                <div id='sliderHorizontalExtent'></div>-->
                         <select class="edit-dropdown" name="horizontalExtent">
                             <option value="0.10">SHORT</option>
                             <option value="0.33"selected="selected">MEDIUM</option>
@@ -29,7 +27,7 @@
                         <select class="edit-dropdown" id="lineColor" name="lineColor">
                             <option value="DEFAULT" selected="selected">DEFAULT</option><option value="NAVY">NAVY</option><option value="SKY">SKY</option><option value="PURPLE">PURPLE</option><option value="RED">RED</option><option value="ORANGE">ORANGE</option><option value="GREY">GREY</option></select></div>
                     <div class="setting-row"><label class="edit-settings" id="#">HIDE RESIDUES CONSERVED LESS THAN:</label>
-                        <input class="text-input" id="conservationThreshold" name="conservationThreshold" type="text" disabled>
+                        <input class="text-input" id="conservationThresholdLable" type="text" value="0.0" disabled>
                         <div id="sliderResidueConservation"></div>
                     </div>
                 </div><!-- #col-12 -->
@@ -84,11 +82,11 @@
         </div><!-- #col-12 -->
     </div><!-- #row -->
     <input id="showingConsensus" name="showingConsensus" value="empty" type="hidden">
-
     <input id="showingVerticalLines" name="showingVerticalLines" value="empty" type="hidden">
     <input id="sequence" name="sequence" value="empty" type="hidden">
     <input id="alignmentType" name="alignmentType" value="AMINOACIDS" type="hidden">
     <input id="lastIndex" name="lastIndex" value="-1" type="hidden">
+    <input  id="conservationThreshold" name="conservationThreshold" type="hidden" value="0.0">
 
 </form>
 

@@ -55,8 +55,8 @@ $(function () {
     }
 
     // setup conservation intial value
-    $("#conservationThreshold").val("0");
-    
+    $("#conservationThresholdLable").val("0");
+
     // setup slider
     $("#sliderResidueConservation").slider({
         min: 0,
@@ -66,7 +66,7 @@ $(function () {
         slide: function (event, ui) {
             //$("#horizontalExtentLable").val(sizesLabel[ui.value]);
             $("#conservationThreshold").val(ui.value);
-
+            $("#conservationThresholdLable").val(ui.value);
         }
     });
 
