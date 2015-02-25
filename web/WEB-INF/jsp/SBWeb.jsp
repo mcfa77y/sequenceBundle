@@ -14,7 +14,7 @@
 
         <!-- The basic File Upload plugin -->
         <script src="<c:url value="/resources/javascripts/jquery-1.11.1.min.js"  />"></script><style type="text/css"></style>
-        <!--<script src="<c:url value="/resources/javascripts/jquery-ui-1.11.2.custom/jquery-ui.js"  />"></script>-->
+        <script src="<c:url value="/resources/javascripts/jquery-ui-1.11.2.custom/jquery-ui.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/vendor/jquery.ui.widget.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/bootstrap-3.3.1/js/bootstrap.min.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.iframe-transport.js"  />"></script>

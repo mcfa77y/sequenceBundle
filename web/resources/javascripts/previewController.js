@@ -27,18 +27,18 @@ $(function () {
         });
     });
 
-        
-    $('#n-terminus').click( function(){
+
+    $('#n-terminus').click(function () {
         $('#startIndex').val("0");
         var posting = $.post("/upload/seq2", utils.createData());
-        
+
         // Put the results in a div
         posting.done(function (data) {
             renderProgress(data);
         });
     });
-    
-    $('#c-terminus').click( function(){
+
+    $('#c-terminus').click(function () {
         $('#startIndex').val($('#visualSettingsForm #lastIndex').val());
         var posting = $.post("/upload/seq2", utils.createData());
         // Put the results in a div
@@ -46,11 +46,28 @@ $(function () {
             renderProgress(data);
         });
     });
-    
-    function renderProgress(data){
+
+    function renderProgress(data) {
         var d = new Date();
         var wp = data.webPath + "?" + d.getTime();
         var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
         utils.jobStatusPoll(filename, wp);
     }
+
+    // setup conservation intial value
+    $("#conservationThresholdLable").val("0");
+
+    // setup slider
+    $("#sliderResidueConservation").slider({
+        min: 0,
+        max: 1,
+        step: .01,
+        value: 0,
+        slide: function (event, ui) {
+            //$("#horizontalExtentLable").val(sizesLabel[ui.value]);
+            $("#conservationThreshold").val(ui.value);
+            $("#conservationThresholdLable").val(ui.value);
+        }
+    });
+
 });
