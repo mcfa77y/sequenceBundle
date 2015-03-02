@@ -86,7 +86,8 @@
     <input id="sequence" name="sequence" value="empty" type="hidden">
     <input id="alignmentType" name="alignmentType" value="AMINOACIDS" type="hidden">
     <input id="lastIndex" name="lastIndex" value="-1" type="hidden">
-    <input  id="conservationThreshold" name="conservationThreshold" type="hidden" value="0.0">
+    <input id="conservationThreshold" name="conservationThreshold" type="hidden" value="0.0">
+    <input id="columnCount" name="columnCount" value="15" type="hidden">
 
 </form>
 

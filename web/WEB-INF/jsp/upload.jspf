@@ -65,11 +65,11 @@
                     <div class="col-md-12 edit-panel">
                         <div><h2>Option 3: Use our example MSA</h2></div>
                         <div class="setting-row" style="border-bottom: none;"><label class="edit-settings" id="example-dataset" style="margin-left:10px;margin-right: 15px; line-height: 1.4em; border-bottom: none;">OUR EXAMPLE DATASET IS AN AMINO ACID SEQUENCE WITH XX SEQUENCES ON XX POSITIONS. IT WAS PROVIDED BY THE XX LABORATORY.</div>
-                        <form id="useExampleForm">
-                            <span id="useExampleButton" class="btn btn-use-example" style="margin-left: 20px;" type="submit">
-                                <span>USE EXAMPLE</span>
-                                <!-- The file input field used as target for the file upload widget -->
-                            </span><!-- #span -->
+                        <form id="useExampleForm" action="/upload/example">
+                            
+                            <div>
+                                <input id="useExample" class="btn btn-use-example "  value="USE EXAMPLE" type="submit" style="margin-left: 20px;">
+                            </div>
                         </form>
                     </div><!-- #col-12 -->
                 </div><!-- #row -->

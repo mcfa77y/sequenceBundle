@@ -36,6 +36,7 @@ public class AlvisModel extends SequenceBundleConfig {
     private LineColor lineColor = LineColor.DEFAULT;
     private CellWidthType cellWidthType = CellWidthType.MEDIUM;
     private int radius = 18;
+    private int numberOfColumns = 15;
 
     private int sequenceCount = 0;
     private int sequenceBases = 0;
@@ -328,12 +329,23 @@ public class AlvisModel extends SequenceBundleConfig {
         this.cellWidthType = cellWidthType;
     }
 
+    public int getNumberOfColumns() {
+        return this.cellWidthType.getNumberOfColumns();
+    }
+
     public AlvisModel(AlvisModel other) {
         super(other);
         setyAxis(other.getyAxis());
         setAlignmentType(other.getAlignmentType());
         setLineColor(other.getLineColor());
         setRadius(other.radius);
+        setCellWidthType(other.getCellWidthType());
+        setErrorMessage(other.getErrorMessage());
+        setSequences(other.getSequences());
+        setSequenceBases(other.getSequenceBases());
+        setSequenceCount(other.getSequenceCount());
+        setTempFile(other.getTempFile());
+        setWebPath(other.getWebPath());
     }
 
     public AlvisModel() {

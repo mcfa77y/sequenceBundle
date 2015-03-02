@@ -21,7 +21,8 @@
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload-process.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload-validate.js"  />"></script>
-
+        
+        <script src="<c:url value="/resources/javascripts/utils.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/uploadController.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/visualizationSettingsController.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/previewController.js"  />"></script>
@@ -74,9 +75,12 @@
                                     <div id="renderProgress" class="progress" >
                                         <div class="progress-bar progress-bar-success"></div>
                                     </div>
-                                    <div id="sequenceBundleImage" class="scrolly">
-                                        <!--<img src="<c:url value="/resources/images/sequence-bundles-visualise.png"  />">-->
+                                    <div id="loading" style="display: none">
+                                        <img id="loading-image" src="<c:url value="/resources/images/ajax-loader.gif"/>" alt="Loading..." />
                                     </div>
+                                    <div id="sequenceBundle" class="scrolly">
+                                    </div>
+                                    <div id="sliderSequence"></div>
                                     <div class="row submit-settings">
                                         <div class="col-md-12">
                                             <input id="downloadButton" class="next-btn" value="DOWNLOAD" type="submit">

@@ -12,148 +12,7 @@ var sequence = "";
  */
 
 /* global $, window */
-var utils = {
-    animateShowImage: function () {
-        $('#collapseOne').collapse('hide');
-        $('#collapseTwo').collapse('show');
-        $('#sequenceBundleImage img').hide();
-        $('#tabs a:first').tab('show');
-        $('#renderProgress').fadeIn();
-    },
-    debug: function (message) {
-        if (debug) {
-            console.log(message);
-        }
-    },
-    animateDowloadImage: function () {
-        $('#collapseOne').collapse('hide');
-        $('#collapseTwo').collapse('hide');
-        $('#collapseThree').collapse('show');
-    },
-    animatePreviewImage: function () {
-        $('#collapseOne').collapse('hide');
-        $('#collapseTwo').collapse('show');
-        $('#collapseThree').collapse('hide');
-    },
-    createData: function (opt) {
-        if (!opt) {
-            opt = {};
-        }
-        var data = $('#visualSettingsForm').serializeArray();
-        var startIndex = $('#startIndex').val();
-        if (startIndex === "") {
-            startIndex = 1;
-        }
 
-        var keyMap = {};
-        for (i = 0; i < data.len; i++) {
-            var key = data[i].name;
-            keyMap[key] = i;
-        }
-
-
-        if (keyMap.startIndex) {
-            data[keyMap.startIndex].value = startIndex;
-        }
-        else {
-            data.push({name: "startIndex", value: startIndex});
-        }
-
-
-        var alignmentType = opt.alignmentType;
-        if (alignmentType) {
-            if (keyMap.alignmentType) {
-                data[keyMap.alignmentType].value = alignmentType;
-            }
-            else {
-                data.push({name: "alignmentType", value: alignmentType});
-            }
-            // update form visualization data 
-            $('#visualSettingsForm #alignmentType').val(alignmentType);
-        }
-        var sequence = opt.sequence;
-        if (sequence) {
-            if (keyMap.sequence) {
-                data[keyMap.sequence].value = sequence;
-            }
-            else {
-                data.push({name: "sequence", value: sequence});
-            }
-            // update form visualization data 
-            $("#visualSettingsForm #sequence").val(sequence);
-        }
-        return data;
-    },
-    jobStatusPoll: function (filename, imagePath) {
-        $.post("upload/seq/status", {filename: filename}).done(function (data) {
-            var progress = parseInt(data.value / data.max * 100, 10);
-//            utils.debug("render progress: " + data['value'] + "/" + data['max'] + " = " + progress);
-//            utils.debug("isFinished: " + data['isFinished']);
-
-            var progressBar = $('#renderProgress .progress-bar');
-            progressBar.css(
-                    'width',
-                    progress + '%'
-                    );
-            if (data['isFinished'] === false) {
-//                utils.debug("not finished");
-
-                setTimeout(function () {
-                    var d = new Date();
-//                    utils.debug("date: " + d);
-                    utils.jobStatusPoll(filename, imagePath);
-                }, 500);
-            } else {
-                // image has finish rendering
-//                utils.debug("finished: " + data['isFinished']);
-//
-                // remove rendering progress listener
-                $.post("upload/seq/remove", {filename: filename});
-                // hundo the progresss bar and fade out
-                progressBar.css(
-                        'width',
-                        100 + '%'
-                        );
-                $('#renderProgress').fadeOut(800, function () {
-                    utils.debug("main hiding progressbar");
-                    $(this).hide();
-                });
-                var image = $('#sequenceBundleImage img');
-                if ($('#sequenceBundleImage img').size() > 0) {
-                    //utils.debug('removing old image: ' + $('#sequenceBundleImage img').attr('src'));
-                    //$("#sequenceBundleImage img").hide();
-                    image.attr('src', imagePath);
-                } else {
-                    $('#sequenceBundleImage').prepend('<img class="image-sm" id="theImg" src="' + imagePath + '" />').fadeIn();
-                    //image.attr('src', imagePath)
-                }
-                $('#theImg').bind('load', function () {
-                    // resize image with height as 500
-                    // and proportional width
-                    var img = $('#sequenceBundleImage img');
-                    img.hide();
-                    var sw = Math.min(document.getElementById('theImg').naturalWidth, 1100);
-                    utils.debug("bind load image width: " + sw);
-                    var sh = 500;
-                    img.css("height", sh + "px");
-                    img.css("width", sw + "px");
-                    img.show();
-                });
-                // if there is an error try reloading the image
-                $('#theImg').bind('error', function (e) {
-                    var err = JSON.stringify(e, null, 4);
-                    utils.debug("error loading image:" + imagePath + "\n" + err);
-                    image.attr('src', imagePath);
-                });
-                $('#downloadPNG').attr('href', imagePath);
-                $('#downloadPNG').attr('download', filename);
-            }
-        }).error(function (e) {
-            var err = JSON.stringify(e, null, 4);
-            utils.debug("error loading jobStatus:" + "\n" + err);
-        });
-    }
-};
 $(function () {
     'use strict';
     function updateSequenceMetaData(alignmentType, sequenceBases, sequenceCount) {
@@ -169,7 +28,17 @@ $(function () {
         $('.upload-error').show();
         $('#createBundleButton').prop('disabled', true);
     }
+    function renderImage(url, data) {
+        // Send the data using post
+        var posting = $.post(url, data);
+        // Put the results in a div
+        posting.done(function (data) {
+            renderProgress(data);
+        });
+    }
 
+    // meta data has been returned about the sequence
+    // but the image still needs to be rendered hence renderProgress
     function renderProgress(data) {
         if (data.errorMessage && data.errorMessage.length > 0) {
             updateErrorSequenceMetaData(data.errorMessage);
@@ -179,10 +48,16 @@ $(function () {
         updateSequenceMetaData(data.alignmentType, data.sequenceBases, data.sequenceCount);
         var d = new Date();
         var wp = data.webPath + "?" + d.getTime();
-        var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
-        utils.jobStatusPoll(filename, wp);
+        var filename = Utils.getFilename(wp);
+        // init rendering progress info 
+        Utils.jobStatusPoll(filename, wp);
+
+        // distribute meta data to visualiztion form
         $("#visualSettingsForm #sequence").val(data.sequences);
         $('#visualSettingsForm #lastIndex').val(data.sequenceBases);
+        $('#visualSettingsForm #columnCount').val(data.numberOfColumns);
+        PreviewController.initSequenceSlider($('#previewForm #startIndex').val(), data.sequenceBases, data.numberOfColumns);
+
 
     }
 //    var frm = $(document.visualSettingsForm);
@@ -195,10 +70,6 @@ $(function () {
         acceptFileTypes: /(\.|\/)(txt|fasta)$/i,
         done: function (e, data) {
             renderProgress(data.result);
-//            utils.debug("removed cookie: " + $.removeCookie("sequence", {path: "/", json: true}));
-//            $.cookie("sequence", data.result["sequences"], {path: "/", json: true});
-//            utils.debug("wrote to cookie: " + data.result["sequences"])
-
         },
         progressall: function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -211,66 +82,46 @@ $(function () {
             var currentFile = data.files[data.index];
             if (data.files.error && currentFile.error) {
                 // there was an error, do something about it
-                utils.debug(currentFile.error);
+                Utils.debug(currentFile.error);
                 $('<p/>').text("ERROR: " + currentFile.error + " " + currentFile.name).appendTo("#messages").addClass("text-danger");
             }
         },
         add: function (e, data) {
-            data.formData = utils.createData(
+            data.formData = Utils.createData(
                     {alignmentType: $('#alignmentTypeFile').val()});
             data.submit();
         }
 
     });
     $("#pasteSequenceForm").submit(function (event) {
-// Stop form from submitting normally
+        // Stop form from submitting normally
         event.preventDefault();
-// Get some values from elements on the page:
+        // Get some values from elements on the page:
         var $form = $(this),
                 url = $form.attr("action");
-        var data = utils.createData(
+        var data = Utils.createData(
                 {alignmentType: $('#alignmentTypePaste').val(),
                     sequence: $('#pasteSequence').val()
                 });
-        for (var i = 0; i < data.length; i++) {
-            var d = data[i];
-            utils.debug(d);
-//            if (d.name === "sequence") {
-//                d.value = $form['paseSequence'];
-//            }
-        }
-// Send the data using post
-        var posting = $.post(url, data);
-// Put the results in a div
-        posting.done(function (data) {
-            renderProgress(data);
-        });
+
+        renderImage(url, data);
     });
-    $("#useExampleButton").click(function (event) {
-// Stop form from submitting normally
+
+    $("#useExampleForm").submit(function (event) {
+        // Stop form from submitting normally
         event.preventDefault();
-// Get some values from elements on the page:
-        var url = "/upload/seq2";
-        var data = utils.createData(
+        // Get some values from elements on the page:
+        var $form = $(this),
+                url = $form.attr("action");
+        var data = Utils.createData(
                 {alignmentType: 'AMINOACIDS'});
-        for (var i = 0; i < data.length; i++) {
-            var d = data[i];
-            utils.debug(d);
-//            if (d.name === "sequence") {
-//                d.value = $form['paseSequence'];
-//            }
-        }
-// Send the data using post
-        var posting = $.post(url, data);
-// Put the results in a div
-        posting.done(function (data) {
-            renderProgress(data);
-        });
+        renderImage(url, data);
     });
+
     $("#createBundleButton").click(function () {
-        utils.animatePreviewImage();
+        Utils.animatePreviewImage();
     });
     $("#downloadButton").click(function () {
-        utils.animateDowloadImage();
+        Utils.animateDowloadImage();
     });
 });

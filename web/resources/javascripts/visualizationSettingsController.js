@@ -9,26 +9,25 @@ $(function () {
     'use strict';
 
     $("#visualSettingsForm").submit(function (event) {
-// Stop form from submitting normally
+        // Stop form from submitting normally
         event.preventDefault();
-// Get some values from elements on the page:
+        // Get some values from elements on the page:
         var $form = $(this),
                 url = $form.attr("action");
-        var data = utils.createData(
+        var data = Utils.createData(
                 {alignmentType: $('#alignmentType').val()});
 
-        for (var i = 0; i < data.length; i++) {
-            utils.debug(data[i]);
-        }
-// Send the data using post
+        
+        // Send the data using post
         var posting = $.post(url, data);
-// Put the results in a div
+        // Put the results in a div
         posting.done(function (data) {
             var d = new Date();
             var wp = data["webPath"] + "?" + d.getTime();
-            var filename = wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
-            utils.animateShowImage();
-            utils.jobStatusPoll(filename, wp);
+            var filename = Utils.getFilename(wp);
+            Utils.jobStatusPoll(filename, wp);
+            // number of columns may have been updated due to new column width
+            $('#visualSettingsForm #columnCount').val(data.numberOfColumns);
         });
     });
 

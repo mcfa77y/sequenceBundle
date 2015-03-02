@@ -215,13 +215,22 @@ public class UploadController implements ServletContextAware {
         return validate(request, seq);
     }
 
+    @RequestMapping(value = "/example", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
+    public @ResponseBody
+    AlvisModel example(HttpServletRequest request,
+            HttpServletResponse response
+    ) throws Exception {
+        String exampleFile = servletContext.getRealPath("/resources") + "/examples/211_Curated_sequences_combined.fasta";
+        String seq = readFile(exampleFile, StandardCharsets.UTF_8);
+        return validate(request, seq);
+    }
+
     @RequestMapping(value = "/seq2", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
     public @ResponseBody
     AlvisModel seq2(HttpServletRequest request,
             HttpServletResponse response
     ) throws Exception {
-        String exampleFile = servletContext.getRealPath("/resources") + "/examples/211_Curated_sequences_combined.fasta";
-        String seq = readFile(exampleFile, StandardCharsets.UTF_8);
+        String seq = request.getParameter("sequence");
         return validate(request, seq);
     }
 
