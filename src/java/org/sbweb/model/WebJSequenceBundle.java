@@ -18,6 +18,7 @@ import gui.sequencebundle.SequenceBundleRendererEvent;
 import gui.sequencebundle.SequenceBundleRendererListener;
 import gui.sequencebundle.legend.AbstractLegendRenderer;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -42,6 +43,7 @@ public class WebJSequenceBundle extends JSequenceBundle {
 
     public void renderFragmentPNGToFile(final File file, int dpi, int fromIndex, int toIndex) {
         AlvisModel config = new AlvisModel(getWebBundleConfig()); // copy the config
+        config.setAutomaticRedraw(false);
         config.setDpi(dpi);
 
 //        final SequenceBundleRenderer imageRenderer = new SequenceBundleRenderer(this, config);
@@ -51,15 +53,18 @@ public class WebJSequenceBundle extends JSequenceBundle {
         if (config.getyAxis().equals(config.getyAxis().DEFAULT)) {
             newLegendRenderer = AbstractLegendRenderer.createDefaultLegendRenderer(SequenceAlphabet.AMINOACIDS, config);
         } else {
-            newLegendRenderer = AbstractLegendRenderer.createAAIndexLegendRenderer(config.getAlignmentType().getSequenceAlphabet(), config, config.getyAxis().getAaIndexEntry());
+            newLegendRenderer = AbstractLegendRenderer.createAAIndexLegendRenderer(getAlphabet(), config, config.getyAxis().getAaIndexEntry());
         }
         newLegendRenderer.setBundleConfig(config);
+        this.setLegendRenderer(newLegendRenderer);
+        imageRenderer.init();
+
         final int legendWidth = (int) newLegendRenderer.getLegendSize().getWidth();
         config.setBundleIndent(legendWidth);
 
         final int width = imageRenderer.calculateFragmentWidth(fromIndex, toIndex) + legendWidth;
         final int height = imageRenderer.getDrawingAreaHeight();
-        final DiskMemImage theImage = imageRenderer.createDiskMemImage(width, height);
+        final BufferedImage theImage = imageRenderer.createCompatibleImage(width, height);
 
         // draw everything apart from the bundles
         final Graphics2D gc = theImage.createGraphics();
