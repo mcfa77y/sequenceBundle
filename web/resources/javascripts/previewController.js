@@ -30,7 +30,7 @@ var PreviewController = {
 
 
         $('#n-terminus').click(function () {
-            $('#startIndex').val("0");
+            $('#startIndex').val("1");
             PreviewController.renderImage();
         });
 
@@ -65,8 +65,8 @@ var PreviewController = {
     initSequenceSlider: function (start, max, step) {
         console.log("init sequence slider - max: " + max + "step: " + step);
         PreviewController.oldSliderValue = $("#startIndex").val();
-
-        $("#sliderSequence").slider({
+        var sequenceSlider = $("#sliderSequence");
+        sequenceSlider.slider({
             min: 1,
             max: max,
             step: step,
@@ -86,6 +86,25 @@ var PreviewController = {
                 }
             }
         });
+
+        function updateSliderWidth() {
+            var sequenceSlider = $("#sliderSequence");
+            var newWidth = 0.75 * (sequenceSlider.parent().parent().parent().width() - ($('#n-terminus').width() + $('#c-terminus').width() + $('#previewForm').width()));
+            sequenceSlider.width(newWidth + "px");
+        }
+        updateSliderWidth();
+
+        sequenceSlider.css('margin-top', '25px');
+        sequenceSlider.css('margin-bottom', '50px');
+        sequenceSlider.css('margin-right', '5px');
+
+
+        $(window).resize(
+                function () {
+                    console.log('resize happening');
+                    updateSliderWidth();
+                });
+
     },
     renderImage: function () {
         var posting = $.post("/upload/seq2", Utils.createData());

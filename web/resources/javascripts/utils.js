@@ -40,10 +40,10 @@ var Utils = {
         }
         var data = $('#visualSettingsForm').serializeArray();
         var startIndex = $('#startIndex').val();
-        if (startIndex === "") {
+        if (startIndex === "" || startIndex < 1) {
             startIndex = 1;
+            $('#startIndex').val(1);
         }
-
         var keyMap = {};
         for (i = 0; i < data.len; i++) {
             var key = data[i].name;
@@ -58,7 +58,6 @@ var Utils = {
             data.push({name: "startIndex", value: startIndex});
         }
 
-
         var alignmentType = opt.alignmentType;
         if (alignmentType) {
             if (keyMap.alignmentType) {
@@ -70,7 +69,7 @@ var Utils = {
             // update form visualization data 
             $('#visualSettingsForm #alignmentType').val(alignmentType);
         }
-        
+
         var sequence = opt.sequence;
         if (sequence) {
             if (keyMap.sequence) {
