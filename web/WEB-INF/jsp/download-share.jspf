@@ -16,12 +16,12 @@
                         </a>
                     </div><!-- #setting-row -->
 
-                    <div class="setting-row">
+<!--                    <div class="setting-row">
                         <label class="edit-settings" style="margin-left: 10px;">AS A HIGH QUALITY</label>
                         <span class="btn btn-use-example" style="margin-bottom: 5px;margin-left: 10px;">
                             <span>.SVG</span>
-                        </span><!-- #span -->
-                    </div><!-- #setting-row -->
+                        </span> #span 
+                    </div> #setting-row -->
 
                 </div><!-- #col -->
             </div><!-- #row -->
