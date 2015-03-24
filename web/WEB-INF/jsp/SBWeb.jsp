@@ -20,11 +20,12 @@
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.iframe-transport.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload-process.js"  />"></script>
-        <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload-validate.js"  />"></script>
+        <script src="<c:url value="/resources/javascripts/hlb1ohy.js"  />"></script>
 
         <script src="<c:url value="/resources/javascripts/utils.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/jqueryFileUpload/uploadController.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/visualizationSettingsController.js"  />"></script>
+        <script src="<c:url value="/resources/javascripts/previewController.js"  />"></script>
         <script src="<c:url value="/resources/javascripts/previewController.js"  />"></script>
 
 
@@ -34,6 +35,11 @@
         <link rel="stylesheet" href="<c:url value="/resources/stylesheets/jquery.fileupload.css"  />">
         <link rel="stylesheet" href="<c:url value="/resources/stylesheets/styles.css"  />">
 
+       
+        <script>try {
+         Typekit.load();
+     } catch (e) {
+     }</script>
     </head>
     <body>
 
@@ -44,7 +50,7 @@
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingOne">
-                        <h1 class="panel-number">1</h1><h1 class="panel-title"><a class="panel-title-link" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">UPLOAD<br>YOUR SEQUENCE</a></h1><div style="clear:both"></div>
+                        <h1 class="panel-number">1</h1><h1 class="panel-title"><a class="panel-title-link" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">SELECT DATA</a></h1><div style="clear:both"></div>
                     </div><!-- #panel-heading -->
 
                     <div aria-expanded="true" id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">

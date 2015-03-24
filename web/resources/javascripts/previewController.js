@@ -107,7 +107,7 @@ var PreviewController = {
 
     },
     renderImage: function () {
-        var posting = $.post("/upload/seq2", Utils.createData());
+        var posting = $.post("/upload/paste", Utils.createData());
 
         // Put the results in a div
         posting.done(function (data) {

@@ -14,13 +14,13 @@
                     </form><!-- #form -->
                 </li>
 
-                <li class="preview-nav-btn"><a href="#" class="section-title" id="n-terminus"><img style=" height: 30px;" src="<c:url value="/resources/images/n-terminus.svg"/>"/><br>N-TERMINUS <span class="sr-only">(current)</span></a></li>
+                <li class="preview-nav-btn"><a href="#" class="section-title" id="n-terminus"><img style=" height: 30px;" src="<c:url value="/resources/images/SVG/n-terminus.svg"/>"/><br>N-TERMINUS <span class="sr-only">(current)</span></a></li>
                 <li class="preview-nav-btn">
                     <div id="sliderSequence"></div>
                 </li>
                 <!-- <li class="preview-nav-btn"><a href="#"><img src="img/top-conservation.svg" style="height: 50px;"/><br>TOP CONSERVATION</a></li> -->
                 <!-- <li class="preview-nav-btn"><a href="#"><img src="img/top-variation.svg" style="height: 50px;"/><br>TOP VARIATION</a></li> -->
-                <li class="preview-nav-btn"><a href="#" class="section-title" id="c-terminus"><img src="<c:url value="/resources/images/c-terminus.svg"/>" style="height: 30px;"/></span><br>C-TERMINUS</a></li>
+                <li class="preview-nav-btn"><a href="#" class="section-title" id="c-terminus"><img src="<c:url value="/resources/images/SVG/c-terminus.svg"/>" style="height: 30px;"/></span><br>C-TERMINUS</a></li>
             </ul>
         </div><!-- #navbar-collapse -->
     </div><!-- #container-fluid -->

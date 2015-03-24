@@ -6,7 +6,7 @@
     <h2 style="text-align: center;">HOW WOULD YOU LIKE TO UPLOAD A FILE?</h2>
     <div class="panel-section">
         <div class="row" style="margin: 2em 2em 2em 2em;">
-            <div class="col-md-4">
+            <div class="col-md-4" style="display:none">
                 <div class="row" style="padding: 1em;">
                     <div class="col-md-12 edit-panel">
                         <div><h2>Option 1: Use a  *.FASTA file</h2></div>
@@ -33,19 +33,19 @@
                                 <i class="glyphicon glyphicon-search"></i>
                                 <span>BROWSE AND VALIDATE</span>
                                 <!-- The file input field used as target for the file upload widget -->
-                                <input id="fu" data-url="/upload/seq" name="file" type="file">
+                                <input id="fileUpload" data-url="/upload/file" name="file" type="file">
                             </span><!-- #span -->
                         </form>
                     </div><!-- #col -->
                 </div><!-- #row -->
             </div><!-- #col -->
 
-            <div class="col-md-4">
+            <div class="col-md-4" style="display:none">
                 <div class="row" style="padding: 1em;">
                     <div class="col-md-12 edit-panel">
                         <div><h2>Option 2: Paste MSA data</h2></div>
                         <label class="section-title" for="fromPaste">PASTE YOUR MSA IN THE BOX BELOW</label>
-                        <form id="pasteSequenceForm" action="/upload/seq2">
+                        <form id="pasteSequenceForm" action="/upload/paste">
                             <div style="padding: 0px 1.5em 1.5em 1.5em;">
                                 <textarea cols="30" rows="5" id="pasteSequence" name="pasteSequence"></textarea>
                             </div><!-- #padding-text -->
@@ -59,14 +59,27 @@
                     </div><!-- #col -->
                 </div><!-- #row -->
             </div><!-- #col -->
-
-            <div class="col-md-4">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
                 <div class="row" style="padding: 1em;">
                     <div class="col-md-12 edit-panel">
-                        <div><h2>Option 3: Use our example MSA</h2></div>
-                        <div class="setting-row" style="border-bottom: none;"><label class="edit-settings" id="example-dataset" style="margin-left:10px;margin-right: 15px; line-height: 1.4em; border-bottom: none;">OUR EXAMPLE DATASET IS AN AMINO ACID SEQUENCE WITH XX SEQUENCES ON XX POSITIONS. IT WAS PROVIDED BY THE XX LABORATORY.</div>
+                        <div><h2>Select example data from menue below:</h2></div>
+                        <div class="setting-row" style="border-bottom: none;">
+                            <label class="edit-settings" id="example-dataset" style="margin-left:10px;margin-right: 15px; line-height: 1.4em; border-bottom: none;">OUR EXAMPLE DATASET IS AN AMINO ACID SEQUENCE WITH XX SEQUENCES ON XX POSITIONS. IT WAS PROVIDED BY THE XX LABORATORY.</label>
+                        </div>
                         <form id="useExampleForm" action="/upload/example">
-
+                            <select class="edit-dropdown" id="exampleFile" name="exampleFile" style="margin-left: 20px; margin-bottom:20px ">
+                                <option value="ABC_tran-(PF00005)_ATP-binding-domain-of-ABC-transporters.txt"> ATP binding domain of ABC transporters  </option>
+                                <option value="ADH_N-(PF08240)_Alcohol-dehydrogenases-catalytic-domain.txt"> Alcohol dehydrogenases catalytic domain  </option>
+                                <option value="ADK_LID-Adenylate-kinase-lid-domain_mod-from-Magliery-Ray.txt" selected="true"> Adenylate kinase lid domain </option>
+                                <option value="Ank_2-(PF12796)_Ankyrin-repeat_seed.txt"> Ankyrin repeat motif  </option>
+                                <option value="CBM_5_12_2-(PF14600)_Cellulose-binding-domain_RP75.txt"> Cellulose-binding domain </option>
+                                <option value="DUF4596-(PF15363)_Domain-of-unknown-function.txt"> Domain of unknown function  </option>
+                                <option value="HATPase_c-(PF02518)_GHKL-domain_Seed.txt"> Structurally related ATPase domains  </option>
+                                <option value="Insulin-(PF00049)-RP55.txt"> Insulin </option>
+                                <option value="Tox-WTIP-(PF15654)_Toxin-with-tryptophan-and-TIP-motif.txt"> Bacterial toxin domain  </option>
+                                <option value="zf-H2C2_2-(PF13465)-Zinc-finger-double-domain.txt"> Zinc-finger double domain  </option>
+                            </select>
                             <div>
                                 <input id="useExample" class="btn btn-use-example "  value="USE EXAMPLE" type="submit" style="margin-left: 20px;">
                             </div>
@@ -74,9 +87,16 @@
                     </div><!-- #col-12 -->
                 </div><!-- #row -->
             </div><!-- #col-4 -->
+            <div class="col-md-3"></div>
 
         </div><!-- #row -->
 
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2" >
+                <p class="upload-description" style="display: none"></p>
+            </div>
+        </div><!-- #row -->
+        
         <div class="row">
             <div class="col-md-8 col-md-offset-2" >
                 <p class="upload-summary" style="display: none"></p>

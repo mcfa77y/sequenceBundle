@@ -44,42 +44,47 @@ var Utils = {
             startIndex = 1;
             $('#startIndex').val(1);
         }
-        var keyMap = {};
-        for (i = 0; i < data.len; i++) {
+        // converts data into an associated array
+        // where the name of the form element name is the key
+        // and the form value is the value of key map
+        var dataKeyMap = {};
+        for (i = 0; i < data.length; i++) {
             var key = data[i].name;
-            keyMap[key] = i;
+            dataKeyMap[key] = {value: data[i].value, index: i};
         }
 
 
-        if (keyMap.startIndex) {
-            data[keyMap.startIndex].value = startIndex;
+
+        if (dataKeyMap.startIndex) {
+            data[dataKeyMap.startIndex].value = startIndex;
+            dataKeyMap.startIndex;
         }
         else {
             data.push({name: "startIndex", value: startIndex});
         }
 
-        var alignmentType = opt.alignmentType;
-        if (alignmentType) {
-            if (keyMap.alignmentType) {
-                data[keyMap.alignmentType].value = alignmentType;
-            }
-            else {
-                data.push({name: "alignmentType", value: alignmentType});
-            }
-            // update form visualization data 
-            $('#visualSettingsForm #alignmentType').val(alignmentType);
-        }
 
-        var sequence = opt.sequence;
-        if (sequence) {
-            if (keyMap.sequence) {
-                data[keyMap.sequence].value = sequence;
+        // if user sends over opts then use those values in the data that will 
+        // be sent to the server
+        // see if opt has any values to use
+        if (Object.keys(opt).length > 0) {
+            // loop over the keys in opt
+            for (key in opt) {
+                if (opt.hasOwnProperty(key)) {
+                    var value = opt[key];
+                    // if the attribute is already in data then update it
+                    if (dataKeyMap[key]) {
+                        data[dataKeyMap[key].index].value = value;
+                    } else {
+                        // else push the option onto the data object
+                        // attribute may not in the data form but user wants to
+                        // have it sent with the request
+                        data.push({name: key, value: value});
+                    }
+                    // update form visualization data 
+                    $('#visualSettingsForm ' + '#' + key).val(value);
+                }
             }
-            else {
-                data.push({name: "sequence", value: sequence});
-            }
-            // update form visualization data 
-            $("#visualSettingsForm #sequence").val(sequence);
         }
         return data;
     },

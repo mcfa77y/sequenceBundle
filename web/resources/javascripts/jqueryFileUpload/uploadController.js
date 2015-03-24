@@ -56,7 +56,7 @@ $(function () {
         $("#visualSettingsForm #sequence").val(data.sequences);
         $('#visualSettingsForm #lastIndex').val(data.sequenceBases);
         $('#visualSettingsForm #columnCount').val(data.numberOfColumns);
-        PreviewController.initSequenceSlider($('#previewForm #startIndex').val(), data.sequenceBases, data.numberOfColumns);
+        PreviewController.initSequenceSlider($('#previewForm #startIndex').val(), data.sequenceBases, 1);
 
 
     }
@@ -64,7 +64,7 @@ $(function () {
 //    var data = JSON.stringify(frm.serializeObject());
 
 
-    $('#fu').fileupload({
+    $('#fileUpload').fileupload({
         dataType: 'json',
         maxFileSize: 5 * 1024 * 1024,
         acceptFileTypes: /(\.|\/)(txt|fasta)$/i,
@@ -114,7 +114,7 @@ $(function () {
         var $form = $(this),
                 url = $form.attr("action");
         var data = Utils.createData(
-                {alignmentType: 'AMINOACIDS'});
+                {alignmentType: 'AMINOACIDS', filename: $('#exampleFile').val()});
         renderImage(url, data);
     });
 

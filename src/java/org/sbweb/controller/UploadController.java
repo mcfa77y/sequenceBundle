@@ -73,7 +73,7 @@ public class UploadController implements ServletContextAware {
         return new StatusResponse(true, "Message received");
     }
 
-    @RequestMapping(value = "/file", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
+    @RequestMapping(value = "/file2", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
     public @ResponseBody
     List<UploadedFile> upload(@RequestParam("file") MultipartFile file) {
         // Do custom steps here
@@ -206,7 +206,7 @@ public class UploadController implements ServletContextAware {
         }
     }
 
-    @RequestMapping(value = "/seq", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
+    @RequestMapping(value = "/file", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
     public @ResponseBody
     AlvisModel seq(HttpServletRequest request,
             HttpServletResponse response,
@@ -220,14 +220,16 @@ public class UploadController implements ServletContextAware {
     AlvisModel example(HttpServletRequest request,
             HttpServletResponse response
     ) throws Exception {
-        String exampleFile = servletContext.getRealPath("/resources") + "/examples/211_Curated_sequences_combined.fasta";
+        Map<String, String[]> pm = request.getParameterMap();
+        String exampleFileName = pm.get("filename")[0];
+        String exampleFile = servletContext.getRealPath("/resources") + "/examples/" + exampleFileName;
         String seq = readFile(exampleFile, StandardCharsets.UTF_8);
         return validate(request, seq);
     }
 
-    @RequestMapping(value = "/seq2", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
+    @RequestMapping(value = "/paste", method = {RequestMethod.POST, RequestMethod.OPTIONS}, produces = "application/json")
     public @ResponseBody
-    AlvisModel seq2(HttpServletRequest request,
+    AlvisModel paste(HttpServletRequest request,
             HttpServletResponse response
     ) throws Exception {
         String seq = request.getParameter("sequence");

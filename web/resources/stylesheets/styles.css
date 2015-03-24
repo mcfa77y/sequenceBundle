@@ -371,43 +371,47 @@ input[type="checkbox"].checkbox {
     padding-left: 50px; }
 
 #col-width {
-    background: url("../images/col-width.svg") no-repeat; }
+    background: url("../images/SVG/col-width.svg") no-repeat; }
 
 #row-height {
-    background: url("../images/row-height.svg") no-repeat; }
+    background: url("../images/SVG/row-height.svg") no-repeat; }
 
 #vertical-grid {
-    background: url("../images/vertical-grid.svg") no-repeat; }
+    background: url("../images/SVG/vertical-grid.svg") no-repeat; }
 
 #row-shading {
-    background: url("../images/row-shading.svg") no-repeat; }
+    background: url("../images/SVG/SVG/row-shading.svg") no-repeat; }
 
 #bundle-height {
-    background: url("../images/bundle-height.svg") no-repeat; }
+    background: url("../images/SVG/bundle-height.svg") no-repeat; }
 
 #residue-width {
-    background: url("../images/residue-width.svg") no-repeat; }
+    background: url("../images/SVG/residue-width.svg") no-repeat; }
 
 #curve-radius {
-    background: url("../images/curve-radius.svg") no-repeat; }
+    background: url("../images/SVG/curve-radius.svg") no-repeat; }
 
 #show-consensus {
-    background: url("../images/show-consensus.svg") no-repeat; }
+    background: url("../images/SVG/show-consensus.svg") no-repeat; }
 
 #alphabet-overlay {
-    background: url("../images/alphabet-overlay.svg") no-repeat; }
+    background: url("../images/SVG/alphabet-overlay.svg") no-repeat; }
 
 #max-transparency {
-    background: url("../images/min-transparency.svg") no-repeat; }
+    background: url("../images/SVG/min-transparency.svg") no-repeat; }
 
 #min-transparency {
-    background: url("../images/min-transparency.svg") no-repeat; }
+    background: url("../images/SVG/min-transparency.svg") no-repeat; }
 
 #gaps {
-    background: url("../images/gaps.svg") no-repeat; }
+    background: url("../images/SVG/gaps.svg") no-repeat; }
 
 #line-colour {
-    background: url("../images/line-colour.svg") no-repeat; }
+    background: url("../images/SVG/line-colour.svg") no-repeat; }
 
 #y-axis {
-    background: url("../images/y-axis.svg") no-repeat; }
+    background: url("../images/SVG/y-axis.svg") no-repeat; }
+
+#logo {
+    background: url("../images/SVG/Logo_science-practice.svg") no-repeat;
+}
