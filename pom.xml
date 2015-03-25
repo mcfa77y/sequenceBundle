@@ -361,6 +361,12 @@
             <artifactId>prefuse</artifactId>
             <version>beta-20071021</version>
         </dependency>
+        		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-catalina</artifactId>
+			<version>8.0.20</version>
+		</dependency>
+        
         <dependency>
             <groupId>com.alvis</groupId>
             <artifactId>alvis</artifactId>

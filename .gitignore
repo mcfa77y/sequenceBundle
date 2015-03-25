@@ -1,4 +1,6 @@
 build
+target
+*.project
 dist
 temp
 Thumbs.db
