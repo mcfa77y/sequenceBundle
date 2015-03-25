@@ -1,0 +1,50 @@
+.done-true {
+    text-decoration: line-through;
+    color: grey;
+}
+li {list-style-type: none;}
+ul {padding-left: 20px;}
+
+.center {
+    text-align: center;
+    clear: both;
+}
+
+
+.left {
+    float: left;
+    display: inline;
+    padding: 25px 50px
+}
+.right {
+    float: right;
+    display: inline;
+}
+
+.box {
+    float: left;
+    display: inline;
+    padding: 5px 10px;
+    margin: 5px 5px;
+
+    border-style: solid;
+    border-width: 1px;
+}
+
+.scrolly {
+    overflow-x: auto;
+}
+
+#loading {
+  width: 1064px;
+  height: 500px;
+  display: block;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 99;
+  text-align: center;
+}
+
+#loading-image {
+  z-index: 100;
+}

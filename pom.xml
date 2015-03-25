@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.springsource.petclinic</groupId>
-    <artifactId>petclinic</artifactId>
+    <groupId>org.spee</groupId>
+    <artifactId>sbweb-jetty</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <version>0.1.0.BUILD-SNAPSHOT</version>
-    <name>petclinic</name>
+
+    <name>sbweb</name>
+
     <properties>
         <aspectj.version>1.8.1</aspectj.version>
-        <java.version>1.6</java.version>
+        <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <roo.version>1.3.1.RELEASE</roo.version>
         <slf4j.version>1.7.5</slf4j.version>
@@ -29,6 +31,17 @@
             <id>spring-roo-repository</id>
             <name>Spring Roo Repository</name>
             <url>http://spring-roo-repository.springsource.org/release</url>
+        </repository>
+        
+        <repository>
+            <id>com.springsource.repository.bundles.external</id>
+            <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+            <url>http://repository.springsource.com/maven/bundles/external</url>
+        </repository>
+        <repository>
+            <id>sbweb.local</id>
+            <name>sbweb</name>
+            <url>file:${project.basedir}/repo</url>
         </repository>
     </repositories>
     <pluginRepositories>
@@ -219,6 +232,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
@@ -284,6 +302,69 @@
             <groupId>postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>9.1-901-1.jdbc4</version>
+        </dependency>
+        
+        <!-- SBWeb dependencies -->
+        <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+            <version>3.2.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jblas</groupId>
+            <artifactId>jblas</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.media.jai</groupId>
+            <artifactId>com.springsource.javax.media.jai.core</artifactId>
+            <version>1.1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.jai-imageio</groupId>
+            <artifactId>jai-imageio-core</artifactId>
+            <version>1.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jaitools</groupId>
+            <artifactId>jt-all</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.biojava</groupId>
+            <artifactId>core</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.biojava</groupId>
+            <artifactId>blast</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-svggen</artifactId>
+            <version>1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.prefuse</groupId>
+            <artifactId>prefuse</artifactId>
+            <version>beta-20071021</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alvis</groupId>
+            <artifactId>alvis</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
@@ -434,20 +515,20 @@
                 <version>8.1.4.v20120524</version>
                 <configuration>
                     <webAppConfig>
-                        <contextPath>/${project.name}</contextPath>
+                        <contextPath>/</contextPath>
                     </webAppConfig>
                 </configuration>
             </plugin>
-        <plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>selenium-maven-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
-                <browser>*firefox</browser>
-                <suite>src/main/webapp/selenium/test-suite.xhtml</suite>
-                <results>${project.build.directory}/selenium.html</results>
-                <startURL>http://localhost:4444/</startURL>
-            </configuration>
+                    <browser>*firefox</browser>
+                    <suite>src/main/webapp/selenium/test-suite.xhtml</suite>
+                    <results>${project.build.directory}/selenium.html</results>
+                    <startURL>http://localhost:4444/</startURL>
+                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.seleniumhq.selenium</groupId>
@@ -457,25 +538,27 @@
                 </dependencies>
             </plugin>
             <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-dependency-plugin</artifactId>
-              <version>2.3</version>
-              <executions>
-                <execution>
-                  <phase>package</phase>
-                  <goals><goal>copy</goal></goals>
-                  <configuration>
-                    <artifactItems>
-                      <artifactItem>
-                        <groupId>org.mortbay.jetty</groupId>
-                        <artifactId>jetty-runner</artifactId>
-                        <version>7.4.5.v20110725</version>
-                        <destFileName>jetty-runner.jar</destFileName>
-                      </artifactItem>
-                    </artifactItems>
-                  </configuration>
-                </execution>
-              </executions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.mortbay.jetty</groupId>
+                                    <artifactId>jetty-runner</artifactId>
+                                    <version>7.4.5.v20110725</version>
+                                    <destFileName>jetty-runner.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
