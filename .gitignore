@@ -14,7 +14,7 @@ Thumbs.db
 *.log
 *.nlo
 *.out
+.gitignore*
+*.orig
 auto
-
-
 
