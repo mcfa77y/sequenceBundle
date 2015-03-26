@@ -29,6 +29,11 @@ var Utils = {
         $('#collapseTwo').collapse('show');
         $('#collapseThree').collapse('hide');
     },
+    animateUploadSequence: function () {
+        $('#collapseOne').collapse('show');
+        $('#collapseTwo').collapse('hide');
+        $('#collapseThree').collapse('hide');
+    },
     getFilename: function (wp) {
         return wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
     },
@@ -90,7 +95,7 @@ var Utils = {
     },
     jobStatusPoll: function (filename, imagePath) {
         // polls the server for status of the image that is rendering
-        Utils.animateShowImage();
+//        Utils.animateShowImage();
         $.post("upload/seq/status", {filename: filename}).done(function (data) {
             var progress = parseInt(data.value / data.max * 100, 10);
 //            utils.debug("render progress: " + data['value'] + "/" + data['max'] + " = " + progress);

@@ -6,7 +6,7 @@
     <h2 style="text-align: center;">HOW WOULD YOU LIKE TO UPLOAD A FILE?</h2>
     <div class="panel-section">
         <div class="row" style="margin: 2em 2em 2em 2em;">
-            <div class="col-md-4" >
+            <div class="col-md-4 hide" >
                 <div class="row" style="padding: 1em;">
                     <div class="col-md-12 edit-panel">
                         <div><h2>Option 1: Use a  *.FASTA file</h2></div>
@@ -37,7 +37,7 @@
                 </div><!-- #row -->
             </div><!-- #col -->
 
-            <div class="col-md-4">
+            <div class="col-md-4 hide">
                 <div class="row" style="padding: 1em;">
                     <div class="col-md-12 edit-panel">
                         <div><h2>Option 2: Paste MSA data</h2></div>
@@ -56,10 +56,10 @@
                     </div><!-- #col -->
                 </div><!-- #row -->
             </div><!-- #col -->
-            <div class="col-md-4">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="row" style="padding: 1em;">
                     <div class="col-md-12 edit-panel">
-                        <div><h2>Option 3: Use our MSA examples</h2></div>
+                        <div><h2>Select example data from menue below:</h2></div>
 
                         <form id="useExampleForm" action="/upload/example">
                             <select class="edit-dropdown example-file-dropdown" id="useExampleFile" name="exampleFile" style="margin-left: 20px; margin-bottom:20px ">

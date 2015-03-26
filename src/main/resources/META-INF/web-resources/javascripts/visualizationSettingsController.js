@@ -26,6 +26,7 @@ $(function () {
             var wp = data["webPath"] + "?" + d.getTime();
             var filename = Utils.getFilename(wp);
             Utils.jobStatusPoll(filename, wp);
+            Utils.animateShowImage();
             // number of columns may have been updated due to new column width
             $('#visualSettingsForm #columnCount').val(data.numberOfColumns);
         });

@@ -66,7 +66,8 @@
                                     </div>
                                     <div class="row submit-settings">
                                         <div class="col-md-12">
-                                            <input id="downloadButton" class="next-btn" value="DOWNLOAD" type="submit">
+                                            <input id="downloadButton" class="next-btn hide" value="DOWNLOAD" type="submit">
+                                            <input id="restartButton" class="next-btn " value="RESTART" type="submit">
                                         </div><!-- #col-12 -->
                                     </div><!-- #row -->
                                 </div>
@@ -81,7 +82,7 @@
                 </div>
 
 
-                <div class="panel panel-default">
+                <div class="panel panel-default hide" >
                     <div class="panel-heading" role="tab" id="headingThree">
                         <h1 class="panel-number">3</h1><h1 class="panel-title"><a class="panel-title-link collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">DOWNLOAD<br> AND SHARE</a></h1><div style="clear:both;"></div>
                     </div><!-- #panel-heading -->
