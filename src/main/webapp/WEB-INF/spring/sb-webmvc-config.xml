@@ -17,11 +17,10 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources -->
-	<mvc:resources
-		location="/, classpath:/META-INF/web-resources/"
+	<mvc:resources location="/, classpath:/META-INF/web-resources/"
 		mapping="/resources/**" />
 	<mvc:resources mapping="/images/**" location="/resources/images/" />
-	
+
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="mediaTypes">
@@ -52,6 +51,12 @@
 
 	<!-- Find the controllers. -->
 	<context:component-scan base-package="org.spee.sbweb.controller" />
+
+	<!-- Enable this for integration of file upload functionality -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="50000000" />
+	</bean>
 
 	<!-- Selects a static view for rendering without the need for an explicit 
 		controller -->

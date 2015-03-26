@@ -28,7 +28,7 @@
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingOne">
-                        <h1 class="panel-number">1</h1><h1 class="panel-title"><a class="panel-title-link" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">SELECT DATA</a></h1><div style="clear:both"></div>
+                        <h1 class="panel-number">1</h1><h1 class="panel-title"><a class="panel-title-link" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">UPLOAD <br/> SEQUENCE</a></h1><div style="clear:both"></div>
                     </div><!-- #panel-heading -->
 
                     <div aria-expanded="true" id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
