@@ -435,6 +435,12 @@ input[type="checkbox"].checkbox {
 	display: none;
 }
 
+.loading {
+	opacity: 0.4;
+	filter: alpha(opacity = 40); /* msie */
+	background-color: #000;
+}
+
 #col-width {
 	background: url("../images/SVG/col-width.svg") no-repeat;
 }

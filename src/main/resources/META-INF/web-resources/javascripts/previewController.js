@@ -15,6 +15,9 @@ var PreviewController = {
 			if ($('#startIndex').val() < 1) {
 				$('#startIndex').val(1);
 			}
+			if ($('#startIndex').val() > $('#visualSettingsForm #lastIndex').val()) {
+				$('#startIndex').val($('#visualSettingsForm #lastIndex').val());
+			}
 			data.push({
 				name : "startIndex",
 				value : $('#startIndex').val()
@@ -27,17 +30,20 @@ var PreviewController = {
 				var wp = data["webPath"] + "?" + d.getTime();
 				var filename = Utils.getFilename(wp);
 				Utils.jobStatusPoll(filename, wp);
+				Utils.showImage();
 			});
 		});
 
 		$('#n-terminus').click(function() {
-			$('#startIndex').val("1");
-			PreviewController.renderImage();
+			// the change of slider position will trigger an image render
+			// update slider position
+			$('#sliderSequence').slider('value',1);
 		});
 
 		$('#c-terminus').click(function() {
-			$('#startIndex').val($('#visualSettingsForm #lastIndex').val());
-			PreviewController.renderImage();
+			// the change of slider position will trigger an image render
+			// update slider position
+			$('#sliderSequence').slider('value',$('#visualSettingsForm #lastIndex').val());
 		});
 
 		// setup conservation intial value
@@ -59,7 +65,6 @@ var PreviewController = {
 	},
 	oldSliderValue : 1,
 	initSequenceSlider : function(start, max, step) {
-		console.log("init sequence slider - max: " + max + "step: " + step);
 		PreviewController.oldSliderValue = $("#startIndex").val();
 		var sequenceSlider = $("#sliderSequence");
 		sequenceSlider.slider({
@@ -68,44 +73,42 @@ var PreviewController = {
 			step : step,
 			value : start,
 			slide : function(event, ui) {
-				// $("#horizontalExtentLable").val(sizesLabel[ui.value]);
 				$("#startIndex").val(ui.value);
 
 			},
 			change : function(event, ui) {
 				// update image only if slider value changes
 				if (ui.value !== PreviewController.oldSliderValue) {
-					console.log('PreviewController.oldSliderValue: '
+					Utils.debug('PreviewController.oldSliderValue: '
 							+ PreviewController.oldSliderValue);
-					console.log('ui.value: ' + ui.value);
+					Utils.debug('ui.value: ' + ui.value);
 					PreviewController.oldSliderValue = ui.value;
+					$("#startIndex").val(ui.value);
 					PreviewController.renderImage();
 				}
 			}
 		});
 
-		function updateSliderWidth() {
-			var sequenceSlider = $("#sliderSequence");
-			var newWidth = 0.75 * (sequenceSlider.parent().parent().parent()
-					.width() - ($('#n-terminus').width()
-					+ $('#c-terminus').width() + $('#previewForm').width()));
-			sequenceSlider.width(newWidth + "px");
-		}
-		updateSliderWidth();
-
 		sequenceSlider.css('margin-top', '25px');
 		sequenceSlider.css('margin-bottom', '50px');
 		sequenceSlider.css('margin-right', '5px');
 
+		
 		$(window).resize(function() {
 			console.log('resize happening');
 			updateSliderWidth();
 		});
 
 	},
-	renderImage : function() {
+	updateSliderWidth: function(){
+		var sequenceSlider = $("#sliderSequence");
+		var newWidth = 0.75 * (sequenceSlider.parent().parent().parent()
+				.width() - ($('#n-terminus').width()
+				+ $('#c-terminus').width() + $('#previewForm').width()));
+		sequenceSlider.width(newWidth + "px");
+	},
+	renderImage : function() {	
 		var posting = $.post("/upload/paste", Utils.createData());
-
 		// Put the results in a div
 		posting.done(function(data) {
 			PreviewController.renderProgress(data);
@@ -116,6 +119,7 @@ var PreviewController = {
 		var wp = data.webPath + "?" + d.getTime();
 		var filename = Utils.getFilename(wp);
 		Utils.jobStatusPoll(filename, wp);
+		Utils.showImage();
 	}
 };
 

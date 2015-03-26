@@ -108,7 +108,7 @@
     </div><!-- #panel-section -->
     <div class="row submit-settings">
         <div class="col-md-12">
-            <input id="createBundleButton" class="btn btn-primary btn-lg upload-btn"  value="CREATE BUNDLE" type="button" disabled="">
+            <input id="createBundleButton" class="btn btn-primary btn-lg next-btn "  value="CREATE BUNDLE" type="button" disabled>
 
         </div><!-- #col-12 -->
     </div><!-- #row -->

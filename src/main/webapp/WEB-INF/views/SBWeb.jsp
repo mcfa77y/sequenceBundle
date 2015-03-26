@@ -56,12 +56,12 @@
                                 <div class="tab-pane active" id="tabs-1">
 
                                     <%@include file="navbar-sequence.jspf" %>
-                                    <div id="renderProgress" class="progress" >
+                                    <div id="renderProgress" class="progress loading-image" >
                                         <div class="progress-bar progress-bar-success"></div>
                                     </div>
-                                    <div id="loading" style="display: none">
-                                        <img id="loading-image" src="<c:url value="/resources/images/ajax-loader.gif"/>" alt="Loading..." />
-                                    </div>
+                                    <%-- <div id="loading" style="display: none">
+                                        <img class="loading-image" src="<c:url value="/resources/images/ajax-loader.gif"/>" alt="Loading..." />
+                                    </div> --%>
                                     <div id="sequenceBundle" class="scrolly">
                                     </div>
                                     <div class="row submit-settings">
