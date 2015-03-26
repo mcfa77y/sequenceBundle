@@ -17,6 +17,8 @@ import gui.sequencebundle.SequenceBundleConfig;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -320,25 +322,9 @@ public class UploadController implements ServletContextAware {
 		return alvisModel;
 	}
 
-	private void walk(String path){
-		if (path=="" || path==null) return;
-		Set<String> foo = this.servletContext.getResourcePaths(path);
-		if(foo.size()==0) return;
-		Iterator<String> iter = foo.iterator();
-		while(iter.hasNext()){
-			String s = iter.next();
-			Set<String> bar= this.servletContext.getResourcePaths(s);
-			if(bar.size()==0) return;
-			System.out.println("\t"+s+" UploadController.java - ServletContext: resources - "
-					+ bar);
-			walk(s);
-			}
-	}
 	@Override
 	public void setServletContext(ServletContext servletContext) {
-		this.servletContext = servletContext;
-		
-		walk("/");
+		this.servletContext = servletContext;	
 		System.out.println("UploadController.java - ServletContext: images - "
 				+ this.servletContext.getRealPath("/images"));
 		System.out.println("UploadController.java - ServletContext: root - "

@@ -159,4 +159,7 @@ Source: Pfam (PF13465)'};
     $("#downloadButton").click(function () {
         Utils.animateDowloadImage();
     });
+    $("#restartButton").click(function () {
+        Utils.animateUploadSequence();
+    });
 });
