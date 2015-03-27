@@ -121,6 +121,7 @@ var Utils = {
 						// image has finish rendering
 						$('#loading').hide();
 						$('#sequenceBundle').removeClass("loading");
+						
 						// remove rendering progress listener
 						$.post("upload/seq/remove", {
 							filename : filename

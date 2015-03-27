@@ -368,6 +368,7 @@ textarea {
 	padding-right: 0.5em;
 	padding-left: 0.5em;
 	background: #c5dbfe;
+	width: 93%;
 }
 
 .example-file-dropdown {
@@ -439,6 +440,16 @@ input[type="checkbox"].checkbox {
 	opacity: 0.4;
 	filter: alpha(opacity = 40); /* msie */
 	background-color: #000;
+}
+
+.summary-heading {
+	font-size: large;
+}
+
+.header {
+	font-size: large;
+	font-style:normal;
+	font-weight:500;
 }
 
 #col-width {

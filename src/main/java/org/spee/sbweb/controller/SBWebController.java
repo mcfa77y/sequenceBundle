@@ -57,7 +57,7 @@ public class SBWebController implements ServletContextAware {
         dataFormatList.add(AlvisModel.AlignmentType.NUCLEOTIDES);
         dataFormatList.add(AlvisModel.AlignmentType.RNA);
         model.addAttribute("dataFormatList", dataFormatList);
-        return "SBWeb";
+        return "index";
     }
 
     @RequestMapping(method = RequestMethod.POST)
