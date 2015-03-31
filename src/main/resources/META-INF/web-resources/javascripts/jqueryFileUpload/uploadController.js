@@ -1,4 +1,4 @@
-var debug = true;
+var debug = false;
 var sequence = "";
 /*
  * jQuery File Upload Plugin JS Example 8.9.1
@@ -60,9 +60,6 @@ $(function () {
 
 
     }
-//    var frm = $(document.visualSettingsForm);
-//    var data = JSON.stringify(frm.serializeObject());
-
 
     $('#fileUpload').fileupload({
         dataType: 'json',
@@ -142,10 +139,7 @@ Source: Pfam (PF15654)',
         'zf-H2C2_2-(PF13465)-Zinc-finger-double-domain.txt': 'Zinc-fingers are small protein structural motifs. Most of them function as interaction modules binding to DNA, RNA, other proteins, or other molecules.\
 Source: Pfam (PF13465)'};
 
-    // update sequence description
-    console.log(descriptionMap);
-    console.log($('#useExampleFile').val());
-    console.log(descriptionMap[$('#useExampleFile').val()]);
+    // update sequence description    
     $('#upload-description').text(descriptionMap[$('#useExampleFile').val()]);
 
     $("#useExampleFile").on('change', function () {
@@ -155,6 +149,7 @@ Source: Pfam (PF13465)'};
 
     $("#createBundleButton").click(function () {
         Utils.animatePreviewImage();
+        PreviewController.updateSliderWidth();
     });
     $("#downloadButton").click(function () {
         Utils.animateDowloadImage();

@@ -285,15 +285,45 @@ textarea {
 	margin: 15px 0 15px 15px;
 }
 
-.preview-icon {
+.tab-icon {
 	height: 40px;
-	display: inline-block;
+	/* display: inline-block; */
 	margin-top: -5px;
 	margin-left: -5px;
 }
 
+label input[type=radio] {
+	opacity: 0;
+}
+
 .preview-nav-btn {
 	text-align: center;
+}
+
+.ui-slider .ui-slider-handle {
+	height: 36px;
+	width: 17px;
+	margin-top: -10px;
+}
+
+.ui-widget-header .ui-state-default {
+	background: url("../images/SVG/Slider_preview.svg");
+	border: 0px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default,
+	.ui-widget-header .ui-state-default {
+	background: url("../images/SVG/Slider_preview.svg");
+	border: 0px;
+}
+
+.slider {
+	margin: 25px 5px;
+}
+
+.conservationThresholdLabel {
+	font-weight: bold;
+	display: inline;
 }
 
 .setting-row {
@@ -368,6 +398,7 @@ textarea {
 	padding-right: 0.5em;
 	padding-left: 0.5em;
 	background: #c5dbfe;
+	width: 93%;
 }
 
 .example-file-dropdown {
@@ -435,6 +466,27 @@ input[type="checkbox"].checkbox {
 	display: none;
 }
 
+.loading {
+	opacity: 0.4;
+	filter: alpha(opacity = 40); /* msie */
+	background-color: #000;
+}
+
+.summary-heading {
+	font-size: large;
+}
+
+.header {
+	font-size: large;
+	font-style: normal;
+	font-weight: 500;
+}
+
+.header-logo {
+	width: 213px;
+	height: 50px;
+}
+
 #col-width {
 	background: url("../images/SVG/col-width.svg") no-repeat;
 }
@@ -491,6 +543,22 @@ input[type="checkbox"].checkbox {
 	background: url("../images/SVG/y-axis.svg") no-repeat;
 }
 
-#logo {
+#logo-sp {
 	background: url("../images/SVG/Logo_science-practice.svg") no-repeat;
+}
+
+#preview-active {
+	background: url("../images/SVG/preview-eye_active.svg") no-repeat;
+}
+
+#preview-inactive {
+	background: url("../images/SVG/preview-eye.svg") no-repeat;
+}
+
+#settings-active {
+	background: url("../images/SVG/Settings-pencil_active.svg") no-repeat;
+}
+
+#settings-inactive {
+	background: url("../images/SVG/Settings-pencil.svg") no-repeat;
 }

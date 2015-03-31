@@ -19,7 +19,7 @@
 		up static resources -->
 	<mvc:resources location="/, classpath:/META-INF/web-resources/"
 		mapping="/resources/**" />
-	<mvc:resources mapping="/images/**" location="/resources/images/" />
+	<mvc:resources location="/resources/images/" mapping="/images/**" />
 
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">

@@ -1,90 +1,128 @@
-<form id="visualSettingsForm" name="visualSettingsForm" action="/upload/paste" >
-
-    <div class="row" style="margin: 3em 2em 1em 2em;">
-
-        <div class="col-md-4">
-
-            <div class="row" style="padding: 1em;">
-                <div class="col-md-12 edit-panel">
-                    <div><h2>BUNDLE SETTINGS</h2></div>
-                    <!--<div class="setting-row"><label class="edit-settings icon" id="bundle-height">BUNDLE HEIGHT IS:</label><input class="text-input" id="maxBundleWidth" name="maxBundleWidth" value="16" type="text"></div> -->
-                    <div class="setting-row"><label class="edit-settings icon" id="residue-width">RESIDUE WIDTH IS:</label>
-                        <select class="edit-dropdown" name="horizontalExtent">
-                            <option value="0.10">SHORT</option>
-                            <option value="0.33"selected="selected">MEDIUM</option>
-                            <option value="0.66">LONG</option>
-                        </select>
-                    </div>
-
-                    <div class="setting-row"><label class="edit-settings icon" id="curve-radius">CURVE RADIUS IS:</label>
-                        <select class="edit-dropdown" name="radius">
-                            <option value="1">SHARP</option>
-                            <option value="15"selected="selected">MEDIUM</option>
-                            <option value="30">SMOOTH</option>
-                        </select>
-                    </div>
-                    <div class="setting-row"><label class="edit-settings icon" id="line-colour">LINE COLOUR</label>
-                        <select class="edit-dropdown" id="lineColor" name="lineColor">
-                            <option value="DEFAULT" selected="selected">DEFAULT</option><option value="NAVY">NAVY</option><option value="SKY">SKY</option><option value="PURPLE">PURPLE</option><option value="RED">RED</option><option value="ORANGE">ORANGE</option><option value="GREY">GREY</option></select></div>
-                    <div class="setting-row"><label class="edit-settings" id="#">HIDE RESIDUES CONSERVED LESS THAN:</label>
-                        <input class="text-input" id="conservationThresholdLable" type="text" value="0.0" disabled>
-                        <div id="sliderResidueConservation"></div>
-                    </div>
-                </div><!-- #col-12 -->
-            </div><!-- #row -->
-
-        </div><!-- #col-4 -->
-
-        <div class="col-md-4">
-
-            <div class="row" style="padding: 1em;">
-                <div class="col-md-12 edit-panel" style="padding: 0;">
-                    <div><h2>GRID SETTINGS</h2></div>
-                    <div class="setting-row"><label class="edit-settings icon" id="y-axis">ORDER Y-AXIS BY:</label><select class="edit-dropdown" id="yAxis" name="yAxis"><option value="DEFAULT" selected="selected">DEFAULT</option><option value="HYDROPHOBICITY">HYDROPHOBICITY</option><option value="BULKINESS">BULKINESS</option><option value="POLARITY">POLARITY</option><option value="RFRANK">RF RANK</option><option value="ISOELECTRICPOINT">ISOELECTRIC POINT</option></select></div>
-                    <div class="setting-row"><label class="edit-settings icon" id="col-width">COLUMN WIDTH IS:</label>
-                        <select class="edit-dropdown" id="cellWidth" name="cellWidth">
-                            <option value="SMALL">NARROW</option>
-                            <option value="MEDIUM" selected="selected">MEDIUM</option>
-                            <option value="LARGE">WIDE</option>
-                        </select>
-                    </div>
-                    <!-- <div class="setting-row"><label class="edit-settings icon" id="row-height">ROW HEIGHT IS:</label><input class="text-input" id="cellHeight" name="cellHeight" value="20" type="text"></div>-->
-                    <div class="setting-row"><label class="edit-settings icon" id="vertical-grid">SHOW VERTICAL GRID LINES</label><input id="showingVerticalLines1" class="checkbox pull-right" name="showingVerticalLines" value="true" checked="checked" type="checkbox"><input name="_showingVerticalLines" value="on" type="hidden"></div>
-                </div><!-- #col-12 -->
-            </div><!-- #row -->
-
-
-        </div><!-- #col-4 -->
-
-        <div class="col-md-4">
-
-            <div class="row" style="padding: 1em;">
-                <div class="col-md-12 edit-panel">
-                    <div><h2>GAPS SETTINGS</h2></div>
-                    <div class="setting-row"><label class="edit-settings icon" id="gaps" id="gap-render">GAP RENDERING</label><select class="edit-dropdown" id="gapRendering" name="gapRendering"><option value="STANDARD" selected="selected">STANDARD</option><option value="DISCONNECTED">DISCONNECTED</option></select></div>
-                </div><!-- #col-12 -->
-            </div><!-- #row -->
-
-           
-
-        </div><!-- #col-12 -->
-    </div><!-- #row -->
-
-    <div class="row submit-settings">
-        <div class="col-md-12">
-            <input class="submit-btn" value="REFRESH" type="submit">
-        </div><!-- #col-12 -->
-    </div><!-- #row -->
-    <input id="showingConsensus" name="showingConsensus" value="empty" type="hidden">
-    <input id="showingVerticalLines" name="showingVerticalLines" value="empty" type="hidden">
-    <input id="sequence" name="sequence" value="empty" type="hidden">
-    <input id="alignmentType" name="alignmentType" value="AMINOACIDS" type="hidden">
-    <input id="lastIndex" name="lastIndex" value="-1" type="hidden">
-    <input id="conservationThreshold" name="conservationThreshold" type="hidden" value="0.0">
-    <input id="columnCount" name="columnCount" value="15" type="hidden">
-
+<form id="visualSettingsForm" name="visualSettingsForm" action="/upload/paste">
+ <div class="row" style="margin: 3em 2em 1em 2em;">
+  <div class="col-md-4">
+   <div class="row" style="padding: 1em;">
+    <div class="col-md-12 edit-panel" style="padding: 0;">
+     <div>
+      <h2>GRID</h2>
+     </div>
+     <div class="setting-row">
+      <label class="edit-settings icon" id="col-width">COLUMN WIDTH IS:</label>
+      <select class="edit-dropdown" id="cellWidth" name="cellWidth">
+       <option value="SMALL">NARROW</option>
+       <option value="MEDIUM" selected="selected">MEDIUM</option>
+       <option value="LARGE">WIDE</option>
+      </select>
+     </div>
+     <!-- <div class="setting-row"><label class="edit-settings icon" id="row-height">ROW HEIGHT IS:</label><input class="text-input" id="cellHeight" name="cellHeight" value="20" type="text"></div>-->
+     <div class="setting-row">
+      <label class="edit-settings icon" id="vertical-grid">SHOW VERTICAL GRID LINES</label>
+      <input id="showingVerticalLines1" class="checkbox pull-right" name="showingVerticalLines" value="true" checked="checked" type="checkbox">
+      <input name="_showingVerticalLines" value="on" type="hidden">
+     </div>
+     <div class="setting-row">
+      <label class="edit-settings icon" id="y-axis">ORDER AMINO ACIDS IN THE LEGEND BY: </label>
+      <select class="edit-dropdown" id="yAxis" name="yAxis"><option value="DEFAULT" selected="selected">DEFAULT</option>
+       <option value="HYDROPHOBICITY">HYDROPHOBICITY</option>
+       <option value="BULKINESS">BULKINESS</option>
+       <option value="POLARITY">POLARITY</option>
+       <option value="RFRANK">RF RANK</option>
+       <option value="ISOELECTRICPOINT">ISOELECTRIC POINT</option></select>
+     </div>
+    </div>
+    <!-- #col-12 -->
+   </div>
+   <!-- #row -->
+  </div>
+  <!-- #col-4 -->
+  <div class="col-md-4">
+   <div class="row" style="padding: 1em;">
+    <div class="col-md-12 edit-panel">
+     <div>
+      <h2>BUNDLE</h2>
+     </div>
+     <!--<div class="setting-row"><label class="edit-settings icon" id="bundle-height">BUNDLE HEIGHT IS:</label><input class="text-input" id="maxBundleWidth" name="maxBundleWidth" value="16" type="text"></div> -->
+     <div class="setting-row">
+      <label class="edit-settings icon" id="residue-width">RESIDUE WIDTH IS:</label>
+      <select class="edit-dropdown" name="horizontalExtent">
+       <option value="0.10">SHORT</option>
+       <option value="0.33" selected="selected">MEDIUM</option>
+       <option value="0.66">LONG</option>
+      </select>
+     </div>
+     <div class="setting-row">
+      <label class="edit-settings icon" id="curve-radius">CURVE RADIUS IS:</label>
+      <select class="edit-dropdown" name="radius">
+       <option value="1">SHARP</option>
+       <option value="15" selected="selected">MEDIUM</option>
+       <option value="30">SMOOTH</option>
+      </select>
+     </div>
+     <div class="setting-row">
+      <label class="edit-settings icon" id="line-colour">LINE COLOUR</label>
+      <select class="edit-dropdown" id="lineColor" name="lineColor">
+       <option value="DEFAULT" selected="selected">DEFAULT</option>
+       <option value="NAVY">NAVY</option>
+       <option value="SKY">SKY</option>
+       <option value="PURPLE">PURPLE</option>
+       <option value="RED">RED</option>
+       <option value="ORANGE">ORANGE</option>
+       <option value="GREY">GREY</option>
+      </select>
+     </div>
+    </div>
+    <!-- #col-12 -->
+   </div>
+   <!-- #row -->
+  </div>
+  <!-- #col-4 -->
+  <div class="col-md-4">
+   <div class="row" style="padding: 1em;">
+    <div class="col-md-12 edit-panel">
+     <div>
+      <h2>GAPS AND FILTERS</h2>
+     </div>
+     <div class="setting-row">
+      <label class="edit-settings">GAP RENDERING </label>
+      <div id="gapRadioGroup">
+       <label class="radio-inline">
+        <input class='gapRadioOption' type="radio" name="gapRendering" value="STANDARD" checked="checked">
+        <img class="tab-icon" src='resources/images/SVG/Gap-continuous_active.svg' />
+       </label>
+       <label class="radio-inline">
+        <input class='gapRadioOption' type="radio" name="gapRendering" value="DISCONNECTED">
+        <img class="tab-icon" src='resources/images/SVG/Gap-disconnected.svg' />
+       </label>
+      </div>
+     </div>
+     <div class="setting-row">
+      <label class="edit-settings">
+       HIDE RESIDUES CONSERVED LESS THAN:
+       
+      </label>
+      <div id="conservationThresholdLabel" class="edit-settings">0.0</div>
+      <div id="sliderResidueConservation" class="slider"></div>
+     </div>
+    </div>
+    <!-- #col-12 -->
+   </div>
+   <!-- #row -->
+  </div>
+  <!-- #col-12 -->
+ </div>
+ <!-- #row -->
+ <div class="row submit-settings">
+  <div class="col-md-12">
+   <input class="submit-btn" value="APPLY CHANGES" type="submit">
+  </div>
+  <!-- #col-12 -->
+ </div>
+ <!-- #row -->
+ <input id="showingConsensus" name="showingConsensus" value="empty" type="hidden">
+ <input id="showingVerticalLines" name="showingVerticalLines" value="empty" type="hidden">
+ <input id="sequence" name="sequence" value="empty" type="hidden">
+ <input id="alignmentType" name="alignmentType" value="AMINOACIDS" type="hidden">
+ <input id="lastIndex" name="lastIndex" value="-1" type="hidden">
+ <input id="conservationThreshold" name="conservationThreshold" type="hidden" value="0.0">
+ <input id="columnCount" name="columnCount" value="15" type="hidden">
 </form>
-
-
-
-

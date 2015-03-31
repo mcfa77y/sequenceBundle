@@ -1,123 +1,203 @@
-<%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingOne">
+		<h1 class="panel-number">1</h1>
+		<h1 class="panel-title">
+			<a class="panel-title-link" data-toggle="collapse"
+				data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+				aria-controls="collapseOne"><br />SELECT DATA </a>
+		</h1>
+		<div style="clear: both"></div>
+	</div>
+	<!-- #panel-heading -->
 
-<div>
-    <h2 style="text-align: center;">HOW WOULD YOU LIKE TO UPLOAD A FILE?</h2>
-    <div class="panel-section">
-        <div class="row" style="margin: 2em 2em 2em 2em;">
-            <div class="col-md-4" >
-                <div class="row" style="padding: 1em;">
-                    <div class="col-md-12 edit-panel">
-                        <div><h2>Option 1: Use a  *.FASTA file</h2></div>
-                        <h3>SELECT A FASTA FILE FROM YOUR COMPUTER</h3>
-                        <form id="fileSequenceForm">
-                            <!-- The fileinput-button span is used to style the file input field as button -->
+	<div aria-expanded="true" id="collapseOne"
+		class="panel-collapse collapse in" role="tabpanel"
+		aria-labelledby="headingOne">
 
+		<div class="panel-body">
 
-                            <span id="filename2"></span>
-                            <div style="margin: 0px 15px 15px 15px; font-size:1.4em; font-weight: 400; padding:0.5em; color: grey;">
-                                Protein, DNA or RNA *.FASTA files accepted. Maximum size of *.FASTA file should not exceed 1000 sequences and 1000 positions.
-                            </div>
-                           
-
-                            <!-- The container for the uploaded files -->
-                            <div id="messages" class="files"></div>
-                            <div style="padding: 0px 1.5em 1.5em 1.5em;">
-                                <select id="alignmentTypeFile" class="edit-dropdown" name="alignmentType"><option value="AMINOACIDS" selected="selected">AMINO ACIDS</option><option value="NUCLEOTIDES">NUCLEOTIDES</option><option value="RNA">RNA</option></select>
-                            </div>
-                            <span class="btn btn-success fileinput-button" style="margin-left: 20px;">
-                                <i class="glyphicon glyphicon-search"></i>
-                                <span>BROWSE AND VALIDATE</span>
-                                <!-- The file input field used as target for the file upload widget -->
-                                <input id="fileUpload" data-url="/upload/file" name="file" type="file">
-                            </span><!-- #span -->
-                        </form>
-                    </div><!-- #col -->
-                </div><!-- #row -->
-            </div><!-- #col -->
-
-            <div class="col-md-4">
-                <div class="row" style="padding: 1em;">
-                    <div class="col-md-12 edit-panel">
-                        <div><h2>Option 2: Paste MSA data</h2></div>
-                        <label class="section-title" for="fromPaste">PASTE YOUR MSA IN THE BOX BELOW</label>
-                        <form id="pasteSequenceForm" action="/upload/paste">
-                            <div style="padding: 0px 1.5em 1.5em 1.5em;">
-                                <textarea cols="30" rows="5" id="pasteSequence" name="pasteSequence"></textarea>
-                            </div><!-- #padding-text -->
-                            <div style="padding: 0px 1.5em 1.5em 1.5em;">
-                                <select id="alignmentTypePaste" class="edit-dropdown" name="alignmentType"><option value="AMINOACIDS" selected="selected">AMINO ACIDS</option><option value="NUCLEOTIDES">NUCLEOTIDES</option><option value="RNA">RNA</option></select>
-                            </div>
-                            <div>
-                                <input id="validatePaste" class="btn btn-use-example "  value="VALIDATE" type="submit" style="margin-left: 15px;">
-                            </div>
-                        </form>
-                    </div><!-- #col -->
-                </div><!-- #row -->
-            </div><!-- #col -->
-            <div class="col-md-4">
-                <div class="row" style="padding: 1em;">
-                    <div class="col-md-12 edit-panel">
-                        <div><h2>Option 3: Use our MSA examples</h2></div>
-
-                        <form id="useExampleForm" action="/upload/example">
-                            <select class="edit-dropdown example-file-dropdown" id="useExampleFile" name="exampleFile" style="margin-left: 20px; margin-bottom:20px ">
-                                <option value="ABC_tran-(PF00005)_ATP-binding-domain-of-ABC-transporters.txt"> ATP binding domain of ABC transporters  </option>
-                                <option value="ADH_N-(PF08240)_Alcohol-dehydrogenases-catalytic-domain.txt"> Alcohol dehydrogenases catalytic domain  </option>
-                                <option value="ADK_LID-Adenylate-kinase-lid-domain_mod-from-Magliery-Ray.txt" selected="selected"> Adenylate kinase lid domain </option>
-                                <option value="Ank_2-(PF12796)_Ankyrin-repeat_seed.txt"> Ankyrin repeat motif  </option>
-                                <option value="CBM_5_12_2-(PF14600)_Cellulose-binding-domain_RP75.txt"> Cellulose-binding domain </option>
-                                <option value="DUF4596-(PF15363)_Domain-of-unknown-function.txt"> Domain of unknown function  </option>
-                                <option value="HATPase_c-(PF02518)_GHKL-domain_Seed.txt"> Structurally related ATPase domains  </option>
-                                <option value="Insulin-(PF00049)-RP55.txt"> Insulin </option>
-                                <option value="Tox-WTIP-(PF15654)_Toxin-with-tryptophan-and-TIP-motif.txt"> Bacterial toxin domain  </option>
-                                <option value="zf-H2C2_2-(PF13465)-Zinc-finger-double-domain.txt"> Zinc-finger double domain  </option>
-                            </select>
-                            <div class="setting-row" style="border-bottom: none;">
-                                <label class="edit-settings" id="upload-description" style="margin-left:10px;margin-right: 15px; line-height: 1.4em; border-bottom: none;"></label>
-                            </div>
+			<div>
+				<h2 style="text-align: center;">HOW WOULD YOU LIKE TO UPLOAD A
+					FILE?</h2>
+				<div class="panel-section">
+					<div class="row" style="margin: 2em 2em 2em 2em;">
+						<div class="col-md-4 hide">
+							<div class="row" style="padding: 1em;">
+								<div class="col-md-12 edit-panel">
+									<div>
+										<h2>Option 1: Use a *.FASTA file</h2>
+									</div>
+									<h3>SELECT A FASTA FILE FROM YOUR COMPUTER</h3>
+									<form id="fileSequenceForm">
+										<!-- The fileinput-button span is used to style the file input field as button -->
 
 
-                            <div class="row submit-settings">
-                                <div class="col-md-12">
-                                    <input id="useExample" class="btn btn-use-example "  value="USE EXAMPLE" type="submit" style="margin-left: 20px;">
-                                </div><!-- #col-12 -->
-                            </div><!-- #row -->
+										<span id="filename2"></span>
+										<div
+											style="margin: 0px 15px 15px 15px; font-size: 1.4em; font-weight: 400; padding: 0.5em; color: grey;">
+											Protein, DNA or RNA *.FASTA files accepted. Maximum size of
+											*.FASTA file should not exceed 1000 sequences and 1000
+											positions.</div>
 
 
-                        </form>
-                    </div><!-- #col-12 -->
-                </div><!-- #row -->
-            </div><!-- #col-4 -->
+										<!-- The container for the uploaded files -->
+										<div id="messages" class="files"></div>
+										<div style="padding: 0px 1.5em 1.5em 1.5em;">
+											<select id="alignmentTypeFile" class="edit-dropdown"
+												name="alignmentType"><option value="AMINOACIDS"
+													selected="selected">AMINO ACIDS</option>
+												<option value="NUCLEOTIDES">NUCLEOTIDES</option>
+												<option value="RNA">RNA</option></select>
+										</div>
+										<span class="btn btn-success fileinput-button"
+											style="margin-left: 20px;"> <i
+											class="glyphicon glyphicon-search"></i> <span>BROWSE
+												AND VALIDATE</span> <!-- The file input field used as target for the file upload widget -->
+											<input id="fileUpload" data-url="/upload/file" name="file"
+											type="file">
+										</span>
+										<!-- #span -->
+									</form>
+								</div>
+								<!-- #col -->
+							</div>
+							<!-- #row -->
+						</div>
+						<!-- #col -->
 
-        </div><!-- #row -->
+						<div class="col-md-4 hide">
+							<div class="row" style="padding: 1em;">
+								<div class="col-md-12 edit-panel">
+									<div>
+										<h2>Option 2: Paste MSA data</h2>
+									</div>
+									<label class="section-title" for="fromPaste">PASTE YOUR
+										MSA IN THE BOX BELOW</label>
+									<form id="pasteSequenceForm" action="/upload/paste">
+										<div style="padding: 0px 1.5em 1.5em 1.5em;">
+											<textarea cols="30" rows="5" id="pasteSequence"
+												name="pasteSequence"></textarea>
+										</div>
+										<!-- #padding-text -->
+										<div style="padding: 0px 1.5em 1.5em 1.5em;">
+											<select id="alignmentTypePaste" class="edit-dropdown"
+												name="alignmentType"><option value="AMINOACIDS"
+													selected="selected">AMINO ACIDS</option>
+												<option value="NUCLEOTIDES">NUCLEOTIDES</option>
+												<option value="RNA">RNA</option></select>
+										</div>
+										<div>
+											<input id="validatePaste" class="btn btn-use-example "
+												value="VALIDATE" type="submit" style="margin-left: 15px;">
+										</div>
+									</form>
+								</div>
+								<!-- #col -->
+							</div>
+							<!-- #row -->
+						</div>
+						<!-- #col -->
+						<div class="col-md-8 col-md-offset-2">
+							<div class="row" style="padding: 1em;">
+								<div class="col-md-12 edit-panel">
+									<div>
+										<h2>Select example data from menu below:</h2>
+									</div>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2" >
-                <p class="upload-summary" style="display: none"></p>
-            </div>
-        </div><!-- #row -->
+									<form id="useExampleForm" action="/upload/example">
+										<div class="form-group">
+											<select
+												class="form-control edit-dropdown example-file-dropdown"
+												id="useExampleFile" name="exampleFile"
+												style="margin-left: 20px; margin-bottom: 20px">
+												<option
+													value="ABC_tran-(PF00005)_ATP-binding-domain-of-ABC-transporters.txt">
+													ATP binding domain of ABC transporters</option>
+												<option
+													value="ADH_N-(PF08240)_Alcohol-dehydrogenases-catalytic-domain.txt">
+													Alcohol dehydrogenases catalytic domain</option>
+												<option
+													value="ADK_LID-Adenylate-kinase-lid-domain_mod-from-Magliery-Ray.txt"
+													selected="selected">Adenylate kinase lid domain</option>
+												<option value="Ank_2-(PF12796)_Ankyrin-repeat_seed.txt">
+													Ankyrin repeat motif</option>
+												<option
+													value="CBM_5_12_2-(PF14600)_Cellulose-binding-domain_RP75.txt">
+													Cellulose-binding domain</option>
+												<option
+													value="DUF4596-(PF15363)_Domain-of-unknown-function.txt">
+													Domain of unknown function</option>
+												<option value="HATPase_c-(PF02518)_GHKL-domain_Seed.txt">
+													Structurally related ATPase domains</option>
+												<option value="Insulin-(PF00049)-RP55.txt">Insulin</option>
+												<option
+													value="Tox-WTIP-(PF15654)_Toxin-with-tryptophan-and-TIP-motif.txt">
+													Bacterial toxin domain</option>
+												<option
+													value="zf-H2C2_2-(PF13465)-Zinc-finger-double-domain.txt">
+													Zinc-finger double domain</option>
+											</select>
+										</div>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2"  >
-                <p class="upload-error" style="display: none">The file you have uploaded exceeds 1000 positions or sequences. Please try a different MSA.</p>
-            </div>
-        </div><!-- #row -->
-
-    </div><!-- #panel-section -->
-    <div class="row submit-settings">
-        <div class="col-md-12">
-            <input id="createBundleButton" class="btn btn-primary btn-lg upload-btn"  value="CREATE BUNDLE" type="button" disabled="">
-
-        </div><!-- #col-12 -->
-    </div><!-- #row -->
+										<div class="setting-row" style="border-bottom: none;">
+											<label class="edit-settings" id="upload-description"
+												style="margin-left: 10px; margin-right: 15px; line-height: 1.4em; border-bottom: none;"></label>
+										</div>
 
 
+										<div class="row submit-settings">
+											<div class="col-md-12">
+												<input id="useExample" class="btn btn-use-example "
+													value="USE EXAMPLE" type="submit"
+													style="margin-left: 20px;">
+											</div>
+											<!-- #col-12 -->
+										</div>
+										<!-- #row -->
 
 
+									</form>
+								</div>
+								<!-- #col-12 -->
+							</div>
+							<!-- #row -->
+						</div>
+						<!-- #col-4 -->
+
+					</div>
+					<!-- #row -->
+
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<p class="upload-summary" style="display: none"></p>
+						</div>
+					</div>
+					<!-- #row -->
+
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<p class="upload-error" style="display: none">The file you
+								have uploaded exceeds 1000 positions or sequences. Please try a
+								different MSA.</p>
+						</div>
+					</div>
+					<!-- #row -->
+
+				</div>
+				<!-- #panel-section -->
+				<div class="row submit-settings">
+					<div class="col-md-12">
+						<input id="createBundleButton"
+							class="btn btn-primary btn-lg next-btn " value="CREATE BUNDLE"
+							type="button" disabled>
+
+					</div>
+					<!-- #col-12 -->
+				</div>
+				<!-- #row -->
+			</div>
+		</div>
+	</div>
 </div>
-
-<br/>
 
 
