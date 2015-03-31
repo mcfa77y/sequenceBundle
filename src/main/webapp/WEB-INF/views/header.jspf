@@ -14,7 +14,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="http://science-practice.com/"><img style=" height: 30px;" src="<c:url value="/resources/images/SVG/Logo_science-practice.svg"/>"/></a></li>
+                            <li ><a  class="header-logo" id="logo" href="http://science-practice.com/"></a></li>
 <!--                            <li><a href="#"><span class="glyphicon glyphicon-globe"></span> WEB TOOL</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-download-alt"></span> DESKTOP APP </a></li>
                         -->

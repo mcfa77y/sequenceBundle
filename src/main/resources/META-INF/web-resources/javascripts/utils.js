@@ -37,6 +37,21 @@ var Utils = {
 		$('#collapseTwo').collapse('hide');
 		$('#collapseThree').collapse('hide');
 	},
+	setActiveSVG : function(otherImages, activeImage) {
+		// turn all images to disable png
+		for (var i = 0; i < otherImages.length; i++) {
+			var image = $(otherImages[i]);
+			// remove active from source
+			var deactivatedSrc = image.attr('src').replace('_active', '');
+			image.attr('src', deactivatedSrc);
+
+		}
+		// turn on only active tab
+		var activatedSrc = activeImage.attr('src').split('.')[0]
+				+ "_active.svg";
+		activeImage.attr('src', activatedSrc);
+
+	},
 	getFilename : function(wp) {
 		return wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
 	},
@@ -121,7 +136,7 @@ var Utils = {
 						// image has finish rendering
 						$('#loading').hide();
 						$('#sequenceBundle').removeClass("loading");
-						
+
 						// remove rendering progress listener
 						$.post("upload/seq/remove", {
 							filename : filename
