@@ -464,13 +464,20 @@
 				<version>2.2</version>
 			</plugin>
 			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
+				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>8.1.4.v20120524</version>
+				
 				<configuration>
 					<webAppConfig>
 						<contextPath>/</contextPath>
 					</webAppConfig>
+					<systemProperties>
+						<systemProperty>
+							<name>org.eclipse.jetty.server.Request.maxFormContentSize</name>
+							<value>500000</value>
+						</systemProperty>
+					</systemProperties>
 				</configuration>
 			</plugin>
 

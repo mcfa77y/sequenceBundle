@@ -3,6 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+$(document).ready(function() {
+	$(".close").click(function() {
+		$("#myAlert").alert('close');
+	});
+});
 
 var Utils = {
 	animateShowImage : function() {
@@ -115,6 +120,16 @@ var Utils = {
 			}
 		}
 		return data;
+	},
+	alertWarning : function(message, attachAfterId) {
+		if ($(attachAfterId).siblings('.alert').length > 0) {
+			return;
+		}
+		var alertHTML = '<div class="alert alert-warning alert-dismissible" role="alert">\
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
+		 '
+				+ message + '</div>';
+		$(attachAfterId).after(alertHTML);
 	},
 	jobStatusPoll : function(filename, imagePath) {
 		// polls the server for status of the image that is rendering

@@ -5,32 +5,19 @@
  */
 package org.spee.sbweb.controller;
 
-import alvis.Alvis;
-import alvis.AlvisDataModel;
-import alvis.algorithm.ParseAlignmentTask;
-
-import com.general.gui.progress.Progressable;
-
-import gui.sequencebundle.JSequenceBundle;
 import gui.sequencebundle.SequenceBundleConfig;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.MultipartConfig;
@@ -52,6 +39,12 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.MultipartFile;
+
+import alvis.Alvis;
+import alvis.AlvisDataModel;
+import alvis.algorithm.ParseAlignmentTask;
+
+import com.general.gui.progress.Progressable;
 
 /**
  *
@@ -242,8 +235,6 @@ public class UploadController implements ServletContextAware {
 	public @ResponseBody AlvisModel example(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String filename = request.getParameter("filename");
-		Set foo = servletContext.getResourcePaths("/");
-		System.out.println(foo);
 		String exampleFile = servletContext.getRealPath("/resources")
 				+ "/examples/" + filename;
 		String seq = readFile(exampleFile, StandardCharsets.UTF_8);
@@ -324,7 +315,7 @@ public class UploadController implements ServletContextAware {
 
 	@Override
 	public void setServletContext(ServletContext servletContext) {
-		this.servletContext = servletContext;	
+		this.servletContext = servletContext;
 		System.out.println("UploadController.java - ServletContext: images - "
 				+ this.servletContext.getRealPath("/images"));
 		System.out.println("UploadController.java - ServletContext: root - "

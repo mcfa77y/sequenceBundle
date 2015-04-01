@@ -8,8 +8,8 @@
 <div id="sequenceBundle" class="scrolly"></div>
 <div class="row submit-settings">
 	<div class="col-md-12">
-		<input id="downloadButton" class="next-btn hide" value="DOWNLOAD"
-			type="submit"> <input id="restartButton" class="next-btn "
+		<input id="downloadButton" class="next-btn" value="DOWNLOAD"
+			type="submit"> <input id="restartButton hide" class="next-btn "
 			value="RESTART" type="submit">
 	</div>
 	<!-- #col-12 -->

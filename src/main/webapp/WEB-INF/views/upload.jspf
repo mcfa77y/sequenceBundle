@@ -21,7 +21,7 @@
 					FILE?</h2>
 				<div class="panel-section">
 					<div class="row" style="margin: 2em 2em 2em 2em;">
-						<div class="col-md-4 hide">
+						<div class="col-md-4">
 							<div class="row" style="padding: 1em;">
 								<div class="col-md-12 edit-panel">
 									<div>
@@ -65,7 +65,7 @@
 						</div>
 						<!-- #col -->
 
-						<div class="col-md-4 hide">
+						<div class="col-md-4">
 							<div class="row" style="padding: 1em;">
 								<div class="col-md-12 edit-panel">
 									<div>
@@ -97,11 +97,11 @@
 							<!-- #row -->
 						</div>
 						<!-- #col -->
-						<div class="col-md-8 col-md-offset-2">
+						<div class="col-md-4">
 							<div class="row" style="padding: 1em;">
 								<div class="col-md-12 edit-panel">
 									<div>
-										<h2>Select example data from menu below:</h2>
+										<h2>Option 3: Select example data:</h2>
 									</div>
 
 									<form id="useExampleForm" action="/upload/example">

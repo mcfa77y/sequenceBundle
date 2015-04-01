@@ -1,29 +1,40 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <nav class="navbar navbar-default preview-navbar" role="navigation">
-    <div class="container-fluid">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-
-                <li>
-                    <form id="previewForm" class="navbar-form navbar-left" role="search" style="margin-top: 2em;" action="/upload/paste">
-                        <div class="form-group">
-                            <input id="startIndex" class="form-control" placeholder="POSTION NUMBER" type="text">
-                        </div><!-- #form-group -->
-                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                    </form><!-- #form -->
-                </li>
-
-                <li class="preview-nav-btn"><a href="#" class="section-title" id="n-terminus"><img style=" height: 30px;" src="<c:url value="/resources/images/SVG/N-terminus_active.svg"/>"/><br>N-TERMINUS <span class="sr-only">(current)</span></a></li>
-                <li class="preview-nav-btn">
-                    <div id="sliderSequence" class="slider"></div>
-                </li>
-                <!-- <li class="preview-nav-btn"><a href="#"><img src="img/top-conservation.svg" style="height: 50px;"/><br>TOP CONSERVATION</a></li> -->
-                <!-- <li class="preview-nav-btn"><a href="#"><img src="img/top-variation.svg" style="height: 50px;"/><br>TOP VARIATION</a></li> -->
-                <li class="preview-nav-btn"><a href="#" class="section-title" id="c-terminus"><img src="<c:url value="/resources/images/SVG/C-terminus_active.svg"/>" style="height: 30px;"/></span><br>C-TERMINUS</a></li>
-            </ul>
-        </div><!-- #navbar-collapse -->
-    </div><!-- #container-fluid -->
+ <div class="container-fluid">
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   <ul class="nav navbar-nav">
+    <li>
+     <form id="previewForm" class="navbar-form navbar-left" role="search" style="margin-top: 2em;" action="/upload/paste">
+      <div class="form-group">
+       <input id="startIndex" class="form-control" placeholder="POSTION NUMBER" type="text">
+      </div>
+      <!-- #form-group -->
+      <button type="submit" class="btn btn-default">
+       <span class="glyphicon glyphicon-search"></span>
+      </button>
+     </form> <!-- #form -->
+    </li>
+    <li class="preview-nav-btn">
+     <div class="section-title clickable" id="n-terminus">
+      <img style="height: 30px;" src="<c:url value=" /resources/images/SVG/N-terminus_active.svg "/>" />
+      <br />N-TERMINUS
+     </div>
+    </li>
+    <li>
+     <div id='sequenceIndexLabel' class="center"></div>
+     <div id="sliderSequence" class="slider"></div>
+    </li>
+    <!-- <li class="preview-nav-btn"><a href="#"><img src="img/top-conservation.svg" style="height: 50px;"/><br>TOP CONSERVATION</a></li> -->
+    <!-- <li class="preview-nav-btn"><a href="#"><img src="img/top-variation.svg" style="height: 50px;"/><br>TOP VARIATION</a></li> -->
+    <li class="preview-nav-btn">
+     <div class="section-title clickable" id="c-terminus">
+      <img src="<c:url value=" /resources/images/SVG/C-terminus_active.svg "/>" style="height: 30px;" />
+      <br />C-TERMINUS
+     </div>
+    </li>
+   </ul>
+  </div>
+  <!-- #navbar-collapse -->
+ </div>
+ <!-- #container-fluid -->
 </nav>
-
-

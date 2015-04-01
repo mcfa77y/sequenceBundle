@@ -33,7 +33,6 @@ $(function() {
 	// use images that active/deactivate instead of radio buttons
 	$('input[name=gapRendering]', '#visualSettingsForm').each(
 			function() {
-				console.log(this);
 				$(this).click(
 						function() {
 							var otherImages = $('img', $('#gapRadioGroup',
@@ -43,5 +42,37 @@ $(function() {
 									'#visualSettingsForm').siblings();
 							Utils.setActiveSVG(otherImages, activeImage);
 						})
-			})
+			});
+
+	// jump conservation to 0, 50, 100
+	$('.conservationJump').each(function() {
+		var self = $(this);
+		self.click(function() {
+			updateConservationThreshholdControls(self.attr('value'));
+		})
+	});
+
+	// setup conservation initial value
+	$("#conservationThresholdLabel").val("0");
+
+	// setup slider
+	$("#sliderResidueConservation").slider({
+		min : 0,
+		max : 100,
+		step : 1,
+		value : 0,
+		slide : function(event, ui) {
+			updateConservationThreshholdControls(ui.value);
+		}
+	});
+
+	function updateConservationThreshholdControls(value) {
+		// slider
+		$('#sliderResidueConservation').slider('value', value);
+		// form value
+		$("#conservationThreshold").val(parseInt(value) / 100);
+		// label
+		$("#conservationThresholdLabel").text(value + '%');
+
+	}
 })
