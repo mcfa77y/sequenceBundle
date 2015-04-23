@@ -140,7 +140,8 @@ var PreviewController = {
 		// search field
 		$('#startIndex').val(value);
 		// index label
-		$('#sequenceIndexLabel').text(value + " of " + $('#lastIndex').val());
+		$('#sequenceIndexLabel')
+				.text(value + "out of " + $('#lastIndex').val());
 		// slider
 		$('#sliderSequence').slider('value', value);
 	}
