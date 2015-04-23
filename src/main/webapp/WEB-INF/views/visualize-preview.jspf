@@ -9,8 +9,7 @@
 <div class="row submit-settings">
 	<div class="col-md-12">
 		<input id="downloadButton" class="next-btn" value="DOWNLOAD"
-			type="submit"> <input id="restartButton hide" class="next-btn "
-			value="RESTART" type="submit">
+			type="submit"> 
 	</div>
 	<!-- #col-12 -->
 </div>

@@ -29,6 +29,7 @@ $(function() {
 		$('.upload-error').show();
 		$('#createBundleButton').prop('disabled', true);
 	}
+
 	function renderImage(url, data) {
 		// Send the data using post
 		var posting = $.post(url, data);
@@ -163,5 +164,29 @@ Source: Pfam (PF13465)'
 	$("#createBundleButton").click(function() {
 		Utils.animatePreviewImage();
 	});
+
+	// minimize/maximize button for sequence upload methods
+	$('.upload-minimize-button').each(function() {
+		$(this).click(function() {
+			var span = $('span', this);
+			if (Boolean(span.hasClass('glyphicon-minus'))) {
+				span.removeClass('glyphicon-minus').addClass('glyphicon-plus');
+			} else {
+				span.removeClass('glyphicon-plus').addClass('glyphicon-minus');
+
+			}
+		});
+	})
+
+	// readmore link that hide/shows info
+	$('#readMoreInfo').on('show.bs.collapse', function() {
+		console.log('show read more.');
+		$('#readLessInfo').collapse('toggle');
+	})
+	$('#readMoreInfo').on('hide.bs.collapse', function() {
+		console.log('hide read more.');
+		$('#readLessInfo').collapse('toggle');
+
+	})
 
 });

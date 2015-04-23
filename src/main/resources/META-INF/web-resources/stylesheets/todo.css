@@ -40,6 +40,19 @@ ul {
 	overflow-x: auto;
 }
 
+.upload-minimize-button-col {
+	border-bottom: 1px dashed rgb(216, 216, 216);
+	margin-left: -15px;
+	border-right-style: solid;
+	padding-bottom: 7px;
+	padding-top: 8px;
+	border-right-width: 0px;
+}
+
+.moreInfoQuestionIcon {
+margin-top: 16px;
+	
+}
 /* #loading {
   width: 1064px;
   height: 500px;
@@ -49,7 +62,6 @@ ul {
   z-index: 99;
   text-align: center;
 } */
-
 .loading-image {
 	position: relative;
 	z-index: 2;
