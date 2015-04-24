@@ -9,7 +9,7 @@
         <div style="clear: both"></div>
     </div>
     <!-- #panel-heading -->
-    <div id="collapseTwo" aria-expanded="true" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseTwo" aria-expanded="true" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
         <div class="panel-body">
             <div id="tabs">
                 <ul class="nav nav-tabs nav-justified">

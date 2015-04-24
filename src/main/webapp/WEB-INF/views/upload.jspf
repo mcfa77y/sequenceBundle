@@ -9,7 +9,7 @@
         <div style="clear: both"></div>
     </div>
     <!-- #panel-heading -->
-    <div aria-expanded="true" id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div aria-expanded="true" id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
         <div class="panel-body">
             <div>
                 <h2 style="text-align: center;">HOW WOULD YOU LIKE TO UPLOAD A FILE?</h2>

@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
  $(document).ready(function() {
+ 	$('#collapseOne').collapse();
+ 	$('#collapseTwo').collapse();
+
+ 	$('#collapseThree').collapse();
+
  	$('#collapseOne').on('show.bs.collapse', function() {
  		console.log("up seq");
  		$('#collapseTwo').collapse('hide');
@@ -186,37 +191,9 @@
                     } else {
 
                     	$('#sequenceBundle').prepend(
-                    		'<img class="image-sm" id="sequenceBundleImage" src="' + imagePath + '" />').fadeIn();
-                        // image.attr('src', imagePath)
+                    		'<img class="image-all-width" id="sequenceBundleImage" src="' + imagePath + '" />').fadeIn();
                     }
-                    // $('#sequenceBundleImage')
-                    // .bind(
-                    // 'load',
-                    // function() {
-                    // var sequenceBundle = $('#sequenceBundle');
-                    // sequenceBundle.hide();
-                    // // resize image with height
-                    // // as 500
-                    // // and proportional width
-                    // var img = $('#sequenceBundle #sequenceBundleImage');
-                    // var sw = Math
-                    // .min(
-                    // document
-                    // .getElementById('sequenceBundleImage').naturalWidth,
-                    // 1100);
-                    // Utils
-                    // .debug("bind load image width: "
-                    // + sw);
-                    // var sh = 500;
-                    // img
-                    // .css("height", sh
-                    // + "px");
-                    // img.css("width", sw + "px");
-                    //
-                    // sequenceBundle.show();
-                    //
-                    // });
-                    // if there is an error try reloading the image
+
                     $('#sequenceBundleImage').bind(
                     	'error',
                     	function(e) {

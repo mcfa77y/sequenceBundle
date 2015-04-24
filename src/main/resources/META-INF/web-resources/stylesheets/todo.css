@@ -66,5 +66,10 @@ ul {
   	position: relative;
   	z-index: 2;
   	top: 250px;
+  	color: #066cff;
   	/* left: 500px; */
+  }
+
+  .image-all-width {
+  	width:100%;
   }

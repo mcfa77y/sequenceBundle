@@ -12,7 +12,7 @@
 	<!-- #panel-heading -->
 
 	<div style="height: 0px;" aria-expanded="false" id="collapseThree"
-		class="panel-collapse collapse" role="tabpanel"
+		class="panel-collapse collapse  in" role="tabpanel"
 		aria-labelledby="headingThree">
 		<div class="panel-body">
 			<div id="downloadAndShare">
