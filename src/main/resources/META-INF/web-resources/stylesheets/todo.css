@@ -44,14 +44,14 @@ ul {
 	border-bottom: 1px dashed rgb(216, 216, 216);
 	margin-left: -15px;
 	border-right-style: solid;
-	padding-bottom: 7px;
+	padding-bottom: 8px;
 	padding-top: 8px;
 	border-right-width: 0px;
 }
 
 .moreInfoQuestionIcon {
-margin-top: 16px;
-	
+	margin-top: 16px;
+
 }
 /* #loading {
   width: 1064px;
@@ -61,10 +61,10 @@ margin-top: 16px;
   background-color: #fff;
   z-index: 99;
   text-align: center;
-} */
-.loading-image {
-	position: relative;
-	z-index: 2;
-	top: 250px;
-	/* left: 500px; */
-}
+  } */
+  .loading-image {
+  	position: relative;
+  	z-index: 2;
+  	top: 250px;
+  	/* left: 500px; */
+  }

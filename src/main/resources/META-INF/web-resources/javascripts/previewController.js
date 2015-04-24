@@ -1,43 +1,43 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var PreviewController = {
-	init : function() {
-		$('#previewForm')
-				.submit(
-						function(event) {
+ var PreviewController = {
+ 	init : function() {
+ 		$('#previewForm')
+ 		.submit(
+ 			function(event) {
 							// Stop form from submitting normally
 							event.preventDefault();
 
 							var startIndex = $('#startIndex');
 							if (isNaN(startIndex.val())) {
 								Utils.alertWarning(
-										"Enter valid index, please.",
-										'#previewForm');
+									"Enter valid index, please.",
+									'#previewForm');
 								return;
 							}
 
 							// Get some values from elements on the page:
 							var $form = $(this), url = $form.attr('action');
 							var data = $('#visualSettingsForm')
-									.serializeArray();
+							.serializeArray();
 
 							// sanitize start index less than 1
 							if (startIndex.val() < 1) {
 								startIndex.val(1);
 							}
 							if (startIndex.val() > $(
-									'#visualSettingsForm #lastIndex').val()) {
+								'#visualSettingsForm #lastIndex').val()) {
 								startIndex
-										.val($('#visualSettingsForm #lastIndex')
-												.val());
-							}
-							data.push({
-								name : 'startIndex',
-								value : startIndex.val()
-							});
+							.val($('#visualSettingsForm #lastIndex')
+								.val());
+						}
+						data.push({
+							name : 'startIndex',
+							value : startIndex.val()
+						});
 							// Send the data using post
 							var posting = $.post(url, data);
 							// Put the results in a div
@@ -49,19 +49,19 @@ var PreviewController = {
 								Utils.showImage();
 							});
 							PreviewController
-									.updateSequenceNavigationControls(startIndex
-											.val());
+							.updateSequenceNavigationControls(startIndex
+								.val());
 						});
 
-		$('#n-terminus').click(function() {
-			PreviewController.updateSequenceNavigationControls(1);
-		});
+$('#n-terminus').click(function() {
+	PreviewController.updateSequenceNavigationControls(1);
+});
 
-		$('#c-terminus').click(
-				function() {
-					PreviewController.updateSequenceNavigationControls($(
-							'#visualSettingsForm #lastIndex').val());
-				});
+$('#c-terminus').click(
+	function() {
+		PreviewController.updateSequenceNavigationControls($(
+			'#visualSettingsForm #lastIndex').val());
+	});
 
 		// controls for tab icons changing from active <-> inactive states
 		$('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
@@ -97,7 +97,7 @@ var PreviewController = {
 				if (ui.value !== PreviewController.oldSliderValue) {
 					PreviewController.oldSliderValue = ui.value;
 					PreviewController
-							.updateSequenceNavigationControls(ui.value);
+					.updateSequenceNavigationControls(ui.value);
 					PreviewController.renderImage();
 				}
 			}
@@ -113,12 +113,12 @@ var PreviewController = {
 		});
 
 		PreviewController
-				.updateSequenceNavigationControls(PreviewController.oldSliderValue);
+		.updateSequenceNavigationControls(PreviewController.oldSliderValue);
 	},
 	updateSliderWidth : function() {
 		var sequenceSlider = $('#sliderSequence');
 		var newWidth = 0.75 * (sequenceSlider.parent().parent().parent()
-				.width() - ($('#n-terminus').width() + $('#c-terminus').width() + $(
+			.width() - ($('#n-terminus').width() + $('#c-terminus').width() + $(
 				'#previewForm').width()));
 		sequenceSlider.width(newWidth + 'px');
 	},
@@ -140,8 +140,8 @@ var PreviewController = {
 		// search field
 		$('#startIndex').val(value);
 		// index label
-		$('#sequenceIndexLabel')
-				.text(value + "out of " + $('#lastIndex').val());
+		$('#sequenceIndexLabel').text(
+			value + " out of " + $('#lastIndex').val());
 		// slider
 		$('#sliderSequence').slider('value', value);
 	}
@@ -150,4 +150,7 @@ var PreviewController = {
 $(function() {
 	'use strict';
 	PreviewController.init();
+
+
+
 });
