@@ -237,20 +237,28 @@ textarea {
 	padding: 1em;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	resize: none;
 }
 
-.upload-summary {
+.upload-status {
 	font-size: 1.6em;
-	border-top: 1px solid #066cff;
-	border-right: 1px solid #066cff;
-	border-bottom: 3px solid #066cff;
-	border-left: 1px solid #066cff;
 	padding: 1em;
-	color: #066cff;
+	color: grey;
 	margin-bottom: 2em;
 	text-align: center;
 }
 
+.upload-status-validating {
+	color: grey;
+}
+
+.upload-status-error {
+	color: #ff072c;
+}
+
+.upload-status-success {
+	color: #63ce41;
+}
 .upload-error {
 	font-size: 1.6em;
 	border-top: 1px solid red;

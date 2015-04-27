@@ -45,7 +45,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="row setting-row">
+                                        <div class="row">
                                             <div class="col-md-offset-1 col-md-10">
                                                 <form id="fileSequenceForm">
                                                     <!-- The fileinput-button span is used to style the file input field as button -->
@@ -196,15 +196,10 @@
                     <!-- #row -->
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                            <p class="upload-summary" style="display: none"></p>
+                            <p id="uploadStatus" class="upload-status" style="display: none"></p>
                         </div>
                     </div>
-                    <!-- #row -->
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <p class="upload-error" style="display: none">The file you have uploaded exceeds 1000 positions or sequences. Please try a different MSA.</p>
-                        </div>
-                    </div>
+
                 </div>
                 <!-- #row -->
             </div>

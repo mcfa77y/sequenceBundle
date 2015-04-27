@@ -193,6 +193,9 @@ public class UploadController implements ServletContextAware {
 			return alvisModel;
 		}
 
+		alvisModel.setSequenceBases(jsb.getAlignment().getLength());
+		alvisModel.setSequenceCount(jsb.getAlignment().getSequenceCount());
+
 		if (jsb.getAlignment().getLength() > MAX_SEQUENCE_BASES) {
 			alvisModel.appendErrorMessage("Sequence must have less than "
 					+ MAX_SEQUENCE_BASES + " bases");
@@ -204,8 +207,6 @@ public class UploadController implements ServletContextAware {
 		if (alvisModel.getErrorMessage().length() > 0) {
 			return alvisModel;
 		} else {
-			alvisModel.setSequenceBases(jsb.getAlignment().getLength());
-			alvisModel.setSequenceCount(jsb.getAlignment().getSequenceCount());
 			jsb.setBundleConfig(alvisModel);
 			// -1 to fix GUI offset so 1 shows no offset
 			Integer startIndex = Integer.valueOf(request
