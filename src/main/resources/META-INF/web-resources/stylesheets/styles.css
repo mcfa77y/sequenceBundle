@@ -499,78 +499,146 @@ input[type="checkbox"].checkbox {
 .clickable {
 	cursor: pointer;
 }
-#col-width {
-	background: url("../images/SVG/col-width.svg") no-repeat;
+
+
+.center {
+	text-align: center;
+	clear: both;
 }
 
-#row-height {
-	background: url("../images/SVG/row-height.svg") no-repeat;
+.left {
+	float: left;
+	display: inline;
+	padding: 25px 50px
 }
 
-#vertical-grid {
-	background: url("../images/SVG/vertical-grid.svg") no-repeat;
+.right {
+	float: right;
+	display: inline;
 }
 
-#row-shading {
-	background: url("../images/SVG/SVG/row-shading.svg") no-repeat;
+.box {
+	float: left;
+	display: inline;
+	padding: 5px 10px;
+	margin: 5px 5px;
+	border-style: solid;
+	border-width: 1px;
 }
 
-#bundle-height {
-	background: url("../images/SVG/bundle-height.svg") no-repeat;
+.scrolly {
+	overflow-x: auto;
 }
 
-#residue-width {
-	background: url("../images/SVG/residue-width.svg") no-repeat;
+.upload-minimize-button-col {
+	border-bottom: 1px dashed rgb(216, 216, 216);
+	margin-left: -15px;
+	border-right-style: solid;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	border-right-width: 0px;
 }
 
-#curve-radius {
-	background: url("../images/SVG/curve-radius.svg") no-repeat;
-}
+.moreInfoQuestionIcon {
+	margin-top: 16px;
 
-#show-consensus {
-	background: url("../images/SVG/show-consensus.svg") no-repeat;
 }
+/* #loading {
+  width: 1064px;
+  height: 500px;
+  display: block;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 99;
+  text-align: center;
+  } */
+  .loading-image {
+  	position: relative;
+  	z-index: 2;
+  	top: 250px;
+  	color: #066cff;
+  	/* left: 500px; */
+  }
 
-#alphabet-overlay {
-	background: url("../images/SVG/alphabet-overlay.svg") no-repeat;
-}
+  .image-all-width {
+  	width:100%;
+  }
 
-#max-transparency {
-	background: url("../images/SVG/min-transparency.svg") no-repeat;
-}
 
-#min-transparency {
-	background: url("../images/SVG/min-transparency.svg") no-repeat;
-}
 
-#gaps {
-	background: url("../images/SVG/gaps.svg") no-repeat;
-}
 
-#line-colour {
-	background: url("../images/SVG/line-colour.svg") no-repeat;
-}
+  #col-width {
+  	background: url("../images/SVG/col-width.svg") no-repeat;
+  }
 
-#y-axis {
-	background: url("../images/SVG/y-axis.svg") no-repeat;
-}
+  #row-height {
+  	background: url("../images/SVG/row-height.svg") no-repeat;
+  }
 
-#logo-sp {
-	background: url("../images/SVG/Logo_science-practice.svg") no-repeat;
-}
+  #vertical-grid {
+  	background: url("../images/SVG/vertical-grid.svg") no-repeat;
+  }
 
-#preview-active {
-	background: url("../images/SVG/preview-eye_active.svg") no-repeat;
-}
+  #row-shading {
+  	background: url("../images/SVG/SVG/row-shading.svg") no-repeat;
+  }
 
-#preview-inactive {
-	background: url("../images/SVG/preview-eye.svg") no-repeat;
-}
+  #bundle-height {
+  	background: url("../images/SVG/bundle-height.svg") no-repeat;
+  }
 
-#settings-active {
-	background: url("../images/SVG/Settings-pencil_active.svg") no-repeat;
-}
+  #residue-width {
+  	background: url("../images/SVG/residue-width.svg") no-repeat;
+  }
 
-#settings-inactive {
-	background: url("../images/SVG/Settings-pencil.svg") no-repeat;
-}
+  #curve-radius {
+  	background: url("../images/SVG/curve-radius.svg") no-repeat;
+  }
+
+  #show-consensus {
+  	background: url("../images/SVG/show-consensus.svg") no-repeat;
+  }
+
+  #alphabet-overlay {
+  	background: url("../images/SVG/alphabet-overlay.svg") no-repeat;
+  }
+
+  #max-transparency {
+  	background: url("../images/SVG/min-transparency.svg") no-repeat;
+  }
+
+  #min-transparency {
+  	background: url("../images/SVG/min-transparency.svg") no-repeat;
+  }
+
+  #gaps {
+  	background: url("../images/SVG/gaps.svg") no-repeat;
+  }
+
+  #line-colour {
+  	background: url("../images/SVG/line-colour.svg") no-repeat;
+  }
+
+  #y-axis {
+  	background: url("../images/SVG/y-axis.svg") no-repeat;
+  }
+
+  #logo-sp {
+  	background: url("../images/SVG/Logo_science-practice.svg") no-repeat;
+  }
+
+  #preview-active {
+  	background: url("../images/SVG/preview-eye_active.svg") no-repeat;
+  }
+
+  #preview-inactive {
+  	background: url("../images/SVG/preview-eye.svg") no-repeat;
+  }
+
+  #settings-active {
+  	background: url("../images/SVG/Settings-pencil_active.svg") no-repeat;
+  }
+
+  #settings-inactive {
+  	background: url("../images/SVG/Settings-pencil.svg") no-repeat;
+  }
