@@ -237,7 +237,7 @@ textarea {
 	padding: 1em;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	resize: none;
+	resize: vertical;
 }
 
 .upload-status {
