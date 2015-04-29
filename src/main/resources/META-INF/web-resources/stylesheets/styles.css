@@ -124,6 +124,7 @@ h3 {
 	-webkit-border-radius: 0px !important;
 	border-radius: 0px !important;
 	color: black;
+	width: 100px;
 }
 
 .uploadPanelInfo {
@@ -536,6 +537,7 @@ input[type="checkbox"].checkbox {
 
 .scrolly {
 	overflow-x: auto;
+	height: 578px;
 }
 
 .upload-minimize-button-col {

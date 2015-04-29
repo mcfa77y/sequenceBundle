@@ -2,7 +2,7 @@
     <img style=" height: 30px;" src="<c:url value="/resources/images/SVG/Logo_science-practice.svg"/>"/>
     <button type="button" class="hide btn btn-primary btn-lg my-btn">Try sequence bundles desktop app</button>
     <div class="footer">
-    Sequence Bundles was designed by Science Practice and developed by Science Practice in collaboration with the Goldman Group at EMBL-EBI. This web tool was designed by Science Practice and developed by Joe Lau.
-To learn more about Sequence Bundles, read our paper in BMC Proceedings 2014, 8(Suppl 2):S8
+    Sequence Bundles was designed by Science Practice and developed by Science Practice in collaboration with the Goldman Group at EMBL-EBI. <br/>
+    This web tool was designed by Science Practice and developed by Joe Lau. To learn more about Sequence Bundles, read our paper in BMC Proceedings 2014, 8(Suppl 2):S8
     </div>
 </div>

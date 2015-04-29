@@ -2,9 +2,7 @@
     <div id="renderProgress" class="loading-image center" style="display:none">
         <h1> Loading Preview...</h1>
     </div>
-    <%-- <div id="loading" style="display: none">
-        <img class="loading-image" src="<c:url value=" /resources/images/ajax-loader.gif "/>" alt="Loading..." />
-        </div> --%>
+    
         <div id="sequenceBundle" class="scrolly"></div>
         <div class="row submit-settings">
             <div class="col-md-12">
