@@ -1,6 +1,6 @@
 $(function() {
     'use strict';
-    var HI_RES_DPI = 72 * 1.5;
+    var HI_RES_DPI = 72 * 1.0;
 
     function renderHiResInfo(otherClass, text, enableCreateBundleButton) {
         var status = $('#renderHiResStatus');
@@ -93,7 +93,7 @@ $('#tweetButton')
         e.stopPropagation();
 
         var pathname = window.location;
-        var tweetText = encodeURIComponent("Try the #SequenceBundles web tool by @sciencepractice https://sequence-bundles.herokuapp.com/");
+        var tweetText = encodeURIComponent("Try the #SequenceBundles web tool by @sciencepractice ");
                 // Create the twitter URL
                 var tweetUrl = 'http://twitter.com/share?&text=' + tweetText;
 
