@@ -102,15 +102,15 @@
       <div class="row">
        <div  value=0 class="conservationJump clickable col-md-4">
        <div  class="center">0%</div>
-        <img class="icon-40 center" src='resources/images/SVG/Filter_0.svg' />
+        <img class="icon-60 center" src='resources/images/SVG/Filter_0.svg' />
        </div>
        <div value=50 class="conservationJump clickable col-md-4">
       <div class="center">50%</div>
-        <img class="icon-40 center" src='resources/images/SVG/Filter_50.svg' />
+        <img class="icon-60 center" src='resources/images/SVG/Filter_50.svg' />
        </div>
        <div value=100 class="conservationJump clickable col-md-4">
        <div class="center">100%</div>
-        <img class="icon-40 center" src='resources/images/SVG/Filter_100.svg' />
+        <img class="icon-60 center" src='resources/images/SVG/Filter_100.svg' />
        </div>
       </div>
      </div>

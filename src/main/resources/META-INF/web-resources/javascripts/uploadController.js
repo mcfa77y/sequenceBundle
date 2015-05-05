@@ -12,13 +12,13 @@ var sequence = "";
  $(function() {
  	'use strict';
 
- 	function uploadSequenceInfo(otherClass, text, enableCreateBundleButton) {
+ 	function uploadSequenceInfo(otherClass, text, isEnabled) {
  		var status = $('#uploadStatus');
  		status.removeClass();
  		status.addClass('upload-status ' + otherClass);
  		status.html(text);
  		status.show();
- 		$('#createBundleButton').prop('disabled', !enableCreateBundleButton);
+ 		enableCreateBundleButton(isEnabled);
  	}
 
  	function renderImage(url, data) {

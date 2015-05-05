@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
  $(document).ready(function() {
  	setUpAccordionBehaviors();
  });
@@ -209,8 +204,8 @@
 									+ imagePath + "\n" + err);
 								image.attr('src', imagePath);
 							});
-						// $('#downloadPNG').attr('href', imagePath);
-						// $('#downloadPNG').attr('download', filename);
+						$('#downloadPNGLink').attr('href', imagePath);
+						$('#downloadPNGLink').attr('download', filename);
 
 						// hide render status
 						$('#renderHiResStatus').hide();

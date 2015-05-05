@@ -22,7 +22,7 @@
                                         <h2>Option 1: Use a *.FASTA file</h2>
                                     </div>
                                     <div class="col-md-1 upload-minimize-button-col">
-                                        <button type="button" class="btn btn-default right upload-minimize-button" data-toggle="collapse" data-target="#fileUploadPanel">
+                                        <button type="button" class="upload-minimize-button btn btn-default right" data-toggle="collapse" data-target="#fileUploadPanel">
                                             <span class="glyphicon glyphicon-minus" aria-expanded="true" aria-hidden="true"></span>
                                         </button>
                                     </div>
@@ -155,12 +155,12 @@
                                         <h2>Option 3: Select example data:</h2>
                                     </div>
                                     <div class="col-md-1 upload-minimize-button-col">
-                                        <button type="button" class="btn btn-default right upload-minimize-button" data-toggle="collapse" data-target="#useExamplePanel">
+                                        <button type="button" class="upload-minimize-button btn btn-default right" data-toggle="collapse" data-target="#useExamplePanel">
                                             <span class="glyphicon glyphicon-plus" aria-hidden="true" aria-expanded="false"></span>
                                         </button>
                                     </div>
                                 </div>
-                                <div id="useExamplePanel" class="uploadPanelInfo collapse">
+                                <div id="useExamplePanel" class="uploadPanelInf collapse">
                                     <form id="useExampleForm" action="/upload/example">
                                         <div class="form-group">
                                             <select class="form-control edit-dropdown example-file-dropdown" id="useExampleFile" name="exampleFile" style="margin-left: 20px; margin-bottom: 20px">

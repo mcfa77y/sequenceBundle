@@ -128,8 +128,9 @@ h3 {
 }
 
 .uploadPanelInfo {
-	color:grey;
+	color: grey;
 }
+
 ::-webkit-input-placeholder {
 	/* WebKit browsers */
 	color: black !important;
@@ -260,6 +261,7 @@ textarea {
 .upload-status-success {
 	color: #63ce41;
 }
+
 .upload-error {
 	font-size: 1.6em;
 	border-top: 1px solid red;
@@ -342,7 +344,9 @@ label input[type=radio] {
 
 .setting-row {
 	padding: 10px;
-	border-bottom: 1px solid #d8d8d8;
+}
+.btn.disabled{
+	background-color:#afafaf;
 }
 
 .text-input {
@@ -368,7 +372,6 @@ label input[type=radio] {
 .submit-settings {
 	text-align: center;
 	margin: 0px 0px;
-	border-top: 1px dashed #d8d8d8;
 }
 
 .submit-btn {
@@ -475,7 +478,13 @@ input[type="checkbox"].checkbox {
 }
 
 .icon-40 {
-	height: 40px
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.icon-60 {
+	height: 60px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -508,7 +517,6 @@ input[type="checkbox"].checkbox {
 .clickable {
 	cursor: pointer;
 }
-
 
 .center {
 	text-align: center;
@@ -549,9 +557,12 @@ input[type="checkbox"].checkbox {
 	border-right-width: 0px;
 }
 
+.upload-minimize-button{
+	border:0px;
+}
+
 .moreInfoQuestionIcon {
 	margin-top: 16px;
-
 }
 /* #loading {
   width: 1064px;
@@ -571,11 +582,8 @@ input[type="checkbox"].checkbox {
   }
 
   .image-all-width {
-  	width:100%;
+  	width: 100%;
   }
-
-
-
 
   #col-width {
   	background: url("../images/SVG/col-width.svg") no-repeat;

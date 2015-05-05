@@ -14,15 +14,22 @@ var sequence = "";
  $(function() {
     'use strict';
 
-    function uploadSequenceInfo(otherClass, text, enableCreateBundleButton){
+    function uploadSequenceInfo(otherClass, text, isEnabled){
         var status = $('#uploadStatus');
         status.removeClass();
         status.addClass('upload-status '+ otherClass);
         status.text(text);
         status.show();
-        $('#createBundleButton').prop('disabled', !enableCreateBundleButton);
+        enableCreateBunldeButton(isEnabled);
     }
 
+    function enableCreateBunldeButton(isEnabled){
+        if(enableCreateBundleButton){
+            $('#createBundleButton').removeClass('disabled');
+        } else{
+            $('#createBundleButton').addClass('disabled');
+        }
+    }
     function renderImage(url, data) {
         // display validating
         uploadSequenceInfo('upload-status-validate', "Uploading and validating ...", false);
@@ -40,7 +47,7 @@ var sequence = "";
     function renderProgress(data) {
         if (data.errorMessage && data.errorMessage.length > 0) {
             uploadSequenceInfo('upload-status-error', data.errorMessage, false);
-            $('#createBundleButton').prop('disabled', true);
+            enableCreateBunldeButton(false);
             return;
         }
 

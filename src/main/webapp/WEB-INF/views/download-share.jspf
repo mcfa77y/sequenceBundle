@@ -25,7 +25,8 @@
          <h3>Export visualisation preview in .PNG format</h3>
         </div>
         <div id="downloadPNG" class="center">
-         <span class="btn btn-use-example"> DOWNLOAD .PNG IMAGE </span>
+
+         <a href="" id="downloadPNGLink"><span class="btn btn-use-example"> DOWNLOAD .PNG IMAGE  </span></a>
         </div>
        </div>
        <!-- #col -->

@@ -9,7 +9,6 @@ $(function() {
         status.addClass('upload-status ' + otherClass);
         status.html(text);
         status.show();
-        // $('#createBundleButton').prop('disabled', !enableCreateBundleButton);
     }
 
     function renderHiResImageStatusPoll(filename, imagePath) {
@@ -80,11 +79,11 @@ $(function() {
 }
 
 $('#downloadPNG').click(function() {
-    var data = Utils.createData({
-        alignmentType: $('#alignmentTypePaste').val(),
-        dpi: HI_RES_DPI
-    });
-    renderHiResImage(data);
+    // var data = Utils.createData({
+    //     alignmentType: $('#alignmentTypePaste').val(),
+    //     dpi: HI_RES_DPI
+    // });
+    // renderHiResImage(data);
 });
 
 $('#tweetButton')
