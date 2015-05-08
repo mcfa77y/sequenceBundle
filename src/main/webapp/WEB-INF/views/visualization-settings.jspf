@@ -83,7 +83,7 @@
       <h2>GAPS AND FILTERS</h2>
      </div>
      <div class="setting-row">
-      <label class="edit-settings">GAP RENDERING </label>
+      <label class="edit-settings">DISPLAY GAPS CONNECTED OR DISCONNECTED </label>
       <div id="gapRadioGroup">
        <label class="radio-inline">
         <input class='gapRadioOption' type="radio" name="gapRendering" value="STANDARD" checked="checked">
@@ -124,7 +124,7 @@
  <!-- #row -->
  <div class="row submit-settings">
   <div class="col-md-12">
-   <input class="submit-btn" value="APPLY CHANGES" type="submit">
+   <input id="applyChangesButton" class="btn next-btn" value="APPLY CHANGES" type="submit">
   </div>
   <!-- #col-12 -->
  </div>

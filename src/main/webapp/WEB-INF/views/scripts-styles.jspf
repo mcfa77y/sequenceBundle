@@ -6,7 +6,7 @@
 <script src="<c:url value="/resources/javascripts/jquery-ui-1.11.2.custom/jquery-ui.js"  />"></script>
 <!-- The basic File Upload plugin -->
 <script src="<c:url value="/resources/javascripts/jqueryFileUpload/vendor/jquery.ui.widget.js"  />"></script>
-<script src="<c:url value="/resources/javascripts/bootstrap-3.3.1/js/bootstrap.min.js"  />"></script>
+<script src="<c:url value="/resources/javascripts/bootstrap-3.3.4/js/bootstrap.min.js"  />"></script>
 <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.iframe-transport.js"  />"></script>
 <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload.js"  />"></script>
 <script src="<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload-process.js"  />"></script>
@@ -19,7 +19,7 @@
 <script src="<c:url value="/resources/javascripts/downloadAndShareController.js"  />"></script>
 
 
-<link rel="stylesheet" href="<c:url value="/resources/javascripts/bootstrap-3.3.1/css/bootstrap.min.css"  />">
+<link rel="stylesheet" href="<c:url value="/resources/javascripts/bootstrap-3.3.4/css/bootstrap.min.css"  />">
 <link rel="stylesheet" href="<c:url value="/resources/javascripts/jquery-ui-1.11.2.custom/jquery-ui.css"  />">
 <link rel="stylesheet" href="<c:url value="/resources/stylesheets/jquery.fileupload.css"  />">
 <link rel="stylesheet" href="<c:url value="/resources/stylesheets/styles.css"  />">

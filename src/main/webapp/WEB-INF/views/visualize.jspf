@@ -15,7 +15,8 @@
                 <ul class="nav nav-tabs nav-justified">
                     <li class="nav active">
                         <a aria-expanded="true" class=" seq-tab" href="#tabs-1" data-toggle="tab">
-                            <img class="tab-icon" src="resources/images/SVG/preview-eye_active.svg"> SEQUENCE BUNDLE PREVIEW
+                            <img class="tab-icon" src="resources/images/SVG/Preview-eye_active.svg"> SEQUENCE BUNDLE PREVIEW
+                        
                         </a>
                     </li>
                     <li class="nav">

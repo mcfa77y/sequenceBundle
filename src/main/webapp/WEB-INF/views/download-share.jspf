@@ -5,7 +5,7 @@
    <a class="panel-title-link collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
     aria-controls="collapseThree"
    >
-    DOWNLOAD<br> AND CITE
+    DOWNLOAD AND CITE
    </a>
   </h1>
   <div style="clear: both;"></div>
@@ -26,7 +26,7 @@
         </div>
         <div id="downloadPNG" class="center">
 
-         <a href="" id="downloadPNGLink"><span class="btn btn-use-example"> DOWNLOAD .PNG IMAGE  </span></a>
+         <a href="" id="downloadPNGLink"><span class="btn btn-use-example"> <img class="tab-icon" src='resources/images/SVG/Download_icon.svg' /> DOWNLOAD .PNG IMAGE </span> </a>
         </div>
        </div>
        <!-- #col -->
@@ -44,7 +44,7 @@
          <h3>Share #SequenceBundles on Twitter!</h3>
         </div>
         <div class="center">
-         <span id="tweetButton" class="btn btn-use-example"> <span>TWEET</span>
+         <span id="tweetButton" class="btn btn-use-example"> <img class="tab-icon" src='resources/images/SVG/Tweet.svg' /> TWEET </span> 
          </span>
         </div>
        </div>

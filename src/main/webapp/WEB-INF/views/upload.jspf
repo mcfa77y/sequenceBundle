@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="col-md-1 upload-minimize-button-col">
                                         <button type="button" class="upload-minimize-button btn btn-default right" data-toggle="collapse" data-target="#fileUploadPanel">
-                                            <span class="glyphicon glyphicon-minus" aria-expanded="true" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-triangle-bottom" aria-expanded="true" aria-hidden="true"></span>
                                         </button>
                                     </div>
                                 </div>
@@ -60,7 +60,9 @@
                                                     </div>
                                                     <div class="row submit-settings">
                                                         <div class="col-md-12">
-                                                            <span class="btn btn-success fileinput-button btn-use-example" style="margin-left: 20px;"> <i class="glyphicon glyphicon-download-alt"></i> <span>BROWSE
+                                                            <span class="btn btn-success fileinput-button btn-use-example" style="margin-left: 20px;"> <span>
+                                                           <img class="tab-icon" src='resources/images/SVG/Upload_icon.svg' />
+                                                            BROWSE
                                                                              AND VALIDATE</span>
                                                                                                                         <!-- The file input field used as target for the file upload widget -->
                                                                                                                         <input id="fileUpload" data-url="/upload/file" name="file" type="file">
@@ -93,7 +95,7 @@
                                     </div>
                                     <div class="col-md-1 upload-minimize-button-col">
                                         <button type="button" class="btn btn-default right upload-minimize-button" data-toggle="collapse" data-target="#pasteSequencePanel">
-                                            <span class="glyphicon glyphicon-plus" aria-expanded="false" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-triangle-right" aria-expanded="false" aria-hidden="true"></span>
                                         </button>
                                     </div>
                                 </div>
@@ -128,7 +130,7 @@
                                             </div>
                                             <div class="row submit-settings">
                                                 <div class="col-md-12">
-                                                    <input id="validatePaste" class="btn btn-use-example " value="VALIDATE" type="submit" style="margin-left: 15px;">
+                                                    <input id="validatePaste" class="btn btn-use-example " value="UPLOAD AND VALIDATE" type="submit" style="margin-left: 15px;">
                                                 </div>
                                                 <!-- #col-12 -->
                                             </div>
@@ -147,6 +149,10 @@
                             </div>
                             <!-- #col -->
                         </div>
+
+
+
+
                         <!-- #col -->
                         <div class="col-md-4">
                             <div class="col-md-12 edit-panel">
@@ -156,7 +162,7 @@
                                     </div>
                                     <div class="col-md-1 upload-minimize-button-col">
                                         <button type="button" class="upload-minimize-button btn btn-default right" data-toggle="collapse" data-target="#useExamplePanel">
-                                            <span class="glyphicon glyphicon-plus" aria-hidden="true" aria-expanded="false"></span>
+                                            <span class="glyphicon glyphicon-triangle-right" aria-hidden="true" aria-expanded="false"></span>
                                         </button>
                                     </div>
                                 </div>
@@ -206,7 +212,7 @@
             <!-- #panel-section -->
             <div class="row submit-settings">
                 <div class="col-md-12">
-                    <input id="createBundleButton" class="btn btn-primary btn-lg next-btn " value="CREATE BUNDLE" type="button" disabled>
+                    <input id="createBundleButton" class="btn btn-primary btn-lg next-btn " value="CREATE BUNDLE" type="button">
                 </div>
                 <!-- #col-12 -->
             </div>

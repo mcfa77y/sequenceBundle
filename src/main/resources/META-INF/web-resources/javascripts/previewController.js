@@ -3,41 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- var PreviewController = {
- 	init : function() {
- 		$('#previewForm')
- 		.submit(
- 			function(event) {
+var PreviewController = {
+	init : function() {
+		$('#previewForm')
+				.submit(
+						function(event) {
 							// Stop form from submitting normally
 							event.preventDefault();
 
 							var startIndex = $('#startIndex');
 							if (isNaN(startIndex.val())) {
 								Utils.alertWarning(
-									"Enter valid index, please.",
-									'#previewForm');
+										"Enter valid index, please.",
+										'#previewForm');
 								return;
 							}
 
 							// Get some values from elements on the page:
 							var $form = $(this), url = $form.attr('action');
 							var data = $('#visualSettingsForm')
-							.serializeArray();
+									.serializeArray();
 
 							// sanitize start index less than 1
 							if (startIndex.val() < 1) {
 								startIndex.val(1);
 							}
 							if (startIndex.val() > $(
-								'#visualSettingsForm #lastIndex').val()) {
+									'#visualSettingsForm #lastIndex').val()) {
 								startIndex
-							.val($('#visualSettingsForm #lastIndex')
-								.val());
-						}
-						data.push({
-							name : 'startIndex',
-							value : startIndex.val()
-						});
+										.val($('#visualSettingsForm #lastIndex')
+												.val());
+							}
+							data.push({
+								name : 'startIndex',
+								value : startIndex.val()
+							});
 							// Send the data using post
 							var posting = $.post(url, data);
 							// Put the results in a div
@@ -49,19 +49,19 @@
 								Utils.showImage();
 							});
 							PreviewController
-							.updateSequenceNavigationControls(startIndex
-								.val());
+									.updateSequenceNavigationControls(startIndex
+											.val());
 						});
 
-$('#n-terminus').click(function() {
-	PreviewController.updateSequenceNavigationControls(1);
-});
+		$('#n-terminus').click(function() {
+			PreviewController.updateSequenceNavigationControls(1);
+		});
 
-$('#c-terminus').click(
-	function() {
-		PreviewController.updateSequenceNavigationControls($(
-			'#visualSettingsForm #lastIndex').val());
-	});
+		$('#c-terminus').click(
+				function() {
+					PreviewController.updateSequenceNavigationControls($(
+							'#visualSettingsForm #lastIndex').val());
+				});
 
 		// controls for tab icons changing from active <-> inactive states
 		$('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
@@ -84,11 +84,12 @@ $('#c-terminus').click(
 	initSequenceSlider : function(start, max, step) {
 		PreviewController.oldSliderValue = $('#startIndex').val();
 		var sequenceSlider = $('#sliderSequence');
+
 		sequenceSlider.slider({
 			min : 1,
 			max : max,
 			step : step,
-			value : start,
+			value : 1,
 			slide : function(event, ui) {
 				PreviewController.updateSequenceNavigationControls(ui.value);
 			},
@@ -97,15 +98,11 @@ $('#c-terminus').click(
 				if (ui.value !== PreviewController.oldSliderValue) {
 					PreviewController.oldSliderValue = ui.value;
 					PreviewController
-					.updateSequenceNavigationControls(ui.value);
+							.updateSequenceNavigationControls(ui.value);
 					PreviewController.renderImage();
 				}
 			}
 		});
-
-		sequenceSlider.css('margin-top', '25px');
-		sequenceSlider.css('margin-bottom', '25px');
-		sequenceSlider.css('margin-right', '5px');
 
 		$(window).resize(function() {
 			console.log('resize happening');
@@ -113,12 +110,12 @@ $('#c-terminus').click(
 		});
 
 		PreviewController
-		.updateSequenceNavigationControls(PreviewController.oldSliderValue);
+				.updateSequenceNavigationControls(PreviewController.oldSliderValue);
 	},
 	updateSliderWidth : function() {
 		var sequenceSlider = $('#sliderSequence');
 		var newWidth = 0.75 * (sequenceSlider.parent().parent().parent()
-			.width() - ($('#n-terminus').width() + $('#c-terminus').width() + $(
+				.width() - ($('#n-terminus').width() + $('#c-terminus').width() + $(
 				'#previewForm').width()));
 		sequenceSlider.width(newWidth + 'px');
 	},
@@ -139,9 +136,11 @@ $('#c-terminus').click(
 	updateSequenceNavigationControls : function(value) {
 		// search field
 		$('#startIndex').val(value);
+		var endRange = value + parseInt($("#columnCount").val()) - 1;
 		// index label
 		$('#sequenceIndexLabel').text(
-			value + " out of " + $('#lastIndex').val());
+				value + " - " + endRange + " OUT OF " + $('#lastIndex').val()
+						+ " POSITIONS");
 		// slider
 		$('#sliderSequence').slider('value', value);
 	}
@@ -150,7 +149,5 @@ $('#c-terminus').click(
 $(function() {
 	'use strict';
 	PreviewController.init();
-
-
 
 });

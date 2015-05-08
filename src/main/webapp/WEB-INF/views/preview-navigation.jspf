@@ -16,8 +16,9 @@
     </li>
     <li class="preview-nav-btn">
      <div class="section-title clickable" id="n-terminus">
+     N-TERMINUS</br>
       <img style="height: 30px;" src="<c:url value=" /resources/images/SVG/N-terminus_active.svg "/>" />
-      <br />N-TERMINUS
+      
      </div>
     </li>
     <li>
@@ -28,8 +29,9 @@
     <!-- <li class="preview-nav-btn"><a href="#"><img src="img/top-variation.svg" style="height: 50px;"/><br>TOP VARIATION</a></li> -->
     <li class="preview-nav-btn">
      <div class="section-title clickable" id="c-terminus">
+      C-TERMINUS
+      <br/>
       <img src="<c:url value=" /resources/images/SVG/C-terminus_active.svg "/>" style="height: 30px;" />
-      <br />C-TERMINUS
      </div>
     </li>
    </ul>
