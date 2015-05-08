@@ -1,37 +1,37 @@
- $(document).ready(function() {
- 	setUpAccordionBehaviors();
- });
+$(document).ready(function() {
+	setUpAccordionBehaviors();
+});
 
- function setUpAccordionBehaviors(){
- 	$('#collapseOne').collapse();
- 	$('#collapseTwo').collapse();
- 	$('#collapseThree').collapse();
+function setUpAccordionBehaviors() {
+	$('#collapseOne').collapse();
+	$('#collapseTwo').collapse();
+	$('#collapseThree').collapse();
 
- 	$('#collapseOne').on('show.bs.collapse', function() {
- 		$('#collapseTwo').collapse('hide');
- 		$('#collapseThree').collapse('hide');
- 	});
+	$('#collapseOne').on('show.bs.collapse', function() {
+		$('#collapseTwo').collapse('hide');
+		$('#collapseThree').collapse('hide');
+	});
 
- 	$('#collapseTwo').on('show.bs.collapse', function() {
- 		$('#collapseOne').collapse('hide');
- 		$('#collapseThree').collapse('hide');
- 		PreviewController.updateSliderWidth();
+	$('#collapseTwo').on('show.bs.collapse', function() {
+		$('#collapseOne').collapse('hide');
+		$('#collapseThree').collapse('hide');
+		PreviewController.updateSliderWidth();
 
- 	});
+	});
 
- 	$('#collapseTwo').on('shown.bs.collapse', function() {
- 		PreviewController.updateSliderWidth();
- 	});
+	$('#collapseTwo').on('shown.bs.collapse', function() {
+		PreviewController.updateSliderWidth();
+	});
 
- 	$('#collapseThree').on('show.bs.collapse', function() {
- 		console.log("dl seq");
- 		$('#collapseOne').collapse('hide');
- 		$('#collapseTwo').collapse('hide');
- 	});
- }
+	$('#collapseThree').on('show.bs.collapse', function() {
+		console.log("dl seq");
+		$('#collapseOne').collapse('hide');
+		$('#collapseTwo').collapse('hide');
+	});
+}
 
- var Utils = {
- 	animateShowImage : function() {
+var Utils = {
+	animateShowImage : function() {
 		// navigates to second tab and opens first tab
 		$('#collapseOne').collapse('hide');
 		$('#collapseTwo').collapse('show');
@@ -74,7 +74,7 @@
 		}
 		// turn on only active tab
 		var activatedSrc = activeImage.attr('src').split('.')[0]
-		+ "_active.svg";
+				+ "_active.svg";
 		activeImage.attr('src', activatedSrc);
 
 	},
@@ -149,7 +149,7 @@
 		var alertHTML = '<div class="alert alert-warning alert-dismissible" role="alert">\
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
 		'
-		+ message + '</div>';
+				+ message + '</div>';
 		$(attachAfterId).after(alertHTML);
 	},
 	jobStatusPoll : function(filename, imagePath) {
@@ -158,12 +158,12 @@
 		$.post("upload/seq/status", {
 			filename : filename
 		}).done(
-		function(data) {
-			var progress = parseInt(data.value / data.max * 100, 10);
+				function(data) {
+					var progress = parseInt(data.value / data.max * 100, 10);
 
-			var progressBar = $('#renderProgress .progress-bar');
-			progressBar.css('width', progress + '%');
-			if (data['isFinished'] === false) {
+					var progressBar = $('#renderProgress .progress-bar');
+					progressBar.css('width', progress + '%');
+					if (data['isFinished'] === false) {
 						// continue to get status information
 						setTimeout(function() {
 							var d = new Date();
@@ -192,18 +192,18 @@
 						} else {
 
 							$('#sequenceBundle').prepend(
-								'<img class="image-all-width" id="sequenceBundleImage" src="'
-								+ imagePath + '" />').fadeIn();
+									'<img class="image-all-width" id="sequenceBundleImage" src="'
+											+ imagePath + '" />').fadeIn();
 						}
 
 						$('#sequenceBundleImage').bind(
-							'error',
-							function(e) {
-								var err = JSON.stringify(e, null, 4);
-								Utils.debug("error loading image:"
-									+ imagePath + "\n" + err);
-								image.attr('src', imagePath);
-							});
+								'error',
+								function(e) {
+									var err = JSON.stringify(e, null, 4);
+									Utils.debug("error loading image:"
+											+ imagePath + "\n" + err);
+									image.attr('src', imagePath);
+								});
 						$('#downloadPNGLink').attr('href', imagePath);
 						$('#downloadPNGLink').attr('download', filename);
 
@@ -211,8 +211,8 @@
 						$('#renderHiResStatus').hide();
 					}
 				}).error(function(e) {
-					var err = JSON.stringify(e, null, 4);
-					Utils.debug("error loading jobStatus:" + "\n" + err);
-				});
-			}
-		};
+			var err = JSON.stringify(e, null, 4);
+			Utils.debug("error loading jobStatus:" + "\n" + err);
+		});
+	}
+};

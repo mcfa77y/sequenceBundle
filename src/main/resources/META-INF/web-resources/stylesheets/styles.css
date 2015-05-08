@@ -584,6 +584,15 @@ input[type="checkbox"].checkbox {
 	width: 100%;
 }
 
+.read-more-info {
+	background-color: #d8d8d8;
+}
+
+.alert-dismissible.close{
+	color:white;
+}
+
+
 #col-width {
 	background: url("../images/SVG/col-width.svg") no-repeat;
 }

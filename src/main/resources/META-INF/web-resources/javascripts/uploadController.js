@@ -115,6 +115,8 @@ $(function() {
 							// display validating
 							uploadSequenceInfo('upload-status-validate',
 									"Uploading and Validating ...", false);
+							// clear old sequence data
+							$("#visualSettingsForm #sequence").val('');
 
 							data.formData = Utils.createData({
 								alignmentType : $('#alignmentTypeFile').val()
@@ -129,6 +131,9 @@ $(function() {
 	$("#pasteSequenceForm").submit(function(event) {
 		// Stop form from submitting normally
 		event.preventDefault();
+		// clear old sequence data
+		$("#visualSettingsForm #sequence").val('');
+
 		// Get some values from elements on the page:
 		var $form = $(this), url = $form.attr("action");
 		var data = Utils.createData({
@@ -143,6 +148,8 @@ $(function() {
 		// Stop form from submitting normally
 		event.preventDefault();
 		var filename = $('#useExampleFile').val();
+		// clear old sequence data
+		$("#visualSettingsForm #sequence").val('');
 		// Get some values from elements on the page:
 		var $form = $(this), url = $form.attr("action");
 		var data = Utils.createData({

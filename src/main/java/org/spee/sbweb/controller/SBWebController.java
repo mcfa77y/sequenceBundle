@@ -121,6 +121,11 @@ public class SBWebController implements ServletContextAware {
 		return "SBWebResult";
 	}
 
+	@RequestMapping(value = "/ezviz", method = { RequestMethod.GET })
+	public String seqStatus() {
+		return "EzViz";
+	}
+
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;

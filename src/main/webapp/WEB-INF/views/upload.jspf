@@ -74,7 +74,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="readMoreInfo" class="alert alert-info alert-dismissible collapse" role="alert">
+                                    <div id="readMoreInfo" class="read-more-info alert alert-dismissible collapse" role="alert">
                                         <button type="button" class="close" data-toggle="collapse" data-target="#readMoreInfo" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -136,7 +136,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div id="readMoreInfoPaste" class="alert alert-info alert-dismissible collapse" role="alert">
+                                    <div id="readMoreInfoPaste" class="read-more-info alert alert-dismissible collapse" role="alert">
                                         <button type="button" class="close" data-toggle="collapse" data-target="#readMoreInfoPaste" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
