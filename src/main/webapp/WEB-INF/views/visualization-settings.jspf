@@ -24,14 +24,18 @@
       <input id="showingVerticalLines1" class="checkbox pull-right" name="showingVerticalLines" value="true" checked="checked" type="checkbox">
       <input name="_showingVerticalLines" value="on" type="hidden">
      </div>
-     <div class="setting-row">
+     <div class="setting-row row">
+      <div class="col-md-7 col-xs-8">
       <label class="edit-settings icon" id="y-axis">ORDER AMINO ACIDS IN THE LEGEND BY: </label>
+    </div>
+    <div class="col-md-7 col-xs-4">
       <select class="edit-dropdown" id="yAxis" name="yAxis"><option value="DEFAULT" selected="selected">DEFAULT</option>
        <option value="HYDROPHOBICITY">HYDROPHOBICITY</option>
        <option value="BULKINESS">BULKINESS</option>
        <option value="POLARITY">POLARITY</option>
        <option value="RFRANK">RF RANK</option>
        <option value="ISOELECTRICPOINT">ISOELECTRIC POINT</option></select>
+     </div>
      </div>
     </div>
     <!-- #col-12 -->
