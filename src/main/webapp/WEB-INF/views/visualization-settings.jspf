@@ -20,7 +20,7 @@
      </div>
      <!-- <div class="setting-row"><label class="edit-settings icon" id="row-height">ROW HEIGHT IS:</label><input class="text-input" id="cellHeight" name="cellHeight" value="20" type="text"></div>-->
      <div class="setting-row">
-      <label class="edit-settings icon" id="vertical-grid">SHOW VERTICAL GRID LINES</label>
+      <label class="edit-settings icon" id="vertical-grid">SHOW VERTICAL GRID LINES:</label>
       <input id="showingVerticalLines1" class="checkbox pull-right" name="showingVerticalLines" value="true" checked="checked" type="checkbox">
       <input name="_showingVerticalLines" value="on" type="hidden">
      </div>
@@ -123,7 +123,7 @@
      </div>
      <div class="setting-row">
       <label class="edit-settings"> HIDE RESIDUES CONSERVED LESS THAN: </label>
-      <div id="conservationThresholdLabel" class="edit-settings">0.0</div>
+      <div id="conservationThresholdLabel" class="edit-settings">0%</div>
       <div id="sliderResidueConservation" class="slider"></div>
       <div class="row">
        <div value=0 class="conservationJump clickable center col-md-4 col-xs-4">
