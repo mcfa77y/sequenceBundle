@@ -1,16 +1,12 @@
-<%@include file="preview-navigation.jspf"%>
-<div id="renderProgress" class="progress loading-image">
-	<div class="progress-bar progress-bar-success"></div>
-</div>
-<%-- <div id="loading" style="display: none">
-                                        <img class="loading-image" src="<c:url value="/resources/images/ajax-loader.gif"/>" alt="Loading..." />
-                                    </div> --%>
-<div id="sequenceBundle" class="scrolly"></div>
-<div class="row submit-settings">
-	<div class="col-md-12">
-		<input id="downloadButton" class="next-btn" value="DOWNLOAD"
-			type="submit"> <input id="restartButton hide" class="next-btn "
-			value="RESTART" type="submit">
-	</div>
-	<!-- #col-12 -->
-</div>
+<%@include file="preview-navigation.jspf" %>
+    <div id="sequenceBundle" class="scrolly">
+        <div id="renderProgress" class="loading-image center" style="display:none">
+            <h1 class="loading-text"> Loading Preview...</h1>
+        </div>
+    </div>
+    <div class="row submit-settings">
+        <div class="col-md-12">
+            <input id="downloadButton" class="btn next-btn" value="DOWNLOAD" type="submit">
+        </div>
+        <!-- #col-12 -->
+    </div>

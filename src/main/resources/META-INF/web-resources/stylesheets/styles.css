@@ -109,6 +109,7 @@ h3 {
 .btn-use-example {
 	border: 1px solid #066cff;
 	color: #066cff;
+	margin-top: 1em;
 	margin-bottom: 1em;
 	background: none !important;
 }
@@ -123,6 +124,11 @@ h3 {
 	-webkit-border-radius: 0px !important;
 	border-radius: 0px !important;
 	color: black;
+	width: 100px;
+}
+
+.uploadPanelInfo {
+	color: grey;
 }
 
 ::-webkit-input-placeholder {
@@ -209,6 +215,7 @@ h3 {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	padding-left: 20px;
+	padding-right: 20px;
 	color: #707070;
 }
 
@@ -223,6 +230,7 @@ textarea {
 	border: 1px solid #a8caef;
 	background: #c5dbfe;
 	margin-top: 0 !important;
+	margin-bottom: 10px;
 	font-family: courier, sans-serif;
 	font-size: 1.2em;
 	background-image: url(bg.gif);
@@ -232,18 +240,27 @@ textarea {
 	padding: 1em;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	resize: vertical;
 }
 
-.upload-summary {
+.upload-status {
 	font-size: 1.6em;
-	border-top: 1px solid #066cff;
-	border-right: 1px solid #066cff;
-	border-bottom: 3px solid #066cff;
-	border-left: 1px solid #066cff;
 	padding: 1em;
-	color: #066cff;
+	color: grey;
 	margin-bottom: 2em;
 	text-align: center;
+}
+
+.upload-status-validating {
+	color: grey;
+}
+
+.upload-status-error {
+	color: #ff072c;
+}
+
+.upload-status-success {
+	color: #63ce41;
 }
 
 .upload-error {
@@ -318,7 +335,9 @@ label input[type=radio] {
 }
 
 .slider {
-	margin: 25px 5px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	margin-right: 5px;
 }
 
 .conservationThresholdLabel {
@@ -327,10 +346,11 @@ label input[type=radio] {
 }
 
 .setting-row {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	border-bottom: 1px solid #d8d8d8;
+	padding: 10px;
+}
+
+.btn.disabled {
+	background-color: #afafaf;
 }
 
 .text-input {
@@ -356,7 +376,6 @@ label input[type=radio] {
 .submit-settings {
 	text-align: center;
 	margin: 0px 0px;
-	border-top: 1px dashed #d8d8d8;
 }
 
 .submit-btn {
@@ -463,19 +482,19 @@ input[type="checkbox"].checkbox {
 }
 
 .icon-40 {
-	height: 40px
+	height: 40px;
 	margin-left: auto;
-    margin-right: auto;
+	margin-right: auto;
+}
+
+.icon-60 {
+	height: 60px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .hide {
 	display: none;
-}
-
-.loading {
-	opacity: 0.4;
-	filter: alpha(opacity = 40); /* msie */
-	background-color: #000;
 }
 
 .summary-heading {
@@ -496,6 +515,83 @@ input[type="checkbox"].checkbox {
 .clickable {
 	cursor: pointer;
 }
+
+.center {
+	text-align: center;
+}
+
+.left {
+	float: left;
+	display: inline;
+	padding: 25px 50px
+}
+
+.right {
+	float: right;
+	display: inline;
+}
+
+.box {
+	float: left;
+	display: inline;
+	padding: 5px 10px;
+	margin: 5px 5px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.scrolly {
+	overflow-x: auto;
+	height: 578px;
+	position: relative;
+}
+
+.upload-minimize-button-col {
+	border-bottom: 1px dashed rgb(216, 216, 216);
+	margin-left: -15px;
+	border-right-style: solid;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	border-right-width: 0px;
+}
+
+.upload-minimize-button {
+	border: 0px;
+}
+
+.moreInfoQuestionIcon {
+	margin-top: 16px;
+}
+
+.loading-image {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: #066cff;
+	filter: alpha(opacity = 20); /* msie */
+	background: rgba(222, 222, 222, .5);
+}
+
+.loading-text {
+	margin-top: 250px;
+}
+
+.image-all-width {
+	width: 100%;
+}
+
+.read-more-info {
+	background-color: #d8d8d8;
+}
+
+.alert-dismissible.close{
+	color:white;
+}
+
+
 #col-width {
 	background: url("../images/SVG/col-width.svg") no-repeat;
 }

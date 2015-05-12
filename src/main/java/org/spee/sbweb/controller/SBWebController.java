@@ -12,7 +12,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.servlet.ServletContext;
 import javax.validation.Valid;
@@ -121,6 +124,11 @@ public class SBWebController implements ServletContextAware {
 		return "SBWebResult";
 	}
 
+	@RequestMapping(value = "/ezviz", method = { RequestMethod.GET })
+	public String seqStatus() {
+		return "EzViz";
+	}
+
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;
@@ -128,6 +136,41 @@ public class SBWebController implements ServletContextAware {
 				+ this.servletContext.getRealPath("/images"));
 		System.out.println("SBWebControler.java - ServletContext: root - "
 				+ this.servletContext.getRealPath("/"));
+
+		Timer t = new Timer();
+		MyTask mTask = new MyTask();
+		int everyHour = 60 * 60 * 1000;
+		t.scheduleAtFixedRate(mTask, 0, everyHour);
+
+	}
+
+	class MyTask extends TimerTask {
+		private static final int HOUR_THRESHOLD = 5 * 60 * 60 * 1000;
+		private final File folder = new File(
+				servletContext.getRealPath("/resources/images"));
+
+		public MyTask() {
+			// Some stuffs
+		}
+
+		private void listFilesForFolder(final File folder) {
+			for (final File fileEntry : folder.listFiles()) {
+				if (fileEntry.isDirectory()) {
+					listFilesForFolder(fileEntry);
+				} else {
+					long diff = new Date().getTime() - fileEntry.lastModified();
+					if (diff > HOUR_THRESHOLD) {
+						fileEntry.delete();
+					}
+				}
+			}
+		}
+
+		@Override
+		public void run() {
+			listFilesForFolder(folder);
+			System.out.println("Hi see you after 10 seconds");
+		}
 
 	}
 

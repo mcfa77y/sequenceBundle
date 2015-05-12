@@ -35,7 +35,7 @@
 		</div>
 		
 		<div class="panel-group" id="accordion" role="tablist"
-			aria-multiselectable="false">
+			>
 			<%@include file="upload.jspf"%>
 
 			<%@include file="visualize.jspf"%>

@@ -14,9 +14,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -25,16 +23,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.jboss.logging.Logger;
-import org.spee.sbweb.domain.Message;
-import org.spee.sbweb.domain.UploadedFile;
 import org.spee.sbweb.model.AlvisModel;
 import org.spee.sbweb.model.WebJSequenceBundle;
-import org.spee.sbweb.response.StatusResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.ServletContextAware;
@@ -57,39 +51,13 @@ public class UploadController implements ServletContextAware {
 
 	final private static Logger logger = Logger.getLogger("controller");
 	private ServletContext servletContext;
-	final private static HashMap<String, WebJSequenceBundle> jSequenceBundleMap = new HashMap();
+	final private static HashMap<String, WebJSequenceBundle> jSequenceBundleMap = new HashMap<String, WebJSequenceBundle>();
 	final private int MAX_SEQUENCE_BASES = 1000;
 	final private int MAX_SEQUENCE_COUNT = 1000;
 
 	@RequestMapping(method = { RequestMethod.GET, RequestMethod.HEAD })
 	public String form() {
 		return "form";
-	}
-
-	@RequestMapping(value = "/message", method = RequestMethod.POST)
-	public @ResponseBody StatusResponse message(@RequestBody Message message) {
-		// Do custom steps here
-		// i.e. Persist the message to the database
-		logger.debug("Service processing...done");
-		return new StatusResponse(true, "Message received");
-	}
-
-	@RequestMapping(value = "/file2", method = { RequestMethod.POST,
-			RequestMethod.OPTIONS }, produces = "application/json")
-	public @ResponseBody List<UploadedFile> upload(
-			@RequestParam("file") MultipartFile file) {
-		// Do custom steps here
-		// i.e. Save the file to a temporary location or database
-		logger.debug("Writing file to disk...");
-		// System.out.println("formData: " + formData);
-		List<UploadedFile> uploadedFiles = new ArrayList<>();
-		UploadedFile u = new UploadedFile(file.getOriginalFilename(), Long
-				.valueOf(file.getSize()).intValue(),
-				"http://localhost:8080/alvis-web-interface/resources/"
-						+ file.getOriginalFilename());
-
-		uploadedFiles.add(u);
-		return uploadedFiles;
 	}
 
 	class RenderStatus {
@@ -193,6 +161,9 @@ public class UploadController implements ServletContextAware {
 			return alvisModel;
 		}
 
+		alvisModel.setSequenceBases(jsb.getAlignment().getLength());
+		alvisModel.setSequenceCount(jsb.getAlignment().getSequenceCount());
+
 		if (jsb.getAlignment().getLength() > MAX_SEQUENCE_BASES) {
 			alvisModel.appendErrorMessage("Sequence must have less than "
 					+ MAX_SEQUENCE_BASES + " bases");
@@ -204,8 +175,6 @@ public class UploadController implements ServletContextAware {
 		if (alvisModel.getErrorMessage().length() > 0) {
 			return alvisModel;
 		} else {
-			alvisModel.setSequenceBases(jsb.getAlignment().getLength());
-			alvisModel.setSequenceCount(jsb.getAlignment().getSequenceCount());
 			jsb.setBundleConfig(alvisModel);
 			// -1 to fix GUI offset so 1 shows no offset
 			Integer startIndex = Integer.valueOf(request
@@ -274,7 +243,8 @@ public class UploadController implements ServletContextAware {
 			int toIndex = Math.min(fromIndex
 					+ alvisModel.getCellWidthType().getNumberOfColumns(),
 					alvisModel.getSequenceBases());
-			jsb.renderFragmentPNGToFile(tmpFile, 72, fromIndex, toIndex);
+			jsb.renderFragmentPNGToFile(tmpFile, alvisModel.getDpi(),
+					fromIndex, toIndex);
 
 			jSequenceBundleMap.put(tmpFile.getName(), jsb);
 			alvisModel.setTempFile(tmpFile);
@@ -309,6 +279,10 @@ public class UploadController implements ServletContextAware {
 				.get("lineColor")[0]));
 		alvisModel.setAlignmentType(AlvisModel.AlignmentType.valueOf(paramMap
 				.get("alignmentType")[0]));
+		String[] dpi = paramMap.get("dpi");
+		if (dpi != null) {
+			alvisModel.setDpi(Integer.parseInt(dpi[0]));
+		}
 		alvisModel.setErrorMessage("");
 		return alvisModel;
 	}

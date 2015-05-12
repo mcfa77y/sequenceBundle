@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -84,11 +84,12 @@ var PreviewController = {
 	initSequenceSlider : function(start, max, step) {
 		PreviewController.oldSliderValue = $('#startIndex').val();
 		var sequenceSlider = $('#sliderSequence');
+
 		sequenceSlider.slider({
 			min : 1,
 			max : max,
 			step : step,
-			value : start,
+			value : 1,
 			slide : function(event, ui) {
 				PreviewController.updateSequenceNavigationControls(ui.value);
 			},
@@ -103,10 +104,6 @@ var PreviewController = {
 			}
 		});
 
-		sequenceSlider.css('margin-top', '25px');
-		sequenceSlider.css('margin-bottom', '25px');
-		sequenceSlider.css('margin-right', '5px');
-
 		$(window).resize(function() {
 			console.log('resize happening');
 			PreviewController.updateSliderWidth();
@@ -120,7 +117,7 @@ var PreviewController = {
 		var newWidth = 0.75 * (sequenceSlider.parent().parent().parent()
 				.width() - ($('#n-terminus').width() + $('#c-terminus').width() + $(
 				'#previewForm').width()));
-		sequenceSlider.width(newWidth + 'px');
+		sequenceSlider.width('100%');
 	},
 	renderImage : function() {
 		var posting = $.post('/upload/paste', Utils.createData());
@@ -139,8 +136,11 @@ var PreviewController = {
 	updateSequenceNavigationControls : function(value) {
 		// search field
 		$('#startIndex').val(value);
+		var endRange = value + parseInt($("#columnCount").val()) - 1;
 		// index label
-		$('#sequenceIndexLabel').text(value + " of " + $('#lastIndex').val());
+		$('#sequenceIndexLabel').text(
+				value + " - " + endRange + " OUT OF " + $('#lastIndex').val()
+						+ " POSITIONS");
 		// slider
 		$('#sliderSequence').slider('value', value);
 	}
@@ -149,4 +149,5 @@ var PreviewController = {
 $(function() {
 	'use strict';
 	PreviewController.init();
+
 });

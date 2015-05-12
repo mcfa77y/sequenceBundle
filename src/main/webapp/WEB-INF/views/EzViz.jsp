@@ -25,7 +25,7 @@
 	<div class="container">
 		<div class="panel-group" id="accordion" role="tablist"
 			aria-multiselectable="false">
-			<%@include file="visualize.jspf"%>
+			<%@include file="visualization-settings.jspf"%>
 		</div>
 	</div>
 </body>
