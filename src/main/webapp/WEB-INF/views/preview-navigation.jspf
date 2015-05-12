@@ -1,42 +1,33 @@
-<nav class="navbar navbar-default preview-navbar" role="navigation">
- <div class="container-fluid">
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-   <ul class="nav navbar-nav">
-    <li>
-     <form id="previewForm" class="navbar-form navbar-left" role="search" style="margin-top: 2em;" action="/upload/paste">
-      <div class="form-group">
-       <input id="startIndex" class="form-control" placeholder="POSTION NUMBER" type="text">
-      </div>
-      <!-- #form-group -->
-      <button type="submit" class="btn btn-default">
-       <span class="glyphicon glyphicon-search"></span>
-      </button>
-     </form> <!-- #form -->
-    </li>
-    <li class="preview-nav-btn">
-     <div class="section-title clickable" id="n-terminus">
-     N-TERMINUS</br>
-      <img style="height: 30px;" src="<c:url value=" /resources/images/SVG/N-terminus_active.svg "/>" />
-      
-     </div>
-    </li>
-    <li>
-     <div id='sequenceIndexLabel' class="center"></div>
-     <div id="sliderSequence" class="slider"></div>
-    </li>
-    <!-- <li class="preview-nav-btn"><a href="#"><img src="img/top-conservation.svg" style="height: 50px;"/><br>TOP CONSERVATION</a></li> -->
-    <!-- <li class="preview-nav-btn"><a href="#"><img src="img/top-variation.svg" style="height: 50px;"/><br>TOP VARIATION</a></li> -->
-    <li class="preview-nav-btn">
-     <div class="section-title clickable" id="c-terminus">
-      C-TERMINUS
-      <br/>
-      <img src="<c:url value=" /resources/images/SVG/C-terminus_active.svg "/>" style="height: 30px;" />
-     </div>
-    </li>
-   </ul>
+
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-3 col-sm-12 col-xs-12">
+   <form id="previewForm" class="form-inline" action="/upload/paste">
+    <div class="form-group">
+     <input id="startIndex" class="form-control" style="display:inline-block;" placeholder="POSTION NUMBER" type="text">
+     <button type="submit" class="btn btn-default">
+      <span class="glyphicon glyphicon-search"></span>
+     </button>
+    </div>
+    <!-- #form-group -->
+   </form>
+   <!-- #form -->
   </div>
-  <!-- #navbar-collapse -->
+  <div class="col-md-2 col-sm-3 col-xs-3">
+   <div class="section-title clickable" id="n-terminus">
+    N-TERMINUS</br>
+    <img class="icon-40" src="<c:url value=" /resources/images/SVG/N-terminus_active.svg "/>" />
+   </div>
+  </div>
+  <div class="col-md-5 col-sm-6 col-xs-6">
+   <div id='sequenceIndexLabel' class="center"></div>
+   <div id="sliderSequence" class="slider"></div>
+  </div>
+  <div class="col-md-2 col-sm-3 col-xs-3">
+   <div class="section-title clickable" id="c-terminus">
+    C-TERMINUS <br />
+    <img src="<c:url value=" /resources/images/SVG/C-terminus_active.svg "/>" class="icon-40" />
+   </div>
+  </div>
  </div>
- <!-- #container-fluid -->
-</nav>
+</div>

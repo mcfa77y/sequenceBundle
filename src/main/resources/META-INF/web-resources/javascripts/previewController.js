@@ -117,7 +117,7 @@ var PreviewController = {
 		var newWidth = 0.75 * (sequenceSlider.parent().parent().parent()
 				.width() - ($('#n-terminus').width() + $('#c-terminus').width() + $(
 				'#previewForm').width()));
-		sequenceSlider.width(newWidth + 'px');
+		sequenceSlider.width('100%');
 	},
 	renderImage : function() {
 		var posting = $.post('/upload/paste', Utils.createData());

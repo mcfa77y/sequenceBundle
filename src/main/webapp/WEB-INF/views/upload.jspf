@@ -16,12 +16,13 @@
                 <div class="panel-section">
                     <div class="row" style="margin: 2em 2em 2em 2em;">
                         <div class="col-md-4">
+                       
                             <div class="col-md-12 edit-panel">
                                 <div class="row">
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 col-xs-11">
                                         <h2>Option 1: Use a *.FASTA file</h2>
                                     </div>
-                                    <div class="col-md-1 upload-minimize-button-col">
+                                    <div class="col-md-1 col-xs-1 upload-minimize-button-col">
                                         <button type="button" class="upload-minimize-button btn btn-default right" data-toggle="collapse" data-target="#fileUploadPanel">
                                             <span class="glyphicon glyphicon-triangle-bottom" aria-expanded="true" aria-hidden="true"></span>
                                         </button>
@@ -31,7 +32,7 @@
                                 <div id="fileUploadPanel" class="collapse in uploadPanelInfo">
                                     <div id="readLessInfo" class="row collapse in">
                                         <div class="row">
-                                            <div class="col-md-10">
+                                            <div class="col-md-10 col-xs-10">
                                                 <h3>
              Select your
              <a href="http://en.wikipedia.org/wiki/FASTA_format" target="_blank">FASTA file</a>
@@ -39,7 +40,7 @@
              <a href="#!" data-toggle="collapse" data-target="#readMoreInfo" aria-expanded="false">Read more...</a>
             </h3>
                                             </div>
-                                            <div class="col-md-1">
+                                            <div class="col-md-1 col-xs-1">
                                                 <button type="button" class="close moreInfoQuestionIcon" data-toggle="collapse" data-target="#readMoreInfo" aria-label="Close">
                                                     <span class="glyphicon glyphicon-question-sign" aria-expanded="true" aria-hidden="true"></span>
                                                 </button>
@@ -90,10 +91,10 @@
                         <div class="col-md-4">
                             <div class="col-md-12 edit-panel">
                                 <div class="row">
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 col-xs-11">
                                         <h2>Option 2: Paste MSA data</h2>
                                     </div>
-                                    <div class="col-md-1 upload-minimize-button-col">
+                                    <div class="col-md-1 col-xs-1 upload-minimize-button-col">
                                         <button type="button" class="btn btn-default right upload-minimize-button" data-toggle="collapse" data-target="#pasteSequencePanel">
                                             <span class="glyphicon glyphicon-triangle-right" aria-expanded="false" aria-hidden="true"></span>
                                         </button>
@@ -102,7 +103,7 @@
                                 <div id="pasteSequencePanel" class="collapse uploadPanelInfo">
                                     <div id="readLessInfoPaste" class="collapse in">
                                         <div class="row">
-                                            <div class="col-md-10">
+                                            <div class="col-md-10 col-xs-10">
                                                 <h3>
              Paste data in
              <a href="http://en.wikipedia.org/wiki/FASTA_format" target="_blank">FASTA format</a>
@@ -110,7 +111,7 @@
              <a href="#!" data-toggle="collapse" data-target="#readMoreInfoPaste" aria-expanded="false">Read more...</a>
             </h3>
                                             </div>
-                                            <div class="col-md-1">
+                                            <div class="col-md-1 col-xs-1">
                                                 <button type="button" class="close moreInfoQuestionIcon" data-toggle="collapse" data-target="#readMoreInfoPaste" aria-label="Close">
                                                     <span class="glyphicon glyphicon-question-sign" aria-expanded="true" aria-hidden="true"></span>
                                                 </button>
@@ -157,10 +158,10 @@
                         <div class="col-md-4">
                             <div class="col-md-12 edit-panel">
                                 <div class="row">
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 col-xs-11">
                                         <h2>Option 3: Select example data:</h2>
                                     </div>
-                                    <div class="col-md-1 upload-minimize-button-col">
+                                    <div class="col-md-1 col-xs-1 upload-minimize-button-col">
                                         <button type="button" class="upload-minimize-button btn btn-default right" data-toggle="collapse" data-target="#useExamplePanel">
                                             <span class="glyphicon glyphicon-triangle-right" aria-hidden="true" aria-expanded="false"></span>
                                         </button>

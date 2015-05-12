@@ -7,10 +7,10 @@
       <h2>GRID</h2>
      </div>
      <div class="setting-row row">
-      <div class="col-md-7">
+      <div class="col-md-7 col-xs-5">
        <label class="edit-settings icon" id="col-width">COLUMN WIDTH IS:</label>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5 col-xs-7">
        <select class="edit-dropdown" id="cellWidth" name="cellWidth">
         <option value="SMALL">NARROW</option>
         <option value="MEDIUM" selected="selected">MEDIUM</option>
@@ -47,10 +47,10 @@
      </div>
      <!--<div class="setting-row"><label class="edit-settings icon" id="bundle-height">BUNDLE HEIGHT IS:</label><input class="text-input" id="maxBundleWidth" name="maxBundleWidth" value="16" type="text"></div> -->
      <div class="setting-row row">
-      <div class="col-md-7">
+      <div class="col-md-7 col-xs-5">
        <label class="edit-settings icon" id="residue-width">RESIDUE WIDTH IS:</label>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5 col-xs-7">
        <select class="edit-dropdown" name="horizontalExtent">
         <option value="0.10">SHORT</option>
         <option value="0.33" selected="selected">MEDIUM</option>
@@ -59,10 +59,10 @@
       </div>
      </div>
      <div class="setting-row row ">
-      <div class="col-md-7">
+      <div class="col-md-7 col-xs-5">
        <label class="edit-settings icon" id="curve-radius">CURVE RADIUS IS:</label>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5 col-xs-7">
        <select class="edit-dropdown" name="radius">
         <option value="1">SHARP</option>
         <option value="15" selected="selected">MEDIUM</option>
@@ -71,10 +71,10 @@
       </div>
      </div>
      <div class="setting-row row ">
-      <div class="col-md-7">
+      <div class="col-md-7 col-xs-5">
        <label class="edit-settings icon" id="line-colour">LINE COLOUR</label>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5 col-xs-7">
        <select class="edit-dropdown" id="lineColor" name="lineColor">
         <option value="DEFAULT" selected="selected">DEFAULT</option>
         <option value="NAVY">NAVY</option>
@@ -102,13 +102,13 @@
       <label class="edit-settings">DISPLAY GAPS CONNECTED OR DISCONNECTED </label>
       <div class="row">
        <div id="gapRadioGroup">
-        <div class="col-md-6">
+        <div class="col-md-6 col-xs-6 center">
          <label class="radio-inline">
           <input class='gapRadioOption' type="radio" name="gapRendering" value="STANDARD" checked="checked">
           <img class="tab-icon" src='resources/images/SVG/Gap-continuous_active.svg' />
          </label>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 col-xs-6 center">
          <label class="radio-inline">
           <input class='gapRadioOption' type="radio" name="gapRendering" value="DISCONNECTED">
           <img class="tab-icon" src='resources/images/SVG/Gap-disconnected.svg' />
@@ -122,16 +122,16 @@
       <div id="conservationThresholdLabel" class="edit-settings">0.0</div>
       <div id="sliderResidueConservation" class="slider"></div>
       <div class="row">
-       <div value=0 class="conservationJump clickable col-md-4">
-        <div class="center">0%</div>
+       <div value=0 class="conservationJump clickable center col-md-4 col-xs-4">
+        <div> 0% </div>
         <img class="icon-60 center" src='resources/images/SVG/Filter_0.svg' />
        </div>
-       <div value=50 class="conservationJump clickable col-md-4">
-        <div class="center">50%</div>
+       <div value=50 class="conservationJump clickable center col-md-4 col-xs-4">
+        <div> 50% </div>
         <img class="icon-60 center" src='resources/images/SVG/Filter_50.svg' />
        </div>
-       <div value=100 class="conservationJump clickable col-md-4">
-        <div class="center">100%</div>
+       <div value=100 class="conservationJump clickable center col-md-4 col-xs-4">
+        <div> 100% </div>
         <img class="icon-60 center" src='resources/images/SVG/Filter_100.svg' />
        </div>
       </div>
