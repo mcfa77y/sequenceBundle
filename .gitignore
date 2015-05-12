@@ -1,4 +1,6 @@
 build
+target
+*.project
 dist
 temp
 Thumbs.db
@@ -12,7 +14,7 @@ Thumbs.db
 *.log
 *.nlo
 *.out
+.gitignore*
+*.orig
 auto
-
-
 

@@ -1,0 +1,12 @@
+<%@include file="preview-navigation.jspf" %>
+    <div id="sequenceBundle" class="scrolly">
+        <div id="renderProgress" class="loading-image center" style="display:none">
+            <h1 class="loading-text"> Loading Preview...</h1>
+        </div>
+    </div>
+    <div class="row submit-settings">
+        <div class="col-md-12">
+            <input id="downloadButton" class="btn next-btn" value="DOWNLOAD" type="submit">
+        </div>
+        <!-- #col-12 -->
+    </div>

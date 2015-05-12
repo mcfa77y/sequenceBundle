@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 64 36" enable-background="new 0 0 64 36" xml:space="preserve">
+<path fill="#FFFFFF" stroke="#066CFF" stroke-miterlimit="10" d="M1.3,1.6h58.2c1.7,0,3.2,1.4,3.2,3.2v26.4c0,1.7-1.4,3.2-3.2,3.2
+	H1.3V1.6z"/>
+<g>
+	<g>
+		<g>
+			<rect x="40" y="15.8" fill="none" width="6.2" height="7.3"/>
+			<text transform="matrix(1 0 0 1 39.9792 20.7905)" fill="#066CFF" font-family="'MuseoSans-700'" font-size="7">C</text>
+		</g>
+		<g>
+			<rect x="45.9" y="26.3" fill="none" width="6.2" height="7.3"/>
+			<text transform="matrix(1 0 0 1 45.9396 31.2382)" fill="#066CFF" font-family="'MuseoSans-700'" font-size="7">O</text>
+		</g>
+		<g>
+			<rect x="45.8" y="5.1" fill="none" width="12.7" height="7.3"/>
+			<text transform="matrix(1 0 0 1 45.7902 10.058)" fill="#066CFF" font-family="'MuseoSans-700'" font-size="7">OH</text>
+		</g>
+		<g>
+			<line fill="none" stroke="#066CFF" stroke-width="0.5" stroke-miterlimit="10" x1="38.9" y1="18.5" x2="35.8" y2="18.5"/>
+			<circle opacity="0.25" fill="#066CFF" cx="31.6" cy="18.5" r="4.1"/>
+			<line fill="none" stroke="#066CFF" stroke-width="0.5" stroke-miterlimit="10" x1="28.9" y1="18.5" x2="25.8" y2="18.5"/>
+			<circle opacity="0.25" fill="#066CFF" cx="21.6" cy="18.5" r="4.1"/>
+			<line fill="none" stroke="#066CFF" stroke-width="0.5" stroke-miterlimit="10" x1="18.9" y1="18.5" x2="15.8" y2="18.5"/>
+			<circle opacity="0.25" fill="#066CFF" cx="11.6" cy="18.5" r="4.1"/>
+		</g>
+		<g>
+			<g>
+				<line fill="none" stroke="#066CFF" stroke-width="0.5" stroke-miterlimit="10" x1="44.2" y1="22.5" x2="46.1" y2="25.5"/>
+				<line fill="none" stroke="#066CFF" stroke-width="0.5" stroke-miterlimit="10" x1="45.9" y1="21.5" x2="47.8" y2="24.5"/>
+			</g>
+			<line fill="none" stroke="#066CFF" stroke-width="0.5" stroke-miterlimit="10" x1="44.6" y1="14.5" x2="46.3" y2="11.4"/>
+		</g>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,96 @@
+<div class="panel panel-default">
+ <div class="panel-heading" role="tab" id="headingThree">
+  <h1 class="panel-number">3</h1>
+  <h1 class="panel-title">
+   <a class="panel-title-link collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+    aria-controls="collapseThree"
+   >
+    DOWNLOAD AND CITE
+   </a>
+  </h1>
+  <div style="clear: both;"></div>
+ </div>
+ <!-- #panel-heading -->
+ <div style="height: 0px;" aria-expanded="false" id="collapseThree" class="panel-collapse collapse  in" role="tabpanel" aria-labelledby="headingThree">
+  <div class="panel-body">
+   <div id="downloadAndShare">
+    <div class="row" style="margin: 2em 2em 2em 2em;">
+     <div class="col-md-4">
+      <div class="row" style="padding: 1em;">
+       <div class="col-md-12 edit-panel">
+        <div>
+         <h2>Download your bundle</h2>
+        </div>
+        <div class="setting-row">
+         <h3>Export visualisation preview in .PNG format</h3>
+        </div>
+        <div id="downloadPNG" class="center">
+
+         <a href="" id="downloadPNGLink"><span class="btn btn-use-example"> <img class="tab-icon" src='resources/images/SVG/Download_icon.svg' /> DOWNLOAD .PNG IMAGE </span> </a>
+        </div>
+       </div>
+       <!-- #col -->
+      </div>
+      <!-- #row -->
+     </div>
+     <!-- #col -->
+     <div class="col-md-4">
+      <div class="row" style="padding: 1em;">
+       <div class="col-md-12 edit-panel">
+        <div>
+         <h2>Share your bundle</h2>
+        </div>
+        <div class="setting-row">
+         <h3>Share #SequenceBundles on Twitter!</h3>
+        </div>
+        <div class="center">
+         <span id="tweetButton" class="btn btn-use-example"> <img class="tab-icon" src='resources/images/SVG/Tweet.svg' /> TWEET </span> 
+         </span>
+        </div>
+       </div>
+       <!-- #col -->
+      </div>
+      <!-- #row -->
+     </div>
+     <!-- #col -->
+     <div class="col-md-4">
+      <div class="row" style="padding: 1em;">
+       <div class="col-md-12 edit-panel">
+        <div>
+         <h2>Cite your bundle</h2>
+        </div>
+        <div class="setting-row">
+         <h3>
+          To acknowledge the use of SEQUENCE BUNDLES visualisations in publications or talks, please cite: <br /> <br />Sequence Bundles: a novel method for
+          visualising, discovering and exploring sequence motifs. Kultys M, Nicholas L, Schwarz R, Goldman N, King J BMC Proc Volume 8 (2014) p.s8 7 <br /> <br />SEQUENCE
+          BUNDLES were inspired by and awarded at the BioVis 2013 redesign contest, and published in
+          <a href="http://www.biomedcentral.com/1753-6561/8/S2/S8"> BMC Proceedings, Volume 8, Suppl. 2 (2014).</a>
+         </h3>
+        </div>
+        <!-- <div class="center">
+                                    <span class="btn btn-use-example"> <span>COPY</span>
+                                    </span>
+                                </div> -->
+       </div>
+       <!-- #col -->
+      </div>
+      <!-- #row -->
+     </div>
+     <!-- #col -->
+    </div>
+    <!-- #row -->
+    <div class="row">
+     <div class="col-md-8 col-md-offset-2">
+      <p id="renderHiResStatus" class="upload-status" style="display: none"></p>
+      <!-- <div id="renderHiResProgress" class="progress">
+       <div class="progress-bar progress-bar-success" role="progressbar"></div>
+      </div> -->
+     </div>
+    </div>
+   </div>
+   <!-- #downloadAndShare -->
+  </div>
+  <!-- #panel-body -->
+ </div>
+ <!-- #panel-collapse -->
+</div>
