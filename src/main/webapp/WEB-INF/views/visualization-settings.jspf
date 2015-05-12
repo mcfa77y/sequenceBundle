@@ -7,10 +7,10 @@
       <h2>GRID</h2>
      </div>
      <div class="setting-row row">
-      <div class="col-md-7 col-xs-5">
+      <div class="col-md-7 col-sm-5 col-xs-12">
        <label class="edit-settings icon" id="col-width">COLUMN WIDTH IS:</label>
       </div>
-      <div class="col-md-5 col-xs-7">
+      <div class="col-md-5 col-sm-7 col-xs-12">
        <select class="edit-dropdown" id="cellWidth" name="cellWidth">
         <option value="SMALL">NARROW</option>
         <option value="MEDIUM" selected="selected">MEDIUM</option>
@@ -25,10 +25,10 @@
       <input name="_showingVerticalLines" value="on" type="hidden">
      </div>
      <div class="setting-row row">
-      <div class="col-md-7 col-xs-8">
+      <div class="col-md-12 col-sm-8 col-xs-12">
       <label class="edit-settings icon" id="y-axis">ORDER AMINO ACIDS IN THE LEGEND BY: </label>
     </div>
-    <div class="col-md-7 col-xs-4">
+    <div class="col-md-12 col-sm-4 col-xs-12">
       <select class="edit-dropdown" id="yAxis" name="yAxis"><option value="DEFAULT" selected="selected">DEFAULT</option>
        <option value="HYDROPHOBICITY">HYDROPHOBICITY</option>
        <option value="BULKINESS">BULKINESS</option>
@@ -51,10 +51,10 @@
      </div>
      <!--<div class="setting-row"><label class="edit-settings icon" id="bundle-height">BUNDLE HEIGHT IS:</label><input class="text-input" id="maxBundleWidth" name="maxBundleWidth" value="16" type="text"></div> -->
      <div class="setting-row row">
-      <div class="col-md-7 col-xs-5">
+      <div class="col-md-7 col-sm-5 col-xs-12">
        <label class="edit-settings icon" id="residue-width">RESIDUE WIDTH IS:</label>
       </div>
-      <div class="col-md-5 col-xs-7">
+      <div class="col-md-5 col-sm-7 col-xs-12">
        <select class="edit-dropdown" name="horizontalExtent">
         <option value="0.10">SHORT</option>
         <option value="0.33" selected="selected">MEDIUM</option>
@@ -63,10 +63,10 @@
       </div>
      </div>
      <div class="setting-row row ">
-      <div class="col-md-7 col-xs-5">
+      <div class="col-md-7 col-sm-5 col-xs-12">
        <label class="edit-settings icon" id="curve-radius">CURVE RADIUS IS:</label>
       </div>
-      <div class="col-md-5 col-xs-7">
+      <div class="col-md-5 col-sm-7 col-xs-12">
        <select class="edit-dropdown" name="radius">
         <option value="1">SHARP</option>
         <option value="15" selected="selected">MEDIUM</option>
@@ -75,10 +75,10 @@
       </div>
      </div>
      <div class="setting-row row ">
-      <div class="col-md-7 col-xs-5">
+      <div class="col-md-7 col-sm-5 col-xs-12">
        <label class="edit-settings icon" id="line-colour">LINE COLOUR</label>
       </div>
-      <div class="col-md-5 col-xs-7">
+      <div class="col-md-5 col-sm-7 col-xs-12">
        <select class="edit-dropdown" id="lineColor" name="lineColor">
         <option value="DEFAULT" selected="selected">DEFAULT</option>
         <option value="NAVY">NAVY</option>
