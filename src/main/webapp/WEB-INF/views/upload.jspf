@@ -1,223 +1,185 @@
-<div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-        <h1 class="panel-number">1</h1>
-        <h1 class="panel-title">
-   <a class="panel-title-link" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-    <br />SELECT DATA
-   </a>
-  </h1>
-        <div style="clear: both"></div>
-    </div>
-    <!-- #panel-heading -->
-    <div aria-expanded="true" id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-        <div class="panel-body">
-            <div>
-                <h2 style="text-align: center;">HOW WOULD YOU LIKE TO UPLOAD A FILE?</h2>
-                <div class="panel-section">
-                    <div class="row" style="margin: 2em 2em 2em 2em;">
-                        <div class="col-md-4">
-                       
-                            <div class="col-md-12 edit-panel">
-                                <div class="row">
-                                    <div class="col-md-11 col-xs-11">
-                                        <h2>Option 1: Use a *.FASTA file</h2>
-                                    </div>
-                                    <div class="col-md-1 col-xs-1 upload-minimize-button-col">
-                                        <button type="button" class="upload-minimize-button btn btn-default right" data-toggle="collapse" data-target="#fileUploadPanel">
-                                            <span class="glyphicon glyphicon-triangle-bottom" aria-expanded="true" aria-hidden="true"></span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- The container for the uploaded files -->
-                                <div id="fileUploadPanel" class="collapse in uploadPanelInfo">
-                                    <div id="readLessInfo" class="row collapse in">
-                                        <div class="row">
-                                            <div class="col-md-10 col-xs-10">
-                                                <h3>
-             Select your
-             <a href="http://en.wikipedia.org/wiki/FASTA_format" target="_blank">FASTA file</a>
-             from . Max. size: 1000 sequences × 1000 positions. We never store your data.
-             <a href="#!" data-toggle="collapse" data-target="#readMoreInfo" aria-expanded="false">Read more...</a>
-            </h3>
-                                            </div>
-                                            <div class="col-md-1 col-xs-1">
-                                                <button type="button" class="close moreInfoQuestionIcon" data-toggle="collapse" data-target="#readMoreInfo" aria-label="Close">
-                                                    <span class="glyphicon glyphicon-question-sign" aria-expanded="true" aria-hidden="true"></span>
-                                                </button>
-                                            </div>
+<!-- STEP 1: SELECT DATA -->
+<div class="step1">
+    <a href="javascript:void(0)" id="js-step1-trigger" class="step1-trigger step1-hidden">
+        <div class="step1-head">
+            <h1>
+                    1 <span style="font-size: 0.4em; color: #999999;">SELECT DATA</span>
+                </h1>
+        </div>
+        <!--step1-head-->
+    </a>
+    <div id="js-step1-content" class="step1-content">
+        <div class="menu-container">
+            <div class="menu-three-columns">
+                <div class="expander1">
+                    <a href="javascript:void(0)" id="js-expander1-trigger" class="expander1-trigger expander1-hidden">
+                        <span class="menu-title-typo-expand">
+                                Option 1: Upload FASTA file
+                            </span>
+                    </a>
+                    <div id="js-expander1-content" class="expander1-content">
+                        <div class="menu-board">
+                            <div class="menu-text">
+                                <p class="menu-text-typo">
+                                    Select a <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a> file from your local drive.</br>
+                                    Maximum size: 1000 sequences × 1000 positions.</br>
+                                    We never store your data.
+                                    <!--<a class="modal-trigger-icon"><i class="icon-info-circled"></i></a>-->
+                                </p>
+                                <div class="modal">
+                                    <label for="modal-1">
+                                        <div class="modal-trigger">
+                                            <span class="fontello-info-icon"><i class="icon-information"></i></span>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-offset-1 col-md-10">
-                                                <form id="fileSequenceForm">
-                                                    <!-- The fileinput-button span is used to style the file input field as button -->
-                                                    <span id="filename2"></span>
-                                                    <div id="messages" class="files"></div>
-                                                    <div class="hide" style="padding: 0px 1.5em 1.5em 1.5em;">
-                                                        <select id="alignmentTypeFile" class="edit-dropdown" name="alignmentType">
-                                                            <option value="AMINOACIDS" selected="selected">AMINO ACIDS</option>
-                                                            <option value="NUCLEOTIDES">NUCLEOTIDES</option>
-                                                            <option value="RNA">RNA</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="row submit-settings">
-                                                        <div class="col-md-12">
-                                                            <span class="btn btn-success fileinput-button btn-use-example" style="margin-left: 20px;"> <span>
-                                                           <img class="tab-icon" src='resources/images/SVG/Upload_icon.svg' />
-                                                            BROWSE
-                                                                             AND VALIDATE</span>
-                                                                                                                        <!-- The file input field used as target for the file upload widget -->
-                                                                                                                        <input id="fileUpload" data-url="/upload/file" name="file" type="file">
-                                                                                                                        </span>
-                                                        </div>
-                                                        <!-- #col-12 -->
-                                                    </div>
-                                                </form>
+                                    </label>
+                                    <input class="modal-state" id="modal-1" type="checkbox" />
+                                    <div class="modal-fade-screen">
+                                        <div class="modal-inner">
+                                            <div class="modal-close" for="modal-1">
+                                                <span class="fontello-close-icon"><i class="icon-cancel-circled"></i></span>
+                                            </div>
+                                            <div class="modal-content">
+                                                <h5>We never store your data longer than needed to process and visualise your bundles. By using the Sequence Bundles web tool you provide Science Practice Ltd. and EMBL-EBI with explicit permission to use, process, and transfer your data only for the duration of your activity on this URL, and for the sole purpose of visualising your data and providing you with data's visual representation. We never store your data in any form longer than the duration of your activity on this URL. Upon exiting this URL all data that you submit is deleted permanently.</h5>
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="readMoreInfo" class="read-more-info alert alert-dismissible collapse" role="alert">
-                                        <button type="button" class="close" data-toggle="collapse" data-target="#readMoreInfo" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <h3>We never store your data longer than needed to process and visualise your bundles. By using the Sequence Bundles web tool you provide Science
-           Practice Ltd. with explicit permission to use, process, and transfer your data only for the duration of your activity on this URL, and for the sole
-           purpose of visualising your data and providing you with its visual representa- tion. We never store your data in any form longer than the duration of
-           your activity on this URL. Upon exiting this URL all data that you submit is deleted permanently .</h3>
-                                    </div>
                                 </div>
+                                <span class=" task-button fileinput-button">
+                                    <h4 class="task-button-icon">
+                                        <input id="fileUpload" data-url="/upload/file" name="file" type="file">
+                                            <span class="fontello-upload"><input id="fileUpload" data-url="/upload/file" name="file" type="file"><i class="icon-upload"></i></span>Upload and validate
+                                </h4>
+                                </span>
                             </div>
-                        </div>
-                        <!-- #col -->
-                        <div class="col-md-4">
-                            <div class="col-md-12 edit-panel">
-                                <div class="row">
-                                    <div class="col-md-11 col-xs-11">
-                                        <h2>Option 2: Paste MSA data</h2>
-                                    </div>
-                                    <div class="col-md-1 col-xs-1 upload-minimize-button-col">
-                                        <button type="button" class="btn btn-default right upload-minimize-button" data-toggle="collapse" data-target="#pasteSequencePanel">
-                                            <span class="glyphicon glyphicon-triangle-right" aria-expanded="false" aria-hidden="true"></span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="pasteSequencePanel" class="collapse uploadPanelInfo">
-                                    <div id="readLessInfoPaste" class="collapse in">
-                                        <div class="row">
-                                            <div class="col-md-10 col-xs-10">
-                                                <h3>
-             Paste data in
-             <a href="http://en.wikipedia.org/wiki/FASTA_format" target="_blank">FASTA format</a>
-             in box below. Max. size: 1000 sequences × 1000 positions. We never store your data.
-             <a href="#!" data-toggle="collapse" data-target="#readMoreInfoPaste" aria-expanded="false">Read more...</a>
-            </h3>
-                                            </div>
-                                            <div class="col-md-1 col-xs-1">
-                                                <button type="button" class="close moreInfoQuestionIcon" data-toggle="collapse" data-target="#readMoreInfoPaste" aria-label="Close">
-                                                    <span class="glyphicon glyphicon-question-sign" aria-expanded="true" aria-hidden="true"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <form id="pasteSequenceForm" action="/upload/paste" class="col-md-12">
-                                            <textarea cols="30" rows="5" id="pasteSequence" name="pasteSequence"></textarea>
-                                            <div class="hide row">
-                                                <div style="padding: 0px 1.5em 1.5em 1.5em;">
-                                                    <select id="alignmentTypePaste" class="edit-dropdown" name="alignmentType">
-                                                        <option value="AMINOACIDS" selected="selected">AMINO ACIDS
-                                                        </option>
-                                                        <option value="NUCLEOTIDES">NUCLEOTIDES</option>
-                                                        <option value="RNA">RNA</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row submit-settings">
-                                                <div class="col-md-12">
-                                                    <input id="validatePaste" class="btn btn-use-example " value="UPLOAD AND VALIDATE" type="submit" style="margin-left: 15px;">
-                                                </div>
-                                                <!-- #col-12 -->
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div id="readMoreInfoPaste" class="read-more-info alert alert-dismissible collapse" role="alert">
-                                        <button type="button" class="close" data-toggle="collapse" data-target="#readMoreInfoPaste" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <h3>We never store your data longer than needed to process and visualise your bundles. By using the Sequence Bundles web tool you provide Science
-           Practice Ltd. with explicit permission to use, process, and transfer your data only for the duration of your activity on this URL, and for the sole
-           purpose of visualising your data and providing you with its visual representa- tion. We never store your data in any form longer than the duration of
-           your activity on this URL. Upon exiting this URL all data that you submit is deleted permanently .</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- #col -->
-                        </div>
-
-
-
-
-                        <!-- #col -->
-                        <div class="col-md-4">
-                            <div class="col-md-12 edit-panel">
-                                <div class="row">
-                                    <div class="col-md-11 col-xs-11">
-                                        <h2>Option 3: Select example data:</h2>
-                                    </div>
-                                    <div class="col-md-1 col-xs-1 upload-minimize-button-col">
-                                        <button type="button" class="upload-minimize-button btn btn-default right" data-toggle="collapse" data-target="#useExamplePanel">
-                                            <span class="glyphicon glyphicon-triangle-right" aria-hidden="true" aria-expanded="false"></span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="useExamplePanel" class="uploadPanelInf collapse">
-                                    <form id="useExampleForm" action="/upload/example">
-                                        <div class="form-group">
-                                            <select class="form-control edit-dropdown example-file-dropdown" id="useExampleFile" name="exampleFile" style="margin-left: 20px; margin-bottom: 20px">
-                                                <option value="ABC_tran-(PF00005)_ATP-binding-domain-of-ABC-transporters.txt">ATP binding domain of ABC transporters</option>
-                                                <option value="ADH_N-(PF08240)_Alcohol-dehydrogenases-catalytic-domain.txt">Alcohol dehydrogenases catalytic domain</option>
-                                                <option value="ADK_LID-Adenylate-kinase-lid-domain_mod-from-Magliery-Ray.txt" selected="selected">Adenylate kinase lid domain</option>
-                                                <option value="Ank_2-(PF12796)_Ankyrin-repeat_seed.txt">Ankyrin repeat motif</option>
-                                                <option value="CBM_5_12_2-(PF14600)_Cellulose-binding-domain_RP75.txt">Cellulose-binding domain</option>
-                                                <option value="DUF4596-(PF15363)_Domain-of-unknown-function.txt">Domain of unknown function</option>
-                                                <option value="HATPase_c-(PF02518)_GHKL-domain_Seed.txt">Structurally related ATPase domains</option>
-                                                <option value="Insulin-(PF00049)-RP55.txt">Insulin</option>
-                                                <option value="Tox-WTIP-(PF15654)_Toxin-with-tryptophan-and-TIP-motif.txt">Bacterial toxin domain</option>
-                                                <option value="zf-H2C2_2-(PF13465)-Zinc-finger-double-domain.txt">Zinc-finger double domain</option>
-                                            </select>
-                                        </div>
-                                        <div class="setting-row" style="border-bottom: none;">
-                                            <label class="edit-settings" id="upload-description" style="margin-left: 10px; margin-right: 15px; line-height: 1.4em; border-bottom: none;"></label>
-                                        </div>
-                                        <div class="row submit-settings">
-                                            <div class="col-md-12">
-                                                <input id="useExample" class="btn btn-use-example " value="USE EXAMPLE" type="submit" style="margin-left: 20px;">
-                                            </div>
-                                            <!-- #col-12 -->
-                                        </div>
-                                        <!-- #row -->
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- #col-12 -->
-                        </div>
-                        <!-- #col-4 -->
-                    </div>
-                    <!-- #row -->
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <p id="uploadStatus" class="upload-status" style="display: none"></p>
+                            <!-- menu-text-->
                         </div>
                     </div>
+                </div>
+                <!-- expander1-->
+            </div>
+            <!-- menu-three-columns -->
+            <div class="menu-three-columns">
+                <div class="expander2">
+                    <a href="javascript:void(0)" id="js-expander2-trigger" class="expander2-trigger expander2-hidden">
+                        <span class="menu-title-typo-expand">
+                                Option 2: Paste FASTA data
+                            </span>
+                    </a>
+                    <div id="js-expander2-content" class="expander2-content">
+                        <div class="menu-board">
+                            <div class="menu-text">
+                                <p class="menu-text-typo">
+                                    Paste your data in <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a> format in the box below.</br>
+                                    Maximum size: 1000 sequences × 1000 positions.</br>
+                                    We never store your data.
+                                    <!--<a class="modal-trigger-icon"><i class="icon-info-circled"></i></a>-->
+                                </p>
+                                <div class="modal">
+                                    <label for="modal-2">
+                                        <div class="modal-trigger">
+                                            <span class="fontello-info-icon"><i class="icon-information"></i></span>
+                                        </div>
+                                    </label>
+                                    <input class="modal-state" id="modal-2" type="checkbox" />
+                                    <div class="modal-fade-screen">
+                                        <div class="modal-inner">
+                                            <div class="modal-close" for="modal-2">
+                                                <span class="fontello-close-icon"><i class="icon-cancel-circled"></i></span>
+                                            </div>
+                                            <div class="modal-content">
+                                                <h5>We never store your data longer than needed to process and visualise your bundles. By using the Sequence Bundles web tool you provide Science Practice Ltd. and EMBL-EBI with explicit permission to use, process, and transfer your data only for the duration of your activity on this URL, and for the sole purpose of visualising your data and providing you with data's visual representation. We never store your data in any form longer than the duration of your activity on this URL. Upon exiting this URL all data that you submit is deleted permanently.</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-area-container">
+                                    <textarea id="pasteSequence" class="text-area-style" maxlength="1500000" title="Paste your FASTA data in this text box" placeholder=">paste your FASTA data here..." required></textarea>
+                                </div>
+                                <span id="pasteSequenceButton" class="task-button">
+                                    <h4 class="task-button-typo">
+                                            Upload and validate
+                                    </h4>
+                                </span>
+                            </div>
+                            <!-- menu-text-->
+                        </div>
+                    </div>
+                </div>
+                <!-- expander2-->
+            </div>
+            <!-- menu-three-columns -->
+            <div class="menu-three-columns">
+                <div class="expander3">
+                    <a href="javascript:void(0)" id="js-expander3-trigger" class="expander3-trigger expander3-hidden">
+                        <span class="menu-title-typo-expand">
+                                Option 3: Use example data
+                            </span>
+                    </a>
+                    <div id="js-expander3-content" class="expander3-content">
+                        <div class="menu-board">
+                            <div class="menu-text">
+                                <div class="drop-down-container">
+                                    <select id="useExampleFile" name="Select example data" title="Select example dataset from this list of alignments" class="drop-down-style">
+                                        <optgroup label="Small datasets">
+                                            <option value="1">Bacterial toxin domain</option>
+                                            <option value="2">Cellulose-binding domain</option>
+                                            <option value="3">Domain of unknown function</option>
+                                        </optgroup>
+                                        <optgroup label="Medium datasets">
+                                            <option value="4">Structurally related ATPase domains</option>
+                                            <option value="5">
+                                                <!-- ATP- -->Binding domain of ABC transporters</option>
+                                            <option value="6">Alcohol dehydrogenase
+                                                <!--catalytic-->domain</option>
+                                            <option value="7" selected="selected">Adenylate kinase LID domain</option>
+                                        </optgroup>
+                                        <optgroup label="Large datasets">
+                                            <option value="8">Insulin</option>
+                                            <option value="9">Ankyrin Repeat</option>
+                                            <option value="10">Zinc-finger double domain</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <!-- drop-down-container -->
+                                <p id="upload-description" class="menu-text-typo">
+                                    Adenylate kinase is an enzyme that plays an important role in cellular energy homeostasis. Its LID domain in stabilised by hydrogen bonds in Gram-negative bacteria, and by a metal ion in Gram-positives. Source: Pfam (PF05191); Magliery Lab and Ray Lab at Ohio State University</br>
+                                </p>
+                                <span id="useExample" class="task-button">
+                                    <h4 class="task-button-typo">
+                                                    Use this example
+                                                </h4>
+                                </span>
+                            </div>
+                            <!-- menu-text-->
+                        </div>
+                    </div>
+                </div>
+                <!-- expander3-->
+            </div>
+            <!-- menu-three-columns -->
+        </div>
+        <!-- menu-container -->
+        <!-- WHEN DATA IS PROCESSING -->
+        <div id="uploadStatus" class="valid-container">
+            <div class="valid-message-box">
+                <div class="valid-background-grey">
+                    <h4 class="valid-message-grey">
 
+                                </h4>
                 </div>
-                <!-- #row -->
             </div>
-            <!-- #panel-section -->
-            <div class="row submit-settings">
-                <div class="col-md-12">
-                    <input id="createBundleButton" class="btn btn-primary btn-lg next-btn " value="CREATE BUNDLE" type="button">
-                </div>
-                <!-- #col-12 -->
+        </div>
+        <!-- FOR DATA IN PROCESSING, NOT VALID OR TOO BIG, THIS BUTTON IS INACTIVE -->
+        <div class="action-button-container">
+            <div class="action-button-box">
+                <span class="action-button-inactive" href="#">
+                    <h3 class="action-button-typo">
+                    Create Bundle
+                </h3>
+                </span>
             </div>
-            <!-- #row -->
         </div>
     </div>
+    <!-- step1-content -->
 </div>
+<div class="step-divider"></div>

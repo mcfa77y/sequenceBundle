@@ -1,24 +1,22 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<nav class="navbar navbar">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand header" href="#">SEQUENCE BUNDLES</a>
-
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li ><a  class="header-logo" id="logo" href="http://science-practice.com/"></a></li>
-<!--                            <li><a href="#"><span class="glyphicon glyphicon-globe"></span> WEB TOOL</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-download-alt"></span> DESKTOP APP </a></li>
-                        -->
-                        </ul>
-        </div>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <!-- STANDARD HEADER BEGINS -->
+    <div class="sb-header">
+        <a href="index.html" class="sb-title" title="Sequence Bundles">
+            <h1 class="name-title">SEQUENCE BUNDLES</h1>
+            <h5 class="name-subtitle">VISUALISE AND DISCOVER SEQUENCE MOTIFS THAT WOULD OTHERWISE REMAIN HIDDEN</h5>
+        </a>
+        <a href="index.html" class="nav-link-1" title="About Sequence Bundles">
+            <h5 class="nav-link-name">ABOUT</h5>
+        </a>
+        <a href="gallery.html" class="nav-link-2" title="Sequence Bundles gallery">
+            <h5 class="nav-link-name">GALLERY</h5>
+        </a>
+        <a href="web-tool.html" class="nav-link-3" style="background-image: url('img/NavBar-icon_WebTool-active.png');" title="Use Sequence Bundles Web Tool">
+            <h5 class="nav-link-name" style="color: #066cff;">USE WEB&nbsp;TOOL</h5>
+        </a>
+        <a href="http://science-practice.com" class="nav-link-4" title="Science Practice">
+            <h5 class="nav-link-name">SCIENCE PRACTICE</h5>
+        </a>
     </div>
-</nav>
+    <div class="sb-divider-1"></div>
+    <!-- STANDARD HEADER ENDS -->

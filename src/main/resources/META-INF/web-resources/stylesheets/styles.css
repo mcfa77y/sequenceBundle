@@ -2,9 +2,6 @@
 /* Colors */
 /*Borders*/
 /* No Styling */
-body {
-	font: 100% Museo-Sans, sans-serif;
-}
 
 h1 {
 	margin-bottom: 5px !important;
@@ -390,18 +387,6 @@ label input[type=radio] {
 	border-radius: 5px !important;
 }
 
-.next-btn {
-	font-size: 2em;
-	margin: 1em 0 1em 0;
-	color: white;
-	background: #066cff;
-	padding: 0.5em 1em;
-	border: 0 !important;
-	-moz-border-radius: 5px !important;
-	-webkit-border-radius: 5px !important;
-	border-radius: 5px !important;
-}
-
 .submit-btn:hover {
 	background: #074fa5;
 }
@@ -587,10 +572,9 @@ input[type="checkbox"].checkbox {
 	background-color: #d8d8d8;
 }
 
-.alert-dismissible.close{
-	color:white;
+.alert-dismissible.close {
+	color: white;
 }
-
 
 #col-width {
 	background: url("../images/SVG/col-width.svg") no-repeat;

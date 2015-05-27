@@ -6,14 +6,11 @@
 package org.spee.sbweb.controller;
 
 import gui.sequencebundle.JSequenceBundle;
-import gui.sequencebundle.SequenceBundleConfig;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -46,25 +43,6 @@ public class SBWebController implements ServletContextAware {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewSequenceBundleConfig(Model model) {
-		AlvisModel userForm = new AlvisModel();
-		model.addAttribute("userForm", userForm);
-
-		List<SequenceBundleConfig.GapRenderingType> gapRenderingList = new ArrayList<>();
-		gapRenderingList.add(SequenceBundleConfig.GapRenderingType.STANDARD);
-		gapRenderingList
-				.add(SequenceBundleConfig.GapRenderingType.DISCONNECTED);
-		model.addAttribute("gapRenderingList", gapRenderingList);
-
-		List<SequenceBundleConfig.GroupStackingType> groupStackingList = new ArrayList<>();
-		groupStackingList.add(SequenceBundleConfig.GroupStackingType.SEPARATE);
-		groupStackingList.add(SequenceBundleConfig.GroupStackingType.OVERLAYED);
-		model.addAttribute("groupStackingList", groupStackingList);
-
-		List<AlvisModel.AlignmentType> dataFormatList = new ArrayList<>();
-		dataFormatList.add(AlvisModel.AlignmentType.AMINOACIDS);
-		dataFormatList.add(AlvisModel.AlignmentType.NUCLEOTIDES);
-		dataFormatList.add(AlvisModel.AlignmentType.RNA);
-		model.addAttribute("dataFormatList", dataFormatList);
 		return "index";
 	}
 
