@@ -29,6 +29,15 @@
         return false;
     });
 
+    $('#gapStandard').click(function() {
+        $('#gapRendering').val("STANDARD");
+        return false;
+    });
+    $('#gapDisconnected').click(function() {
+        $('#gapRendering').val("DISCONNECTED");
+        return false;
+
+    });
     // use images that active/deactivate instead of radio buttons
     $('input[name=gapRendering]', '#visualSettingsForm').each(
         function() {

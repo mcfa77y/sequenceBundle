@@ -11,7 +11,7 @@
         <a href="gallery.html" class="nav-link-2" title="Sequence Bundles gallery">
             <h5 class="nav-link-name">GALLERY</h5>
         </a>
-        <a href="web-tool.html" class="nav-link-3" style="background-image: url('img/NavBar-icon_WebTool-active.png');" title="Use Sequence Bundles Web Tool">
+        <a href="web-tool.html" class="nav-link-3" style="background-image: url('resources/images/PNG/NavBar-icon_WebTool-active.png');" title="Use Sequence Bundles Web Tool">
             <h5 class="nav-link-name" style="color: #066cff;">USE WEB&nbsp;TOOL</h5>
         </a>
         <a href="http://science-practice.com" class="nav-link-4" title="Science Practice">

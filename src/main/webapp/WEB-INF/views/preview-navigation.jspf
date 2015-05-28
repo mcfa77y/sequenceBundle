@@ -11,7 +11,7 @@
                         </h5>
         </div>
         <div class="seq-nav-slider-box">
-            <h5>
+            <h5 id="sequenceIndexLabel">
                             DISPLAYING 1 – 15 OUT OF 1000 POSITIONS
                         </h5>
         </div>
@@ -25,60 +25,25 @@
     <div class="seq-nav-row">
         <div class="seq-nav-gap-box">&nbsp;</div>
         <div class="seq-nav-input-box">
-            <input class="position-box" name="position" maxlength="4" max="1000" required type="number" placeholder="1">
+            <input id="startIndex" class="position-box" name="position" maxlength="4" max="1000" required type="number" placeholder="1" value="1">
             <!-- IF THE POSITION IN INPUT BOX IS DIFFERENT TO PREVIEW -->
-            <a class="position-go-button" href="#"><span class="fontello-position"><i class="icon-position-finder"></i></span></a>
+            <a id="gotoPositionButton" class="position-go-button" href="#"><span class="fontello-position"><i class="icon-position-finder"></i></span></a>
             <!-- IF THE POSITION IN INPUT BOX IS SAME AS IN VISUALISATION PREVIEW
                             <a class="position-go-button-grey" href="#"><span class="fontello-position"><i class="icon-position-finder"></i></span></a> -->
         </div>
         <div class="seq-nav-gap-box">
         </div>
         <a class="seq-nav-Nterm-box">
-            <div class="N-terminus-button">
+            <div id="n-terminus" class="N-terminus-button">
             </div>
         </a>
         <div class="seq-nav-slider-box">
-            <input type="range" name="baseslider" max="1001" placeholder="1">
+            <input id="sliderSequence" type="range" name="baseslider" max="1001" placeholder="1">
         </div>
         <a class="seq-nav-Cterm-box">
-            <div class="C-terminus-button">
+            <div class="C-terminus-button" id="c-terminus">
             </div>
         </a>
     </div>
     <!-- seq-nav-row -->
-</div>
-<!-- seq-nav-container -->
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3 col-sm-12 col-xs-12">
-            <form id="previewForm" class="form-inline" action="/upload/paste">
-                <div class="form-group">
-                    <input id="startIndex" class="form-control" style="display:inline-block;" placeholder="POSTION NUMBER" type="text">
-                    <button type="submit" class="btn btn-default">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </div>
-                <!-- #form-group -->
-            </form>
-            <!-- #form -->
-        </div>
-        <div class="col-md-2 col-sm-3 col-xs-3">
-            <div class="section-title clickable" id="n-terminus">
-                N-TERMINUS</br>
-                <img class="icon-40" src="<c:url value=" /resources/images/SVG/N-terminus_active.svg "/>" />
-            </div>
-        </div>
-        <div class="col-md-5 col-sm-6 col-xs-6">
-            <div id='sequenceIndexLabel' class="center"></div>
-            <div id="sliderSequence" class="slider"></div>
-        </div>
-        <div class="col-md-2 col-sm-3 col-xs-3">
-            <div class="section-title clickable" id="c-terminus">
-                C-TERMINUS
-                <br />
-                <img src="<c:url value=" /resources/images/SVG/C-terminus_active.svg "/>" class="icon-40" />
-            </div>
-        </div>
-    </div>
 </div>

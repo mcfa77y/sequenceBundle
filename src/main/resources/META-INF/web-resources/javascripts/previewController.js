@@ -3,151 +3,141 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var PreviewController = {
-	init : function() {
-		$('#previewForm')
-				.submit(
-						function(event) {
-							// Stop form from submitting normally
-							event.preventDefault();
+ var PreviewController = {
+    init: function() {
+        $('#gotoPositionButton')
+        .click(
+            function(event) {
 
-							var startIndex = $('#startIndex');
-							if (isNaN(startIndex.val())) {
-								Utils.alertWarning(
-										"Enter valid index, please.",
-										'#previewForm');
-								return;
-							}
+                var startIndex = $('#startIndex');
+                var startIndexValue = parseInt($('#startIndex')
+                    .val(), 10);
+                var lastIndexValue = parseInt(
+                    $('#lastIndex').val(), 10);
 
-							// Get some values from elements on the page:
-							var $form = $(this), url = $form.attr('action');
-							var data = $('#visualSettingsForm')
-									.serializeArray();
+                if (isNaN(startIndexValue)) {
+                    Utils.alertWarning(
+                        "Enter valid index, please.",
+                        '#gotoPositionButton');
+                    return;
+                }
 
-							// sanitize start index less than 1
-							if (startIndex.val() < 1) {
-								startIndex.val(1);
-							}
-							if (startIndex.val() > $(
-									'#visualSettingsForm #lastIndex').val()) {
-								startIndex
-										.val($('#visualSettingsForm #lastIndex')
-												.val());
-							}
-							data.push({
-								name : 'startIndex',
-								value : startIndex.val()
-							});
-							// Send the data using post
-							var posting = $.post(url, data);
-							// Put the results in a div
-							posting.done(function(data) {
-								var d = new Date();
-								var wp = data['webPath'] + '?' + d.getTime();
-								var filename = Utils.getFilename(wp);
-								Utils.jobStatusPoll(filename, wp);
-								Utils.showImage();
-							});
-							PreviewController
-									.updateSequenceNavigationControls(startIndex
-											.val());
-						});
+                    // Get some values from elements on the page:
+                    var url = '/upload/paste';
+                    var data = $('#visualSettingsForm')
+                    .serializeArray();
+                    // sanitize start index less than 1
+                    if (startIndexValue < 1) {
+                        startIndex.val(1);
+                    }
+                    if (startIndexValue > lastIndexValue) {
+                        startIndex.val(lastIndexValue);
+                    }
 
-		$('#n-terminus').click(function() {
-			PreviewController.updateSequenceNavigationControls(1);
-		});
+                    PreviewController
+                    .updateSequenceNavigationControls(startIndex
+                        .val());
+                    PreviewController.renderImage();
+                    return false;
+                });
 
-		$('#c-terminus').click(
-				function() {
-					PreviewController.updateSequenceNavigationControls($(
-							'#visualSettingsForm #lastIndex').val());
-				});
+$('#n-terminus').click(function() {
+    PreviewController.updateSequenceNavigationControls(1);
+    PreviewController.renderImage();
+    return false;
+});
 
-		// controls for tab icons changing from active <-> inactive states
-		$('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-			// turn all tabs to disable png
-			var tabImages = $('#tabs li.nav img');
-			var activeImage = $($('#tabs li.nav.active img')[0]);
-			Utils.setActiveSVG(tabImages, activeImage);
-		});
+$('#c-terminus').click(
+    function() {
+        PreviewController.updateSequenceNavigationControls($(
+            '#visualSettingsForm #lastIndex').val());
+        PreviewController.renderImage();
+        return false;
 
-		$("#downloadButton").click(function() {
-			Utils.animateDowloadImage();
-		});
+    });
 
-		$("#restartButton").click(function() {
-			Utils.animateUploadSequence();
-		});
+        // // controls for tab icons changing from active <-> inactive states
+        // $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+        // // turn all tabs to disable png
+        // var tabImages = $('#tabs li.nav img');
+        // var activeImage = $($('#tabs li.nav.active img')[0]);
+        // Utils.setActiveSVG(tabImages, activeImage);
+        // });
+$("#downloadButton").click(function() {
+    Utils.animateDowloadImage();
+});
 
-	},
-	oldSliderValue : 1,
-	initSequenceSlider : function(start, max, step) {
-		PreviewController.oldSliderValue = $('#startIndex').val();
-		var sequenceSlider = $('#sliderSequence');
+},
+oldSliderValue: 1,
+initSequenceSlider: function(start, max, step) {
+    PreviewController.oldSliderValue = $('#startIndex').val();
+    var sliderSequence = $('#sliderSequence');
+    sliderSequence.attr({
+        min: 1,
+        max: max,
+        step: step,
+        value: 1
+    });
+    sliderSequence.on('input', function(event) {
+        PreviewController.updateSequenceNavigationControls(this.value);
+    });
+    sliderSequence.on('change', function(event) {
+        var value = this.value;
+            // update image only if slider value changes
+            if (value !== PreviewController.oldSliderValue) {
+                PreviewController.oldSliderValue = value;
+                PreviewController.updateSequenceNavigationControls(value);
+                PreviewController.renderImage();
+            }
+        });
 
-		sequenceSlider.slider({
-			min : 1,
-			max : max,
-			step : step,
-			value : 1,
-			slide : function(event, ui) {
-				PreviewController.updateSequenceNavigationControls(ui.value);
-			},
-			change : function(event, ui) {
-				// update image only if slider value changes
-				if (ui.value !== PreviewController.oldSliderValue) {
-					PreviewController.oldSliderValue = ui.value;
-					PreviewController
-							.updateSequenceNavigationControls(ui.value);
-					PreviewController.renderImage();
-				}
-			}
-		});
+        // $(window).resize(function() {
+        // console.log('resize happening');
+        // PreviewController.updateSliderWidth();
+        // });
 
-		$(window).resize(function() {
-			console.log('resize happening');
-			PreviewController.updateSliderWidth();
-		});
-
-		PreviewController
-				.updateSequenceNavigationControls(PreviewController.oldSliderValue);
-	},
-	updateSliderWidth : function() {
-		var sequenceSlider = $('#sliderSequence');
-		var newWidth = 0.75 * (sequenceSlider.parent().parent().parent()
-				.width() - ($('#n-terminus').width() + $('#c-terminus').width() + $(
-				'#previewForm').width()));
-		sequenceSlider.width('100%');
-	},
-	renderImage : function() {
-		var posting = $.post('/upload/paste', Utils.createData());
-		// Put the results in a div
-		posting.done(function(data) {
-			PreviewController.renderProgress(data);
-		});
-	},
-	renderProgress : function(data) {
-		var d = new Date();
-		var wp = data.webPath + '?' + d.getTime();
-		var filename = Utils.getFilename(wp);
-		Utils.jobStatusPoll(filename, wp);
-		Utils.showImage();
-	},
-	updateSequenceNavigationControls : function(value) {
-		// search field
-		$('#startIndex').val(value);
-		var endRange = value + parseInt($("#columnCount").val()) - 1;
-		// index label
-		$('#sequenceIndexLabel').text(
-				value + " - " + endRange + " OUT OF " + $('#lastIndex').val()
-						+ " POSITIONS");
-		// slider
-		$('#sliderSequence').slider('value', value);
-	}
+PreviewController
+.updateSequenceNavigationControls(PreviewController.oldSliderValue);
+},
+    // updateSliderWidth: function() {
+    // var sequenceSlider = $('#sliderSequence');
+    // var newWidth = 0.75 * (sequenceSlider.parent().parent().parent()
+    // .width() - ($('#n-terminus').width() + $('#c-terminus').width() + $(
+    // '#previewForm').width()));
+    // sequenceSlider.width('100%');
+    // },
+    renderImage: function() {
+        var posting = $.post('/upload/paste', Utils.createData());
+        // Put the results in a div
+        posting.done(function(data) {
+            PreviewController.renderProgress(data);
+        });
+    },
+    renderProgress: function(data) {
+        var d = new Date();
+        var wp = data.webPath + '?' + d.getTime();
+        var filename = Utils.getFilename(wp);
+        Utils.jobStatusPoll(filename, wp);
+        Utils.showImage();
+    },
+    updateSequenceNavigationControls: function(value) {
+        var lastValue = parseInt($('#lastIndex').val(), 10);
+        var range = parseInt($("#columnCount").val(), 10);
+        var value = parseInt(value, 10);
+        displayValue = Math.min(value, lastValue - range + 1);
+        // search field
+        $('#startIndex').val(value);
+        var endRange = Math.min(value + range - 1, lastValue);
+        // index label
+        $('#sequenceIndexLabel').text(
+            displayValue + " - " + endRange + " OUT OF " + lastValue + " POSITIONS");
+        // slider
+        $('#sliderSequence')[0].value = value;
+    }
 };
 
 $(function() {
-	'use strict';
-	PreviewController.init();
+    'use strict';
+    PreviewController.init();
 
 });

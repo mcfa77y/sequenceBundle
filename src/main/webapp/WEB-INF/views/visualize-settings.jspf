@@ -15,6 +15,7 @@
                 <input id="lastIndex" name="lastIndex" value="-1" type="hidden">
                 <input id="conservationThreshold" name="conservationThreshold" type="hidden" value="0.0">
                 <input id="columnCount" name="columnCount" value="15" type="hidden">
+                <input id="gapRendering" name="gapRendering" value="STANDARD" type="hidden">
                 <div class="vis-set-container">
                     <div class="vis-set-box">
                         <div class="vis-set-box-title">
@@ -140,14 +141,10 @@
                                             DISPLAY GAPS CONNECTED OR DISCONNECTED
                         </h5>
                             <div class="vis-set-gaps-box">
-                                <a class="vis-set-gaps-connected" href="#"></a>
-                                <input class='gapRadioOption' type="radio" name="gapRendering" value="STANDARD" checked="checked">
-                                <img class="tab-icon" src='resources/images/SVG/Gap-continuous_active.svg' />
+                                <a id="gapStandard" class="vis-set-gaps-connected" href="#"></a>
                             </div>
                             <div class="vis-set-gaps-box">
-                                <a class="vis-set-gaps-disconnected" href="#"></a>
-                                <input class='gapRadioOption' type="radio" name="gapRendering" value="DISCONNECTED">
-                                <img class="tab-icon" src='resources/images/SVG/Gap-disconnected.svg' />
+                                <a id="gapDisconnected" class="vis-set-gaps-disconnected" href="#"></a>
                             </div>
                         </div>
                         <!-- vis-set-box-2units -->

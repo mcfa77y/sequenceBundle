@@ -44,12 +44,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <span class=" task-button fileinput-button">
+                                <a class="task-button fileinput-button">
                                     <h4 class="task-button-icon">
                                         <input id="fileUpload" data-url="/upload/file" name="file" type="file">
                                             <span class="fontello-upload"><input id="fileUpload" data-url="/upload/file" name="file" type="file"><i class="icon-upload"></i></span>Upload and validate
                                 </h4>
-                                </span>
+                                </a>
                             </div>
                             <!-- menu-text-->
                         </div>
@@ -95,11 +95,11 @@
                                 <div class="text-area-container">
                                     <textarea id="pasteSequence" class="text-area-style" maxlength="1500000" title="Paste your FASTA data in this text box" placeholder=">paste your FASTA data here..." required></textarea>
                                 </div>
-                                <span id="pasteSequenceButton" class="task-button">
+                                <a id="pasteSequenceButton" class="task-button" href="#">
                                     <h4 class="task-button-typo">
                                             Upload and validate
                                     </h4>
-                                </span>
+                                </a>
                             </div>
                             <!-- menu-text-->
                         </div>
@@ -144,11 +144,11 @@
                                 <p id="upload-description" class="menu-text-typo">
                                     Adenylate kinase is an enzyme that plays an important role in cellular energy homeostasis. Its LID domain in stabilised by hydrogen bonds in Gram-negative bacteria, and by a metal ion in Gram-positives. Source: Pfam (PF05191); Magliery Lab and Ray Lab at Ohio State University</br>
                                 </p>
-                                <span id="useExample" class="task-button">
+                                <a id="useExampleButton" class="task-button" href="#">
                                     <h4 class="task-button-typo">
                                                     Use this example
                                                 </h4>
-                                </span>
+                                </a>
                             </div>
                             <!-- menu-text-->
                         </div>
@@ -172,11 +172,11 @@
         <!-- FOR DATA IN PROCESSING, NOT VALID OR TOO BIG, THIS BUTTON IS INACTIVE -->
         <div class="action-button-container">
             <div class="action-button-box">
-                <span class="action-button-inactive" href="#">
+                <a id="createBundleButton" class="next-btn action-button-inactive" href="#">
                     <h3 class="action-button-typo">
                     Create Bundle
                 </h3>
-                </span>
+                </a>
             </div>
         </div>
     </div>
