@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'fontello';
-  src: url('../font/fontello.eot?2224304');
-  src: url('../font/fontello.eot?2224304#iefix') format('embedded-opentype'),
-       url('../font/fontello.woff?2224304') format('woff'),
-       url('../font/fontello.ttf?2224304') format('truetype'),
-       url('../font/fontello.svg?2224304#fontello') format('svg');
+  src: url('../fonts/fontello.eot?51116753');
+  src: url('../fonts/fontello.eot?51116753#iefix') format('embedded-opentype'),
+       url('../fonts/fontello.woff?51116753') format('woff'),
+       url('../fonts/fontello.ttf?51116753') format('truetype'),
+       url('../fonts/fontello.svg?51116753#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?2224304#fontello') format('svg');
+    src: url('../font/fontello.svg?51116753#fontello') format('svg');
   }
 }
 */
@@ -58,8 +58,17 @@
 .icon-cancel-circled:before { content: '\e801'; } /* '' */
 .icon-information:before { content: '\e802'; } /* '' */
 .icon-position-finder:before { content: '\e803'; } /* '' */
+.icon-pfam_logo:before { content: '\e804'; } /* '' */
+.icon-raw_data:before { content: '\e805'; } /* '' */
+.icon-tweet:before { content: '\e806'; } /* '' */
+.icon-data:before { content: '\e807'; } /* '' */
+.icon-enlarge-image:before { content: '\e808'; } /* '' */
+.icon-nav-icon-01:before { content: '\e809'; } /* '' */
+.icon-nav-icon-02:before { content: '\e80a'; } /* '' */
+.icon-nav-icon-03:before { content: '\e80b'; } /* '' */
+.icon-nav-icon-04:before { content: '\e80c'; } /* '' */
+.icon-nav-icon-05:before { content: '\e80d'; } /* '' */
 .icon-upload:before { content: '\e810'; } /* '' */
-.icon-tweet:before { content: '\e811'; } /* '' */
 .icon-triangle-right:before { content: '\e812'; } /* '' */
 .icon-triangle-left:before { content: '\e813'; } /* '' */
 .icon-triangle-down:before { content: '\e814'; } /* '' */
