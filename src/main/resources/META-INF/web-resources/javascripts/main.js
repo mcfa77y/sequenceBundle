@@ -1,5 +1,8 @@
 $(document).ready(function() {
 	setUpAccordionBehaviors();
+	$('.task-button').click(function() {
+		return false;
+	});
 });
 
 function setUpAccordionBehaviors() {

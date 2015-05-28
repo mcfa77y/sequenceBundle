@@ -85,8 +85,7 @@ var sequence = "";
         $("#visualSettingsForm #sequence").val(data.sequences);
         $('#visualSettingsForm #lastIndex').val(data.sequenceBases);
         $('#visualSettingsForm #columnCount').val(data.numberOfColumns);
-        PreviewController.initSequenceSlider($('#startIndex')
-            .val(), data.sequenceBases, 1);
+        PreviewController.initSequenceSlider(1, data.sequenceBases, 1);
     }
 
     $('#fileUpload')
