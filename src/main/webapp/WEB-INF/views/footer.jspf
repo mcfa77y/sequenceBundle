@@ -1,8 +1,19 @@
-<div id="footer" class="center">
-    <img style=" height: 30px;" src="<c:url value="/resources/images/SVG/Logo_science-practice.svg"/>"/>
-    <button type="button" class="hide btn btn-primary btn-lg my-btn">Try sequence bundles desktop app</button>
-    <div class="footer">
-    Sequence Bundles was designed by Science Practice and developed by Science Practice in collaboration with the Goldman Group at EMBL-EBI. <br/>
-    This web tool was designed by Science Practice and developed by Joe Lau. To learn more about Sequence Bundles, read our paper in BMC Proceedings 2014, 8(Suppl 2):S8
+<!-- FOOTER BEGINS -->
+<div class="sb-divider-4"></div>
+<div class="sb-footer">
+    <div class="footer-logos">
+        <div class="footer-sp-logo">
+            <a href="http://science-practice.com"><img class="sb-logos" src="resources/images/PNG/Logo_science-practice.png"></a>
+        </div>
+        <div class="footer-ebi-logo">
+            <a href="http://www.ebi.ac.uk/research/goldman"><img class="sb-logos" src="resources/images/PNG/Logo_goldman-group.png"></a>
+        </div>
+    </div>
+    <div class="footer-text">
+        <h6 class="footer-text-typo">Sequence Bundles was designed by Science Practice and developed by Science Practice in collaboration with the Goldman Group at EMBL-EBI.</br>
+            This web tool was designed by Science Practice and developed by Joe Lau.</br>
+            To learn more about Sequence Bundles, read our paper in BMC Proceedings 2014, 8(Suppl 2):S8
+        </h6>
     </div>
 </div>
+<!-- FOOTER ENDS -->

@@ -1,96 +1,84 @@
-<div class="panel panel-default">
- <div class="panel-heading" role="tab" id="headingThree">
-  <h1 class="panel-number">3</h1>
-  <h1 class="panel-title">
-   <a class="panel-title-link collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
-    aria-controls="collapseThree"
-   >
-    DOWNLOAD AND CITE
-   </a>
-  </h1>
-  <div style="clear: both;"></div>
- </div>
- <!-- #panel-heading -->
- <div style="height: 0px;" aria-expanded="false" id="collapseThree" class="panel-collapse collapse  in" role="tabpanel" aria-labelledby="headingThree">
-  <div class="panel-body">
-   <div id="downloadAndShare">
-    <div class="row" style="margin: 2em 2em 2em 2em;">
-     <div class="col-md-4">
-      <div class="row" style="padding: 1em;">
-       <div class="col-md-12 edit-panel">
-        <div>
-         <h2>Download your bundle</h2>
+<!-- STEP 3: DOWNLOAD AND CITE -->
+<div class="step3">
+    <a href="javascript:void(0)" id="js-step3-trigger" class="step3-trigger step3-hidden">
+        <div class="step3-head">
+            <h1>
+                3 <span style="font-size: 0.4em; color: #999999;">DOWNLOAD AND CITE</span>
+            </h1>
         </div>
-        <div class="setting-row">
-         <h3>Export visualisation preview in .PNG format</h3>
+        <!--step3-head-->
+    </a>
+    <div id="js-step3-content" class="step3-content">
+        <div class="menu-container">
+            <div class="menu-three-columns">
+                <div class="menu-title">
+                    <span class="menu-title-typo">
+                        Download your bundle
+                    </span>
+                </div>
+                <div class="menu-board-fixed">
+                    <div class="menu-text">
+                        <p class="menu-text-typo">
+                            Export visualisation preview in .png format.
+                        </p>
+                        <a id="downloadPNGLink" class="task-button" href="web-tool.html">
+                            <h4 class="task-button-typo">
+                                Download .png image
+                            </h4>
+                        </a>
+                    </div>
+                    <!-- menu-text-->
+                </div>
+            </div>
+            <!-- menu-three-columns -->
+            <div class="menu-three-columns">
+                <div class="menu-title">
+                    <span class="menu-title-typo">
+                        Share Sequence Bundles
+                    </span>
+                </div>
+                <div class="menu-board-fixed">
+                    <div class="menu-text">
+                        <p class="menu-text-typo">
+                            Share <a href="http://twitter.com/search?q=%23SequenceBundles&src=typd">#SequenceBundles</a> on Twitter!
+                        </p>
+                        <a id="tweetButton" class="task-button" href="#">
+                            <h4 class="task-button-icon">
+                                <span class="fontello-tweet"><i class="icon-tweet"></i></span>Share
+                            </h4>
+                        </a>
+                    </div>
+                    <!-- menu-text-->
+                </div>
+            </div>
+            <!-- menu-three-columns -->
+            <div class="menu-three-columns">
+                <div class="menu-title">
+                    <span class="menu-title-typo">
+                        Cite your bundle
+                    </span>
+                </div>
+                <div class="menu-board-fixed">
+                    <div class="menu-text">
+                        <p class="menu-text-typo">
+                            To acknowledge the use of <a href="http://www.biomedcentral.com/1753-6561/8/S2/S8">Sequence Bundles</a> visualisations in publications or talks, please cite:
+                        </p>
+                        <p class="menu-text-typo">
+                            Sequence Bundles: a novel method for visualising, discovering and exploring sequence motifs. Kultys M, Nicholas L, Schwarz R, Goldman N, King J. <i>BMC Proceedings</i> 2014, <strong>8</strong> (Suppl 2): S8
+                        </p>
+                        <p class="menu-text-typo">
+                            Sequence Bundles were submitted and awarded at the <a href="http://www.biovis.net/year/2013/info/redesign-contest">BioVis2013</a>&nbsp;redesign contest.
+                        </p>
+                    </div>
+                    <!-- menu-text-->
+                </div>
+            </div>
+            <!-- menu-three-columns -->
         </div>
-        <div id="downloadPNG" class="center">
-
-         <a href="" id="downloadPNGLink"><span class="btn btn-use-example"> <img class="tab-icon" src='resources/images/SVG/Download_icon.svg' /> DOWNLOAD .PNG IMAGE </span> </a>
-        </div>
-       </div>
-       <!-- #col -->
-      </div>
-      <!-- #row -->
-     </div>
-     <!-- #col -->
-     <div class="col-md-4">
-      <div class="row" style="padding: 1em;">
-       <div class="col-md-12 edit-panel">
-        <div>
-         <h2>Share your bundle</h2>
-        </div>
-        <div class="setting-row">
-         <h3>Share #SequenceBundles on Twitter!</h3>
-        </div>
-        <div class="center">
-         <span id="tweetButton" class="btn btn-use-example"> <img class="tab-icon" src='resources/images/SVG/Tweet.svg' /> TWEET </span> 
-         </span>
-        </div>
-       </div>
-       <!-- #col -->
-      </div>
-      <!-- #row -->
-     </div>
-     <!-- #col -->
-     <div class="col-md-4">
-      <div class="row" style="padding: 1em;">
-       <div class="col-md-12 edit-panel">
-        <div>
-         <h2>Cite your bundle</h2>
-        </div>
-        <div class="setting-row">
-         <h3>
-          To acknowledge the use of SEQUENCE BUNDLES visualisations in publications or talks, please cite: <br /> <br />Sequence Bundles: a novel method for
-          visualising, discovering and exploring sequence motifs. Kultys M, Nicholas L, Schwarz R, Goldman N, King J BMC Proc Volume 8 (2014) p.s8 7 <br /> <br />SEQUENCE
-          BUNDLES were inspired by and awarded at the BioVis 2013 redesign contest, and published in
-          <a href="http://www.biomedcentral.com/1753-6561/8/S2/S8"> BMC Proceedings, Volume 8, Suppl. 2 (2014).</a>
-         </h3>
-        </div>
-        <!-- <div class="center">
-                                    <span class="btn btn-use-example"> <span>COPY</span>
-                                    </span>
-                                </div> -->
-       </div>
-       <!-- #col -->
-      </div>
-      <!-- #row -->
-     </div>
-     <!-- #col -->
+        <!-- menu-container -->
     </div>
-    <!-- #row -->
-    <div class="row">
-     <div class="col-md-8 col-md-offset-2">
-      <p id="renderHiResStatus" class="upload-status" style="display: none"></p>
-      <!-- <div id="renderHiResProgress" class="progress">
-       <div class="progress-bar progress-bar-success" role="progressbar"></div>
-      </div> -->
-     </div>
-    </div>
-   </div>
-   <!-- #downloadAndShare -->
-  </div>
-  <!-- #panel-body -->
- </div>
- <!-- #panel-collapse -->
+    <!-- step3-content -->
 </div>
+<!-- step3 -->
+<!-- </div> -->
+<!-------- TOOL BODY ENDS -------->

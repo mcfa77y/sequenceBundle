@@ -15,22 +15,11 @@
                         </div>
                         <div class="sb-divider-3"></div>
                         <!-- TAGLINE ENDS -->
+                        <!-------- TOOL BODY BEGINS -------->
                         <%@include file="upload.jspf" %>
                             <%@include file="visualize.jspf" %>
-                                <!-------- TOOL BODY BEGINS -------->
-                                <%-- <%@include file="header.jspf" %>
-                                    <hr>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-6 col-md-offset-3 summary-heading center">Sequence Bundles web tool allows you to rapidly 3 visualise protein sequence alignments, experiment with basic visualisation settings and discover hidden sequence motifs.</div>
-                                        </div>
-                                        <div class="panel-group" id="accordion" role="tablist">
-                                            <%@include file="upload.jspf" %>
-                                                <%@include file="visualize.jspf" %>
-                                                    <%@include file="download-share.jspf" %>
-                                        </div>
-                                    </div>
-                                    <%@include file="footer.jspf" %> --%>
+                                <%@include file="download-share.jspf" %>
+                                    <%@include file="footer.jspf" %>
                                         <%@include file="footer-scripts.jspf" %>
                 </body>
 
