@@ -1,6 +1,7 @@
 <!-- STEP 1: SELECT DATA -->
+<a name "js-step1-trigger"/>
 <div class="step1">
-    <a href="javascript:void(0)" id="js-step1-trigger" class="step1-trigger step1-hidden">
+    <a href="javascript:void(0)" id="js-step1-trigger" class="step1-trigger">
         <div class="step1-head">
             <h1>
                     1 <span style="font-size: 0.4em; color: #999999;">SELECT DATA</span>
@@ -110,7 +111,7 @@
             <!-- menu-three-columns -->
             <div class="menu-three-columns">
                 <div class="expander3">
-                    <a href="javascript:void(0)" id="js-expander3-trigger" class="expander3-trigger expander3-hidden">
+                    <a href="javascript:void(0)" id="js-expander3-trigger" class="expander3-trigger ">
                         <span class="menu-title-typo-expand">
                                 Option 3: Use example data
                             </span>

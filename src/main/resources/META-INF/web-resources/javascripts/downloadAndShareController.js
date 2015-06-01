@@ -15,12 +15,12 @@ $(function() {
         $.post("upload/seq/status", {
             filename: filename
         }).done(
-            function(data) {
-                var progress = parseInt(data.value / data.max * 100, 10);
+        function(data) {
+            var progress = parseInt(data.value / data.max * 100, 10);
 
-                var progressBar = $('#renderHiResProgress .bar').show();
-                progressBar.css('width', progress + '%');
-                if (data['isFinished'] === false) {
+            var progressBar = $('#renderHiResProgress .bar').show();
+            progressBar.css('width', progress + '%');
+            if (data['isFinished'] === false) {
                     // continue to get status information
                     setTimeout(function() {
                         var d = new Date();
@@ -39,12 +39,12 @@ $(function() {
                     window.open(imagePath, 'Download');
                 }
             }).error(function(e) {
-            var err = JSON.stringify(e, null, 4);
-            Utils.debug("error loading jobStatus:" + "\n" + err);
-        });
-    }
+                var err = JSON.stringify(e, null, 4);
+                Utils.debug("error loading jobStatus:" + "\n" + err);
+            });
+        }
 
-    function renderHiResImage(data) {
+        function renderHiResImage(data) {
         // sequence should already be in form so similar function to paste
         var url = "/upload/paste";
 
@@ -55,7 +55,7 @@ $(function() {
         // the rendering will continue as a worker thread on the server
         var posting = $.post(url, data);
         posting
-            .done(function(data) {
+        .done(function(data) {
                 // handle possible errors in data
                 if (data.errorMessage && data.errorMessage.length > 0) {
                     var errorMessage = '';
@@ -63,8 +63,8 @@ $(function() {
                         errorMessage = "FASTA format is valid, but your data is too large (it has " + data.sequenceCount + " sequences, each " + data.sequenceBases + " positions long).";
                     } else {
                         errorMessage = $('<div/>')
-                            .html(
-                                "FASTA format not valid. Learn more about the FASTA format <a href='' target='_blank'>here</a>. <br/> " + data.errorMessage);
+                        .html(
+                            "FASTA format not valid. Learn more about the FASTA format <a href='' target='_blank'>here</a>. <br/> " + data.errorMessage);
                     }
                     renderHiResInfo('upload-status-error', errorMessage,
                         false);
@@ -76,23 +76,16 @@ $(function() {
 
                 renderHiResImageStatusPoll(filename, wp);
             });
-    }
+}
 
-    $('#downloadPNG').click(function() {
-        // var data = Utils.createData({
-        // alignmentType: $('#alignmentTypePaste').val(),
-        // dpi: HI_RES_DPI
-        // });
-        // renderHiResImage(data);
-    });
 
-    $('#tweetButton')
-        .click(
-            function(e) {
-                e.stopPropagation();
+$('#tweetButton')
+.click(
+    function(e) {
+        e.stopPropagation();
 
-                var pathname = window.location;
-                var tweetText = encodeURIComponent("Try the #SequenceBundles web tool by @sciencepractice ");
+        var pathname = window.location;
+        var tweetText = encodeURIComponent("Try the #SequenceBundles web tool by @sciencepractice ");
                 // Create the twitter URL
                 var tweetUrl = 'http://twitter.com/share?&text=' + tweetText;
 

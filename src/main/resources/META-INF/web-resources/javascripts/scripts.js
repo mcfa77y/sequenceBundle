@@ -212,7 +212,10 @@ $(document).ready(function() {
   var step1Content = document.getElementById("js-step1-content");
 
   $('#js-step1-trigger').click(function() {
-    $(this).toggleClass("step1-hidden");
+    $(this).toggleClass("step1-hidden", false);
+    $('#js-step2-trigger').toggleClass("step2-hidden", true);
+    $('#js-step3-trigger').toggleClass("step3-hidden", true);
+
   });
 });
 
@@ -223,6 +226,8 @@ $(document).ready(function() {
 
   $('#js-step2-trigger').click(function() {
     $(this).toggleClass("step2-hidden");
+    $('#js-step1-trigger').toggleClass("step1-hidden", true);
+    $('#js-step3-trigger').toggleClass("step3-hidden", true);
   });
 });
 
@@ -233,6 +238,8 @@ $(document).ready(function() {
 
   $('#js-step3-trigger').click(function() {
     $(this).toggleClass("step3-hidden");
+    $('#js-step2-trigger').toggleClass("step2-hidden", true);
+    $('#js-step1-trigger').toggleClass("step1-hidden", true);
   });
 });
 

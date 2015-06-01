@@ -1,4 +1,5 @@
 <!-- STEP 2: VISUALISE -->
+<a name="js-step2-trigger" />
 <div class="step2">
     <a href="javascript:void(0)" id="js-step2-trigger" class="step2-trigger step2-hidden">
         <div class="step2-head">
