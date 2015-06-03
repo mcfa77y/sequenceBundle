@@ -2,19 +2,33 @@
 <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 45.4 31.2" enable-background="new 0 0 45.4 31.2" xml:space="preserve">
+	 viewBox="200 100 400 400" enable-background="new 200 100 400 400" xml:space="preserve">
 <g>
-	<path fill="none" stroke="#066CFF" stroke-miterlimit="10" d="M39.6,28.7H5.6c-1.8,0-3.2-1.4-3.2-3.2V5.6c0-1.8,1.4-3.2,3.2-3.2
-		h33.9c1.8,0,3.3,1.5,3.3,3.3v19.6C42.9,27.2,41.4,28.7,39.6,28.7z"/>
 	<g>
-		<path fill="none" stroke="#066CFF" stroke-width="0.7" stroke-miterlimit="10" d="M32.7,14c-3,0-3,0-6.1,0"/>
-		<path fill="none" stroke="#066CFF" stroke-width="0.7" stroke-miterlimit="10" d="M32.7,13c-3,0-3,0-6.1,0"/>
-		<path fill="none" stroke="#066CFF" stroke-width="0.7" stroke-miterlimit="10" d="M32.7,12c-3,0-3,0-6.1,0"/>
-		<path fill="none" stroke="#066CFF" stroke-width="0.7" stroke-miterlimit="10" d="M32.7,11c-3,0-3,0-6.1,0"/>
-		<path fill="none" stroke="#066CFF" stroke-width="0.7" stroke-miterlimit="10" d="M32.7,10c-3,0-3,0-6.1,0"/>
-		<path fill="none" stroke="#066CFF" stroke-width="0.7" stroke-miterlimit="10" d="M32.7,15c-3,0-3,0-6.1,0"/>
-		
-			<line fill="none" stroke="#707070" stroke-width="0.5" stroke-miterlimit="10" stroke-dasharray="1" x1="22.7" y1="5.1" x2="22.7" y2="26.1"/>
+		<g>
+			<rect x="468.7" y="264.8" fill="#F26A26" width="107.5" height="12.3"/>
+		</g>
+		<g>
+			<rect x="468.7" y="247.1" fill="#F26A26" width="107.5" height="12.3"/>
+		</g>
+		<g>
+			<rect x="468.7" y="229.5" fill="#F26A26" width="107.5" height="12.3"/>
+		</g>
+		<g>
+			<rect x="468.7" y="211.9" fill="#F26A26" width="107.5" height="12.3"/>
+		</g>
+		<g>
+			<rect x="468.7" y="194.3" fill="#F26A26" width="107.5" height="12.3"/>
+		</g>
+		<g>
+			<rect x="468.7" y="282.4" fill="#F26A26" width="107.5" height="12.3"/>
+		</g>
+		<g>
+			<path fill="#707070" d="M403.5,485h-8.8v-17.6h8.8V485z M403.5,449.8h-8.8v-17.6h8.8V449.8z M403.5,414.5h-8.8v-17.6h8.8V414.5z
+				 M403.5,379.3h-8.8v-17.6h8.8V379.3z M403.5,344.1h-8.8v-17.6h8.8V344.1z M403.5,308.8h-8.8v-17.6h8.8V308.8z M403.5,273.6h-8.8
+				v-17.6h8.8V273.6z M403.5,238.3h-8.8v-17.6h8.8V238.3z M403.5,203.1h-8.8v-17.6h8.8V203.1z M403.5,167.8h-8.8v-17.6h8.8V167.8z
+				 M403.5,132.6h-8.8V115h8.8V132.6z"/>
+		</g>
 	</g>
 </g>
 </svg>

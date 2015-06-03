@@ -65,6 +65,7 @@ $('#c-terminus').click(
         // });
 $("#downloadButton").click(function() {
     Utils.animateDowloadImage();
+    return false;
 });
 
 },

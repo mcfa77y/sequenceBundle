@@ -1,28 +1,28 @@
 <!-- STEP 1: SELECT DATA -->
+<a name "js-step1-trigger"/>
 <div class="step1">
-    <a href="javascript:void(0)" id="js-step1-trigger" class="step1-trigger step1-hidden">
+    <a href="javascript:void(0)" id="js-step1-trigger" class="step1-trigger">
         <div class="step1-head">
             <h1>
-                    1 <span style="font-size: 0.4em; color: #999999;">SELECT DATA</span>
-                </h1>
-        </div>
-        <!--step1-head-->
+               1 <span style="font-size: 0.4em; color: #999999;">SELECT DATA</span>
+            </h1>
+        </div><!--step1-head-->
     </a>
     <div id="js-step1-content" class="step1-content">
         <div class="menu-container">
             <div class="menu-three-columns">
                 <div class="expander1">
-                    <a href="javascript:void(0)" id="js-expander1-trigger" class="expander1-trigger expander1-hidden">
+                    <a href="javascript:void(0)" id="js-expander1-trigger" class="expander1-trigger">
                         <span class="menu-title-typo-expand">
-                                Option 1: Upload FASTA file
-                            </span>
+                           Option 1: Upload FASTA file
+                        </span>
                     </a>
                     <div id="js-expander1-content" class="expander1-content">
                         <div class="menu-board">
                             <div class="menu-text">
                                 <p class="menu-text-typo">
                                     Select a <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a> file from your local drive.</br>
-                                    Maximum size: 1000 sequences × 1000 positions.</br>
+                                    Max. size: 1000 sequences &#215; 1000 positions.</br>
                                     We never store your data.
                                     <!--<a class="modal-trigger-icon"><i class="icon-info-circled"></i></a>-->
                                 </p>
@@ -50,14 +50,11 @@
                                             <span class="fontello-upload"><input id="fileUpload" data-url="/upload/file" name="file" type="file"><i class="icon-upload"></i></span>Upload and validate
                                 </h4>
                                 </a>
-                            </div>
-                            <!-- menu-text-->
+                            </div><!-- menu-text-->
                         </div>
                     </div>
-                </div>
-                <!-- expander1-->
-            </div>
-            <!-- menu-three-columns -->
+                </div><!-- expander1-->
+            </div><!-- menu-three-columns -->
             <div class="menu-three-columns">
                 <div class="expander2">
                     <a href="javascript:void(0)" id="js-expander2-trigger" class="expander2-trigger expander2-hidden">
@@ -70,7 +67,7 @@
                             <div class="menu-text">
                                 <p class="menu-text-typo">
                                     Paste your data in <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a> format in the box below.</br>
-                                    Maximum size: 1000 sequences × 1000 positions.</br>
+                                    Max. size: 1000 sequences &#215; 1000 positions.</br>
                                     We never store your data.
                                     <!--<a class="modal-trigger-icon"><i class="icon-info-circled"></i></a>-->
                                 </p>
@@ -100,14 +97,11 @@
                                             Upload and validate
                                     </h4>
                                 </a>
-                            </div>
-                            <!-- menu-text-->
+                            </div><!-- menu-text-->
                         </div>
                     </div>
-                </div>
-                <!-- expander2-->
-            </div>
-            <!-- menu-three-columns -->
+                </div><!-- expander2-->
+            </div><!-- menu-three-columns -->
             <div class="menu-three-columns">
                 <div class="expander3">
                     <a href="javascript:void(0)" id="js-expander3-trigger" class="expander3-trigger expander3-hidden">
@@ -120,27 +114,24 @@
                             <div class="menu-text">
                                 <div class="drop-down-container">
                                     <select id="useExampleFile" name="Select example data" title="Select example dataset from this list of alignments" class="drop-down-style">
-                                        <optgroup label="Small datasets">
+                                        <optgroup label="Small datasets:">
                                             <option value="1">Bacterial toxin domain</option>
                                             <option value="2">Cellulose-binding domain</option>
                                             <option value="3">Domain of unknown function</option>
                                         </optgroup>
-                                        <optgroup label="Medium datasets">
+                                        <optgroup label="Medium datasets:">
                                             <option value="4">Structurally related ATPase domains</option>
-                                            <option value="5">
-                                                <!-- ATP- -->Binding domain of ABC transporters</option>
-                                            <option value="6">Alcohol dehydrogenase
-                                                <!--catalytic-->domain</option>
+                                            <option value="5"><!-- ATP- -->Binding domain of ABC transporters</option>
+                                            <option value="6">Alcohol dehydrogenase <!--catalytic-->domain</option>
                                             <option value="7" selected="selected">Adenylate kinase LID domain</option>
                                         </optgroup>
-                                        <optgroup label="Large datasets">
+                                        <optgroup label="Large datasets:">
                                             <option value="8">Insulin</option>
                                             <option value="9">Ankyrin Repeat</option>
                                             <option value="10">Zinc-finger double domain</option>
                                         </optgroup>
                                     </select>
-                                </div>
-                                <!-- drop-down-container -->
+                                </div><!-- drop-down-container -->
                                 <p id="upload-description" class="menu-text-typo">
                                     Adenylate kinase is an enzyme that plays an important role in cellular energy homeostasis. Its LID domain in stabilised by hydrogen bonds in Gram-negative bacteria, and by a metal ion in Gram-positives. Source: Pfam (PF05191); Magliery Lab and Ray Lab at Ohio State University</br>
                                 </p>
@@ -149,23 +140,22 @@
                                                     Use this example
                                                 </h4>
                                 </a>
-                            </div>
-                            <!-- menu-text-->
+                            </div><!-- menu-text-->
                         </div>
                     </div>
-                </div>
-                <!-- expander3-->
-            </div>
-            <!-- menu-three-columns -->
-        </div>
-        <!-- menu-container -->
+                </div><!-- expander3-->
+            </div><!-- menu-three-columns -->
+        </div><!-- menu-container -->
+        
+        
+        
+        
         <!-- WHEN DATA IS PROCESSING -->
-        <div id="uploadStatus" class="valid-container">
+        <div id="uploadStatus" class="valid-container hide">
             <div class="valid-message-box">
                 <div class="valid-background-grey">
                     <h4 class="valid-message-grey">
-
-                                </h4>
+                    </h4>
                 </div>
             </div>
         </div>
@@ -179,7 +169,7 @@
                 </a>
             </div>
         </div>
-    </div>
-    <!-- step1-content -->
+    </div><!-- step1-content -->
 </div>
+
 <div class="step-divider"></div>

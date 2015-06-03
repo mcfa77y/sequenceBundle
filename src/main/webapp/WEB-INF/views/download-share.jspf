@@ -1,4 +1,5 @@
 <!-- STEP 3: DOWNLOAD AND CITE -->
+<a name="js-step3-trigger" />
 <div class="step3">
     <a href="javascript:void(0)" id="js-step3-trigger" class="step3-trigger step3-hidden">
         <div class="step3-head">
@@ -21,7 +22,7 @@
                         <p class="menu-text-typo">
                             Export visualisation preview in .png format.
                         </p>
-                        <a id="downloadPNGLink" class="task-button" href="web-tool.html">
+                        <a id="downloadPNGButton" class="task-button" href="web-tool.html">
                             <h4 class="task-button-typo">
                                 Download .png image
                             </h4>

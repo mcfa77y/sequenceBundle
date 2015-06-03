@@ -1,30 +1,33 @@
 <div class="tab-pane active" id="tabs-1">
-    <div class="tab">
-        <input type="radio" id="tab-1" name="tab-group-1" checked>
-        <label for="tab-1">
-            <span class="tab-typo">
-                            <span class="fontello-preview"><i class="icon-preview"></i></span>Sequence Bundles Preview
-            </span>
-        </label>
-        <div class="content">
-            <%@include file="preview-navigation.jspf" %>
-                <div id="sequenceBundle" class="vis-container">
-                    <div id="renderProgress" class="loading-image center" style="display:none">
-                        <h1 class="loading-text"> Loading Preview...</h1>
-                    </div>
-                </div>
-                <!-- vis-container -->
-                <div class="action-button-container">
-                    <div class="action-button-box">
-                        <a id="downloadButton" class="action-button-active" href="#">
-                            <h3 class="action-button-typo">
-                                            Download Bundle
-                                        </h3>
-                        </a>
-                    </div>
-                </div>
-        </div>
-        <!-- content -->
-    </div>
-    <!-- tab -->
+	<div class="tab">
+	
+      <input type="radio" id="tab-1" name="twotabs" checked>
+      <label for="tab-1">
+        	<span class="tab-typo">
+            <span class="fontello-preview"><i class="icon-preview"></i></span>Sequence Bundles Preview
+         </span>
+      </label>
+        	
+      <div class="content">
+      	<%@include file="preview-navigation.jspf" %>
+      	
+         <div id="sequenceBundle" class="vis-container">
+            <div id="renderProgress" class="loading-image center" style="display:none">
+            	<h1 class="loading-text">
+            		Loading Preview...
+               </h1>
+            </div>
+         </div><!-- vis-container -->
+         <div class="action-button-container">
+            <div class="action-button-box">
+               <a id="downloadButton" class="action-button-active" href="#">
+                  <h3 class="action-button-typo">
+                     Download Bundle
+                  </h3>
+               </a>
+            </div>
+         </div>
+     	</div><!-- content -->
+        	
+	</div><!-- tab -->
 </div>

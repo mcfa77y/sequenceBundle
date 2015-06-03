@@ -60,7 +60,7 @@ var sequence = "";
         if (data.errorMessage && data.errorMessage.length > 0) {
             var errorMessage = '';
             if (data.errorMessage.contains("1000")) {
-                errorMessage = "FASTA format is valid, but your data is too large (it has [" + data.sequenceCount + "]sequences, each [" + data.sequenceBases + "] positions long).";
+                errorMessage = "FASTA format is valid, but your data is too large (it has [" + data.sequenceCount + "] sequences, each [" + data.sequenceBases + "] positions long).";
                 uploadSequenceInfo('green', errorMessage, false);
             } else {
                 errorMessage = $('<div/>')
@@ -72,7 +72,7 @@ var sequence = "";
             return;
         }
 
-        var text = "You have uploaded an " + data.alignmentType + " sequence with " + data.sequenceBases + " bases and " + data.sequenceCount + " sequences.";
+        var text = "Your protein data contains " + data.sequenceCount + " sequences, each " + data.sequenceBases + " positions long.";
         uploadSequenceInfo('green', text, true);
 
         var d = new Date();
@@ -163,7 +163,7 @@ var descriptionMap = {
     },
     '7': {
         description: 'Adenylate kinase is an enzyme that plays an important role in cellular energy homeostasis. Its LID domain in stabilised by hydrogen bonds in Gram-negative bacteria, and by a metal ion in Gram-positives.\
-        Source: Pfam (PF05191); Magliery & Ray Labs, Ohio State University',
+        Source: Pfam (PF05191); Magliery Lab and Ray Lab, Ohio State University',
         filename: 'ADK_LID-Adenylate-kinase-lid-domain_mod-from-Magliery-Ray.txt'
     },
     '9': {
@@ -177,13 +177,13 @@ var descriptionMap = {
         filename: 'CBM_5_12_2-(PF14600)_Cellulose-binding-domain_RP75.txt'
     },
     '3': {
-        description: 'This protein domain can be found in eucaryotes. \
+        description: 'This protein domain can be found in eucaryotes.\
         Its function has not yet been characterised.\
         Source: Pfam (PF15363).',
         filename: 'DUF4596-(PF15363)_Domain-of-unknown-function.txt'
     },
     '4': {
-        description: 'This is an evolutionary conserved domain that can be found in several ATP-binding proteins, for example in Hsp90 protein which protects cells from elevated temperatures. \
+        description: 'This is an evolutionary conserved domain that can be found in several ATP-binding proteins, for example in Hsp90 protein which protects cells from elevated temperatures.\
         Source: Pfam (PF02518)',
         filename: 'HATPase_c-(PF02518)_GHKL-domain_Seed.txt'
     },

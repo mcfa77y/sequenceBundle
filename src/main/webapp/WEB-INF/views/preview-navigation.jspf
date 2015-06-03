@@ -1,49 +1,56 @@
 <div class="seq-nav-container">
+
+   <div class="seq-nav-row">
+      <div class="seq-nav-input-box-wide">
+         <h5 class="seq-nav-slider-typo">
+         	GO TO POSITION:
+         </h5>
+      </div>
+      <div class="seq-nav-Nterm-box">
+         <h5>
+         	&nbsp;
+            <!-- N-TERMINUS -->
+         </h5>
+      </div>
+      <div class="seq-nav-slider-box">
+      	<h5 id="sequenceIndexLabel" class="seq-nav-slider-typo">
+            NO DATA SELECTED YET...
+         </h5>
+      </div>
+      <div class="seq-nav-Cterm-box">
+      	<h5>
+      		&nbsp;
+            <!-- C-TERMINUS -->
+         </h5>
+     	</div>
+    </div><!-- seq-nav-row -->
+    	
     <div class="seq-nav-row">
-        <div class="seq-nav-input-box-wide">
-            <h5>
-                            GO TO POSITION:
-                        </h5>
-        </div>
-        <div class="seq-nav-Nterm-box">
-            <h5>&nbsp;
-                            <!-- N-TERMINUS -->
-                        </h5>
-        </div>
-        <div class="seq-nav-slider-box">
-            <h5 id="sequenceIndexLabel">
-                            DISPLAYING 1 – 15 OUT OF 1000 POSITIONS
-                        </h5>
-        </div>
-        <div class="seq-nav-Cterm-box">
-            <h5>
-                            <!-- C-TERMINUS -->
-                        </h5>
-        </div>
-    </div>
-    <!-- seq-nav-row -->
-    <div class="seq-nav-row">
-        <div class="seq-nav-gap-box">&nbsp;</div>
-        <div class="seq-nav-input-box">
-            <input id="startIndex" class="position-box" name="position" maxlength="4" max="1000" required type="number" placeholder="1" value="1">
-            <!-- IF THE POSITION IN INPUT BOX IS DIFFERENT TO PREVIEW -->
-            <a id="gotoPositionButton" class="position-go-button" href="#"><span class="fontello-position"><i class="icon-position-finder"></i></span></a>
-            <!-- IF THE POSITION IN INPUT BOX IS SAME AS IN VISUALISATION PREVIEW
-                            <a class="position-go-button-grey" href="#"><span class="fontello-position"><i class="icon-position-finder"></i></span></a> -->
-        </div>
-        <div class="seq-nav-gap-box">
-        </div>
-        <a class="seq-nav-Nterm-box">
-            <div id="n-terminus" class="N-terminus-button">
-            </div>
-        </a>
-        <div class="seq-nav-slider-box">
-            <input id="sliderSequence" type="range" name="baseslider" max="1001" placeholder="1">
-        </div>
-        <a class="seq-nav-Cterm-box">
-            <div class="C-terminus-button" id="c-terminus">
-            </div>
-        </a>
-    </div>
-    <!-- seq-nav-row -->
+      <div class="seq-nav-gap-box">
+      	&nbsp;
+      </div>
+     	<div class="seq-nav-input-box">
+         <input id="startIndex" class="position-box" name="position" maxlength="4" min="1" max="1000" required type="number" placeholder="0" value="0">
+            
+         <!-- IF THE POSITION IN INPUT BOX IS DIFFERENT TO PREVIEW -->
+         <a id="gotoPositionButton" class="position-go-button" href="#"><span class="fontello-position"><i class="icon-position-finder"></i></span></a>
+            
+         <!-- IF THE POSITION IN INPUT BOX IS SAME AS IN VISUALISATION PREVIEW
+         <a class="position-go-button-grey" href="#"><span class="fontello-position"><i class="icon-position-finder"></i></span></a> -->
+                            
+      </div>
+      <div class="seq-nav-gap-box">
+     	</div>
+     	<a class="seq-nav-Nterm-box">
+     		<div id="n-terminus" class="N-terminus-button">
+         </div>
+      </a>
+     	<div class="seq-nav-slider-box">
+         <input id="sliderSequence" type="range" name="baseslider" min="1" max="1000" placeholder="0" value="0">
+      </div>
+     	<a class="seq-nav-Cterm-box">
+         <div class="C-terminus-button" id="c-terminus">
+         </div>
+     	</a>
+ 	</div><!-- seq-nav-row -->
 </div>

@@ -1,19 +1,25 @@
 <!-- FOOTER BEGINS -->
+
 <div class="sb-divider-4"></div>
+
 <div class="sb-footer">
     <div class="footer-logos">
         <div class="footer-sp-logo">
-            <a href="http://science-practice.com"><img class="sb-logos" src="resources/images/PNG/Logo_science-practice.png"></a>
+            <a href="http://science-practice.com"><img class="sb-logos" src="resources/images/PNG/Logo_science-practice-bw.png"></a>
         </div>
+        <div class="footer-gap">&nbsp;</div>
         <div class="footer-ebi-logo">
-            <a href="http://www.ebi.ac.uk/research/goldman"><img class="sb-logos" src="resources/images/PNG/Logo_goldman-group.png"></a>
+            <a href="http://www.ebi.ac.uk/research/goldman"><img class="sb-logos" src="resources/images/PNG/Logo_goldman-group-bw.png"></a>
         </div>
     </div>
     <div class="footer-text">
-        <h6 class="footer-text-typo">Sequence Bundles was designed by Science Practice and developed by Science Practice in collaboration with the Goldman Group at EMBL-EBI.</br>
-            This web tool was designed by Science Practice and developed by Joe Lau.</br>
-            To learn more about Sequence Bundles, read our paper in BMC Proceedings 2014, 8(Suppl 2):S8
+        <h6 class="footer-text-typo">Sequence Bundles were created by Science Practice and developed by Science Practice in collaboration with the Goldman Group at EMBL-EBI.</br>
+            This web tool was designed by Science Practice and developed by Joe Lau. Kindly hosted on EMBL-EBI servers.</br>
+            To learn more about Sequence Bundles, read our paper in BMC Proceedings 2014, 8(Suppl 2):S8</br>
+            Copyright by Science Practice &copy; 2013.
         </h6>
     </div>
 </div>
+
 <!-- FOOTER ENDS -->
+                        

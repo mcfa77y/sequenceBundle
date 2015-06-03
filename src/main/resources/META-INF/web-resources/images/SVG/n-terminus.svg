@@ -2,20 +2,45 @@
 <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 64 36" enable-background="new 0 0 64 36" xml:space="preserve">
-<path fill="#FFFFFF" stroke="#066CFF" stroke-miterlimit="10" d="M62.7,34.4H4.5c-1.7,0-3.2-1.4-3.2-3.2V4.8c0-1.7,1.4-3.2,3.2-3.2
-	h58.2V34.4z"/>
+	 viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
 <g>
-	<rect x="17" y="15.8" fill="none" width="6.2" height="7.3"/>
-	<text transform="matrix(1 0 0 1 16.961 20.7714)" fill="#066CFF" font-family="'MuseoSans-700'" font-size="7">N</text>
-	<rect x="9.4" y="15.8" fill="none" width="10.5" height="7.3"/>
-	<text transform="matrix(1 0 0 1 9.3604 20.7714)" fill="#066CFF" font-family="'MuseoSans-700'" font-size="7">H</text>
-	<text transform="matrix(0.583 0 0 0.583 14.7012 23.1025)" fill="#066CFF" font-family="'MuseoSans-700'" font-size="7">2</text>
-	<line fill="none" stroke="#066CFF" stroke-width="0.5" stroke-miterlimit="10" x1="23.2" y1="18.5" x2="26.3" y2="18.5"/>
-	<circle opacity="0.25" fill="#066CFF" cx="30.5" cy="18.5" r="4.1"/>
-	<line fill="none" stroke="#066CFF" stroke-width="0.5" stroke-miterlimit="10" x1="33.2" y1="18.5" x2="36.3" y2="18.5"/>
-	<circle opacity="0.25" fill="#066CFF" cx="40.5" cy="18.5" r="4.1"/>
-	<line fill="none" stroke="#066CFF" stroke-width="0.5" stroke-miterlimit="10" x1="43.2" y1="18.5" x2="46.3" y2="18.5"/>
-	<circle opacity="0.25" fill="#066CFF" cx="50.5" cy="18.5" r="4.1"/>
+	<path fill="#F26A26" d="M195.7,260H210l40,52.9l0,0V260h15.7v78.6h-14.3l-40-52.9l0,0v52.9h-15.7V260z"/>
+</g>
+<g>
+	<path fill="#F26A26" d="M68.6,260h15.7v32.9h37.1V260h15.7v78.6H120v-32.9H82.9v32.9H68.6V260z"/>
+</g>
+<g>
+	<path fill="#F26A26" d="M157.1,348.6l5.7-4.3c4.3-2.9,7.1-4.3,7.1-10c0-4.3-1.4-7.1-7.1-7.1c-4.3,0-7.1,2.9-7.1,8.6h-8.6
+		c0-11.4,8.6-15.7,17.1-15.7c10,0,17.1,5.7,17.1,14.3c0,8.6-4.3,11.4-10,15.7l-5.7,2.9c-5.7,4.3-7.1,5.7-7.1,8.6h22.9v10h-34.3
+		C145.7,360,148.6,354.3,157.1,348.6z"/>
+</g>
+<g>
+	<rect x="288.6" y="301.4" fill="#F26A26" width="44.3" height="7.1"/>
+</g>
+<g>
+	<g opacity="0.4">
+		<g>
+			<path fill="#F26A26" d="M391.4,246.4c-32.9,0-58.6,25.7-58.6,58.6s25.7,58.6,58.6,58.6c31.4,0,57.1-24.3,58.6-55.7h-34.3v-7.1
+				H450C447.1,272.1,421.4,246.4,391.4,246.4"/>
+		</g>
+	</g>
+	<g>
+		<polyline fill="#F26A26" points="415.7,307.9 474.3,307.9 474.3,300.7 415.7,300.7 415.7,307.9 		"/>
+	</g>
+</g>
+<g opacity="0.4">
+	<g>
+		<path fill="#F26A26" d="M532.9,245.7c-32.9,0-58.6,25.7-58.6,58.6s25.7,58.6,58.6,58.6c31.4,0,57.1-24.3,58.6-55.7h-34.3V300h34.3
+			C588.6,271.4,562.9,245.7,532.9,245.7"/>
+	</g>
+</g>
+<g>
+	<polyline fill="#F26A26" points="557.1,307.1 615.7,307.1 615.7,300 557.1,300 557.1,307.1 	"/>
+</g>
+<g opacity="0.4">
+	<g>
+		<path fill="#F26A26" d="M674.3,245c-32.9,0-58.6,25.7-58.6,58.6s25.7,58.6,58.6,58.6c32.9,0,58.6-25.7,58.6-58.6
+			C732.9,272.1,705.7,245,674.3,245"/>
+	</g>
 </g>
 </svg>
