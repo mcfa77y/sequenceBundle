@@ -104,7 +104,7 @@
             </div><!-- menu-three-columns -->
             <div class="menu-three-columns">
                 <div class="expander3">
-                    <a href="javascript:void(0)" id="js-expander3-trigger" class="expander3-trigger expander3-hidden">
+                    <a href="javascript:void(0)" id="js-expander3-trigger" class="expander3-trigger ">
                         <span class="menu-title-typo-expand">
                                 Option 3: Use example data
                             </span>
