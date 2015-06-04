@@ -61,7 +61,7 @@ var sequence = "";
         // handle possible errors in data
         if (data.errorMessage && data.errorMessage.length > 0) {
             var errorMessage = '';
-            if (data.errorMessage.contains("1000")) {
+            if (data.errorMessage.includes("1000")) {
                 errorMessage = "FASTA format is valid, but your data is too large (it has [" + data.sequenceCount + "] sequences, each [" + data.sequenceBases + "] positions long).";
                 uploadSequenceInfo('green', errorMessage, false);
             } else {
