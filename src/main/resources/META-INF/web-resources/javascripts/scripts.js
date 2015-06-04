@@ -177,7 +177,9 @@ $(document).ready(function() {
   var expander1Content = document.getElementById("js-expander1-content");
 
   $('#js-expander1-trigger').click(function() {
-    $(this).toggleClass("expander1-hidden");
+    $(this).toggleClass("expander1-hidden", false);
+    $('#js-expander2-trigger').toggleClass("expander2-hidden", true);
+    $('#js-expander3-trigger').toggleClass("expander3-hidden", true);
   });
 });
 
@@ -188,6 +190,8 @@ $(document).ready(function() {
 
   $('#js-expander2-trigger').click(function() {
     $(this).toggleClass("expander2-hidden");
+    $('#js-expander1-trigger').toggleClass("expander1-hidden", true);
+    $('#js-expander3-trigger').toggleClass("expander3-hidden", true);
   });
 });
 
@@ -198,6 +202,8 @@ $(document).ready(function() {
 
   $('#js-expander3-trigger').click(function() {
     $(this).toggleClass("expander3-hidden");
+    $('#js-expander1-trigger').toggleClass("expander1-hidden", true);
+    $('#js-expander2-trigger').toggleClass("expander2-hidden", true);
   });
 });
 
