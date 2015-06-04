@@ -147,7 +147,7 @@ public class SBWebController implements ServletContextAware {
 		@Override
 		public void run() {
 			listFilesForFolder(folder);
-			System.out.println("Hi see you after 10 seconds");
+			System.out.println("Cleaning image folder.");
 		}
 
 	}

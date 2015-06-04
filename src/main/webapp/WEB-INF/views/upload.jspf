@@ -4,7 +4,7 @@
     <a href="javascript:void(0)" id="js-step1-trigger" class="step1-trigger">
         <div class="step1-head">
             <h1>
-               1 <span style="font-size: 0.4em; color: #999999;">SELECT DATA</span>
+                1 <span style="font-size: 0.4em; color: #999999;">SELECT DATA</span>
             </h1>
         </div><!--step1-head-->
     </a>
@@ -39,36 +39,43 @@
                                                 <span class="fontello-close-icon"><i class="icon-cancel-circled"></i></span>
                                             </div>
                                             <div class="modal-content">
-                                                <h5>We never store your data longer than needed to process and visualise your bundles. By using the Sequence Bundles web tool you provide Science Practice Ltd. and EMBL-EBI with explicit permission to use, process, and transfer your data only for the duration of your activity on this URL, and for the sole purpose of visualising your data and providing you with data's visual representation. We never store your data in any form longer than the duration of your activity on this URL. Upon exiting this URL all data that you submit is deleted permanently.</h5>
+                                                <h5>We never store your data longer than needed to process and visualise your bundles. By using the
+                                                    Sequence Bundles web tool you provide Science Practice Ltd. and EMBL-EBI with explicit permission to use,
+                                                    process, and transfer your data only for the duration of your activity on this URL, and for the sole purpose
+                                                    of visualising your data and providing you with data's visual representation. We never store your data in
+                                                    any form longer than the duration of your activity on this URL. Upon exiting this URL all data that you
+                                                    submit is deleted permanently.</h5>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <a class="task-button fileinput-button">
+                                <a id="fileUploadButton" class="task-button fileinput-button">
                                     <h4 class="task-button-icon">
                                         <input id="fileUpload" data-url="/upload/file" name="file" type="file">
-                                            <span class="fontello-upload"><input id="fileUpload" data-url="/upload/file" name="file" type="file"><i class="icon-upload"></i></span>Upload and validate
-                                </h4>
+                                        <span class="fontello-upload"> <i class="icon-upload"></i>
+                                        </span>Upload and validate
+                                    </h4>
                                 </a>
-                            </div><!-- menu-text-->
+                            </div>
+                            <!-- menu-text-->
                         </div>
                     </div>
-                </div><!-- expander1-->
-            </div><!-- menu-three-columns -->
+                </div>
+                <!-- expander1-->
+            </div>
+            <!-- menu-three-columns -->
             <div class="menu-three-columns">
                 <div class="expander2">
                     <a href="javascript:void(0)" id="js-expander2-trigger" class="expander2-trigger expander2-hidden">
-                        <span class="menu-title-typo-expand">
-                                Option 2: Paste FASTA data
-                            </span>
+                        <span class="menu-title-typo-expand"> Option 2: Paste FASTA data </span>
                     </a>
                     <div id="js-expander2-content" class="expander2-content">
                         <div class="menu-board">
                             <div class="menu-text">
                                 <p class="menu-text-typo">
-                                    Paste your data in <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a> format in the box below.</br>
-                                    Max. size: 1000 sequences &#215; 1000 positions.</br>
-                                    We never store your data.
+                                    Paste your data in
+                                    <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a>
+                                    format in the box below.</br> Max. size: 1000 sequences &#215; 1000 positions.</br> We never store your data.
                                     <!--<a class="modal-trigger-icon"><i class="icon-info-circled"></i></a>-->
                                 </p>
                                 <div class="modal">
@@ -84,36 +91,44 @@
                                                 <span class="fontello-close-icon"><i class="icon-cancel-circled"></i></span>
                                             </div>
                                             <div class="modal-content">
-                                                <h5>We never store your data longer than needed to process and visualise your bundles. By using the Sequence Bundles web tool you provide Science Practice Ltd. and EMBL-EBI with explicit permission to use, process, and transfer your data only for the duration of your activity on this URL, and for the sole purpose of visualising your data and providing you with data's visual representation. We never store your data in any form longer than the duration of your activity on this URL. Upon exiting this URL all data that you submit is deleted permanently.</h5>
+                                                <h5>We never store your data longer than needed to process and visualise your bundles. By using the
+                                                    Sequence Bundles web tool you provide Science Practice Ltd. and EMBL-EBI with explicit permission to use,
+                                                    process, and transfer your data only for the duration of your activity on this URL, and for the sole purpose
+                                                    of visualising your data and providing you with data's visual representation. We never store your data in
+                                                    any form longer than the duration of your activity on this URL. Upon exiting this URL all data that you
+                                                    submit is deleted permanently.</h5>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-area-container">
-                                    <textarea id="pasteSequence" class="text-area-style" maxlength="1500000" title="Paste your FASTA data in this text box" placeholder=">paste your FASTA data here..." required></textarea>
+                                    <textarea id="pasteSequence" class="text-area-style" maxlength="1500000" title="Paste your FASTA data in this text box"
+                                        placeholder=">paste your FASTA data here..." required
+                                    ></textarea>
                                 </div>
                                 <a id="pasteSequenceButton" class="task-button" href="#">
-                                    <h4 class="task-button-typo">
-                                            Upload and validate
-                                    </h4>
+                                    <h4 class="task-button-typo">Upload and validate</h4>
                                 </a>
-                            </div><!-- menu-text-->
+                            </div>
+                            <!-- menu-text-->
                         </div>
                     </div>
-                </div><!-- expander2-->
-            </div><!-- menu-three-columns -->
+                </div>
+                <!-- expander2-->
+            </div>
+            <!-- menu-three-columns -->
             <div class="menu-three-columns">
                 <div class="expander3">
                     <a href="javascript:void(0)" id="js-expander3-trigger" class="expander3-trigger expander3-hidden">
-                        <span class="menu-title-typo-expand">
-                                Option 3: Use example data
-                            </span>
+                        <span class="menu-title-typo-expand"> Option 3: Use example data </span>
                     </a>
                     <div id="js-expander3-content" class="expander3-content">
                         <div class="menu-board">
                             <div class="menu-text">
                                 <div class="drop-down-container">
-                                    <select id="useExampleFile" name="Select example data" title="Select example dataset from this list of alignments" class="drop-down-style">
+                                    <select id="useExampleFile" name="Select example data" title="Select example dataset from this list of alignments"
+                                        class="drop-down-style"
+                                    >
                                         <optgroup label="Small datasets:">
                                             <option value="1">Bacterial toxin domain</option>
                                             <option value="2">Cellulose-binding domain</option>
@@ -121,8 +136,11 @@
                                         </optgroup>
                                         <optgroup label="Medium datasets:">
                                             <option value="4">Structurally related ATPase domains</option>
-                                            <option value="5"><!-- ATP- -->Binding domain of ABC transporters</option>
-                                            <option value="6">Alcohol dehydrogenase <!--catalytic-->domain</option>
+                                            <option value="5"><!-- ATP- -->Binding domain of ABC transporters
+                                            </option>
+                                            <option value="6">Alcohol dehydrogenase
+                                                <!--catalytic-->domain
+                                            </option>
                                             <option value="7" selected="selected">Adenylate kinase LID domain</option>
                                         </optgroup>
                                         <optgroup label="Large datasets:">
@@ -131,31 +149,31 @@
                                             <option value="10">Zinc-finger double domain</option>
                                         </optgroup>
                                     </select>
-                                </div><!-- drop-down-container -->
+                                </div>
+                                <!-- drop-down-container -->
                                 <p id="upload-description" class="menu-text-typo">
-                                    Adenylate kinase is an enzyme that plays an important role in cellular energy homeostasis. Its LID domain in stabilised by hydrogen bonds in Gram-negative bacteria, and by a metal ion in Gram-positives. Source: Pfam (PF05191); Magliery Lab and Ray Lab at Ohio State University</br>
+                                    Adenylate kinase is an enzyme that plays an important role in cellular energy homeostasis. Its LID domain in stabilised by
+                                    hydrogen bonds in Gram-negative bacteria, and by a metal ion in Gram-positives. Source: Pfam (PF05191); Magliery Lab and Ray
+                                    Lab at Ohio State University</br>
                                 </p>
                                 <a id="useExampleButton" class="task-button" href="#">
-                                    <h4 class="task-button-typo">
-                                                    Use this example
-                                                </h4>
+                                    <h4 class="task-button-typo">Use this example</h4>
                                 </a>
-                            </div><!-- menu-text-->
+                            </div>
+                            <!-- menu-text-->
                         </div>
                     </div>
-                </div><!-- expander3-->
-            </div><!-- menu-three-columns -->
-        </div><!-- menu-container -->
-        
-        
-        
-        
+                </div>
+                <!-- expander3-->
+            </div>
+            <!-- menu-three-columns -->
+        </div>
+        <!-- menu-container -->
         <!-- WHEN DATA IS PROCESSING -->
         <div id="uploadStatus" class="valid-container hide">
             <div class="valid-message-box">
                 <div class="valid-background-grey">
-                    <h4 class="valid-message-grey">
-                    </h4>
+                    <h4 class="valid-message-grey"></h4>
                 </div>
             </div>
         </div>
@@ -163,13 +181,11 @@
         <div class="action-button-container">
             <div class="action-button-box">
                 <a id="createBundleButton" class="next-btn action-button-inactive" href="#">
-                    <h3 class="action-button-typo">
-                    Create Bundle
-                </h3>
+                    <h3 class="action-button-typo">Create Bundle</h3>
                 </a>
             </div>
         </div>
-    </div><!-- step1-content -->
+    </div>
+    <!-- step1-content -->
 </div>
-
 <div class="step-divider"></div>

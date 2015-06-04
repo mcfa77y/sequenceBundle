@@ -5,56 +5,66 @@
  */
  var PreviewController = {
     init: function() {
+        $('#startIndex')
+        .change(function(event) {
+            $('#gotoPositionButton').removeClass();
+            $('#gotoPositionButton').addClass('position-go-button');
+        });
         $('#gotoPositionButton')
-        .click(
-            function(event) {
+        .click(function(event) {
+            if (Utils.isDataNotReady()) {
+                return false;
+            }
+            if ($(this).hasClass('disabled')){
+                return false;
+            }
+            var startIndex = $('#startIndex');
+            var startIndexValue = parseInt($('#startIndex')
+                .val(), 10);
+            var lastIndexValue = parseInt(
+                $('#lastIndex').val(), 10);
 
-                var startIndex = $('#startIndex');
-                var startIndexValue = parseInt($('#startIndex')
-                    .val(), 10);
-                var lastIndexValue = parseInt(
-                    $('#lastIndex').val(), 10);
+            if (isNaN(startIndexValue)) {
+                return false;
+            }
 
-                if (isNaN(startIndexValue)) {
-                    Utils.alertWarning(
-                        "Enter valid index, please.",
-                        '#gotoPositionButton');
-                    return;
+                // Get some values from elements on the page:
+                var url = '/upload/paste';
+                var data = $('#visualSettingsForm')
+                .serializeArray();
+                // sanitize start index less than 1
+                if (startIndexValue < 1) {
+                    startIndex.val(1);
+                }
+                if (startIndexValue > lastIndexValue) {
+                    startIndex.val(lastIndexValue);
                 }
 
-                    // Get some values from elements on the page:
-                    var url = '/upload/paste';
-                    var data = $('#visualSettingsForm')
-                    .serializeArray();
-                    // sanitize start index less than 1
-                    if (startIndexValue < 1) {
-                        startIndex.val(1);
-                    }
-                    if (startIndexValue > lastIndexValue) {
-                        startIndex.val(lastIndexValue);
-                    }
-
-                    PreviewController
-                    .updateSequenceNavigationControls(startIndex
-                        .val());
-                    PreviewController.renderImage();
-                    return false;
-                });
+                PreviewController
+                .updateSequenceNavigationControls(startIndex
+                    .val());
+                PreviewController.renderImage();
+                return false;
+            });
 
 $('#n-terminus').click(function() {
+    if (Utils.isDataNotReady()) {
+        return false;
+    }
     PreviewController.updateSequenceNavigationControls(1);
     PreviewController.renderImage();
     return false;
 });
 
-$('#c-terminus').click(
-    function() {
-        PreviewController.updateSequenceNavigationControls($(
-            '#visualSettingsForm #lastIndex').val());
-        PreviewController.renderImage();
+$('#c-terminus').click(function() {
+    if (Utils.isDataNotReady()) {
         return false;
-
-    });
+    }
+    PreviewController.updateSequenceNavigationControls($(
+        '#visualSettingsForm #lastIndex').val());
+    PreviewController.renderImage();
+    return false;
+});
 
         // // controls for tab icons changing from active <-> inactive states
         // $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
@@ -98,7 +108,7 @@ initSequenceSlider: function(start, max, step) {
         // });
 
 PreviewController
-.updateSequenceNavigationControls(PreviewController.oldSliderValue);
+.updateSequenceNavigationControls(1);
 },
     // updateSliderWidth: function() {
     // var sequenceSlider = $('#sliderSequence');
@@ -108,6 +118,7 @@ PreviewController
     // sequenceSlider.width('100%');
     // },
     renderImage: function() {
+
         var posting = $.post('/upload/paste', Utils.createData());
         // Put the results in a div
         posting.done(function(data) {
@@ -120,11 +131,17 @@ PreviewController
         var filename = Utils.getFilename(wp);
         Utils.jobStatusPoll(filename, wp);
         Utils.showImage();
+        $('#gotoPositionButton').removeClass();
+        $('#gotoPositionButton').addClass('position-go-button-grey');
+        $('#gotoPositionButton').addClass('disabled');
+        
+
+
     },
     updateSequenceNavigationControls: function(value) {
         var lastValue = parseInt($('#lastIndex').val(), 10);
         var range = parseInt($("#columnCount").val(), 10);
-        var value = parseInt(value, 10);
+        value = parseInt(value, 10);
         displayValue = Math.min(value, lastValue - range + 1);
         // search field
         $('#startIndex').val(value);

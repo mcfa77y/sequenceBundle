@@ -35,8 +35,10 @@ var sequence = "";
         var createButton = $('.next-btn').removeClass();
         if (isEnabled) {
             createButton.addClass('next-btn action-button-active');
+            $('#dataReady').val(true);
         } else {
             createButton.addClass('next-btn action-button-inactive');
+            $('#dataReady').val(false);
         }
     }
 
@@ -88,8 +90,7 @@ var sequence = "";
         PreviewController.initSequenceSlider(1, data.sequenceBases, 1);
     }
 
-    $('#fileUpload')
-    .fileupload({
+    $('#fileUpload').fileupload({
         dataType: 'json',
         maxFileSize: 5 * 1024 * 1024,
         acceptFileTypes: /(\.|\/)(txt|fasta)$/i,
@@ -104,38 +105,37 @@ var sequence = "";
         processfail: function(e, data) {
             var currentFile = data.files[data.index];
             if (data.files.error && currentFile.error) {
-                    // there was an error, do something about it
-                    Utils.debug(currentFile.error);
-                    $('<p/>').text(
-                        "ERROR: " + currentFile.error + " " + currentFile.name).appendTo(
-                        "#messages").addClass("text-danger");
-                    }
-                },
-                add: function(e, data) {
-                // display validating
-                uploadSequenceInfo('grey',
-                    "Uploading and Validating ...", false);
-                // clear old sequence data
-                $("#visualSettingsForm #sequence").val('');
-
-                data.formData = Utils.createData();
-
-                data.submit();
-
-            }
-
-        });
-
-$("#pasteSequenceButton").click(function(event) {
-        // clear old sequence data
-        $("#visualSettingsForm #sequence").val('');
-        var url = "/upload/paste";
-        var data = Utils.createData({
-            sequence: $('#pasteSequence').val()
-        });
-        renderImage(url, data, "Uploading and validating ...");
-        return false;
+                // there was an error, do something about it
+                Utils.debug(currentFile.error);
+                $('<p/>').text(
+                    "ERROR: " + currentFile.error + " " + currentFile.name).appendTo(
+                    "#messages").addClass("text-danger");
+                }
+            },
+            add: function(e, data) {
+            // display validating
+            uploadSequenceInfo('grey',
+                "Uploading and Validating ...", false);
+            // clear old sequence data
+            $("#visualSettingsForm #sequence").val('');
+            $('#startIndex').val(1);
+            data.formData = Utils.createData();
+            data.submit();
+        }
     });
+
+$("#pasteSequenceButton").click(
+    function(event) {
+            // clear old sequence data
+            $("#visualSettingsForm #sequence").val('');
+            $('#startIndex').val(1);
+            var url = "/upload/paste";
+            var data = Utils.createData({
+                sequence: $('#pasteSequence').val()
+            });
+            renderImage(url, data, "Uploading and validating ...");
+            return false;
+        });
 
 $("#useExampleButton").click(function(event) {
         // clear old sequence data
@@ -143,11 +143,12 @@ $("#useExampleButton").click(function(event) {
         var filename = descriptionMap[$('#useExampleFile').val()].filename;
         // Get some values from elements on the page:
         var url = "/upload/example";
+        $('#startIndex').val(1);
         var data = Utils.createData({
             filename: filename
         });
         renderImage(url, data, "Validating ...");
-        return false
+        return false;
     });
 
 var descriptionMap = {
@@ -222,46 +223,4 @@ var descriptionMap = {
         Utils.animatePreviewImage();
         return false;
     });
-
-    // minimize/maximize button for sequence upload methods
-    $('.upload-minimize-button').collapse();
-    $('.upload-minimize-button')
-    .each(
-        function() {
-            $(this)
-            .click(
-                function() {
-                    var span = $('span', this);
-                    if (Boolean(span
-                        .hasClass('glyphicon-triangle-right'))) {
-                        span
-                    .removeClass(
-                        'glyphicon-triangle-right')
-                    .addClass(
-                        'glyphicon-triangle-bottom');
-                } else {
-                    span
-                    .removeClass(
-                        'glyphicon-triangle-bottom')
-                    .addClass(
-                        'glyphicon-triangle-right');
-                }
-                var skipId = $(this).attr(
-                    'data-target');
-                var openPanels = $('[id$=Panel].collapse.in');
-                for (var i = 0; i < openPanels.length; i++) {
-                    var panel = $(openPanels[i]);
-                    if (skipId !== panel.attr('id')) {
-                        panel.collapse('toggle');
-                                    // swap + for -
-                                    $(
-                                        panel.siblings()[0].children[1].children[0].children[0])
-                                    .removeClass(
-                                        'glyphicon-triangle-bottom')
-                                    .addClass(
-                                        'glyphicon-triangle-right');
-                                }
-                            }
-                        });
-});
 });

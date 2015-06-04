@@ -22,7 +22,7 @@
     <script src='<c:url value="/resources/javascripts/uploadController.js "  />'></script>
     <script src='<c:url value="/resources/javascripts/visualizationSettingsController.js "  />'></script>
     <script src='<c:url value="/resources/javascripts/previewController.js "  />'></script>
-    <script src='<c:url value=" /resources/javascripts/downloadAndShareController.js "/>'></script>
+    <script src='<c:url value="/resources/javascripts/downloadAndShareController.js "/>'></script>
     <script>
     </script>
     <!-- Chartbeat JavaScript -->

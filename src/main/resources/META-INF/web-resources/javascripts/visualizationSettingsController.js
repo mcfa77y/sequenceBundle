@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
- $(function() {
+$(function() {
     'use strict';
 
     $("#applyChangesButton").click(function(event) {
+        if (Utils.isDataNotReady()) {
+            return false;
+        }
         // Stop form from submitting normally
         event.preventDefault();
         // Get some values from elements on the page:
@@ -31,26 +33,20 @@
 
     $('#gapStandard').click(function() {
         $('#gapRendering').val("STANDARD");
-        return false;
+        document.getElementById("gapStandard").checked = true;
+        document.getElementById("gapDisconnected").checked = false;
+        $("#gapStandard").prop("checked", true);
+        //        return false;
     });
     $('#gapDisconnected').click(function() {
         $('#gapRendering').val("DISCONNECTED");
-        return false;
+        document.getElementById("gapStandard").checked = false;
+        document.getElementById("gapDisconnected").checked = true;
+        $("#gapDisconnected").prop("checked", true);
+        //        return false;
 
     });
-    // use images that active/deactivate instead of radio buttons
-    $('input[name=gapRendering]', '#visualSettingsForm').each(
-        function() {
-            $(this).click(
-                function() {
-                    var otherImages = $('img', $('#gapRadioGroup',
-                        '#visualSettingsForm'));
-                    var activeImage = $(
-                        'input[name=gapRendering]:checked',
-                        '#visualSettingsForm').siblings();
-                    Utils.setActiveSVG(otherImages, activeImage);
-                });
-        });
+
 
     // jump conservation to 0, 50, 100
     $('.conservationJump').each(function() {

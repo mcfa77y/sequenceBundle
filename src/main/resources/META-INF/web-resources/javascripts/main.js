@@ -1,7 +1,13 @@
 $(document).ready(function() {
+    $('#sequence').val('');
+    $('#startIndex').val('');
+    $('#gotoPositionButton').toggleClass('position-go-button-grey');
+    $('#gotoPositionButton').addClass('disabled');
+
     $('.task-button').click(function() {
-        if (this.id !== 'downloadPNGButton')
+        if (this.id !== 'downloadPNGButton' && this.id !== "fileUploadButton") {
             return false;
+        }
     });
 });
 
@@ -132,6 +138,7 @@ var Utils = {
         $(attachAfterId).after(alertHTML);
     },
     jobStatusPoll : function(filename, imagePath) {
+        location.href = "#js-step1-trigger";
         // polls the server for status of the image that is rendering
         // Utils.animateShowImage();
         $.post("upload/seq/status", {
@@ -193,5 +200,8 @@ var Utils = {
             var err = JSON.stringify(e, null, 4);
             Utils.debug("error loading jobStatus:" + "\n" + err);
         });
+    },
+    isDataNotReady : function() {
+        return !JSON.parse($('#dataReady').val());
     }
 };
