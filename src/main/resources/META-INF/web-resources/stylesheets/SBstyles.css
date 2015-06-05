@@ -1154,7 +1154,8 @@ h6 {
     padding-top: 0.8em;
     padding-bottom: 0.6em;
     padding-left: 1em;
-    text-decoration: none; }
+    text-decoration: none;
+    outline: none; }
   .step1 .step1-content {
     float: left;
     display: block;
@@ -1205,7 +1206,8 @@ h6 {
     padding-top: 0.8em;
     padding-bottom: 0.6em;
     padding-left: 1em;
-    text-decoration: none; }
+    text-decoration: none;
+    outline: none; }
   .step2 .step2-content {
     float: left;
     display: block;
@@ -1240,7 +1242,8 @@ h6 {
     padding-top: 0.8em;
     padding-bottom: 0.6em;
     padding-left: 1em;
-    text-decoration: none; }
+    text-decoration: none;
+    outline: none; }
   .step3 .step3-content {
     float: left;
     display: block;

@@ -73,9 +73,9 @@
                         <div class="menu-board">
                             <div class="menu-text">
                                 <p class="menu-text-typo">
-                                    Paste your data in
+                                    Paste your
                                     <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a>
-                                    format in the box below.</br> Max. size: 1000 sequences &#215; 1000 positions.</br> We never store your data.
+                                    data in the box below.</br> Max. size: 1000 sequences &#215; 1000 positions.</br> We never store your data.
                                     <!--<a class="modal-trigger-icon"><i class="icon-info-circled"></i></a>-->
                                 </p>
                                 <div class="modal">
