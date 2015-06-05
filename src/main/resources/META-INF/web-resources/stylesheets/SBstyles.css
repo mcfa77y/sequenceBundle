@@ -18,7 +18,8 @@ html {
 input:focus,
 select:focus,
 textarea:focus,
-button:focus {
+button:focus
+a:focus {
   outline: none; }
 
 body {
@@ -794,7 +795,7 @@ h6 {
   .seq-nav-container .position-go-button-grey {
     float: left;
     display: block;
-    width: 45.94387%;
+    width: 57.20831%;
     border: 1px solid #999999;
     border-left: 1px solid #dddddd;
     border-top-right-radius: 0.3em;
@@ -807,25 +808,25 @@ h6 {
     height: 2.5em;
     cursor: default; }
     .seq-nav-container .position-go-button-grey:last-child {
-      width: 27.8025%; }
+      width: 34.61907%; }
   .seq-nav-container .N-terminus-button {
     height: 3em;
-    margin-top: 2px;
+    margin-top: 1px;
     margin-left: 1.2em;
     background-image: url("/resources/images/PNG/N-terminus.png");
     background-repeat: no-repeat;
     background-position: top center;
-    background-size: 5.5em;
+    background-size: 5.6em;
     text-decoration: none;
     cursor: pointer; }
   .seq-nav-container .C-terminus-button {
     height: 3em;
-    margin-top: 2px;
+    margin-top: 1px;
     margin-right: 1em;
     background-image: url("/resources/images/PNG/C-terminus.png");
     background-repeat: no-repeat;
     background-position: top center;
-    background-size: 5.5em;
+    background-size: 5.6em;
     text-decoration: none;
     cursor: pointer; }
 
@@ -842,7 +843,8 @@ h6 {
     display: table; }
   .vis-container .vis-box {
     width: 1064px;
-    height: 100%; }
+    height: 100%;
+    max-height: 540px; }
 
 .vis-set-container {
   max-width: 68em;
@@ -1060,7 +1062,8 @@ h6 {
     display: block;
     margin-right: 2.35765%;
     width: 79.52847%;
-    margin-left: 10.23577%; }
+    margin-left: 10.23577%;
+    height: 33px; }
     .vis-set-container .vis-set-slider-box:last-child {
       margin-right: 0; }
   .vis-set-container .vis-set-slidejump-box {
@@ -1091,14 +1094,15 @@ h6 {
     width: 18.11388%;
     margin-top: 1em;
     text-align: center;
-    height: auto; }
+    height: auto;
+    margin-bottom: 0.6em; }
     .vis-set-container .vis-set-slidejump-area:last-child {
       margin-right: 0; }
   .vis-set-container .vis-set-slidejump-button {
     border: 1px solid rgba(240, 80, 0, 0.85);
     border-radius: 0.3em;
     height: 2.7em;
-    width: 3.6em;
+    width: 3.4em;
     display: block;
     margin-top: 0.2em;
     background-color: rgba(240, 80, 0, 0.05); }
@@ -1108,26 +1112,26 @@ h6 {
     background-image: url("/resources/images/PNG/Filter_0.png");
     background-repeat: no-repeat;
     background-position: bottom center;
-    background-size: 2.2em;
+    background-size: 2.4em;
     text-decoration: none;
-    margin-top: 0.3em;
-    min-height: 2em;
+    margin-top: 0.1em;
+    min-height: 2.4em;
     display: block; }
   .vis-set-container .vis-set-slidejump-to-50 {
     background-image: url("/resources/images/PNG/Filter_50.png");
     background-repeat: no-repeat;
     background-position: bottom center;
-    background-size: 2.2em;
-    margin-top: 0.3em;
-    min-height: 2em;
+    background-size: 2.4em;
+    margin-top: 0.1em;
+    min-height: 2.4em;
     display: block; }
   .vis-set-container .vis-set-slidejump-to-100 {
     background-image: url("/resources/images/PNG/Filter_100.png");
     background-repeat: no-repeat;
     background-position: bottom center;
-    background-size: 2.2em;
-    margin-top: 0.3em;
-    min-height: 2em;
+    background-size: 2.4em;
+    margin-top: 0.1em;
+    min-height: 2.4em;
     display: block; }
 
 .step1 {
@@ -1524,12 +1528,15 @@ input[name=baseslider]:focus {
 
 input[name=baseslider]::-webkit-slider-runnable-track {
   width: 100%;
-  height: 1.1em;
+  height: 1.2em;
+  max-height: 1.1em;
   border-radius: 0.6em;
   cursor: pointer;
-  background: rgba(240, 80, 0, 0.2); }
+  background: rgba(240, 80, 0, 0.2);
+  margin-bottom: 2.5em; }
 
 input[name=baseslider]::-webkit-slider-thumb {
+  border: 0px;
   -webkit-appearance: none;
   height: 43px;
   width: 18px;
@@ -1540,14 +1547,19 @@ input[name=baseslider]::-webkit-slider-thumb {
   background-size: 18px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -1.36em; }
+  position: relative;
+  top: -1.36em; }
 
 input[name=baseslider]::-moz-range-track {
   width: 100%;
-  height: 1em;
+  height: 1.1em;
   cursor: pointer;
   background: rgba(240, 80, 0, 0.2);
-  outline: none; }
+  outline: none;
+  border-top: 1px solid #fcdccc;
+  border-bottom: 1px solid #fcdccc;
+  border-radius: 0.6em;
+  margin-bottom: 2.5em; }
 
 input[name=baseslider]::-moz-range-thumb {
   height: 43px;
@@ -1561,13 +1573,15 @@ input[name=baseslider]::-moz-range-thumb {
   background-size: 18px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -1.5em; }
+  position: relative;
+  top: -1.5em; }
 
 input[name=baseslider]::-ms-track {
   width: 100%;
-  height: 1em;
+  height: 1.1em;
   cursor: pointer;
-  background: rgba(240, 80, 0, 0.2); }
+  background: rgba(240, 80, 0, 0.2);
+  margin-bottom: 2.5em; }
 
 input[name=baseslider]::-ms-thumb {
   height: 43px;
@@ -1579,7 +1593,8 @@ input[name=baseslider]::-ms-thumb {
   background-size: 18px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -1.5em; }
+  position: relative;
+  top: -1.5em; }
 
 input[name=baseslider]:focus::-ms-fill-lower {
   background: #eeeeee; }
@@ -1596,6 +1611,7 @@ input[name=filterslider]:focus {
 input[name=filterslider]::-webkit-slider-runnable-track {
   width: 100%;
   height: 8px;
+  max-height: 8px;
   cursor: pointer;
   background: rgba(240, 80, 0, 0.2);
   border-right: 2px solid rgba(240, 80, 0, 0.85);
@@ -1603,6 +1619,7 @@ input[name=filterslider]::-webkit-slider-runnable-track {
 
 input[name=filterslider]::-webkit-slider-thumb {
   -webkit-appearance: none;
+  border: 0px;
   height: 18px;
   width: 16px;
   background: rgba(240, 80, 0, 0.85);
@@ -1612,7 +1629,8 @@ input[name=filterslider]::-webkit-slider-thumb {
   background-size: 16px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -5px; }
+  position: relative;
+  top: -5px; }
 
 input[name=filterslider]::-moz-range-track {
   width: 100%;
@@ -1635,7 +1653,8 @@ input[name=filterslider]::-moz-range-thumb {
   background-size: 16px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -5px; }
+  position: relative;
+  top: -5px; }
 
 input[name=filterslider]::-ms-track {
   width: 100%;
@@ -1655,7 +1674,8 @@ input[name=filterslider]::-ms-thumb {
   background-size: 16px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -5px; }
+  position: relative;
+  top: -5px; }
 
 input[name=filterslider]:focus::-ms-fill-lower {
   background: #eeeeee; }
