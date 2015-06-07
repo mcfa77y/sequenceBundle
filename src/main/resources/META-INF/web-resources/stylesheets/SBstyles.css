@@ -351,6 +351,12 @@ h6 {
     color: #999999;
     text-decoration: none;
     line-height: 135%; }
+  .sb-footer .footer-grey-link {
+    color: #999999;
+    text-decoration: underline; }
+  .sb-footer .footer-grey-link:hover {
+    color: rgba(240, 80, 0, 0.85);
+    text-decoration: underline; }
 
 .sb-banner {
   margin-top: 3.5em; }
@@ -681,7 +687,7 @@ h6 {
   margin-left: 0em;
   margin-right: 0em;
   width: 100%;
-  height: 100%;
+  height: 2em;
   background-color: rgba(240, 80, 0, 0.05);
   border: 1px solid rgba(240, 80, 0, 0.85);
   border-radius: 0.2em;
@@ -916,7 +922,8 @@ h6 {
     margin-right: auto;
     border: 1px solid #aaaaaa;
     border-top: none;
-    height: 13.6em; }
+    height: 13.6em;
+    max-height: 13.61em; }
     .vis-set-container .vis-set-box-4units::after {
       clear: both;
       content: "";
@@ -934,7 +941,7 @@ h6 {
     float: left;
     display: block;
     width: 44.35498%;
-    padding-top: 1.3em;
+    padding-top: 1.4em;
     padding-left: 1em;
     color: #999999; }
     .vis-set-container .vis-set-typo:last-child {
@@ -961,7 +968,7 @@ h6 {
     float: left;
     display: block;
     width: 38.38412%;
-    padding-top: 0.7em;
+    padding-top: 0.6em;
     padding-right: 0.8em; }
     .vis-set-container .vis-set-dropdown-box:last-child {
       width: 36.02647%; }
@@ -1003,13 +1010,24 @@ h6 {
   .vis-set-container .vis-set-dropdown-box-full {
     float: left;
     display: block;
-    width: 102.35765%;
+    margin-right: 2.35765%;
+    width: 100%;
     height: 3.5em;
     padding-top: 1.6em;
     padding-left: 0.8em;
     padding-right: 0.8em; }
     .vis-set-container .vis-set-dropdown-box-full:last-child {
-      width: 100%; }
+      margin-right: 0; }
+  .vis-set-container .vis-set-yaxis-text {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-top: 0.8em;
+    padding-right: 0.8em;
+    padding-left: 1.2em; }
+    .vis-set-container .vis-set-yaxis-text:last-child {
+      margin-right: 0; }
   .vis-set-container .vis-set-gaps-box {
     float: left;
     display: block;
