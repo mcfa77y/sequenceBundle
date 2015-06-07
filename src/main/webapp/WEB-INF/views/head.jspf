@@ -19,7 +19,9 @@
 <link rel="apple-touch-icon" sizes="76x76" href="/touch-icon-ipad.png">
 <link rel="apple-touch-icon" sizes="120x120" href="/touch-icon-iphone-retina.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/touch-icon-ipad-retina.png">
+
 <title>Sequence Bundles | Science Practice</title>
+
 <link href="<c:url value='resources/stylesheets/SBstyles.css'/>" rel="stylesheet">
 <link href="<c:url value='resources/stylesheets/fontello.css'/>" rel="stylesheet">
 <link href="<c:url value='resources/stylesheets/fontello-codes.css'/>" rel="stylesheet">
@@ -42,8 +44,12 @@
     ga('create', 'UA-59971144-1', 'auto');
     ga('send', 'pageview');
 </script>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
+
+
     try {
         Typekit.load();
     } catch (e) {
