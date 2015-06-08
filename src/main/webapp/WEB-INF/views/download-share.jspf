@@ -22,7 +22,7 @@
                         <p class="menu-text-typo">
                             Export visualisation preview in .png format.
                         </p>
-                        <a id="downloadPNGButton" class="task-button" href="web-tool.html">
+                        <a id="downloadPNGButton" class="task-button" href="web-tool.html" target="_blank">
                             <h4 class="task-button-typo">
                                 Download .png image
                             </h4>
