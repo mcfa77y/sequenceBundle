@@ -11,19 +11,19 @@
     <div id="js-step1-content" class="step1-content">
         <div class="menu-container">
             <div class="menu-three-columns">
-                <div class="expander1">
-                    <a href="javascript:void(0)" id="js-expander1-trigger" class="expander1-trigger">
-                        <span class="menu-title-typo-expand">
-                           Option 1: Upload FASTA file
-                        </span>
+  				<div class="expander1">
+  				
+  					
+  					<a href="javascript:void(0)" id="js-expander1-trigger" class="expander1-trigger">
+                        <span class="menu-title-typo-expand"> Option 1: Paste FASTA data </span>
                     </a>
                     <div id="js-expander1-content" class="expander1-content">
                         <div class="menu-board">
                             <div class="menu-text">
                                 <p class="menu-text-typo">
-                                    Select a <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a> file from your local drive.</br>
-                                    Max. size: 1000 sequences &#215; 1000 positions.</br>
-                                    We never store your data.
+                                    Paste your
+                                    <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a>
+                                    data in the box below.</br> Max. size: 1000 sequences &#215; 1000 positions.</br> We never store your data.
                                     <!--<a class="modal-trigger-icon"><i class="icon-info-circled"></i></a>-->
                                 </p>
                                 <div class="modal">
@@ -49,33 +49,39 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a id="fileUploadButton" class="task-button fileinput-button">
-                                    <h4 class="task-button-icon">
-                                        <input id="fileUpload" data-url="/upload/file" name="file" type="file">
-                                        <span class="fontello-upload"> <i class="icon-upload"></i>
-                                        </span>Upload and validate
-                                    </h4>
+                                <div class="text-area-container">
+                                    <textarea id="pasteSequence" class="text-area-style" maxlength="1500000" title="Paste your FASTA data in this text box"
+                                        placeholder=">paste your FASTA data here..." required
+                                    ></textarea>
+                                </div>
+                                <a id="pasteSequenceButton" class="task-button" href="#">
+                                    <h4 class="task-button-typo">Upload and validate</h4>
                                 </a>
                             </div>
                             <!-- menu-text-->
                         </div>
                     </div>
-                </div>
-                <!-- expander1-->
+
+                    
+                </div><!-- expander1-->
             </div>
             <!-- menu-three-columns -->
             <div class="menu-three-columns">
                 <div class="expander2">
-                    <a href="javascript:void(0)" id="js-expander2-trigger" class="expander2-trigger expander2-hidden">
-                        <span class="menu-title-typo-expand"> Option 2: Paste FASTA data </span>
+                
+                
+                	<a href="javascript:void(0)" id="js-expander2-trigger" class="expander2-trigger expander2-hidden">
+                        <span class="menu-title-typo-expand">
+                           Option 2: Upload FASTA file
+                        </span>
                     </a>
                     <div id="js-expander2-content" class="expander2-content">
                         <div class="menu-board">
                             <div class="menu-text">
                                 <p class="menu-text-typo">
-                                    Paste your
-                                    <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a>
-                                    data in the box below.</br> Max. size: 1000 sequences &#215; 1000 positions.</br> We never store your data.
+                                    Select a <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a> file from your local drive.</br>
+                                    Max. size: 1000 sequences &#215; 1000 positions.</br>
+                                    We never store your data.
                                     <!--<a class="modal-trigger-icon"><i class="icon-info-circled"></i></a>-->
                                 </p>
                                 <div class="modal">
@@ -101,20 +107,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-area-container">
-                                    <textarea id="pasteSequence" class="text-area-style" maxlength="1500000" title="Paste your FASTA data in this text box"
-                                        placeholder=">paste your FASTA data here..." required
-                                    ></textarea>
-                                </div>
-                                <a id="pasteSequenceButton" class="task-button" href="#">
-                                    <h4 class="task-button-typo">Upload and validate</h4>
+                                <a id="fileUploadButton" class="task-button fileinput-button">
+                                    <h4 class="task-button-icon">
+                                        <input id="fileUpload" data-url="/upload/file" name="file" type="file">
+                                        <span class="fontello-upload"> <i class="icon-upload"></i>
+                                        </span>Upload and validate
+                                    </h4>
                                 </a>
                             </div>
                             <!-- menu-text-->
                         </div>
-                    </div>
-                </div>
-                <!-- expander2-->
+                    </div> 
+                    
+                    
+                </div><!-- expander2-->
             </div>
             <!-- menu-three-columns -->
             <div class="menu-three-columns">
