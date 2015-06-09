@@ -135,18 +135,15 @@
                                             <option value="3">Domain of unknown function</option>
                                         </optgroup>
                                         <optgroup label="Medium datasets:">
-                                            <option value="4">Structurally related ATPase domains</option>
-                                            <option value="5"><!-- ATP- -->Binding domain of ABC transporters
-                                            </option>
-                                            <option value="6">Alcohol dehydrogenase
-                                                <!--catalytic-->domain
-                                            </option>
+                                            <option value="10">Zinc-finger double domain</option>
+                                            <option value="5"><!-- ATP- -->Binding domain of ABC transporters</option>
+                                            <option value="6">Alcohol dehydrogenase<!--catalytic-->domain</option>
                                             <option value="7" selected="selected">Adenylate kinase LID domain</option>
                                         </optgroup>
                                         <optgroup label="Large datasets:">
                                             <option value="8">Insulin</option>
+                                            <option value="4">Structurally related ATPase domains</option>
                                             <option value="9">Ankyrin Repeat</option>
-                                            <option value="10">Zinc-finger double domain</option>
                                         </optgroup>
                                     </select>
                                 </div>
