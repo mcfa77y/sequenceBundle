@@ -62,12 +62,12 @@ var sequence = "";
         if (data.errorMessage && data.errorMessage.length > 0) {
             var errorMessage = '';
             if (data.errorMessage.includes("1000")) {
-                errorMessage = "FASTA format is valid, but your data is too large (it has [" + data.sequenceCount + "] sequences, each [" + data.sequenceBases + "] positions long).";
-                uploadSequenceInfo('green', errorMessage, false);
+                errorMessage = "FASTA format is valid, but your data is too large (it has " + data.sequenceCount + " sequences, each " + data.sequenceBases + " positions long).";
+                uploadSequenceInfo('red', errorMessage, false);
             } else {
                 errorMessage = $('<div/>')
                 .html(
-                    "FASTA format not valid. Learn more about the <a href='http://en.wikipedia.org/wiki/FASTA_format'>FASTA</a> format here.<br/>" + data.errorMessage);
+                    "FASTA format not valid. Learn more about the <a href='http://en.wikipedia.org/wiki/FASTA_format'>FASTA</a> format here.<br/>");
                 // errorMessage = "FASTA format not valid. Learn more about the <a href='http://en.wikipedia.org/wiki/FASTA_format/>FASTA</a> format here.<br/>" + data.errorMessage;
                 uploadSequenceInfo('red', errorMessage, false);
             }
