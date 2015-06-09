@@ -266,8 +266,6 @@ public class UploadController implements ServletContextAware {
 				.get("conservationThreshold")[0]));
 		alvisModel.setGapRendering(SequenceBundleConfig.GapRenderingType
 				.valueOf(paramMap.get("gapRendering")[0]));
-		alvisModel.setShowingConsensus(Boolean.parseBoolean(paramMap
-				.get("showingConsensus")[0]));
 		alvisModel.setCellWidth(AlvisModel.CellWidthType.valueOf(
 				paramMap.get("cellWidth")[0]).getSize());
 		alvisModel.setCellWidthType(AlvisModel.CellWidthType.valueOf(paramMap

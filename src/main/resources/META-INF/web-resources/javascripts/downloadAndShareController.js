@@ -82,6 +82,9 @@ $(function() {
 $('#tweetButton')
 .click(
     function(e) {
+        if (Utils.isDataNotReady()) {
+            return false;
+        }
         e.stopPropagation();
 
         var pathname = window.location;

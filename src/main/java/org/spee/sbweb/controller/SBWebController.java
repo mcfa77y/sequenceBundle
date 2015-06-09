@@ -41,6 +41,12 @@ public class SBWebController implements ServletContextAware {
 
 	private ServletContext servletContext;
 
+	// value of milliseconds in one minute
+	private static final int MINS_IN_MS = 60 * 1000;
+	// time in milliseconds
+	private static final int TIME_TO_CHECK_IMAGE_FOLDER = 60 * MINS_IN_MS;
+	private static final int IMAGE_LIFETIME = 60 * MINS_IN_MS;
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewSequenceBundleConfig(Model model) {
 		return "index";
@@ -116,28 +122,28 @@ public class SBWebController implements ServletContextAware {
 				+ this.servletContext.getRealPath("/"));
 
 		Timer t = new Timer();
-		MyTask mTask = new MyTask();
-		int everyHour = 60 * 60 * 1000;
-		t.scheduleAtFixedRate(mTask, 0, everyHour);
+		CronJobs mTask = new CronJobs();
+
+		t.scheduleAtFixedRate(mTask, 0, TIME_TO_CHECK_IMAGE_FOLDER);
 
 	}
 
-	class MyTask extends TimerTask {
-		private static final int HOUR_THRESHOLD = 5 * 60 * 60 * 1000;
+	class CronJobs extends TimerTask {
+		// private static final int HOUR_THRESHOLD = 1 * 60 * 60 * 1000;
 		private final File folder = new File(
 				servletContext.getRealPath("/resources/images"));
 
-		public MyTask() {
+		public CronJobs() {
 			// Some stuffs
 		}
 
-		private void listFilesForFolder(final File folder) {
+		private void cleanImageFiles(final File folder) {
 			for (final File fileEntry : folder.listFiles()) {
 				if (fileEntry.isDirectory()) {
-					listFilesForFolder(fileEntry);
+					cleanImageFiles(fileEntry);
 				} else {
 					long diff = new Date().getTime() - fileEntry.lastModified();
-					if (diff > HOUR_THRESHOLD) {
+					if (diff > IMAGE_LIFETIME) {
 						fileEntry.delete();
 					}
 				}
@@ -146,7 +152,7 @@ public class SBWebController implements ServletContextAware {
 
 		@Override
 		public void run() {
-			listFilesForFolder(folder);
+			cleanImageFiles(folder);
 			System.out.println("Cleaning image folder.");
 		}
 

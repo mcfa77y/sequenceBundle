@@ -9,16 +9,12 @@
         <div class="content">
             <form id="visualSettingsForm" name="visualSettingsForm" action="/upload/paste">
                 <input id="dataReady" name="dataReady" value="false" type="hidden">
-                <input id="showingConsensus" name="showingConsensus" value="empty" type="hidden">
-                <input id="showingVerticalLines" name="showingVerticalLines" value="empty" type="hidden">
                 <input id="sequence" name="sequence" value="empty" type="hidden">
                 <input id="alignmentType" name="alignmentType" value="AMINOACIDS" type="hidden">
                 <input id="lastIndex" name="lastIndex" value="-1" type="hidden">
                 <input id="conservationThreshold" name="conservationThreshold" type="hidden" value="0.0">
                 <input id="columnCount" name="columnCount" value="15" type="hidden">
                 <input id="gapRendering" name="gapRendering" value="STANDARD" type="hidden">
-         
-         
                 <div class="vis-set-container">
                     <div class="vis-set-box">
                         <div class="vis-set-box-title">
@@ -26,7 +22,6 @@
                         Grid
                      </span>
                         </div>
-               
                         <div class="vis-set-box-unit">
                             <img src="/resources/images/PNG/Icon_column.png" class="vis-set-unit-image">
                             <h5 class="vis-set-typo">
@@ -41,19 +36,19 @@
                                     </optgroup>
                                 </select>
                             </div>
-            	   </div><!-- vis-set-box-unit -->
-               
+                        </div>
+                        <!-- vis-set-box-unit -->
                         <div class="vis-set-box-unit">
                             <img src="/resources/images/PNG/Icon_vertical-grid.png" class="vis-set-unit-image">
                             <h5 class="vis-set-typo-long">
                         SHOW VERTICAL GRID LINES
                      </h5>
                             <div class="vis-set-check-box">
-                                <input type="checkbox" id="tickV" name="showingVerticalLines" class="vis-set-checkbox" value="true" checked>
-                                <label for="tickV" class="vis-set-checkbox-label" name="showingVerticalLines"></label>
+                                <input type="checkbox" id="showingVerticalLines" name="showingVerticalLines" class="vis-set-checkbox" value="true" checked>
+                                <label for="showingVerticalLines" class="vis-set-checkbox-label" name="showingVerticalLines"></label>
                             </div>
-   	            </div><!-- vis-set-box-unit-1 -->
-      	         
+                        </div>
+                        <!-- vis-set-box-unit-1 -->
                         <div class="vis-set-box-2units">
                             <h5 class="vis-set-typo-full">
                         ORDER AMINO ACIDS IN THE Y-AXIS

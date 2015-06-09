@@ -1,54 +1,69 @@
 $(document).ready(function() {
+    // clean state with no seq data or start index
     $('#sequence').val('');
     $('#startIndex').val('');
-    $('#gotoPositionButton').toggleClass('position-go-button-grey');
-    $('#gotoPositionButton').addClass('disabled');
 
+    // for all task buttons return false
+    // except for download and file upload buttons they have special funtions
     $('.task-button').click(function() {
         if (this.id !== 'downloadPNGButton' && this.id !== "fileUploadButton") {
             return false;
         }
     });
+
+    // only allow step 2,3 to work if data is ready
+    $('.step3-trigger, .step2-trigger').click(function() {
+        if (Utils.isDataNotReady()) {
+            Utils.animateUploadSequence();
+        }
+    });
+
 });
 
 var Utils = {
-    animateShowImage : function() {
+    animateShowImage: function() {
         Utils.showImage();
         document.getElementById("tab-2").checked = false;
         document.getElementById("tab-1").checked = true;
-        location.href = "#js-step2-trigger";
+        // location.href = "#js-step2-trigger";
     },
-    showImage : function() {
+    showImage: function() {
         $('#sequenceBundle').addClass('loading');
         $('#loading').show();
         $('#renderProgress').fadeIn();
     },
-    debug : function(message) {
+    debug: function(message) {
         if (debug) {
             console.log(message);
         }
     },
-    animateDowloadImage : function() {
+    animateDowloadImage: function() {
+        if (Utils.isDataNotReady()) {
+            return false;
+        }
         $('#js-step1-trigger').toggleClass('step1-hidden', true);
         $('#js-step2-trigger').toggleClass('step2-hidden', true);
         $('#js-step3-trigger').toggleClass('step3-hidden', false);
-        location.href = "#js-step3-trigger";
+        // location.href = "#js-step3-trigger";
 
     },
-    animatePreviewImage : function() {
+    animatePreviewImage: function() {
+        if (Utils.isDataNotReady()) {
+            return false;
+        }
         $('#js-step1-trigger').toggleClass('step1-hidden', true);
         $('#js-step2-trigger').toggleClass('step2-hidden', false);
         $('#js-step3-trigger').toggleClass('step3-hidden', true);
-        location.href = "#js-step2-trigger";
+        // location.href = "#js-step2-trigger";
     },
-    animateUploadSequence : function() {
+    animateUploadSequence: function() {
         $('#js-step1-trigger').toggleClass('step1-hidden', false);
         $('#js-step2-trigger').toggleClass('step2-hidden', true);
         $('#js-step3-trigger').toggleClass('step3-hidden', true);
-        location.href = "#js-step1-trigger";
+        // location.href = "#js-step1-trigger";
 
     },
-    setActiveSVG : function(otherImages, activeImage) {
+    setActiveSVG: function(otherImages, activeImage) {
         // turn all images to disable png
         for (var i = 0; i < otherImages.length; i++) {
             var image = $(otherImages[i]);
@@ -58,15 +73,14 @@ var Utils = {
 
         }
         // turn on only active tab
-        var activatedSrc = activeImage.attr('src').split('.')[0]
-                + "_active.svg";
+        var activatedSrc = activeImage.attr('src').split('.')[0] + "_active.svg";
         activeImage.attr('src', activatedSrc);
 
     },
-    getFilename : function(wp) {
+    getFilename: function(wp) {
         return wp.substring(wp.lastIndexOf('/') + 1, wp.lastIndexOf('?'));
     },
-    createData : function(opt) {
+    createData: function(opt) {
         // gets data from visualSettingsForm
         // and puts it into a JSON
         if (!opt) {
@@ -85,18 +99,25 @@ var Utils = {
         for (i = 0; i < data.length; i++) {
             var key = data[i].name;
             dataKeyMap[key] = {
-                value : data[i].value,
-                index : i
+                value: data[i].value,
+                index: i
             };
         }
 
         if (dataKeyMap.startIndex) {
             data[dataKeyMap.startIndex].value = startIndex;
-            dataKeyMap.startIndex;
         } else {
             data.push({
-                name : "startIndex",
-                value : startIndex
+                name: "startIndex",
+                value: startIndex
+            });
+        }
+
+        // add check box value if not selected
+        if (!dataKeyMap.showingVerticalLines) {
+            data.push({
+                name: "showingVerticalLines",
+                value: false
             });
         }
 
@@ -116,8 +137,8 @@ var Utils = {
                         // attribute may not in the data form but user wants to
                         // have it sent with the request
                         data.push({
-                            name : key,
-                            value : value
+                            name: key,
+                            value: value
                         });
                     }
                     // update form visualization data
@@ -127,81 +148,78 @@ var Utils = {
         }
         return data;
     },
-    alertWarning : function(message, attachAfterId) {
+    alertWarning: function(message, attachAfterId) {
         if ($(attachAfterId).siblings('.alert').length > 0) {
             return;
         }
         var alertHTML = '<div class="alert alert-warning alert-dismissible" role="alert">\
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
-        '
-                + message + '</div>';
+        ' + message + '</div>';
         $(attachAfterId).after(alertHTML);
     },
-    jobStatusPoll : function(filename, imagePath) {
-        location.href = "#js-step1-trigger";
+    jobStatusPoll: function(filename, imagePath) {
+        // location.href = "#js-step1-trigger";
         // polls the server for status of the image that is rendering
         // Utils.animateShowImage();
         $.post("upload/seq/status", {
-            filename : filename
+            filename: filename
         }).done(
-                function(data) {
-                    var progress = parseInt(data.value / data.max * 100, 10);
+        function(data) {
+            var progress = parseInt(data.value / data.max * 100, 10);
 
-                    var progressBar = $('#renderProgress .progress-bar');
-                    progressBar.css('width', progress + '%');
-                    if (data['isFinished'] === false) {
-                        // continue to get status information
-                        setTimeout(function() {
-                            var d = new Date();
-                            Utils.jobStatusPoll(filename, imagePath);
-                        }, 500);
+            var progressBar = $('#renderProgress .progress-bar');
+            progressBar.css('width', progress + '%');
+            if (data['isFinished'] === false) {
+                    // continue to get status information
+                    setTimeout(function() {
+                        var d = new Date();
+                        Utils.jobStatusPoll(filename, imagePath);
+                    }, 500);
+                } else {
+                    // image has finish rendering
+                    $('#loading').hide();
+                    $('#sequenceBundle').removeClass("loading");
+
+                    // remove rendering progress listener
+                    $.post("upload/seq/remove", {
+                        filename: filename
+                    });
+                    // hundo the progress bar and fade out
+                    progressBar.css('width', 100 + '%');
+                    $('#renderProgress').fadeOut(300, function() {
+                        $(this).hide();
+                    });
+
+                    // add image if there was none before otherwise
+                    // update source for newly loaded image
+                    var image = $('#sequenceBundle #sequenceBundleImage');
+                    if (image.size() > 0) {
+                        image.attr('src', imagePath);
                     } else {
-                        // image has finish rendering
-                        $('#loading').hide();
-                        $('#sequenceBundle').removeClass("loading");
 
-                        // remove rendering progress listener
-                        $.post("upload/seq/remove", {
-                            filename : filename
-                        });
-                        // hundo the progress bar and fade out
-                        progressBar.css('width', 100 + '%');
-                        $('#renderProgress').fadeOut(300, function() {
-                            $(this).hide();
-                        });
-
-                        // add image if there was none before otherwise
-                        // update source for newly loaded image
-                        var image = $('#sequenceBundle #sequenceBundleImage');
-                        if (image.size() > 0) {
-                            image.attr('src', imagePath);
-                        } else {
-
-                            $('#sequenceBundle').prepend(
-                                    '<img class="vis-box" id="sequenceBundleImage" src="'
-                                            + imagePath + '" />').fadeIn();
-                        }
-
-                        $('#sequenceBundleImage').bind(
-                                'error',
-                                function(e) {
-                                    var err = JSON.stringify(e, null, 4);
-                                    Utils.debug("error loading image:"
-                                            + imagePath + "\n" + err);
-                                    image.attr('src', imagePath);
-                                });
-                        $('#downloadPNGButton').attr('href', imagePath);
-                        $('#downloadPNGButton').attr('download', filename);
-
-                        // hide render status
-                        $('#renderHiResStatus').hide();
+                        $('#sequenceBundle').prepend(
+                            '<img class="vis-box" id="sequenceBundleImage" src="' + imagePath + '" />').fadeIn();
                     }
-                }).error(function(e) {
-            var err = JSON.stringify(e, null, 4);
-            Utils.debug("error loading jobStatus:" + "\n" + err);
-        });
-    },
-    isDataNotReady : function() {
-        return !JSON.parse($('#dataReady').val());
-    }
-};
+
+                    $('#sequenceBundleImage').bind(
+                        'error',
+                        function(e) {
+                            var err = JSON.stringify(e, null, 4);
+                            Utils.debug("error loading image:" + imagePath + "\n" + err);
+                            image.attr('src', imagePath);
+                        });
+                    $('#downloadPNGButton').attr('href', imagePath);
+                    $('#downloadPNGButton').attr('download', filename);
+
+                    // hide render status
+                    $('#renderHiResStatus').hide();
+                }
+            }).error(function(e) {
+                var err = JSON.stringify(e, null, 4);
+                Utils.debug("error loading jobStatus:" + "\n" + err);
+            });
+        },
+        isDataNotReady: function() {
+            return !JSON.parse($('#dataReady').val());
+        }
+    };

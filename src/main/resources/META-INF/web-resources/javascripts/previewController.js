@@ -15,7 +15,7 @@
             if (Utils.isDataNotReady()) {
                 return false;
             }
-            if ($(this).hasClass('disabled')){
+            if ($(this).hasClass('disabled')) {
                 return false;
             }
             var startIndex = $('#startIndex');
@@ -131,12 +131,6 @@ PreviewController
         var filename = Utils.getFilename(wp);
         Utils.jobStatusPoll(filename, wp);
         Utils.showImage();
-        $('#gotoPositionButton').removeClass();
-        $('#gotoPositionButton').addClass('position-go-button-grey');
-        $('#gotoPositionButton').addClass('disabled');
-        
-
-
     },
     updateSequenceNavigationControls: function(value) {
         var lastValue = parseInt($('#lastIndex').val(), 10);
