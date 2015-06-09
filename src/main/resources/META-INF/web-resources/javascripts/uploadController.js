@@ -178,8 +178,7 @@ var descriptionMap = {
         filename: 'CBM_5_12_2-(PF14600)_Cellulose-binding-domain_RP75.txt'
     },
     '3': {
-        description: 'This protein domain can be found in eucaryotes.\
-        Its function has not yet been characterised.\
+        description: 'This protein domain can be found in eucaryotes. Its function has not yet been characterised.\
         Source: Pfam (PF15363).',
         filename: 'DUF4596-(PF15363)_Domain-of-unknown-function.txt'
     },

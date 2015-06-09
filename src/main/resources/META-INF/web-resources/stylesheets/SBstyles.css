@@ -18,7 +18,8 @@ html {
 input:focus,
 select:focus,
 textarea:focus,
-button:focus {
+button:focus
+a:focus {
   outline: none; }
 
 body {
@@ -132,7 +133,8 @@ h6 {
   color: #999999;
   font-size: 0.9em;
   position: relative;
-  top: 0.1em; }
+  top: 0.1em; 
+  left: 0.35em; }
 
 .fontello-info-icon:hover {
   color: rgba(240, 80, 0, 0.85); }
@@ -350,6 +352,12 @@ h6 {
     color: #999999;
     text-decoration: none;
     line-height: 135%; }
+  .sb-footer .footer-grey-link {
+    color: #999999;
+    text-decoration: underline; }
+  .sb-footer .footer-grey-link:hover {
+    color: rgba(240, 80, 0, 0.85);
+    text-decoration: underline; }
 
 .sb-banner {
   margin-top: 3.5em; }
@@ -680,7 +688,7 @@ h6 {
   margin-left: 0em;
   margin-right: 0em;
   width: 100%;
-  height: 100%;
+  height: 2em;
   background-color: rgba(240, 80, 0, 0.05);
   border: 1px solid rgba(240, 80, 0, 0.85);
   border-radius: 0.2em;
@@ -762,6 +770,8 @@ h6 {
     border: 1px solid rgba(240, 80, 0, 0.85);
     border-top-left-radius: 0.3em;
     border-bottom-left-radius: 0.3em;
+    border-top-right-radius: 0em;
+    border-bottom-right-radius: 0em;
     color: #666666;
     background-color: rgba(240, 80, 0, 0.05);
     text-align: right;
@@ -769,7 +779,8 @@ h6 {
     font-size: 1.2em;
     padding-top: 0.25em;
     padding-right: 0.2em;
-    height: 2.5em; }
+    height: 2.5em;
+    outline: none; }
     .seq-nav-container .position-box:last-child {
       width: 42.79169%; }
   .seq-nav-container .position-go-button {
@@ -794,7 +805,7 @@ h6 {
   .seq-nav-container .position-go-button-grey {
     float: left;
     display: block;
-    width: 45.94387%;
+    width: 57.20831%;
     border: 1px solid #999999;
     border-left: 1px solid #dddddd;
     border-top-right-radius: 0.3em;
@@ -807,25 +818,25 @@ h6 {
     height: 2.5em;
     cursor: default; }
     .seq-nav-container .position-go-button-grey:last-child {
-      width: 27.8025%; }
+      width: 34.61907%; }
   .seq-nav-container .N-terminus-button {
     height: 3em;
-    margin-top: 2px;
+    margin-top: 1px;
     margin-left: 1.2em;
     background-image: url("/resources/images/PNG/N-terminus.png");
     background-repeat: no-repeat;
     background-position: top center;
-    background-size: 5.5em;
+    background-size: 5.6em;
     text-decoration: none;
     cursor: pointer; }
   .seq-nav-container .C-terminus-button {
     height: 3em;
-    margin-top: 2px;
+    margin-top: 1px;
     margin-right: 1em;
     background-image: url("/resources/images/PNG/C-terminus.png");
     background-repeat: no-repeat;
     background-position: top center;
-    background-size: 5.5em;
+    background-size: 5.6em;
     text-decoration: none;
     cursor: pointer; }
 
@@ -842,7 +853,8 @@ h6 {
     display: table; }
   .vis-container .vis-box {
     width: 1064px;
-    height: 100%; }
+    height: 100%;
+    max-height: 540px; }
 
 .vis-set-container {
   max-width: 68em;
@@ -911,7 +923,8 @@ h6 {
     margin-right: auto;
     border: 1px solid #aaaaaa;
     border-top: none;
-    height: 13.6em; }
+    height: 13.6em;
+    max-height: 13.61em; }
     .vis-set-container .vis-set-box-4units::after {
       clear: both;
       content: "";
@@ -929,7 +942,7 @@ h6 {
     float: left;
     display: block;
     width: 44.35498%;
-    padding-top: 1.3em;
+    padding-top: 1.4em;
     padding-left: 1em;
     color: #999999; }
     .vis-set-container .vis-set-typo:last-child {
@@ -956,7 +969,7 @@ h6 {
     float: left;
     display: block;
     width: 38.38412%;
-    padding-top: 0.7em;
+    padding-top: 0.6em;
     padding-right: 0.8em; }
     .vis-set-container .vis-set-dropdown-box:last-child {
       width: 36.02647%; }
@@ -998,13 +1011,24 @@ h6 {
   .vis-set-container .vis-set-dropdown-box-full {
     float: left;
     display: block;
-    width: 102.35765%;
+    margin-right: 2.35765%;
+    width: 100%;
     height: 3.5em;
     padding-top: 1.6em;
     padding-left: 0.8em;
     padding-right: 0.8em; }
     .vis-set-container .vis-set-dropdown-box-full:last-child {
-      width: 100%; }
+      margin-right: 0; }
+  .vis-set-container .vis-set-yaxis-text {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-top: 0.8em;
+    padding-right: 0.8em;
+    padding-left: 1.2em; }
+    .vis-set-container .vis-set-yaxis-text:last-child {
+      margin-right: 0; }
   .vis-set-container .vis-set-gaps-box {
     float: left;
     display: block;
@@ -1060,7 +1084,8 @@ h6 {
     display: block;
     margin-right: 2.35765%;
     width: 79.52847%;
-    margin-left: 10.23577%; }
+    margin-left: 10.23577%;
+    height: 33px; }
     .vis-set-container .vis-set-slider-box:last-child {
       margin-right: 0; }
   .vis-set-container .vis-set-slidejump-box {
@@ -1091,14 +1116,15 @@ h6 {
     width: 18.11388%;
     margin-top: 1em;
     text-align: center;
-    height: auto; }
+    height: auto;
+    margin-bottom: 0.6em; }
     .vis-set-container .vis-set-slidejump-area:last-child {
       margin-right: 0; }
   .vis-set-container .vis-set-slidejump-button {
     border: 1px solid rgba(240, 80, 0, 0.85);
     border-radius: 0.3em;
     height: 2.7em;
-    width: 3.6em;
+    width: 3.4em;
     display: block;
     margin-top: 0.2em;
     background-color: rgba(240, 80, 0, 0.05); }
@@ -1108,26 +1134,26 @@ h6 {
     background-image: url("/resources/images/PNG/Filter_0.png");
     background-repeat: no-repeat;
     background-position: bottom center;
-    background-size: 2.2em;
+    background-size: 2.4em;
     text-decoration: none;
-    margin-top: 0.3em;
-    min-height: 2em;
+    margin-top: 0.1em;
+    min-height: 2.4em;
     display: block; }
   .vis-set-container .vis-set-slidejump-to-50 {
     background-image: url("/resources/images/PNG/Filter_50.png");
     background-repeat: no-repeat;
     background-position: bottom center;
-    background-size: 2.2em;
-    margin-top: 0.3em;
-    min-height: 2em;
+    background-size: 2.4em;
+    margin-top: 0.1em;
+    min-height: 2.4em;
     display: block; }
   .vis-set-container .vis-set-slidejump-to-100 {
     background-image: url("/resources/images/PNG/Filter_100.png");
     background-repeat: no-repeat;
     background-position: bottom center;
-    background-size: 2.2em;
-    margin-top: 0.3em;
-    min-height: 2em;
+    background-size: 2.4em;
+    margin-top: 0.1em;
+    min-height: 2.4em;
     display: block; }
 
 .step1 {
@@ -1154,7 +1180,8 @@ h6 {
     padding-top: 0.8em;
     padding-bottom: 0.6em;
     padding-left: 1em;
-    text-decoration: none; }
+    text-decoration: none;
+    outline: none; }
   .step1 .step1-content {
     float: left;
     display: block;
@@ -1205,7 +1232,8 @@ h6 {
     padding-top: 0.8em;
     padding-bottom: 0.6em;
     padding-left: 1em;
-    text-decoration: none; }
+    text-decoration: none;
+    outline: none; }
   .step2 .step2-content {
     float: left;
     display: block;
@@ -1240,7 +1268,8 @@ h6 {
     padding-top: 0.8em;
     padding-bottom: 0.6em;
     padding-left: 1em;
-    text-decoration: none; }
+    text-decoration: none;
+    outline: none; }
   .step3 .step3-content {
     float: left;
     display: block;
@@ -1521,12 +1550,15 @@ input[name=baseslider]:focus {
 
 input[name=baseslider]::-webkit-slider-runnable-track {
   width: 100%;
-  height: 1.1em;
+  height: 1.2em;
+  max-height: 1.1em;
   border-radius: 0.6em;
   cursor: pointer;
-  background: rgba(240, 80, 0, 0.2); }
+  background: rgba(240, 80, 0, 0.2);
+  margin-bottom: 2.5em; }
 
 input[name=baseslider]::-webkit-slider-thumb {
+  border: 0px;
   -webkit-appearance: none;
   height: 43px;
   width: 18px;
@@ -1537,14 +1569,19 @@ input[name=baseslider]::-webkit-slider-thumb {
   background-size: 18px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -1.36em; }
+  position: relative;
+  top: -1.36em; }
 
 input[name=baseslider]::-moz-range-track {
   width: 100%;
-  height: 1em;
+  height: 1.1em;
   cursor: pointer;
   background: rgba(240, 80, 0, 0.2);
-  outline: none; }
+  outline: none;
+  border-top: 1px solid #fcdccc;
+  border-bottom: 1px solid #fcdccc;
+  border-radius: 0.6em;
+  margin-bottom: 2.5em; }
 
 input[name=baseslider]::-moz-range-thumb {
   height: 43px;
@@ -1558,13 +1595,15 @@ input[name=baseslider]::-moz-range-thumb {
   background-size: 18px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -1.5em; }
+  position: relative;
+  top: -1.5em; }
 
 input[name=baseslider]::-ms-track {
   width: 100%;
-  height: 1em;
+  height: 1.1em;
   cursor: pointer;
-  background: rgba(240, 80, 0, 0.2); }
+  background: rgba(240, 80, 0, 0.2);
+  margin-bottom: 2.5em; }
 
 input[name=baseslider]::-ms-thumb {
   height: 43px;
@@ -1576,7 +1615,8 @@ input[name=baseslider]::-ms-thumb {
   background-size: 18px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -1.5em; }
+  position: relative;
+  top: -1.5em; }
 
 input[name=baseslider]:focus::-ms-fill-lower {
   background: #eeeeee; }
@@ -1593,6 +1633,7 @@ input[name=filterslider]:focus {
 input[name=filterslider]::-webkit-slider-runnable-track {
   width: 100%;
   height: 8px;
+  max-height: 8px;
   cursor: pointer;
   background: rgba(240, 80, 0, 0.2);
   border-right: 2px solid rgba(240, 80, 0, 0.85);
@@ -1600,6 +1641,7 @@ input[name=filterslider]::-webkit-slider-runnable-track {
 
 input[name=filterslider]::-webkit-slider-thumb {
   -webkit-appearance: none;
+  border: 0px;
   height: 18px;
   width: 16px;
   background: rgba(240, 80, 0, 0.85);
@@ -1609,7 +1651,8 @@ input[name=filterslider]::-webkit-slider-thumb {
   background-size: 16px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -5px; }
+  position: relative;
+  top: -5px; }
 
 input[name=filterslider]::-moz-range-track {
   width: 100%;
@@ -1632,7 +1675,8 @@ input[name=filterslider]::-moz-range-thumb {
   background-size: 16px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -5px; }
+  position: relative;
+  top: -5px; }
 
 input[name=filterslider]::-ms-track {
   width: 100%;
@@ -1652,7 +1696,8 @@ input[name=filterslider]::-ms-thumb {
   background-size: 16px;
   text-decoration: none;
   cursor: pointer;
-  margin-top: -5px; }
+  position: relative;
+  top: -5px; }
 
 input[name=filterslider]:focus::-ms-fill-lower {
   background: #eeeeee; }

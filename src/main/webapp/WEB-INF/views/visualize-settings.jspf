@@ -51,24 +51,31 @@
                         <!-- vis-set-box-unit-1 -->
                         <div class="vis-set-box-2units">
                             <h5 class="vis-set-typo-full">
-                        ORDER AMINO ACIDS IN THE Y-AXIS
+                        AMINO ACID ORDERING IN THE Y-AXIS
                      </h5>
                             <div class="vis-set-dropdown-box-full">
-                                <select id="yAxis" name="yAxis" title="Select the physiochemical property for legend ordering" class="drop-down-style">
-                                    <optgroup label="Use classic grouping into:">
+                                <select id="yAxis" name="yAxis" title="Select the physiochemical property for Y-axis ordering" class="drop-down-style">
+                                    <optgroup label="Use classic amino acid grouping into:">
                                         <option value="DEFAULT" selected="selected">Charged&mdash;Polar&mdash;Hydrophobic</option>
-                                    </optgroup>
-                                    <optgroup label="Use AAindex ordering according to:">
-            	            	<option value="HYDROPHOBICITY">Hydrophobicity <!--(AAindex ZIMJ680101)--></option>
-               	         	<option value="BULKINESS">Bulkiness <!--(AAindex ZIMJ680102)--></option>
-                  	      	<option value="POLARITY">Polarity <!--(AAindex ZIMJ680103)--></option>
-                     	   	<option value="RFRANK">RF Rank <!--(AAindex ZIMJ680105)--></option>
-                        		<option value="ISOELECTRICPOINT">Isoelectric Point <!--(AAindex ZIMJ680104)--></option>
+                                	</optgroup>
+                                		<optgroup label="Use AAindex ordering according to amino acid:">
+		            	            	<option value="HYDROPHOBICITY">Hydrophobicity <!--(AAindex ZIMJ680101)--></option>
+        		       	    	     	<option value="BULKINESS">Bulkiness <!--(AAindex ZIMJ680102)--></option>
+                			  	      	<option value="POLARITY">Polarity <!--(AAindex ZIMJ680103)--></option>
+                     	   				<option value="RFRANK">RF Rank <!--(AAindex ZIMJ680105)--></option>
+                        				<option value="ISOELECTRICPOINT">Isoelectric Point <!--(AAindex ZIMJ680104)--></option>
                                     </optgroup>
                                 </select>
                             </div>
-      	         </div><!-- vis-set-box-2units -->   
-         	   </div><!-- vis-set-box -->
+                            <!-- 
+							<div class="vis-set-yaxis-text">
+   								<p id="yaxis-description" class="menu-text-typo">
+                            		Select from the list to change this box
+                            	</p>
+                            </div>
+ 							-->
+		      	    	</div><!-- vis-set-box-2units -->   
+        	  	    </div><!-- vis-set-box -->
                     
             
                     <div class="vis-set-box">
