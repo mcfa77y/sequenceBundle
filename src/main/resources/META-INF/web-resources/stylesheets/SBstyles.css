@@ -123,7 +123,7 @@ h6 {
 .fontello-upload {
   color: rgba(240, 80, 0, 0.85);
   font-size: 1.2em;
-  margin-right: 0.3em;
+  //margin-right: 0.1em;
   position: relative;
   top: 0.05em;
 }
