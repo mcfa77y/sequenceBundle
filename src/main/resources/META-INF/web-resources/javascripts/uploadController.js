@@ -36,6 +36,7 @@ var sequence = "";
         if (isEnabled) {
             createButton.addClass('next-btn action-button-active');
             $('#dataReady').val(true);
+            $('h1.disabled').removeClass();
         } else {
             createButton.addClass('next-btn action-button-inactive');
             $('#dataReady').val(false);

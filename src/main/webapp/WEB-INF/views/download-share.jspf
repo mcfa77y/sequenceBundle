@@ -3,7 +3,7 @@
 <div class="step3">
     <a href="javascript:void(0)" id="js-step3-trigger" class="step3-trigger step3-hidden">
         <div class="step3-head">
-            <h1>
+            <h1 class="disabled">
                 3 <span style="font-size: 0.4em; color: #999999;">DOWNLOAD AND CITE</span>
             </h1>
         </div>
