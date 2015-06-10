@@ -1432,7 +1432,7 @@ h6 {
   margin-right: auto;
   margin-top: 0.5em;
   border: 1px solid rgba(240, 80, 0, 0.85);
-  border-radius: 0.3em;
+  border-radius: 0.4em;
   cursor: pointer;
 }
 
@@ -1441,12 +1441,12 @@ h6 {
 }
 
 .vis-set-container input[type=radio] + label {
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.0);
   background-color: rgba(240, 80, 0, 0.05);
 }
 
 .vis-set-container input[type=radio]:checked + label {
-  border: none;
+  border: 1px solid rgba(240, 80, 0, 0.85);
   background-color: rgba(240, 80, 0, 0.2);
 }
 

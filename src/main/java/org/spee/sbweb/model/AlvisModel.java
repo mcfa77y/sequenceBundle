@@ -50,10 +50,14 @@ public class AlvisModel extends SequenceBundleConfig {
 
 	public enum LineColor {
 
-		DEFAULT("Default", new Color(0, 0, 0)), NAVY("Navy", new Color(0, 0, 80)), SKY("Sky", new Color(10, 120, 200)), SEA("Sea",
-				new Color(0, 100, 50)), PURPLE("Purple",
-				new Color(100, 0, 50)), ORANGE("Orange", new Color(240, 80, 0)), RED(
-				"Red", new Color(180, 20, 20)), GREY("Grey", new Color(100, 100, 100));
+		DEFAULT("Default", new Color(0, 0, 0)), 
+		NAVY("Navy", new Color(0, 0, 80)), 
+		SKY("Sky", new Color(10, 120, 200)), 
+		SEA("Sea", new Color(0, 100, 50)), 
+		PURPLE("Purple", new Color(100, 0, 50)), 
+		ORANGE("Orange", new Color(240, 80, 0)), 
+		RED("Red", new Color(180, 20, 20)), 
+		GREY("Grey", new Color(100, 100, 100));
 
 		private final String name;
 		private final Color color;

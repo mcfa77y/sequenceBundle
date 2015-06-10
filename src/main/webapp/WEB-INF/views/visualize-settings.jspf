@@ -55,10 +55,10 @@
                      </h5>
                             <div class="vis-set-dropdown-box-full">
                                 <select id="yAxis" name="yAxis" title="Select the physiochemical property for Y-axis ordering" class="drop-down-style">
-                                    <optgroup label="Use classic amino acid grouping into:">
+                                    <optgroup label="Use classic amino acid grouping:">
                                         <option value="DEFAULT" selected="selected">Charged&mdash;Polar&mdash;Hydrophobic</option>
                                 	</optgroup>
-                                		<optgroup label="Use AAindex ordering according to amino acid:">
+                                		<optgroup label="Use AAindex ordering of amino acids by their:">
 		            	            	<option value="HYDROPHOBICITY">Hydrophobicity <!--(AAindex ZIMJ680101)--></option>
         		       	    	     	<option value="BULKINESS">Bulkiness <!--(AAindex ZIMJ680102)--></option>
                 			  	      	<option value="POLARITY">Polarity <!--(AAindex ZIMJ680103)--></option>
