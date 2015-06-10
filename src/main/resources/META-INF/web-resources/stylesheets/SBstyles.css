@@ -101,6 +101,7 @@ h6 {
 .sb-logos {
   width: 100%;
   padding: 0.3em;
+  border: 0px;
 }
 
 .menu-board {
@@ -415,6 +416,7 @@ h6 {
   float: left;
   display: block;
   width: 52.41458%;
+  border: 0px;
 }
 
 .sb-footer .footer-logos .footer-sp-logo:last-child {
@@ -436,6 +438,7 @@ h6 {
   display: block;
   width: 34.94305%;
   padding-top: 0.35em;
+  border: 0px;
 }
 
 .sb-footer .footer-logos .footer-ebi-logo:last-child {
