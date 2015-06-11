@@ -13,9 +13,8 @@
       	
          <div id="sequenceBundle" class="vis-container">
             <div id="renderProgress" class="loading-image center" style="display:none">
-            	<h1 class="loading-text">
-            		Loading Preview...
-               </h1>
+            	<a class="loading-text">&nbsp;
+               	</a>
             </div>
          </div><!-- vis-container -->
          <div class="action-button-container">
