@@ -2296,18 +2296,19 @@ input[name=filterslider]:focus::-ms-fill-lower {
   left: 0;
   height: 100%;
   width: 100%;
-  color: #066cff;
+  //color: #066cff;
   filter: alpha(opacity=20);
   /* msie */
   
-  background: rgba(220, 220, 220, 0.5);
+  background-image: url("/resources/images/PNG/Pattern-3.png");
+  //background: rgba(220, 220, 220, 0.5);
 }
 
 .loading-text {
 	//border: 3px solid red;
 	display: block;
 	height: 250px;
-  	margin-top: 250px;
+  	margin-top: 245px;
 	background-image: url("/resources/images/PNG/Loading-anim.gif");
 	background-repeat: no-repeat;
 	background-position: top center;
