@@ -13,8 +13,13 @@
       	
          <div id="sequenceBundle" class="vis-container">
             <div id="renderProgress" class="loading-image center" style="display:none">
-            	<a class="loading-text">&nbsp;
-               	</a>
+            	<div class="loading-bar">
+            		<h4 class="loading-text">
+            			Creating Bundles...
+            		</h4>
+            		<a class="loading-gif">
+            		</a>
+               	</div>
             </div>
          </div><!-- vis-container -->
          <div class="action-button-container">

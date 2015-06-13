@@ -2304,14 +2304,32 @@ input[name=filterslider]:focus::-ms-fill-lower {
   //background: rgba(220, 220, 220, 0.5);
 }
 
-.loading-text {
+.loading-bar {
+  margin-top: 300px;
+  display: block;
+  width: 434px;
+  //height: 120px;
+  padding-top: 0.8em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(240, 80, 0, 0.85);
+  border-radius: 0.75em; }
+
+.loading-gif {
 	//border: 3px solid red;
 	display: block;
-	height: 250px;
-  	margin-top: 245px;
-	background-image: url("/resources/images/PNG/Loading-anim.gif");
+	height: 66px;
+	background-image: url("/resources/images/PNG/Loading-bar.gif");
 	background-repeat: no-repeat;
-	background-position: top center;
-	background-size: 400px;
-  	//box-shadow: 3px 0 0 #666, -3px 0 0 #666, 0 3px 0 #666, 0 -3px 0 #666, 1px 1px #666, -1px -1px 0 #666, 1px -1px 0 #666, -1px 1px 0 #666;
+	background-position: center center;
+	background-size: 434px;
+	margin-top: 0.4em;
+	margin-bottom: 0.8em;
+}
+
+.loading-text {
+	color: rgba(255, 255, 255, 1.00);
+	text-align: center;
+	text-decoration: none;
+	//text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }
