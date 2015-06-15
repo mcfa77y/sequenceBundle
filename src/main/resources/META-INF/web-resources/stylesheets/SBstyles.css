@@ -2312,24 +2312,24 @@ input[name=filterslider]:focus::-ms-fill-lower {
 .loading-bar {
   margin-top: 300px;
   display: block;
-  width: 434px;
+  width: 333px;
   //height: 120px;
   padding-top: 0.8em;
   margin-left: auto;
   margin-right: auto;
-  background-color: rgba(240, 80, 0, 0.85);
+  background-color: rgba(240, 80, 0, 1.00);
   border-radius: 0.75em; }
 
 .loading-gif {
 	//border: 3px solid red;
 	display: block;
-	height: 66px;
-	background-image: url("/resources/images/PNG/Loading-bar.gif");
+	height: 64px;
+	background-image: url("/resources/images/PNG/Loading-bar-floating.gif");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: 434px;
-	margin-top: 0.4em;
-	margin-bottom: 0.8em;
+	background-size: 333px;
+	margin-top: 0.2em;
+	margin-bottom: 1.4em;
 }
 
 .loading-text {
