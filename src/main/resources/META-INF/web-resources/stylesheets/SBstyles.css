@@ -101,6 +101,7 @@ h6 {
 .sb-logos {
   width: 100%;
   padding: 0.3em;
+  border: 0px;
 }
 
 .menu-board {
@@ -122,7 +123,7 @@ h6 {
 .fontello-upload {
   color: rgba(240, 80, 0, 0.85);
   font-size: 1.2em;
-  margin-right: 0.3em;
+  //margin-right: 0.1em;
   position: relative;
   top: 0.05em;
 }
@@ -415,6 +416,7 @@ h6 {
   float: left;
   display: block;
   width: 52.41458%;
+  border: 0px;
 }
 
 .sb-footer .footer-logos .footer-sp-logo:last-child {
@@ -436,6 +438,7 @@ h6 {
   display: block;
   width: 34.94305%;
   padding-top: 0.35em;
+  border: 0px;
 }
 
 .sb-footer .footer-logos .footer-ebi-logo:last-child {
@@ -1429,7 +1432,7 @@ h6 {
   margin-right: auto;
   margin-top: 0.5em;
   border: 1px solid rgba(240, 80, 0, 0.85);
-  border-radius: 0.3em;
+  border-radius: 0.4em;
   cursor: pointer;
 }
 
@@ -1438,12 +1441,12 @@ h6 {
 }
 
 .vis-set-container input[type=radio] + label {
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.0);
   background-color: rgba(240, 80, 0, 0.05);
 }
 
 .vis-set-container input[type=radio]:checked + label {
-  border: none;
+  border: 1px solid rgba(240, 80, 0, 0.85);
   background-color: rgba(240, 80, 0, 0.2);
 }
 
@@ -2293,14 +2296,40 @@ input[name=filterslider]:focus::-ms-fill-lower {
   left: 0;
   height: 100%;
   width: 100%;
-  color: #066cff;
+  //color: #066cff;
   filter: alpha(opacity=20);
   /* msie */
   
-  background: rgba(220, 220, 220, 0.5);
+  background-image: url("/resources/images/PNG/Pattern-3.png");
+  //background: rgba(220, 220, 220, 0.5);
+}
+
+.loading-bar {
+  margin-top: 300px;
+  display: block;
+  width: 434px;
+  //height: 120px;
+  padding-top: 0.8em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(240, 80, 0, 0.85);
+  border-radius: 0.75em; }
+
+.loading-gif {
+	//border: 3px solid red;
+	display: block;
+	height: 66px;
+	background-image: url("/resources/images/PNG/Loading-bar.gif");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 434px;
+	margin-top: 0.4em;
+	margin-bottom: 0.8em;
 }
 
 .loading-text {
-  margin-top: 300px;
-  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+	color: rgba(255, 255, 255, 1.00);
+	text-align: center;
+	text-decoration: none;
+	//text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }
