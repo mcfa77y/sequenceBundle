@@ -137,6 +137,7 @@ PreviewController
         var range = parseInt($("#columnCount").val(), 10);
         value = parseInt(value, 10);
         displayValue = Math.min(value, lastValue - range + 1);
+        displayValue = Math.max(displayValue, 1);
         // search field
         $('#startIndex').val(value);
         var endRange = Math.min(value + range - 1, lastValue);

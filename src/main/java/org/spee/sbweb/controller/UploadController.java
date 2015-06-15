@@ -182,7 +182,8 @@ public class UploadController implements ServletContextAware {
 			// length - cols) and user input index
 			startIndex = Math.min(startIndex, jsb.getAlignment().getLength()
 					- alvisModel.getCellWidthType().getNumberOfColumns());
-
+			// make sure the starting index is greater than 0
+			startIndex = Math.max(0, startIndex);
 			renderImage(alvisModel, jsb, startIndex);
 			return alvisModel;
 		}
