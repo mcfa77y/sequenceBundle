@@ -211,6 +211,14 @@ var Utils = {
                     $('#downloadPNGButton').attr('href', imagePath);
                     $('#downloadPNGButton').attr('download', filename);
 
+                    
+                    // hide sequence nav container if the number of column is >= number of bases
+                    if ($('#columnCount').val() >=  $('#lastIndex').val()) {
+                        $('.seq-nav-container').addClass('hide');
+                    } else {
+                        $('.seq-nav-container').removeClass('hide');
+                    }        
+
                     // hide render status
                     $('#renderHiResStatus').hide();
                 }
