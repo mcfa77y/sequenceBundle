@@ -1154,9 +1154,13 @@ h6 {
 }
 
 .vis-container .vis-box {
-  width: 1064px;
+  //width: 1064px;
+  width: auto;
+  max-width: 1064px;
   height: 100%;
   max-height: 540px;
+  text-align: left;
+  float: left;
 }
 
 .vis-set-container {
