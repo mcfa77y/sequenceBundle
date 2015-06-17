@@ -213,7 +213,7 @@ var Utils = {
 
                     
                     // hide sequence nav container if the number of column is >= number of bases
-                    if ($('#columnCount').val() >=  $('#lastIndex').val()) {
+                    if (parseInt($('#columnCount').val(),10) >=  parseInt($('#lastIndex').val(),10)) {
                         $('.seq-nav-container').addClass('hide');
                     } else {
                         $('.seq-nav-container').removeClass('hide');
