@@ -50,7 +50,6 @@ var sequence = "";
         var posting = $.post(url, data);
         // Put the results in a div
         posting.done(function(data) {
-
             $('#uploadStatus').removeClass('uploadPanelInfo');
             renderProgress(data);
         });
@@ -83,6 +82,8 @@ var sequence = "";
         var filename = Utils.getFilename(wp);
         // init rendering progress info
         Utils.jobStatusPoll(filename, wp);
+        // add loading overlay for sequence
+        Utils.showImage();
 
         // distribute meta data to visualiztion form
         $("#visualSettingsForm #sequence").val(data.sequences);
