@@ -2318,9 +2318,9 @@ input[name=filterslider]:focus::-ms-fill-lower {
 .loading-bar {
   margin-top: 300px;
   display: block;
-  width: 333px;
-  //height: 120px;
-  padding-top: 0.8em;
+  width: 350px;
+  height: 130px;
+  padding-top: 1em;
   margin-left: auto;
   margin-right: auto;
   background-color: rgba(240, 80, 0, 1.00);
@@ -2329,13 +2329,13 @@ input[name=filterslider]:focus::-ms-fill-lower {
 .loading-gif {
 	//border: 3px solid red;
 	display: block;
-	height: 64px;
+	height: 56px;
 	background-image: url("/resources/images/PNG/Loading-bar-floating.gif");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: 333px;
-	margin-top: 0.2em;
-	margin-bottom: 1.4em;
+	background-size: 350px;
+	margin-top: 1.2em;
+	//margin-bottom: 1.4em;
 }
 
 .loading-text {
