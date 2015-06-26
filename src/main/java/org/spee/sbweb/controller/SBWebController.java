@@ -152,6 +152,15 @@ public class SBWebController implements ServletContextAware {
 
 		@Override
 		public void run() {
+			final File folder = new File(
+					servletContext.getRealPath("/resources/images"));
+			// create an image folder if one doens't already exist
+			if (!folder.exists()) {
+				System.out
+						.println("SBWebControler.java: creating temporay image directory"
+								+ folder.toString());
+				folder.mkdir();
+			}
 			cleanImageFiles(folder);
 			System.out.println("Cleaning image folder.");
 		}
