@@ -52,19 +52,46 @@ Let's run the app locally first to test that it all works. You must have a Postg
     [INFO] Scanning for projects...
     [INFO]                                                                         
     [INFO] ------------------------------------------------------------------------
-    [INFO] Building petclinic 0.1.0.BUILD-SNAPSHOT
+    [INFO] Building sbweb 1.0-SNAPSHOT
     [INFO] ------------------------------------------------------------------------
     [INFO] 
-    ...
-    [INFO] --- maven-dependency-plugin:2.3:copy (default) @ petclinic ---
+    [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ sbweb-jetty ---
+    [INFO] Using 'UTF-8' encoding to copy filtered resources.
+    [INFO] Copying 205 resources
+    [INFO] 
+    [INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ sbweb-jetty ---
+    [INFO] Nothing to compile - all classes are up to date
+    [INFO] 
+    [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ sbweb-jetty ---
+    [INFO] Using 'UTF-8' encoding to copy filtered resources.
+    [INFO] skip non existing resourceDirectory /Users/joelau/Dropbox/work/alvis-web-        interface/src/test/resources
+    [INFO] 
+    [INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ sbweb-jetty ---
+    [INFO] Nothing to compile - all classes are up to date
+    [INFO] 
+    [INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ sbweb-jetty ---
+    [INFO] No tests to run.
+    [INFO] 
+    [INFO] --- maven-war-plugin:2.2:war (default-war) @ sbweb-jetty ---
+    [INFO] Packaging webapp
+    [INFO] Assembling webapp [sbweb-jetty] in [/Users/joelau/Dropbox/work/alvis-web-    interface/target/sbweb-jetty-1.0-SNAPSHOT]
+    [INFO] Processing war project
+    [INFO] Copying webapp resources [/Users/joelau/Dropbox/work/alvis-web-interface/src/main/webapp]
+    [INFO] Webapp assembled in [695 msecs]
+    [INFO] Building war: /Users/joelau/Dropbox/work/alvis-web-interface/target/sbweb-jetty-1.0-SNAPSHOT.war
+    [INFO] WEB-INF/web.xml already added, skipping
+    [INFO] META-INF/maven/org.spee/sbweb-jetty/pom.xml already added, skipping
+    [INFO] META-INF/maven/org.spee/sbweb-jetty/pom.properties already added, skipping
+    [INFO] 
+    [INFO] --- maven-dependency-plugin:2.3:copy (default) @ sbweb-jetty ---
     [INFO] Configured Artifact: org.mortbay.jetty:jetty-runner:7.4.5.v20110725:jar
-    [INFO] Copying jetty-runner-7.4.5.v20110725.jar to /Users/jjoergensen/dev/tmp/spring-roo-petclinic/target/dependency/jetty-runner.jar
+    [INFO] org.mortbay.jetty:jetty-runner:7.4.5.v20110725:jar already exists in /Users/joelau/Dropbox/work/alvis-web-interface/target/dependency
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 20.466s
-    [INFO] Finished at: Mon Aug 29 20:56:03 PDT 2011
-    [INFO] Final Memory: 9M/81M
+    [INFO] Total time: 11.849 s
+    [INFO] Finished at: 2015-06-26T12:43:54+01:00
+    [INFO] Final Memory: 16M/220M
     [INFO] ------------------------------------------------------------------------
 
 ### Start your app
