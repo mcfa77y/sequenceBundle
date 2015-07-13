@@ -1849,17 +1849,12 @@ h6 {
   right: 0;
   bottom: 0;
   left: 0;
+  padding-top: 10em;
   background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
   transition: opacity 0.1s ease;
   visibility: hidden;
   z-index: 99999;
-}
-
-@media screen and (min-width: 53.75em) {
-  .modal .modal-fade-screen {
-    padding-top: 10em;
-  }
 }
 
 .modal .modal-bg {
@@ -1876,23 +1871,22 @@ h6 {
   border: 10px solid #ffffff;
   border-radius: 0.75em;
   margin: auto;
-  max-height: 95%;
+  //max-height: 95%;
   overflow: auto;
   position: relative;
   transition: opacity 0.1s ease;
-  width: 95%;
+  width: 90%;
 }
 
 @media screen and (min-width: 40em) {
   .modal .modal-inner {
-    max-height: 70%;
-    width: 60%;
+    width: 66%;
   }
 }
 
-@media screen and (min-width: 53.75em) {
+@media screen and (min-width: 70em) {
   .modal .modal-inner {
-    width: 33%;
+    width: 40%;
   }
 }
 
@@ -1942,12 +1936,6 @@ h6 {
   z-index: 99999;
 }
 
-//@media screen and (min-width: 53.75em) {
-//  .modalIMG .modalIMG-fade-screen {
-//    padding-top: 10em;
-//  }
-}
-
 .modalIMG .modalIMG-bg {
   position: absolute;
   top: 0;
@@ -1962,29 +1950,21 @@ h6 {
   border: 10px solid #ffffff;
   border-radius: 0.75em;
   margin: auto;
-  max-height: 95%;
+  max-height: 80%;
   overflow: auto;
   position: relative;
   transition: opacity 0.1s ease;
-  width: 95%;
-  margin-top: 1em;
+  width: 90%;
+  margin-top: 10em;
 }
 
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 70em) {
   .modalIMG .modalIMG-inner {
     max-height: 80%;
-	//width: auto;
-   	max-width: 66%;
-   	//min-width: 50%;
-   	margin-top: 8em;
+	  width: auto;
+   	max-width: 75%;
+   	margin-top: 10em;
   }
-}
-
-//@media screen and (min-width: 53.75em) {
-//  .modalIMG .modalIMG-inner {
-//    width: 66%;
-//	  margin-top: 12em;
-//  }
 }
 
 .modalIMG .modalIMG-content {
@@ -2005,6 +1985,7 @@ h6 {
 .modalIMG::-webkit-scrollbar {
   -webkit-appearance: none;
   height: 8px;
+  width: 8px;
 }
 
 .modalIMG::-webkit-scrollbar-thumb {
@@ -2310,7 +2291,7 @@ input[name=filterslider]:focus::-ms-fill-lower {
   //color: #066cff;
   filter: alpha(opacity=20);
   /* msie */
-  
+
   background-image: url("/resources/images/PNG/Pattern-3.png");
   //background: rgba(220, 220, 220, 0.5);
 }
