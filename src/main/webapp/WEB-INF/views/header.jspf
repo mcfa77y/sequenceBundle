@@ -15,12 +15,12 @@
 		<h2 class="nav-link"><i class="icon-nav-icon-1"></i></h2>
 		<h5 class="nav-link-name">EXAMPLES</h5>
 	</a>
-	<a href="#" class="nav-link-box" title="Use Sequence Bundles web tool">
+	<a href="http://sequence-bundles.science-practice.com/" class="nav-link-box" title="Use Sequence Bundles web tool">
 		<h2 class="nav-link"><i class="icon-nav-icon-01b" style="color: rgba(240, 80, 0, 0.85);"></i></h2>
 		<h5 class="nav-link-name" style="color: rgba(240, 80, 0, 0.85);">CREATE YOUR OWN</h5>
 	</a>
 	<!--
-	<a href="#" class="nav-link-box" title="Download Sequence Bundles desktop app">
+	<a href="" class="nav-link-box" title="Download Sequence Bundles desktop app">
 		<h2 class="nav-link"><i class="icon-nav-icon-05"></i></h2>
 		<h5 class="nav-link-name">DESKTOP APP</h5>
 	</a>
