@@ -67,24 +67,24 @@
                                     </optgroup>
                                 </select>
                             </div>
-                            <!-- 
+                            <!--
 							<div class="vis-set-yaxis-text">
    								<p id="yaxis-description" class="menu-text-typo">
                             		Select from the list to change this box
                             	</p>
                             </div>
  							-->
-		      	    	</div><!-- vis-set-box-2units -->   
+		      	    	</div><!-- vis-set-box-2units -->
         	  	    </div><!-- vis-set-box -->
-                    
-            
+
+
                     <div class="vis-set-box">
                         <div class="vis-set-box-title">
                             <span class="menu-title-typo">
                         Line
                      </span>
                         </div>
-      	         
+
                         <div class="vis-set-box-unit">
                             <img src="resources/images/PNG/Icon_width.png" class="vis-set-unit-image">
                             <h5 class="vis-set-typo">
@@ -100,7 +100,7 @@
                                 </select>
                             </div>
    	          	</div><!-- vis-set-box-unit -->
-             	
+
                         <div class="vis-set-box-unit">
                             <img src="/resources/images/PNG/Icon_curvature.png" class="vis-set-unit-image">
                             <h5 class="vis-set-typo">
@@ -116,7 +116,7 @@
                                 </select>
                             </div>
    	          	</div><!-- vis-set-box-unit -->
-             	
+
                         <div class="vis-set-box-unit" style="border-bottom: 1px solid #aaaaaa;">
                             <img src="/resources/images/PNG/Icon_colour.png" class="vis-set-unit-image">
                             <h5 class="vis-set-typo">
@@ -138,8 +138,8 @@
                             </div>
          	      </div><!-- vis-set-box-unit -->
             	</div><!-- vis-set-box -->
-            
-            
+
+
                     <div class="vis-set-box">
                         <div class="vis-set-box-title">
                             <span class="menu-title-typo">
@@ -215,24 +215,24 @@
                             </div>
 	               </div><!-- vis-set-box-3units -->
       		   </div><!-- vis-set-box -->
-      		   
+
       	   </div><!-- vis-set-container -->
-         
-         
+
+
                 <div class="action-button-container">
                     <div class="action-button-box">
-                        <a id="applyChangesButton" class="action-button-active" href="#">
+                        <a id="applyChangesButton" class="action-button-active" href="">
                             <h3 class="action-button-typo">
                         Apply Changes
                      </h3>
                         </a>
                     </div>
                 </div>
-      	
-      	
+
+
             </form>
       </div><!-- content -->
-   	
-   	
+
+
 	</div><!-- tab -->
 </div>

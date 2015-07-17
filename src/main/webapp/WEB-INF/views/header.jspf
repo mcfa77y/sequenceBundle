@@ -2,16 +2,16 @@
 
 <!-- STANDARD HEADER BEGINS -->
 
-<div class="sb-header"> 
-	<a href="http://science-practice.com/projects/sequence-bundles/index.html" class="sb-title" title="Sequence Bundles">
+<div class="sb-header">
+	<a href="http://science-practice.com/projects/sequence-bundles/" class="sb-title" title="Sequence Bundles">
 		<h1 class="name-title">SEQUENCE BUNDLES</h1>
 		<h5 class="name-subtitle">VISUALISE SEQUENCE MOTIFS THAT WOULD OTHERWISE REMAIN HIDDEN</h5>
 	</a>
-	<a href="http://science-practice.com/projects/sequence-bundles/index.html" class="nav-link-box" title="About Sequence Bundles">
+	<a href="http://science-practice.com/projects/sequence-bundles/" class="nav-link-box" title="About Sequence Bundles">
 		<h2 class="nav-link"><i class="icon-nav-icon-04"></i></h2>
 		<h5 class="nav-link-name">ABOUT</h5>
 	</a>
-	<a href="http://science-practice.com/projects/sequence-bundles/gallery.html" class="nav-link-box" title="Gallery of Sequence Bundles examples">
+	<a href="http://science-practice.com/projects/sequence-bundles/gallery/" class="nav-link-box" title="Gallery of Sequence Bundles examples">
 		<h2 class="nav-link"><i class="icon-nav-icon-1"></i></h2>
 		<h5 class="nav-link-name">EXAMPLES</h5>
 	</a>

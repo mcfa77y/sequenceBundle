@@ -60,7 +60,7 @@
                                         placeholder=">paste your FASTA data here..." required
                                     ></textarea>
                                 </div>
-                                <a id="pasteSequenceButton" class="task-button" href="#">
+                                <a id="pasteSequenceButton" class="task-button" href="">
                                     <h4 class="task-button-typo">Upload and validate</h4>
                                 </a>
                             </div>
@@ -171,7 +171,7 @@
                                     hydrogen bonds in Gram-negative bacteria, and by a metal ion in Gram-positives. Source: Pfam (PF05191); Magliery Lab and Ray
                                     Lab at Ohio State University</br>
                                 </p>
-                                <a id="useExampleButton" class="task-button" href="#">
+                                <a id="useExampleButton" class="task-button" href="">
                                     <h4 class="task-button-typo">Use this example</h4>
                                 </a>
                             </div>
@@ -195,7 +195,7 @@
         <!-- FOR DATA IN PROCESSING, NOT VALID OR TOO BIG, THIS BUTTON IS INACTIVE -->
         <div class="action-button-container">
             <div class="action-button-box">
-                <a id="createBundleButton" class="next-btn action-button-inactive" href="#">
+                <a id="createBundleButton" class="next-btn action-button-inactive" href="">
                     <h3 class="action-button-typo">Create Bundle</h3>
                 </a>
             </div>
