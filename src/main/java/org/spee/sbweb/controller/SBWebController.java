@@ -6,14 +6,11 @@
 package org.spee.sbweb.controller;
 
 import gui.sequencebundle.JSequenceBundle;
-import gui.sequencebundle.SequenceBundleConfig;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -44,27 +41,14 @@ public class SBWebController implements ServletContextAware {
 
 	private ServletContext servletContext;
 
+	// value of milliseconds in one minute
+	private static final int MINS_IN_MS = 60 * 1000;
+	// time in milliseconds
+	private static final int TIME_TO_CHECK_IMAGE_FOLDER = 60 * MINS_IN_MS;
+	private static final int IMAGE_LIFETIME = 60 * MINS_IN_MS;
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewSequenceBundleConfig(Model model) {
-		AlvisModel userForm = new AlvisModel();
-		model.addAttribute("userForm", userForm);
-
-		List<SequenceBundleConfig.GapRenderingType> gapRenderingList = new ArrayList<>();
-		gapRenderingList.add(SequenceBundleConfig.GapRenderingType.STANDARD);
-		gapRenderingList
-				.add(SequenceBundleConfig.GapRenderingType.DISCONNECTED);
-		model.addAttribute("gapRenderingList", gapRenderingList);
-
-		List<SequenceBundleConfig.GroupStackingType> groupStackingList = new ArrayList<>();
-		groupStackingList.add(SequenceBundleConfig.GroupStackingType.SEPARATE);
-		groupStackingList.add(SequenceBundleConfig.GroupStackingType.OVERLAYED);
-		model.addAttribute("groupStackingList", groupStackingList);
-
-		List<AlvisModel.AlignmentType> dataFormatList = new ArrayList<>();
-		dataFormatList.add(AlvisModel.AlignmentType.AMINOACIDS);
-		dataFormatList.add(AlvisModel.AlignmentType.NUCLEOTIDES);
-		dataFormatList.add(AlvisModel.AlignmentType.RNA);
-		model.addAttribute("dataFormatList", dataFormatList);
 		return "index";
 	}
 
@@ -138,28 +122,28 @@ public class SBWebController implements ServletContextAware {
 				+ this.servletContext.getRealPath("/"));
 
 		Timer t = new Timer();
-		MyTask mTask = new MyTask();
-		int everyHour = 60 * 60 * 1000;
-		t.scheduleAtFixedRate(mTask, 0, everyHour);
+		CronJobs mTask = new CronJobs();
+
+		t.scheduleAtFixedRate(mTask, 0, TIME_TO_CHECK_IMAGE_FOLDER);
 
 	}
 
-	class MyTask extends TimerTask {
-		private static final int HOUR_THRESHOLD = 5 * 60 * 60 * 1000;
+	class CronJobs extends TimerTask {
+		// private static final int HOUR_THRESHOLD = 1 * 60 * 60 * 1000;
 		private final File folder = new File(
 				servletContext.getRealPath("/resources/images"));
 
-		public MyTask() {
+		public CronJobs() {
 			// Some stuffs
 		}
 
-		private void listFilesForFolder(final File folder) {
+		private void cleanImageFiles(final File folder) {
 			for (final File fileEntry : folder.listFiles()) {
 				if (fileEntry.isDirectory()) {
-					listFilesForFolder(fileEntry);
+					cleanImageFiles(fileEntry);
 				} else {
 					long diff = new Date().getTime() - fileEntry.lastModified();
-					if (diff > HOUR_THRESHOLD) {
+					if (diff > IMAGE_LIFETIME) {
 						fileEntry.delete();
 					}
 				}
@@ -168,8 +152,17 @@ public class SBWebController implements ServletContextAware {
 
 		@Override
 		public void run() {
-			listFilesForFolder(folder);
-			System.out.println("Hi see you after 10 seconds");
+			final File folder = new File(
+					servletContext.getRealPath("/resources/images"));
+			// create an image folder if one doens't already exist
+			if (!folder.exists()) {
+				System.out
+						.println("SBWebControler.java: creating temporay image directory"
+								+ folder.toString());
+				folder.mkdir();
+			}
+			cleanImageFiles(folder);
+			System.out.println("Cleaning image folder.");
 		}
 
 	}

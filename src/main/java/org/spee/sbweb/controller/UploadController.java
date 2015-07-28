@@ -147,8 +147,7 @@ public class UploadController implements ServletContextAware {
 		}
 
 		alvisModel.setSequences(seq);
-		AlvisDataModel.AlignmentType alignmentType = alvisModel
-				.getAlignmentType().getAlignmentType();
+		AlvisDataModel.AlignmentType alignmentType = AlvisDataModel.AlignmentType.AminoAcid;
 		ParseAlignmentTask alignmentParser = new ParseAlignmentTask(
 				new StringReader(alvisModel.getSequences()),
 				Alvis.AlignmentFormat.FASTA, alignmentType, null);
@@ -183,7 +182,8 @@ public class UploadController implements ServletContextAware {
 			// length - cols) and user input index
 			startIndex = Math.min(startIndex, jsb.getAlignment().getLength()
 					- alvisModel.getCellWidthType().getNumberOfColumns());
-
+			// make sure the starting index is greater than 0
+			startIndex = Math.max(0, startIndex);
 			renderImage(alvisModel, jsb, startIndex);
 			return alvisModel;
 		}
@@ -191,7 +191,7 @@ public class UploadController implements ServletContextAware {
 
 	@RequestMapping(value = "/file", method = { RequestMethod.POST,
 			RequestMethod.OPTIONS }, produces = "application/json")
-	public @ResponseBody AlvisModel seq(HttpServletRequest request,
+	public @ResponseBody AlvisModel upload(HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestPart("file") MultipartFile file, @RequestBody String x)
 			throws Exception {
@@ -267,8 +267,6 @@ public class UploadController implements ServletContextAware {
 				.get("conservationThreshold")[0]));
 		alvisModel.setGapRendering(SequenceBundleConfig.GapRenderingType
 				.valueOf(paramMap.get("gapRendering")[0]));
-		alvisModel.setShowingConsensus(Boolean.parseBoolean(paramMap
-				.get("showingConsensus")[0]));
 		alvisModel.setCellWidth(AlvisModel.CellWidthType.valueOf(
 				paramMap.get("cellWidth")[0]).getSize());
 		alvisModel.setCellWidthType(AlvisModel.CellWidthType.valueOf(paramMap
@@ -277,8 +275,7 @@ public class UploadController implements ServletContextAware {
 		alvisModel.setyAxis(AlvisModel.YAxis.valueOf(paramMap.get("yAxis")[0]));
 		alvisModel.setLineColor(AlvisModel.LineColor.valueOf(paramMap
 				.get("lineColor")[0]));
-		alvisModel.setAlignmentType(AlvisModel.AlignmentType.valueOf(paramMap
-				.get("alignmentType")[0]));
+
 		String[] dpi = paramMap.get("dpi");
 		if (dpi != null) {
 			alvisModel.setDpi(Integer.parseInt(dpi[0]));

@@ -1,24 +1,36 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<nav class="navbar navbar">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand header" href="#">SEQUENCE BUNDLES</a>
+<!-- STANDARD HEADER BEGINS -->
 
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li ><a  class="header-logo" id="logo" href="http://science-practice.com/"></a></li>
-<!--                            <li><a href="#"><span class="glyphicon glyphicon-globe"></span> WEB TOOL</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-download-alt"></span> DESKTOP APP </a></li>
-                        -->
-                        </ul>
-        </div>
-    </div>
-</nav>
+<div class="sb-header">
+	<a href="http://science-practice.com/projects/sequence-bundles/" class="sb-title" title="Sequence Bundles">
+		<h1 class="name-title">SEQUENCE BUNDLES</h1>
+		<h5 class="name-subtitle">VISUALISE SEQUENCE MOTIFS THAT WOULD OTHERWISE REMAIN HIDDEN</h5>
+	</a>
+	<a href="http://science-practice.com/projects/sequence-bundles/" class="nav-link-box" title="About Sequence Bundles">
+		<h2 class="nav-link"><i class="icon-nav-icon-04"></i></h2>
+		<h5 class="nav-link-name">ABOUT</h5>
+	</a>
+	<a href="http://science-practice.com/projects/sequence-bundles/gallery/" class="nav-link-box" title="Gallery of Sequence Bundles examples">
+		<h2 class="nav-link"><i class="icon-nav-icon-1"></i></h2>
+		<h5 class="nav-link-name">EXAMPLES</h5>
+	</a>
+	<a href="http://sequence-bundles.science-practice.com/" class="nav-link-box" title="Use Sequence Bundles web tool">
+		<h2 class="nav-link"><i class="icon-nav-icon-01b" style="color: rgba(240, 80, 0, 0.85);"></i></h2>
+		<h5 class="nav-link-name" style="color: rgba(240, 80, 0, 0.85);">CREATE YOUR OWN</h5>
+	</a>
+	<!--
+	<a href="" class="nav-link-box" title="Download Sequence Bundles desktop app">
+		<h2 class="nav-link"><i class="icon-nav-icon-05"></i></h2>
+		<h5 class="nav-link-name">DESKTOP APP</h5>
+	</a>
+	-->
+	<a href="http://science-practice.com" class="nav-link-box" title="Sequence Bundles by Science Practice">
+		<h2 class="nav-link"><i class="icon-nav-icon-02"></i></h2>
+		<h5 class="nav-link-name">BY SCIENCE PRACTICE</h5>
+	</a>
+</div>
+
+<div class="sb-divider-1"></div>
+
+<!-- STANDARD HEADER ENDS -->

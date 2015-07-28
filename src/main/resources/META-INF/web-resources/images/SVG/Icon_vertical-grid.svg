@@ -4,10 +4,15 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 34 22.7" enable-background="new 0 0 34 22.7" xml:space="preserve">
 <g>
-	<rect x="6.9" y="5" fill="none" stroke="#B5B5B5" stroke-width="0.9405" stroke-miterlimit="10" width="20.1" height="12.8"/>
-	
-		<line fill="none" stroke="#066CFF" stroke-width="0.5" stroke-miterlimit="10" stroke-dasharray="1,1" x1="13.7" y1="3" x2="13.7" y2="19.7"/>
-	
-		<line fill="none" stroke="#066CFF" stroke-width="0.5" stroke-miterlimit="10" stroke-dasharray="1,1" x1="20.4" y1="3" x2="20.4" y2="19.7"/>
+	<path fill="#B5B5B5" d="M27.5,18.2H6.5V4.5h21.1V18.2z M7.4,17.2h19.2V5.4H7.4V17.2z"/>
+</g>
+<g>
+	<path fill="#F26A26" d="M14,19.8h-0.5v-1H14V19.8z M14,17.8h-0.5v-1H14V17.8z M14,15.8h-0.5v-1H14V15.8z M14,13.8h-0.5v-1H14V13.8z
+		 M14,11.8h-0.5v-1H14V11.8z M14,9.8h-0.5v-1H14V9.8z M14,7.8h-0.5v-1H14V7.8z M14,5.8h-0.5v-1H14V5.8z M14,3.8h-0.5v-1H14V3.8z"/>
+</g>
+<g>
+	<path fill="#F26A26" d="M20.7,19.8h-0.5v-1h0.5V19.8z M20.7,17.8h-0.5v-1h0.5V17.8z M20.7,15.8h-0.5v-1h0.5V15.8z M20.7,13.8h-0.5
+		v-1h0.5V13.8z M20.7,11.8h-0.5v-1h0.5V11.8z M20.7,9.8h-0.5v-1h0.5V9.8z M20.7,7.8h-0.5v-1h0.5V7.8z M20.7,5.8h-0.5v-1h0.5V5.8z
+		 M20.7,3.8h-0.5v-1h0.5V3.8z"/>
 </g>
 </svg>

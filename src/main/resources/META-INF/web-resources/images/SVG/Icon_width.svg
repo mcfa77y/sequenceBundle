@@ -3,8 +3,10 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 34 22.7" enable-background="new 0 0 34 22.7" xml:space="preserve">
-<line fill="none" stroke="#707070" stroke-width="0.5" stroke-miterlimit="10" x1="21.5" y1="6.1" x2="12.8" y2="6.1"/>
-<polyline fill="none" stroke="#707070" stroke-width="0.5" stroke-miterlimit="10" points="13.8,7.3 12.5,6.1 13.8,4.8 "/>
-<polyline fill="none" stroke="#707070" stroke-width="0.5" stroke-miterlimit="10" points="20.2,4.8 21.5,6.1 20.2,7.3 "/>
-<path fill="none" stroke="#066CFF" stroke-miterlimit="10" d="M24,19.3c-0.7-3.7-2.1-9.4-5-9.4H17h-2.1c-2.7,0-4.1,5.5-4.9,9"/>
+<polygon fill="#707070" points="20.4,4.6 20,5 20.9,5.8 13.2,5.8 14,5 13.6,4.6 12.2,6.1 13.6,7.5 14,7.2 13.2,6.3 20.9,6.3 20,7.2 
+	20.4,7.5 21.8,6.1 "/>
+<g>
+	<path fill="#F26A26" d="M23.5,19.4c-1.4-7.4-3.2-9-4.5-9h-4.2c-1.2,0-2.9,1.5-4.4,8.6l-1-0.2c0.8-4,2.3-9.4,5.4-9.4h4.2
+		c2.4,0,4.2,3.2,5.4,9.8L23.5,19.4z"/>
+</g>
 </svg>
