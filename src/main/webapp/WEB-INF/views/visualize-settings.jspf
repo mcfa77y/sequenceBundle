@@ -55,10 +55,10 @@
                      </h5>
                             <div class="vis-set-dropdown-box-full">
                                 <select id="yAxis" name="yAxis" title="Select the physiochemical property for Y-axis ordering" class="drop-down-style">
-                                    <optgroup label="Use classic amino acid grouping into:">
+                                    <optgroup label="Use classic amino acid grouping:">
                                         <option value="DEFAULT" selected="selected">Charged&mdash;Polar&mdash;Hydrophobic</option>
                                 	</optgroup>
-                                		<optgroup label="Use AAindex ordering according to amino acid:">
+                                		<optgroup label="Use AAindex ordering of amino acids by their:">
 		            	            	<option value="HYDROPHOBICITY">Hydrophobicity <!--(AAindex ZIMJ680101)--></option>
         		       	    	     	<option value="BULKINESS">Bulkiness <!--(AAindex ZIMJ680102)--></option>
                 			  	      	<option value="POLARITY">Polarity <!--(AAindex ZIMJ680103)--></option>
@@ -67,24 +67,24 @@
                                     </optgroup>
                                 </select>
                             </div>
-                            <!-- 
+                            <!--
 							<div class="vis-set-yaxis-text">
    								<p id="yaxis-description" class="menu-text-typo">
                             		Select from the list to change this box
                             	</p>
                             </div>
  							-->
-		      	    	</div><!-- vis-set-box-2units -->   
+		      	    	</div><!-- vis-set-box-2units -->
         	  	    </div><!-- vis-set-box -->
-                    
-            
+
+
                     <div class="vis-set-box">
                         <div class="vis-set-box-title">
                             <span class="menu-title-typo">
                         Line
                      </span>
                         </div>
-      	         
+
                         <div class="vis-set-box-unit">
                             <img src="resources/images/PNG/Icon_width.png" class="vis-set-unit-image">
                             <h5 class="vis-set-typo">
@@ -100,7 +100,7 @@
                                 </select>
                             </div>
    	          	</div><!-- vis-set-box-unit -->
-             	
+
                         <div class="vis-set-box-unit">
                             <img src="/resources/images/PNG/Icon_curvature.png" class="vis-set-unit-image">
                             <h5 class="vis-set-typo">
@@ -116,7 +116,7 @@
                                 </select>
                             </div>
    	          	</div><!-- vis-set-box-unit -->
-             	
+
                         <div class="vis-set-box-unit" style="border-bottom: 1px solid #aaaaaa;">
                             <img src="/resources/images/PNG/Icon_colour.png" class="vis-set-unit-image">
                             <h5 class="vis-set-typo">
@@ -125,20 +125,21 @@
                             <div class="vis-set-dropdown-box">
                                 <select id="lineColor" name="lineColor" title="Select the colour of lines in your Sequence Bundles" class="drop-down-style">
                                     <optgroup label="Set line colour to:">
-                                        <option value="DEFAULT" selected="selected">Dark Blue</option>
-                                        <!-- <option value="NAVY">Dark blue</option> -->
-                                        <option value="SKY">Bright blue</option>
-                                        <option value="PURPLE">Purple</option>
-                                        <option value="RED">Red</option>
-                                        <option value="ORANGE">Orange</option>
-                                        <option value="GREY">Grey</option>
+                                        <option value="NAVY" selected="selected">Dark Blue</option> <!-- RGB(0, 0, 80) -->
+                                        <option value="SKY">Blue</option> <!-- RGB(10, 120, 200) -->
+                                        <!-- <option value="SEA">Green</option> --> <!-- RGB(0, 100, 50) -->
+                                        <!-- <option value="PURPLE">Purple</option> --> <!-- RGB(100, 0, 50) -->
+                                        <option value="RED">Red</option> <!-- RGB(180, 20, 20) -->
+                                        <option value="ORANGE">Orange</option> <!-- RGB(240, 80, 0) -->
+                                        <option value="GREY">Grey</option> <!-- RGB(100, 100, 100) -->
+                                        <option value="DEFAULT">Black</option> <!-- RGB(0, 0, 0) -->
                                     </optgroup>
                                 </select>
                             </div>
          	      </div><!-- vis-set-box-unit -->
             	</div><!-- vis-set-box -->
-            
-            
+
+
                     <div class="vis-set-box">
                         <div class="vis-set-box-title">
                             <span class="menu-title-typo">
@@ -214,24 +215,24 @@
                             </div>
 	               </div><!-- vis-set-box-3units -->
       		   </div><!-- vis-set-box -->
-      		   
+
       	   </div><!-- vis-set-container -->
-         
-         
+
+
                 <div class="action-button-container">
                     <div class="action-button-box">
-                        <a id="applyChangesButton" class="action-button-active" href="#">
+                        <a id="applyChangesButton" class="action-button-active" href="">
                             <h3 class="action-button-typo">
                         Apply Changes
                      </h3>
                         </a>
                     </div>
                 </div>
-      	
-      	
+
+
             </form>
       </div><!-- content -->
-   	
-   	
+
+
 	</div><!-- tab -->
 </div>

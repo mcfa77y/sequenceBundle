@@ -27,6 +27,8 @@ $(function() {
             Utils.animateShowImage();
             // number of columns may have been updated due to new column width
             $('#visualSettingsForm #columnCount').val(data.numberOfColumns);
+            PreviewController
+            .updateSequenceNavigationControls($('#startIndex').val());
         });
         return false;
     });

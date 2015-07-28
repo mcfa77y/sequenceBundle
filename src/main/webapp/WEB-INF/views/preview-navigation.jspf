@@ -24,20 +24,20 @@
          </h5>
      	</div>
     </div><!-- seq-nav-row -->
-    	
+
     <div class="seq-nav-row">
       <div class="seq-nav-gap-box">
       	&nbsp;
       </div>
      	<div class="seq-nav-input-box">
          <input id="startIndex" class="position-box" name="position" maxlength="4" min="1" max="1000" required type="number" placeholder="0" value="0">
-            
+
          <!-- IF THE POSITION IN INPUT BOX IS DIFFERENT TO PREVIEW -->
-         <a id="gotoPositionButton" class="position-go-button" href="#"><span class="fontello-position"><i class="icon-position-finder"></i></span></a>
-            
+         <a id="gotoPositionButton" class="position-go-button" href=""><span class="fontello-position"><i class="icon-position-finder"></i></span></a>
+
          <!-- IF THE POSITION IN INPUT BOX IS SAME AS IN VISUALISATION PREVIEW
          <a class="position-go-button-grey" href="#"><span class="fontello-position"><i class="icon-position-finder"></i></span></a> -->
-                            
+
       </div>
       <div class="seq-nav-gap-box">
      	</div>

@@ -14,13 +14,12 @@
     </div>
     <div class="footer-text">
         <h6 class="footer-text-typo">
-        	Sequence Bundles were created by <a href="http://science-practice.com" target="_blank" class="footer-grey-link">Science Practice</a> and developed by Science Practice in collaboration with the <a href="http://www.ebi.ac.uk/research/goldman" target="_blank" class="footer-grey-link">Goldman Group</a> at EMBL-EBI.</br>
-            This web tool was designed by Science Practice and developed by <a href="https://github.com/mcfa77y" target="_blank" class="footer-grey-link">Joe Lau</a>. Kindly hosted on <a href="http://www.ebi.ac.uk" target="_blank" class="footer-grey-link">EMBL-EBI</a> servers.</br>
-            To learn more about Sequence Bundles, read our paper: <a href="http://www.biomedcentral.com/1753-6561/8/S2/S8" target="_blank" class="footer-grey-link">BMC Proceedings 2014, 8(Suppl 2):S8</a></br>
-            Copyright by Science Practice &copy; 2013.
+          Sequence Bundles were created by <a href="http://science-practice.com" target="_blank" class="footer-grey-link">Science Practice</a> and developed by Science Practice in collaboration with the <a href="http://www.ebi.ac.uk/research/goldman" target="_blank" class="footer-grey-link">Goldman Group</a> at EMBL-EBI.</br>
+    			This web tool was designed by Science Practice and developed by <a href="https://github.com/mcfa77y" target="_blank" class="footer-grey-link">Joe Lau</a>. <!-- Kindly hosted on <a href="http://www.ebi.ac.uk" target="_blank" class="footer-grey-link">EMBL-EBI</a> servers.--><br>
+          To learn more about Sequence Bundles, read our paper: <a href="http://www.biomedcentral.com/1753-6561/8/S2/S8" target="_blank" class="footer-grey-link">BMC Proceedings 2014, 8(Suppl 2):S8</a></br>
+    			All content &copy; Science Practice Ltd 2010-2015
         </h6>
     </div>
 </div>
 
 <!-- FOOTER ENDS -->
-                        

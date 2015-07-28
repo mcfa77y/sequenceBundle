@@ -1,7 +1,7 @@
 <!-- STEP 3: DOWNLOAD AND CITE -->
 <a name="js-step3-trigger" />
 <div class="step3">
-    <a href="javascript:void(0)" id="js-step3-trigger" class="step3-trigger step3-hidden">
+    <a ="javascript:void(0)" id="js-step3-trigger" class="step3-trigger step3-hidden">
         <div class="step3-head">
             <h1 class="disabled">
                 3 <span style="font-size: 0.4em; color: #999999;">DOWNLOAD AND CITE</span>
@@ -43,7 +43,7 @@
                         <p class="menu-text-typo">
                             Share <a href="http://twitter.com/search?q=%23SequenceBundles&src=typd">#SequenceBundles</a> on Twitter!
                         </p>
-                        <a id="tweetButton" class="task-button" href="#">
+                        <a id="tweetButton" class="task-button" href="http://twitter.com/intent/tweet?text=Try%20the%20%23SequenceBundles%20web%20tool%20by%20%40sciencepractice%20&amp;url=&amp;original_referer=" target="_blank">
                             <h4 class="task-button-icon">
                                 <span class="fontello-tweet"><i class="icon-tweet"></i></span>Share
                             </h4>
