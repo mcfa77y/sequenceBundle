@@ -175,7 +175,7 @@ var descriptionMap = {
         filename: 'Ank_2-(PF12796)_Ankyrin-repeat_seed.txt'
     },
     '2': {
-        description: 'This domain belongs to carbohydrate-binding modules associated with glycoside hydrolases — extremely common enzymes found in all kinds of living organisms. It is also used in food and paper industry.\
+        description: 'This domain belongs to carbohydrate-binding modules associated with glycoside hydrolases, extremely common enzymes found in all kinds of living organisms. It is also used in food and paper industry.\
         Source: Pfam (PF14600).',
         filename: 'CBM_5_12_2-(PF14600)_Cellulose-binding-domain_RP75.txt'
     },
