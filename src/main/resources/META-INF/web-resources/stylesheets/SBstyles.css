@@ -1950,20 +1950,17 @@ h6 {
   border: 10px solid #ffffff;
   border-radius: 0.75em;
   margin: auto;
-  max-height: 80%;
   overflow: auto;
   position: relative;
   transition: opacity 0.1s ease;
-  width: 90%;
-  margin-top: 10em;
+  width: 95%;
+  margin-top: 15%;
 }
 
 @media screen and (min-width: 70em) {
   .modalIMG .modalIMG-inner {
-    max-height: 80%;
-	  width: auto;
-   	max-width: 75%;
-   	margin-top: 10em;
+   	max-width: 85%;
+   	margin-top: 5%;
   }
 }
 
@@ -1972,9 +1969,11 @@ h6 {
 }
 
 .modalIMG .modalIMG-image {
-  min-width: auto;
-  max-height: 400px;
+  max-height: 100%;
+  width: 100%;
   margin-bottom: 1em;
+  display: block;
+  margin: auto;
 }
 
 .modalIMG .modalIMG-state:checked + .modalIMG-fade-screen {
