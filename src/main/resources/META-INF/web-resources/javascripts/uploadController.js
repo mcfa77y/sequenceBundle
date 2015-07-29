@@ -131,7 +131,7 @@ $("#pasteSequenceButton").click(
             // clear old sequence data
             $("#visualSettingsForm #sequence").val('');
             $('#startIndex').val(1);
-            var url = "/upload/paste";
+            var url = "./upload/paste";
             var data = Utils.createData({
                 sequence: $('#pasteSequence').val()
             });
@@ -144,7 +144,7 @@ $("#useExampleButton").click(function(event) {
         $("#visualSettingsForm #sequence").val('');
         var filename = descriptionMap[$('#useExampleFile').val()].filename;
         // Get some values from elements on the page:
-        var url = "/upload/example";
+        var url = "./upload/example";
         $('#startIndex').val(1);
         var data = Utils.createData({
             filename: filename

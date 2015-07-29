@@ -46,7 +46,7 @@ $(function() {
 
         function renderHiResImage(data) {
         // sequence should already be in form so similar function to paste
-        var url = "/upload/paste";
+        var url = "./upload/paste";
 
         // display Rendering
         renderHiResInfo('upload-status-validate', "Rendering ...", false);

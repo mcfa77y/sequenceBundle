@@ -3,7 +3,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.spee</groupId>
-	<artifactId>sbweb-jetty</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -362,11 +361,7 @@
 			<artifactId>prefuse</artifactId>
 			<version>beta-20071021</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat</groupId>
-			<artifactId>tomcat-catalina</artifactId>
-			<version>8.0.20</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>commons-io</groupId> 
 			<artifactId>commons-io</artifactId>
@@ -458,11 +453,7 @@
 					<dependenciesAsLibraries>true</dependenciesAsLibraries>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
-			</plugin>
+			
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
@@ -506,4 +497,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	<artifactId>sequence-bundles</artifactId>
 </project>

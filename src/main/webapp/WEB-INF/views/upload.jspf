@@ -121,7 +121,7 @@
                                 </div>
                                 <a id="fileUploadButton" class="task-button fileinput-button">
                                     <h4 class="task-button-icon">
-                                        <input id="fileUpload" data-url="/upload/file" name="file" type="file">
+                                        <input id="fileUpload" data-url="./upload/file" name="file" type="file">
                                         <span class="fontello-upload"> <i class="icon-upload"></i>
                                         </span>Upload and validate
                                     </h4>
