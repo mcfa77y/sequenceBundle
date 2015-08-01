@@ -1,5 +1,6 @@
+var debug = false;
+
 $(document).ready(function() {
-    var debug = false;
     // clean state with no seq data or start index
     $('#sequence').val('');
     $('#startIndex').val('');
@@ -198,22 +199,25 @@ var Utils = {
                         } else {
 
                             $('#sequenceBundle').prepend(
-                            '<img class="vis-box" id="sequenceBundleImage" src="' + imagePath + '" />').fadeIn();
+                                    '<img class="vis-box" id="sequenceBundleImage" src="'
+                                            + imagePath + '" />').fadeIn();
                         }
 
                         $('#sequenceBundleImage').bind(
                                 'error',
                                 function(e) {
                                     var err = JSON.stringify(e, null, 4);
-                            Utils.debug("error loading image:" + imagePath + "\n" + err);
+                                    Utils.debug("error loading image:"
+                                            + imagePath + "\n" + err);
                                     image.attr('src', imagePath);
                                 });
                         $('#downloadPNGButton').attr('href', imagePath);
                         $('#downloadPNGButton').attr('download', filename);
 
-
-                    // hide sequence nav container if the number of column is >= number of bases
-                    if (parseInt($('#columnCount').val(),10) >=  parseInt($('#lastIndex').val(),10)) {
+                        // hide sequence nav container if the number of column
+                        // is >= number of bases
+                        if (parseInt($('#columnCount').val(), 10) >= parseInt(
+                                $('#lastIndex').val(), 10)) {
                             $('.seq-nav-container').addClass('hide');
                         } else {
                             $('.seq-nav-container').removeClass('hide');

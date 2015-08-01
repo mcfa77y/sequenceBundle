@@ -5,13 +5,13 @@
  */
 var PreviewController = {
     init : function() {
-        $('#startIndex')
-        .change(function(event) {
+        $('#startIndex').change(function(event) {
             $('#gotoPositionButton').removeClass();
             $('#gotoPositionButton').addClass('position-go-button');
         });
         $('#gotoPositionButton')
-        .click(function(event) {
+                .click(
+                        function(event) {
                             if (Utils.isDataNotReady()) {
                                 return false;
                             }
@@ -56,12 +56,15 @@ var PreviewController = {
             return false;
         });
 
-$('#c-terminus').click(function() {
+        $('#c-terminus').click(
+                function() {
                     if (Utils.isDataNotReady()) {
                         return false;
                     }
-                    PreviewController.updateSequenceNavigationControls($(
-                            '#visualSettingsForm #lastIndex').val());
+                    var lastIndex = $('#visualSettingsForm #lastIndex').val()
+                            - $('#visualSettingsForm #columnCount').val() + 1;
+                    PreviewController
+                            .updateSequenceNavigationControls(lastIndex);
                     PreviewController.renderImage();
                     return false;
                 });
@@ -137,7 +140,8 @@ $('#c-terminus').click(function() {
         var endRange = Math.min(value + range - 1, lastValue);
         // index label
         $('#sequenceIndexLabel').text(
-            displayValue + " - " + endRange + " OUT OF " + lastValue + " POSITIONS");
+                displayValue + " - " + endRange + " OUT OF " + lastValue
+                        + " POSITIONS");
         // slider
         $('#sliderSequence')[0].value = value;
     }

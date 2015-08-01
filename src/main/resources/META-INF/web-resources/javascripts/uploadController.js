@@ -251,7 +251,8 @@ var UploadController = {
         $("#visualSettingsForm #sequence").val(data.sequences);
         $('#visualSettingsForm #lastIndex').val(data.sequenceBases);
         $('#visualSettingsForm #columnCount').val(data.numberOfColumns);
-        PreviewController.initSequenceSlider(1, data.sequenceBases, 1);
+        PreviewController.initSequenceSlider(1, data.sequenceBases
+                - data.numberOfColumns + 1, 1);
     }
 };
 
