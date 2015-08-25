@@ -1118,7 +1118,7 @@ h6 {
   height: 3em;
   margin-top: 1px;
   margin-left: 1.2em;
-  background-image: url("/resources/images/PNG/N-terminus.png");
+  background-image: url("../images/PNG/N-terminus.png");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 5.6em;
@@ -1130,7 +1130,7 @@ h6 {
   height: 3em;
   margin-top: 1px;
   margin-right: 1em;
-  background-image: url("/resources/images/PNG/C-terminus.png");
+  background-image: url("../images/PNG/C-terminus.png");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 5.6em;
@@ -1364,7 +1364,7 @@ h6 {
 }
 
 .vis-set-container input[type=checkbox]:checked + label {
-  background-image: url("/resources/images/PNG/Checkbox-tick.png");
+  background-image: url("../images/PNG/Checkbox-tick.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 1.3em;
@@ -1458,7 +1458,7 @@ h6 {
   display: block;
   height: 3.1em;
   border-radius: 0.3em;
-  background-image: url("/resources/images/PNG/Gaps-cont.png");
+  background-image: url("../images/PNG/Gaps-cont.png");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 100%;
@@ -1469,7 +1469,7 @@ h6 {
   display: block;
   height: 3.1em;
   border-radius: 0.3em;
-  background-image: url("/resources/images/PNG/Gaps-disc.png");
+  background-image: url("../images/PNG/Gaps-disc.png");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 100%;
@@ -1550,7 +1550,7 @@ h6 {
 }
 
 .vis-set-container .vis-set-slidejump-to-0 {
-  background-image: url("/resources/images/PNG/Filter_0.png");
+  background-image: url("../images/PNG/Filter_0.png");
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: 2.4em;
@@ -1561,7 +1561,7 @@ h6 {
 }
 
 .vis-set-container .vis-set-slidejump-to-50 {
-  background-image: url("/resources/images/PNG/Filter_50.png");
+  background-image: url("../images/PNG/Filter_50.png");
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: 2.4em;
@@ -1571,7 +1571,7 @@ h6 {
 }
 
 .vis-set-container .vis-set-slidejump-to-100 {
-  background-image: url("/resources/images/PNG/Filter_100.png");
+  background-image: url("../images/PNG/Filter_100.png");
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: 2.4em;
@@ -1849,12 +1849,17 @@ h6 {
   right: 0;
   bottom: 0;
   left: 0;
-  padding-top: 10em;
   background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
   transition: opacity 0.1s ease;
   visibility: hidden;
   z-index: 99999;
+}
+
+@media screen and (min-width: 53.75em) {
+  .modal .modal-fade-screen {
+    padding-top: 10em;
+  }
 }
 
 .modal .modal-bg {
@@ -1871,22 +1876,23 @@ h6 {
   border: 10px solid #ffffff;
   border-radius: 0.75em;
   margin: auto;
-  //max-height: 95%;
+  max-height: 95%;
   overflow: auto;
   position: relative;
   transition: opacity 0.1s ease;
-  width: 90%;
+  width: 95%;
 }
 
 @media screen and (min-width: 40em) {
   .modal .modal-inner {
-    width: 66%;
+    max-height: 70%;
+    width: 60%;
   }
 }
 
-@media screen and (min-width: 70em) {
+@media screen and (min-width: 53.75em) {
   .modal .modal-inner {
-    width: 40%;
+    width: 33%;
   }
 }
 
@@ -1936,6 +1942,12 @@ h6 {
   z-index: 99999;
 }
 
+//@media screen and (min-width: 53.75em) {
+//  .modalIMG .modalIMG-fade-screen {
+//    padding-top: 10em;
+//  }
+}
+
 .modalIMG .modalIMG-bg {
   position: absolute;
   top: 0;
@@ -1950,18 +1962,29 @@ h6 {
   border: 10px solid #ffffff;
   border-radius: 0.75em;
   margin: auto;
+  max-height: 95%;
   overflow: auto;
   position: relative;
   transition: opacity 0.1s ease;
   width: 95%;
-  margin-top: 15%;
+  margin-top: 1em;
 }
 
-@media screen and (min-width: 70em) {
+@media screen and (min-width: 40em) {
   .modalIMG .modalIMG-inner {
-   	max-width: 85%;
-   	margin-top: 5%;
+    max-height: 80%;
+	//width: auto;
+   	max-width: 66%;
+   	//min-width: 50%;
+   	margin-top: 8em;
   }
+}
+
+//@media screen and (min-width: 53.75em) {
+//  .modalIMG .modalIMG-inner {
+//    width: 66%;
+//	  margin-top: 12em;
+//  }
 }
 
 .modalIMG .modalIMG-content {
@@ -1969,11 +1992,9 @@ h6 {
 }
 
 .modalIMG .modalIMG-image {
-  max-height: 100%;
-  width: 100%;
+  min-width: auto;
+  max-height: 400px;
   margin-bottom: 1em;
-  display: block;
-  margin: auto;
 }
 
 .modalIMG .modalIMG-state:checked + .modalIMG-fade-screen {
@@ -1984,7 +2005,6 @@ h6 {
 .modalIMG::-webkit-scrollbar {
   -webkit-appearance: none;
   height: 8px;
-  width: 8px;
 }
 
 .modalIMG::-webkit-scrollbar-thumb {
@@ -2122,7 +2142,7 @@ input[name=baseslider]::-webkit-slider-thumb {
   height: 43px;
   width: 18px;
   background: rgba(240, 80, 0, 0.85);
-  background-image: url("/resources/images/PNG/Slider_preview.png");
+  background-image: url("../images/PNG/Slider_preview.png");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 18px;
@@ -2150,7 +2170,7 @@ input[name=baseslider]::-moz-range-thumb {
   border: 0px;
   border-radius: 0em;
   background: rgba(240, 80, 0, 0.85);
-  background-image: url("/resources/images/PNG/Slider_preview.png");
+  background-image: url("../images/PNG/Slider_preview.png");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 18px;
@@ -2172,7 +2192,7 @@ input[name=baseslider]::-ms-thumb {
   height: 43px;
   width: 18px;
   background: rgba(240, 80, 0, 0.85);
-  background-image: url("/resources/images/PNG/Slider_preview.png");
+  background-image: url("../images/PNG/Slider_preview.png");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 18px;
@@ -2213,7 +2233,7 @@ input[name=filterslider]::-webkit-slider-thumb {
   height: 18px;
   width: 16px;
   background: rgba(240, 80, 0, 0.85);
-  background-image: url("/resources/images/PNG/Slider_settings.png");
+  background-image: url("../images/PNG/Slider_settings.png");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 16px;
@@ -2239,7 +2259,7 @@ input[name=filterslider]::-moz-range-thumb {
   border: 0px;
   border-radius: 0em;
   background: rgba(240, 80, 0, 0.85);
-  background-image: url("/resources/images/PNG/Slider_settings.png");
+  background-image: url("../images/PNG/Slider_settings.png");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 16px;
@@ -2262,7 +2282,7 @@ input[name=filterslider]::-ms-thumb {
   height: 18px;
   width: 16px;
   background: rgba(240, 80, 0, 0.85);
-  background-image: url("/resources/images/PNG/Slider_settings.png");
+  background-image: url("../images/PNG/Slider_settings.png");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 16px;
@@ -2290,8 +2310,8 @@ input[name=filterslider]:focus::-ms-fill-lower {
   //color: #066cff;
   filter: alpha(opacity=20);
   /* msie */
-
-  background-image: url("/resources/images/PNG/Pattern-3.png");
+  
+  background-image: url("../images/PNG/Pattern-3.png");
   //background: rgba(220, 220, 220, 0.5);
 }
 
@@ -2310,7 +2330,7 @@ input[name=filterslider]:focus::-ms-fill-lower {
 	//border: 3px solid red;
 	display: block;
 	height: 56px;
-	background-image: url("/resources/images/PNG/Loading-bar-floating.gif");
+	background-image: url("../images/PNG/Loading-bar-floating.gif");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 350px;

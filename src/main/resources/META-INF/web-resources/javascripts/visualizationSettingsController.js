@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$(function() {
+ $(function() {
     'use strict';
 
     $("#applyChangesButton").click(function(event) {
@@ -13,7 +13,7 @@ $(function() {
         // Stop form from submitting normally
         event.preventDefault();
         // Get some values from elements on the page:
-        var url = '/upload/paste';
+        var url = './upload/paste';
         var data = Utils.createData();
 
         // Send the data using post
