@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     // only allow step 2,3 to work if data is ready
     $('.step3-trigger, .step2-trigger').click(function() {
-	if (Utils.isDataNotReady()) {
+	if (!Utils.isDataReady()) {
 	    Utils.animateUploadSequence();
 	}
     });
