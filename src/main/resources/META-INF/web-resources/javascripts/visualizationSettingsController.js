@@ -7,7 +7,7 @@
     'use strict';
 
     $("#applyChangesButton").click(function(event) {
-        if (Utils.isDataNotReady()) {
+        if (!Utils.isDataReady()) {
             return false;
         }
         // Stop form from submitting normally
