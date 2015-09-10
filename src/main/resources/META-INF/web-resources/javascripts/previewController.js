@@ -131,6 +131,7 @@ var PreviewController = {
 	// index label
 	$('#sequenceIndexLabel').text(displayValue + " - " + endRange + " OUT OF " + lastValue + " POSITIONS");
 	// slider
+	$('#sliderSequence').attr('max', lastValue - range);
 	$('#sliderSequence')[0].value = value;
     }
 };
