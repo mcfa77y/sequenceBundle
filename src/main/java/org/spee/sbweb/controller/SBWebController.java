@@ -161,8 +161,9 @@ public class SBWebController implements ServletContextAware {
 								+ folder.toString());
 				folder.mkdir();
 			}
+			Date date = new Date();
+			System.out.println("Cleaning image folder: " + date.toString());
 			cleanImageFiles(folder);
-			System.out.println("Cleaning image folder.");
 		}
 
 	}
