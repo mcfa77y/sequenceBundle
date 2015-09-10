@@ -141,11 +141,8 @@ var UploadController = {
 	});
 
 	$("#createBundleButton").click(function() {
-	    Utils.showLoadingImage();
 	    Utils.animatePreviewImage();
-	    if (Utils.isDataReady()) {
-		Utils.hideLoadingImage();
-	    }
+	    Utils.showLoadingImage();
 	    return false;
 	});
     },
@@ -176,13 +173,11 @@ var UploadController = {
 	}
     },
     renderImage : function(url, data, validatingText, event) {
-	Utils.debug("XuploadController.js: renderImage - url: " + url);
+	Utils.debug("uploadController.js: renderImage - url: " + url);
 	var self = {};
 	self.event = event;
 	// display validating
 	UploadController.uploadSequenceInfo('grey', validatingText, false);
-	// add loading overlay for sequence
-	Utils.showLoadingImage();
 	var posting = $.post(url, data);
 	// Put the results in a div
 	posting.done(function(data, event) {

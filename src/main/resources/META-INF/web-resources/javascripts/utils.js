@@ -11,8 +11,6 @@ var Utils = {
 	$('#renderProgress').fadeIn();
     },
     hideLoadingImage : function() {
-	// $('#sequenceBundle').removeClass('loading');
-	// $('#loading').hide();
 	$('#renderProgress').fadeOut(300, function() {
 	    Utils.debug("main.js: hiding loading screen.: " + $(this));
 	    $(this).hide();
@@ -34,9 +32,6 @@ var Utils = {
 
     },
     animatePreviewImage : function() {
-	if (!Utils.isDataReady()) {
-	    return false;
-	}
 	$('#js-step1-trigger').toggleClass('step1-hidden', true);
 	$('#js-step2-trigger').toggleClass('step2-hidden', false);
 	$('#js-step3-trigger').toggleClass('step3-hidden', true);
