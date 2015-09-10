@@ -15,7 +15,7 @@ $(function() {
 	// Get some values from elements on the page:
 	var url = './upload/paste';
 	var data = Utils.createData();
-
+	Utils.showLoadingImage();
 	// Send the data using post
 	var posting = $.post(url, data);
 	// Put the results in a div
