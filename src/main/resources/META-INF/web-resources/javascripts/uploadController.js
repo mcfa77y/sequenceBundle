@@ -14,60 +14,51 @@ var UploadController = {
 	UploadController.enableCreateBundleButton(false);
 
 	// setup file upload button
-	$('#fileUpload').fileupload(
-		{
-		    dataType : 'json',
-		    maxFileSize : 5 * 1024 * 1024,
-		    acceptFileTypes : /(\.|\/)(txt|fasta)$/i,
-		    done : function(e, data) {
-			e.preventDefault();
-			UploadController.renderProgress(data.result, e);
-		    },
-		    progressall : function(e, data) {
-			var progress = parseInt(data.loaded / data.total * 100,
-				10);
-			$('#progress .progress-bar').css('width',
-				progress + '%');
-		    },
-		    processfail : function(e, data) {
-			var currentFile = data.files[data.index];
-			if (data.files.error && currentFile.error) {
-			    // there was an error, do something about it
-			    Utils.debug(currentFile.error);
-			    $('<p/>').text(
-				    "ERROR: " + currentFile.error + " "
-					    + currentFile.name).appendTo(
-				    "#messages").addClass("text-danger");
-			}
-		    },
-		    add : function(e, data) {
-			e.preventDefault();
-			// display validating
-			UploadController.uploadSequenceInfo('grey',
-				"Uploading and Validating...", false);
-			// clear old sequence data
-			$("#visualSettingsForm #sequence").val('');
-			$('#startIndex').val(1);
-			data.formData = Utils.createData();
-			data.submit();
-		    }
-		});
+	$('#fileUpload').fileupload({
+	    dataType : 'json',
+	    maxFileSize : 5 * 1024 * 1024,
+	    acceptFileTypes : /(\.|\/)(txt|fasta)$/i,
+	    done : function(e, data) {
+		e.preventDefault();
+		UploadController.renderProgress(data.result, e);
+	    },
+	    progressall : function(e, data) {
+		var progress = parseInt(data.loaded / data.total * 100, 10);
+		$('#progress .progress-bar').css('width', progress + '%');
+	    },
+	    processfail : function(e, data) {
+		var currentFile = data.files[data.index];
+		if (data.files.error && currentFile.error) {
+		    // there was an error, do something about it
+		    Utils.debug(currentFile.error);
+		    $('<p/>').text("ERROR: " + currentFile.error + " " + currentFile.name).appendTo("#messages").addClass("text-danger");
+		}
+	    },
+	    add : function(e, data) {
+		e.preventDefault();
+		// display validating
+		UploadController.uploadSequenceInfo('grey', "Uploading and Validating...", false);
+		// clear old sequence data
+		$("#visualSettingsForm #sequence").val('');
+		$('#startIndex').val(1);
+		data.formData = Utils.createData();
+		data.submit();
+	    }
+	});
 
 	// setup paste sequence upload button
-	$("#pasteSequenceButton").click(
-		function(event) {
-		    event.preventDefault();
-		    // clear old sequence data
-		    $("#visualSettingsForm #sequence").val('');
-		    $('#startIndex').val(1);
-		    var url = "./upload/paste";
-		    var data = Utils.createData({
-			sequence : $('#pasteSequence').val()
-		    });
-		    UploadController.renderImage(url, data,
-			    "Uploading and validating...", event);
-		    return false;
-		});
+	$("#pasteSequenceButton").click(function(event) {
+	    event.preventDefault();
+	    // clear old sequence data
+	    $("#visualSettingsForm #sequence").val('');
+	    $('#startIndex').val(1);
+	    var url = "./upload/paste";
+	    var data = Utils.createData({
+		sequence : $('#pasteSequence').val()
+	    });
+	    UploadController.renderImage(url, data, "Uploading and validating...", event);
+	    return false;
+	});
 
 	// setup use example sequence upload button
 	$("#useExampleButton").click(function(event) {
@@ -142,19 +133,12 @@ var UploadController = {
 	// hide status on load
 	$('#uploadStatus').addClass('hide');
 	// update sequence description actions
-	$('#upload-description').text(
-		descriptionMap[$('#useExampleFile').description]);
+	$('#upload-description').text(descriptionMap[$('#useExampleFile').description]);
 
-	$("#useExampleFile")
-		.on(
-			'change',
-			function() {
-			    // update description blerb
-			    $('#upload-description')
-				    .text(
-					    descriptionMap[$('#useExampleFile')
-						    .val()].description);
-			});
+	$("#useExampleFile").on('change', function() {
+	    // update description blerb
+	    $('#upload-description').text(descriptionMap[$('#useExampleFile').val()].description);
+	});
 
 	$("#createBundleButton").click(function() {
 	    Utils.showLoadingImage();
@@ -167,14 +151,10 @@ var UploadController = {
     },
     uploadSequenceInfo : function(otherClass, text, isEnabled) {
 	var status = $('#uploadStatus');
-	$('[class^=valid-background]', status).removeClass().addClass(
-		'valid-background-' + otherClass);
-	$('.valid-message-grey', status).removeClass().addClass(
-		'valid-message-' + otherClass);
-	$('.valid-message-green', status).removeClass().addClass(
-		'valid-message-' + otherClass);
-	$('.valid-message-red', status).removeClass().addClass(
-		'valid-message-' + otherClass);
+	$('[class^=valid-background]', status).removeClass().addClass('valid-background-' + otherClass);
+	$('.valid-message-grey', status).removeClass().addClass('valid-message-' + otherClass);
+	$('.valid-message-green', status).removeClass().addClass('valid-message-' + otherClass);
+	$('.valid-message-red', status).removeClass().addClass('valid-message-' + otherClass);
 	if (typeof text === "string") {
 	    $('h4', status).text(text);
 
@@ -196,7 +176,7 @@ var UploadController = {
 	}
     },
     renderImage : function(url, data, validatingText, event) {
-	Utils.debug("uploadController.js: renderImage - url: " + url);
+	Utils.debug("XuploadController.js: renderImage - url: " + url);
 	var self = {};
 	self.event = event;
 	// display validating
@@ -218,22 +198,18 @@ var UploadController = {
 	if (data.errorMessage && data.errorMessage.length > 0) {
 	    var errorMessage = '';
 	    if (data.errorMessage.indexOf("1000") > 0) {
-		errorMessage = "FASTA format is valid, but your data is too large (it has "
-			+ data.sequenceCount
-			+ " sequences, each "
-			+ data.sequenceBases + " positions long).";
+		errorMessage = "FASTA format is valid, but your data is too large (it has " + data.sequenceCount + " sequences, each " + data.sequenceBases
+			+ " positions long).";
 		UploadController.uploadSequenceInfo('red', errorMessage, false);
 	    } else {
-		errorMessage = $('<div/>')
-			.html(
-				"FASTA format not valid. Learn more about the <a href='http://en.wikipedia.org/wiki/FASTA_format'>FASTA</a> format here.<br/>");
+		errorMessage = $('<div/>').html(
+			"FASTA format not valid. Learn more about the <a href='http://en.wikipedia.org/wiki/FASTA_format'>FASTA</a> format here.<br/>");
 		UploadController.uploadSequenceInfo('red', errorMessage, false);
 	    }
 	    return;
 	}
 
-	var text = "Your protein data contains " + data.sequenceCount
-		+ " sequences, each " + data.sequenceBases + " positions long.";
+	var text = "Your protein data contains " + data.sequenceCount + " sequences, each " + data.sequenceBases + " positions long.";
 	UploadController.uploadSequenceInfo('green', text, true);
 
 	var d = new Date();
@@ -246,8 +222,7 @@ var UploadController = {
 	$("#visualSettingsForm #sequence").val(data.sequences);
 	$('#visualSettingsForm #lastIndex').val(data.sequenceBases);
 	$('#visualSettingsForm #columnCount').val(data.numberOfColumns);
-	PreviewController.initSequenceSlider(1, data.sequenceBases
-		- data.numberOfColumns + 1, 1);
+	PreviewController.initSequenceSlider(1, data.sequenceBases - data.numberOfColumns + 1, 1);
     }
 };
 

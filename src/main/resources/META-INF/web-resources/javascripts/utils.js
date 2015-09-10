@@ -1,7 +1,6 @@
 var debug = true;
 var Utils = {
     animateShowImage : function() {
-	Utils.showLoadingImage();
 	document.getElementById("tab-2").checked = false;
 	document.getElementById("tab-1").checked = true;
 	// location.href = "#js-step2-trigger";
@@ -60,8 +59,7 @@ var Utils = {
 
 	}
 	// turn on only active tab
-	var activatedSrc = activeImage.attr('src').split('.')[0]
-		+ "_active.svg";
+	var activatedSrc = activeImage.attr('src').split('.')[0] + "_active.svg";
 	activeImage.attr('src', activatedSrc);
 
     },
@@ -152,68 +150,59 @@ var Utils = {
 	// Utils.animateShowImage();
 	$.post("upload/seq/status", {
 	    filename : filename
-	}).done(
-		function(data) {
+	}).done(function(data) {
 
-		    if (data['isFinished'] === false) {
-			// continue to get status information
-			setTimeout(function() {
-			    var d = new Date();
-			    Utils.jobStatusPoll(filename, imagePath);
-			}, 500);
-		    } else {
-			// remove rendering progress listener
-			$.post("upload/seq/remove", {
-			    filename : filename
-			});
-			// image has finish rendering
-			Utils.debug("main.js: image has finish rendering");
-			Utils.hideLoadingImage();
+	    if (data['isFinished'] === false) {
+		// continue to get status information
+		setTimeout(function() {
+		    var d = new Date();
+		    Utils.jobStatusPoll(filename, imagePath);
+		}, 500);
+	    } else {
+		// remove rendering progress listener
+		$.post("upload/seq/remove", {
+		    filename : filename
+		});
+		// image has finish rendering
+		Utils.debug("utils.js:170 image has finish rendering");
+		Utils.hideLoadingImage();
 
-			// add image if there was none before otherwise
-			// update source for newly loaded image
-			var image = $('#sequenceBundle #sequenceBundleImage');
-			if (image.size() > 0) {
-			    image.attr('src', imagePath);
-			} else {
+		// add image if there was none before otherwise
+		// update source for newly loaded image
+		var image = $('#sequenceBundle #sequenceBundleImage');
+		if (image.size() > 0) {
+		    image.attr('src', imagePath);
+		} else {
+		    $('#sequenceBundle').prepend('<img class="vis-box" id="sequenceBundleImage" src="' + imagePath + '" />').fadeIn();
+		}
 
-			    $('#sequenceBundle').prepend(
-				    '<img class="vis-box" id="sequenceBundleImage" src="'
-					    + imagePath + '" />').fadeIn();
-			}
+		$('#sequenceBundleImage').bind('error', function(e) {
+		    var err = JSON.stringify(e, null, 4);
+		    Utils.debug("error loading image:" + imagePath + "\n" + err);
+		    image.attr('src', imagePath);
+		});
+		$('#downloadPNGButton').attr('href', imagePath);
+		$('#downloadPNGButton').attr('download', filename);
 
-			$('#sequenceBundleImage').bind(
-				'error',
-				function(e) {
-				    var err = JSON.stringify(e, null, 4);
-				    Utils.debug("error loading image:"
-					    + imagePath + "\n" + err);
-				    image.attr('src', imagePath);
-				});
-			$('#downloadPNGButton').attr('href', imagePath);
-			$('#downloadPNGButton').attr('download', filename);
+		// hide sequence nav container if the number of
+		// column
+		// is >= number of bases
+		if (parseInt($('#columnCount').val(), 10) >= parseInt($('#lastIndex').val(), 10)) {
+		    $('.seq-nav-container').addClass('hide');
+		} else {
+		    $('.seq-nav-container').removeClass('hide');
+		}
 
-			// hide sequence nav container if the number of
-			// column
-			// is >= number of bases
-			if (parseInt($('#columnCount').val(), 10) >= parseInt(
-				$('#lastIndex').val(), 10)) {
-			    $('.seq-nav-container').addClass('hide');
-			} else {
-			    $('.seq-nav-container').removeClass('hide');
-			}
-
-			// hide render status
-			$('#renderHiResStatus').hide();
-		    }
-		}).error(function(e) {
+		// hide render status
+		$('#renderHiResStatus').hide();
+	    }
+	}).error(function(e) {
 	    var err = JSON.stringify(e, null, 4);
 	    Utils.debug("error loading jobStatus:" + "\n" + err);
 	});
     },
     isDataReady : function() {
 	Utils.debug("data ready? : " + JSON.parse($('#dataReady').val()));
-	return JSON.parse($('#dataReady').val())
-		&& $('#sequenceBundle #sequenceBundleImage').length > 0;
+	return JSON.parse($('#dataReady').val()) && $('#sequenceBundle #sequenceBundleImage').length > 0;
     }
 };
