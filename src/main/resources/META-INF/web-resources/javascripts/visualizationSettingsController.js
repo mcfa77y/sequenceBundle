@@ -12,6 +12,7 @@ $(function() {
 	}
 	// Stop form from submitting normally
 	event.preventDefault();
+	Utils.animateShowImage();
 	Utils.showLoadingImage();
 	// Get some values from elements on the page:
 	var url = './upload/paste';
@@ -24,7 +25,6 @@ $(function() {
 	    var wp = data["webPath"] + "?" + d.getTime();
 	    var filename = Utils.getFilename(wp);
 	    Utils.jobStatusPoll(filename, wp);
-	    Utils.animateShowImage();
 	    // number of columns may have been updated due to new column width
 	    $('#visualSettingsForm #columnCount').val(data.numberOfColumns);
 	    PreviewController.updateSequenceNavigationControls($('#startIndex').val());
