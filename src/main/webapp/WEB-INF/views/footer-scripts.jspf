@@ -19,6 +19,7 @@
     <script src='<c:url value="/resources/javascripts/jqueryFileUpload/jquery.fileupload-process.js "  />'></script>
     <script src='<c:url value="/resources/javascripts/hlb1ohy.js "  />'></script>
     <script src='<c:url value="/resources/javascripts/main.js "  />'></script>
+    <script src='<c:url value="/resources/javascripts/utils.js "  />'></script>
     <script src='<c:url value="/resources/javascripts/uploadController.js "  />'></script>
     <script src='<c:url value="/resources/javascripts/visualizationSettingsController.js "  />'></script>
     <script src='<c:url value="/resources/javascripts/previewController.js "  />'></script>
