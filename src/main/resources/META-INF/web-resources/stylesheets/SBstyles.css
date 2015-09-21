@@ -940,6 +940,7 @@ h6 {
   font-size: 0.9em;
   color: #333333;
   line-height: 150%;
+  cursor: pointer;
 }
 
 .seq-nav-container {
@@ -1000,6 +1001,7 @@ h6 {
   display: block;
   margin-right: 2.35765%;
   width: 10.43705%;
+  margin-top: 2px;
 }
 
 .seq-nav-container .seq-nav-input-box:last-child {
@@ -1542,6 +1544,7 @@ h6 {
   display: block;
   margin-top: 0.2em;
   background-color: rgba(240, 80, 0, 0.05);
+  cursor: pointer;
 }
 
 .vis-set-container .vis-set-slidejump-button:hover {
@@ -1829,7 +1832,6 @@ h6 {
   top: -36px;
   left: -126px;
   width: 30px;
-  height: 30px;
 }
 
 .modal label {
@@ -2309,7 +2311,7 @@ input[name=filterslider]:focus::-ms-fill-lower {
   //color: #066cff;
   filter: alpha(opacity=20);
   /* msie */
-  
+
   background-image: url("../images/PNG/Pattern-3.png");
   //background: rgba(220, 220, 220, 0.5);
 }
