@@ -62,10 +62,12 @@
                 <div class="menu-board-fixed">
                     <div class="menu-text">
                         <p class="menu-text-typo">
-                            To acknowledge the use of <a href="http://www.biomedcentral.com/1753-6561/8/S2/S8">Sequence Bundles</a> visualisations in publications or talks, please cite:
+                            To acknowledge the use of Sequence Bundles visualisations in publications or talks, please cite:
                         </p>
                         <p class="menu-text-typo">
-                            Sequence Bundles: a novel method for visualising, discovering and exploring sequence motifs. Kultys M, Nicholas L, Schwarz R, Goldman N, King J. <i>BMC Proceedings</i> 2014, <strong>8</strong> (Suppl 2): S8
+                            <a href="http://www.biomedcentral.com/1753-6561/8/S2/S8">Sequence Bundles</a>: a novel method for visualising, discovering and exploring sequence motifs. M Kultys, L Nicholas, R Schwarz,</br>N Goldman, J King.</br>
+                            <i>BMC Proceedings</i> 2014, <strong>8</strong> (Suppl 2): S8
+                            <%-- Sequence Bundles: a novel method for visualising, discovering and exploring sequence motifs. M&nbsp;Kultys, L&nbsp;Nicholas, R&nbsp;Schwarz, N&nbsp;Goldman, J&nbsp;King. <i>BMC&nbsp;Proceedings</i>&nbsp;2014, <strong>8</strong>&nbsp;(Suppl 2):&nbsp;S8 --%>
                         </p>
                         <p class="menu-text-typo">
                             Sequence Bundles were submitted and awarded at the <a href="http://www.biovis.net/year/2013/info/redesign-contest">BioVis2013</a>&nbsp;redesign contest.
