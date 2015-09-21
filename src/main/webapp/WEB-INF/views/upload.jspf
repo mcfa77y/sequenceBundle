@@ -21,7 +21,7 @@
                         <div class="menu-board">
                             <div class="menu-text">
                                 <p class="menu-text-typo">
-                                    Paste your
+                                    Paste your protein
                                     <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a>
                                     data in the box below.</br> Max. size: 1000 sequences &#215; 1000 positions.</br> We never store your data.
                                     <!--<a class="modal-trigger-icon"><i class="icon-info-circled"></i></a>-->
@@ -77,7 +77,7 @@
                         <div class="menu-board">
                             <div class="menu-text">
                                 <p class="menu-text-typo">
-                                    Select a <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a> file from your local drive.</br>
+                                    Select a protein <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA</a> file from your local drive.</br>
                                     Max. size: 1000 sequences &#215; 1000 positions.</br>
                                     We never store your data.
                                     <!--<a class="modal-trigger-icon"><i class="icon-info-circled"></i></a>-->
