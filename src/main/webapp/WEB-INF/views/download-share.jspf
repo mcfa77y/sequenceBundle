@@ -41,7 +41,7 @@
                 <div class="menu-board-fixed">
                     <div class="menu-text">
                         <p class="menu-text-typo">
-                            Share <a href="http://twitter.com/search?q=%23SequenceBundles&src=typd">#SequenceBundles</a> on Twitter!
+                            Share <a href="https://twitter.com/search?q=Sequence%20Bundles&src=typd">Sequence Bundles</a> on Twitter!
                         </p>
                         <a id="tweetButton" class="task-button" href="http://twitter.com/intent/tweet?text=Try%20the%20%23SequenceBundles%20web%20tool%20by%20%40sciencepractice%20&amp;url=&amp;original_referer=" target="_blank">
                             <h4 class="task-button-icon">
