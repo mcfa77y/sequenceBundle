@@ -14,17 +14,22 @@
             <div class="menu-three-columns">
                 <div class="menu-title">
                     <span class="menu-title-typo">
-                        Download your bundle
+                        Download your Bundle
                     </span>
                 </div>
                 <div class="menu-board-fixed">
                     <div class="menu-text">
-                        <p class="menu-text-typo">
-                            Export visualisation preview in .png format.
+                       <p class="menu-text-typo">
+                           Download your visualisation as a PNG image.<br>
+                           Maximum visualisation length is 100 positions.<br>
+                           Download visualisation fragment between:
                         </p>
+                        <h5 class="export-fragment">
+                           POSITION
+                           <input id="exportStart" class="export-fragment-from" name="export-start" maxlength="3" min="1" max="1000" required type="number" placeholder="1" value="1"> TO  <span id="exportEnd" class="export-fragment-to">100</span></h5>
                         <a id="downloadPNGButton" class="task-button" href="web-tool.html" target="_blank">
                             <h4 class="task-button-typo">
-                                Download .png image
+                                Download fragment
                             </h4>
                         </a>
                     </div>
@@ -56,7 +61,7 @@
             <div class="menu-three-columns">
                 <div class="menu-title">
                     <span class="menu-title-typo">
-                        Cite your bundle
+                        Cite your Bundle
                     </span>
                 </div>
                 <div class="menu-board-fixed">
@@ -70,7 +75,7 @@
                             <%-- Sequence Bundles: a novel method for visualising, discovering and exploring sequence motifs. M&nbsp;Kultys, L&nbsp;Nicholas, R&nbsp;Schwarz, N&nbsp;Goldman, J&nbsp;King. <i>BMC&nbsp;Proceedings</i>&nbsp;2014, <strong>8</strong>&nbsp;(Suppl 2):&nbsp;S8 --%>
                         </p>
                         <p class="menu-text-typo">
-                            Sequence Bundles were submitted and awarded at the <a href="http://www.biovis.net/year/2013/info/redesign-contest">BioVis2013</a>&nbsp;redesign contest.
+                            Sequence Bundles were presented and awarded at the <a href="http://www.biovis.net/year/2013/info/redesign-contest">BioVis2013</a>&nbsp;redesign contest.
                         </p>
                     </div>
                     <!-- menu-text-->
