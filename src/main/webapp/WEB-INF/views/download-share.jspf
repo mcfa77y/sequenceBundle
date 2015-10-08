@@ -1,7 +1,7 @@
 <!-- STEP 3: DOWNLOAD AND CITE -->
 <a name="js-step3-trigger" />
 <div class="step3">
-    <a ="javascript:void(0)" id="js-step3-trigger" class="step3-trigger step3-hidden">
+    <a href="javascript:void(0)" id="js-step3-trigger" class="step3-trigger step3-hidden">
         <div class="step3-head">
             <h1 class="disabled">
                 3 <span style="font-size: 0.4em; color: #999999;">DOWNLOAD AND CITE</span>
@@ -14,17 +14,22 @@
             <div class="menu-three-columns">
                 <div class="menu-title">
                     <span class="menu-title-typo">
-                        Download your bundle
+                        Download your Bundle
                     </span>
                 </div>
                 <div class="menu-board-fixed">
                     <div class="menu-text">
-                        <p class="menu-text-typo">
-                            Export visualisation preview in .png format.
+                       <p class="menu-text-typo">
+                           Download your visualisation as a PNG image.<br>
+                           Maximum visualisation length is 100 positions.<br>
+                           Download visualisation fragment between:
                         </p>
+                        <h5 class="export-fragment">
+                           POSITION
+                           <input id="exportStart" class="export-fragment-from" name="export-start" maxlength="3" min="1" max="1000" required type="number" placeholder="1" value="1"> TO  <span id="exportEnd" class="export-fragment-to">100</span></h5>
                         <a id="downloadPNGButton" class="task-button" href="web-tool.html" target="_blank">
                             <h4 class="task-button-typo">
-                                Download .png image
+                                Download fragment
                             </h4>
                         </a>
                     </div>
@@ -41,7 +46,7 @@
                 <div class="menu-board-fixed">
                     <div class="menu-text">
                         <p class="menu-text-typo">
-                            Share <a href="http://twitter.com/search?q=%23SequenceBundles&src=typd">#SequenceBundles</a> on Twitter!
+                            Share <a href="https://twitter.com/search?q=Sequence%20Bundles&src=typd">Sequence Bundles</a> on Twitter!
                         </p>
                         <a id="tweetButton" class="task-button" href="http://twitter.com/intent/tweet?text=Try%20the%20%23SequenceBundles%20web%20tool%20by%20%40sciencepractice%20&amp;url=&amp;original_referer=" target="_blank">
                             <h4 class="task-button-icon">
@@ -56,19 +61,21 @@
             <div class="menu-three-columns">
                 <div class="menu-title">
                     <span class="menu-title-typo">
-                        Cite your bundle
+                        Cite your Bundle
                     </span>
                 </div>
                 <div class="menu-board-fixed">
                     <div class="menu-text">
                         <p class="menu-text-typo">
-                            To acknowledge the use of <a href="http://www.biomedcentral.com/1753-6561/8/S2/S8">Sequence Bundles</a> visualisations in publications or talks, please cite:
+                            To acknowledge the use of Sequence Bundles visualisations in publications or talks, please cite:
                         </p>
                         <p class="menu-text-typo">
-                            Sequence Bundles: a novel method for visualising, discovering and exploring sequence motifs. Kultys M, Nicholas L, Schwarz R, Goldman N, King J. <i>BMC Proceedings</i> 2014, <strong>8</strong> (Suppl 2): S8
+                            <a href="http://www.biomedcentral.com/1753-6561/8/S2/S8">Sequence Bundles</a>: a novel method for visualising, discovering and exploring sequence motifs. M Kultys, L Nicholas, R Schwarz,</br>N Goldman, J King.</br>
+                            <i>BMC Proceedings</i> 2014, <strong>8</strong> (Suppl 2): S8
+                            <%-- Sequence Bundles: a novel method for visualising, discovering and exploring sequence motifs. M&nbsp;Kultys, L&nbsp;Nicholas, R&nbsp;Schwarz, N&nbsp;Goldman, J&nbsp;King. <i>BMC&nbsp;Proceedings</i>&nbsp;2014, <strong>8</strong>&nbsp;(Suppl 2):&nbsp;S8 --%>
                         </p>
                         <p class="menu-text-typo">
-                            Sequence Bundles were submitted and awarded at the <a href="http://www.biovis.net/year/2013/info/redesign-contest">BioVis2013</a>&nbsp;redesign contest.
+                            Sequence Bundles were presented and awarded at the <a href="http://www.biovis.net/year/2013/info/redesign-contest">BioVis2013</a>&nbsp;redesign contest.
                         </p>
                     </div>
                     <!-- menu-text-->
