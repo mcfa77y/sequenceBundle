@@ -142,7 +142,6 @@ var UploadController = {
 
         $("#createBundleButton").click(function() {
             Utils.animatePreviewImage();
-            Utils.showLoadingImage();
             return false;
         });
     },
@@ -178,6 +177,7 @@ var UploadController = {
         self.event = event;
         // display validating
         UploadController.uploadSequenceInfo('grey', validatingText, false);
+        Utils.showLoadingImage();
         var posting = $.post(url, data);
         // Put the results in a div
         posting.done(function(data, event) {
